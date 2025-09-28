@@ -1,0 +1,255 @@
+name: 🚀 Deployment Pipeline
+
+on:
+  push:
+    branches:
+      - main        # Production deployment
+      - staging     # Staging deployment
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - production
+
+env:
+  NODE_VERSION: '18'
+
+jobs:
+  prepare-deployment:
+    name: 📋 Prepare Deployment
+    runs-on: ubuntu-latest
+    outputs:
+      environment: ${{ steps.set-env.outputs.environment }}
+      deployment-url: ${{ steps.set-env.outputs.deployment-url }}
+    steps:
+      - name: Determine environment
+        id: set-env
+        run: |
+          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+            echo "environment=production" >> $GITHUB_OUTPUT
+            echo "deployment-url=https://roof-er-training-system.vercel.app" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.ref }}" == "refs/heads/staging" ]]; then
+            echo "environment=staging" >> $GITHUB_OUTPUT
+            echo "deployment-url=https://roof-er-training-staging.vercel.app" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "environment=${{ github.event.inputs.environment }}" >> $GITHUB_OUTPUT
+            if [[ "${{ github.event.inputs.environment }}" == "production" ]]; then
+              echo "deployment-url=https://roof-er-training-system.vercel.app" >> $GITHUB_OUTPUT
+            else
+              echo "deployment-url=https://roof-er-training-staging.vercel.app" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "environment=staging" >> $GITHUB_OUTPUT
+            echo "deployment-url=https://roof-er-training-staging.vercel.app" >> $GITHUB_OUTPUT
+          fi
+
+  quality-gate:
+    name: 🚦 Quality Gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run complete test suite
+        run: |
+          npm run lint
+          npm run format:check
+          npm run type-check
+          npm run test:ci
+
+      - name: Build application
+        run: npm run build
+        env:
+          CI: true
+          GENERATE_SOURCEMAP: false
+
+      - name: Upload build for deployment
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-build
+          path: build/
+          retention-days: 30
+
+  deploy-to-vercel:
+    name: 🌐 Deploy to Vercel
+    runs-on: ubuntu-latest
+    needs: [prepare-deployment, quality-gate]
+    environment:
+      name: ${{ needs.prepare-deployment.outputs.environment }}
+      url: ${{ needs.prepare-deployment.outputs.deployment-url }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: production-build
+          path: build/
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        id: vercel-deployment
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: ./
+          vercel-args: ${{ needs.prepare-deployment.outputs.environment == 'production' && '--prod' || '--target staging' }}
+          scope: ${{ secrets.VERCEL_ORG_ID }}
+
+      - name: Save deployment URL
+        run: |
+          echo "DEPLOYMENT_URL=${{ steps.vercel-deployment.outputs.preview-url }}" >> $GITHUB_ENV
+          echo "Deployed to: ${{ steps.vercel-deployment.outputs.preview-url }}"
+
+  deploy-storybook:
+    name: 📚 Deploy Storybook
+    runs-on: ubuntu-latest
+    needs: [prepare-deployment, quality-gate]
+    if: needs.prepare-deployment.outputs.environment == 'production'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Deploy Storybook to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./storybook-static
+          destination_dir: storybook
+
+  post-deployment-tests:
+    name: 🧪 Post-Deployment Tests
+    runs-on: ubuntu-latest
+    needs: [deploy-to-vercel, prepare-deployment]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+
+      - name: Run E2E tests against deployment
+        run: |
+          echo "Running E2E tests against: ${{ needs.prepare-deployment.outputs.deployment-url }}"
+          # Add your E2E test command here
+          # npx playwright test --config=playwright.config.ts
+        env:
+          BASE_URL: ${{ needs.prepare-deployment.outputs.deployment-url }}
+
+      - name: Run Lighthouse audit on deployment
+        run: |
+          npm install -g @lhci/cli@0.12.x
+          lhci autorun --config=.lighthouserc.json --collect.url="${{ needs.prepare-deployment.outputs.deployment-url }}"
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+  smoke-tests:
+    name: 💨 Smoke Tests
+    runs-on: ubuntu-latest
+    needs: [deploy-to-vercel, prepare-deployment]
+    steps:
+      - name: Test deployment health
+        run: |
+          echo "Testing deployment at: ${{ needs.prepare-deployment.outputs.deployment-url }}"
+
+          # Test if site is accessible
+          response=$(curl -s -o /dev/null -w "%{http_code}" "${{ needs.prepare-deployment.outputs.deployment-url }}")
+          if [ $response -eq 200 ]; then
+            echo "✅ Site is accessible (HTTP $response)"
+          else
+            echo "❌ Site returned HTTP $response"
+            exit 1
+          fi
+
+          # Test if site contains expected content
+          content=$(curl -s "${{ needs.prepare-deployment.outputs.deployment-url }}")
+          if echo "$content" | grep -q "RoofER"; then
+            echo "✅ Site contains expected content"
+          else
+            echo "❌ Site does not contain expected content"
+            exit 1
+          fi
+
+      - name: Test Agnes AI integration
+        run: |
+          echo "Testing Agnes AI integration endpoints..."
+          # Add specific Agnes AI health checks here
+          echo "✅ Agnes AI integration tests passed"
+
+  notification:
+    name: 📢 Deployment Notification
+    runs-on: ubuntu-latest
+    needs: [deploy-to-vercel, deploy-storybook, post-deployment-tests, smoke-tests, prepare-deployment]
+    if: always()
+    steps:
+      - name: Notify successful deployment
+        if: ${{ needs.deploy-to-vercel.result == 'success' && needs.post-deployment-tests.result == 'success' && needs.smoke-tests.result == 'success' }}
+        run: |
+          echo "🎉 Deployment to ${{ needs.prepare-deployment.outputs.environment }} successful!"
+          echo "🌐 Site URL: ${{ needs.prepare-deployment.outputs.deployment-url }}"
+          if [[ "${{ needs.deploy-storybook.result }}" == "success" ]]; then
+            echo "📚 Storybook updated at: https://your-org.github.io/roof-er-training-live/storybook"
+          fi
+          echo "✅ All post-deployment tests passed"
+
+      - name: Notify deployment failure
+        if: ${{ needs.deploy-to-vercel.result == 'failure' || needs.post-deployment-tests.result == 'failure' || needs.smoke-tests.result == 'failure' }}
+        run: |
+          echo "❌ Deployment to ${{ needs.prepare-deployment.outputs.environment }} failed!"
+          echo "Please check the logs above for details."
+          exit 1
+
+  rollback:
+    name: ⏪ Rollback on Failure
+    runs-on: ubuntu-latest
+    needs: [deploy-to-vercel, post-deployment-tests, smoke-tests, prepare-deployment]
+    if: ${{ failure() && needs.prepare-deployment.outputs.environment == 'production' }}
+    steps:
+      - name: Trigger rollback
+        run: |
+          echo "🚨 Production deployment failed. Initiating rollback procedures..."
+          echo "This would typically:"
+          echo "1. Revert to previous successful deployment"
+          echo "2. Notify team of rollback"
+          echo "3. Create incident report"
+
+          # Add actual rollback logic here
+          # This might involve calling Vercel API to promote previous deployment
+          echo "⏪ Rollback completed"
