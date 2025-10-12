@@ -3,6 +3,15 @@
  *
  * Helper functions for development environment
  */
+import React from 'react';
+
+// TypeScript declarations for module.hot
+declare const module: {
+  hot?: {
+    accept(callback?: () => void): void;
+    dispose(callback: () => void): void;
+  };
+};
 
 // Environment checks
 export const isDevelopment = process.env.NODE_ENV === 'development';
@@ -11,11 +20,13 @@ export const isTest = process.env.NODE_ENV === 'test';
 
 // Feature flags
 export const featureFlags = {
-  enableExperimentalFeatures: process.env.REACT_APP_ENABLE_EXPERIMENTAL_FEATURES === 'true',
+  enableExperimentalFeatures:
+    process.env.REACT_APP_ENABLE_EXPERIMENTAL_FEATURES === 'true',
   enableA11yDebug: process.env.REACT_APP_ENABLE_A11Y_DEBUG === 'true',
   enableDevtools: process.env.REACT_APP_ENABLE_DEVTOOLS === 'true',
   enableDebugMode: process.env.REACT_APP_ENABLE_DEBUG_MODE === 'true',
-  enablePerformanceMonitoring: process.env.REACT_APP_ENABLE_PERFORMANCE_MONITORING === 'true',
+  enablePerformanceMonitoring:
+    process.env.REACT_APP_ENABLE_PERFORMANCE_MONITORING === 'true',
   enableTrainingLogs: process.env.REACT_APP_ENABLE_TRAINING_LOGS === 'true',
   agnesDebugMode: process.env.REACT_APP_AGNES_DEBUG_MODE === 'true',
   enableMockApi: process.env.REACT_APP_ENABLE_MOCK_API === 'true',
@@ -80,7 +91,8 @@ export const hotReloadUtils = {
 export const performanceUtils = {
   // Measure component render time
   measureRender: (componentName: string) => {
-    if (!featureFlags.enablePerformanceMonitoring) return { start: () => {}, end: () => {} };
+    if (!featureFlags.enablePerformanceMonitoring)
+      return { start: () => {}, end: () => {} };
 
     const startTime = performance.now();
 
@@ -175,19 +187,31 @@ export const setupDevKeyboardShortcuts = () => {
 
   const handleKeydown = (event: KeyboardEvent) => {
     // Ctrl/Cmd + Shift + A: Run accessibility check
-    if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key === 'A') {
+    if (
+      (event.ctrlKey || event.metaKey) &&
+      event.shiftKey &&
+      event.key === 'A'
+    ) {
       event.preventDefault();
       a11yUtils.logA11yViolations();
     }
 
     // Ctrl/Cmd + Shift + F: Highlight focusable elements
-    if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key === 'F') {
+    if (
+      (event.ctrlKey || event.metaKey) &&
+      event.shiftKey &&
+      event.key === 'F'
+    ) {
       event.preventDefault();
       a11yUtils.highlightFocusableElements();
     }
 
     // Ctrl/Cmd + Shift + R: Remove focus highlights
-    if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key === 'R') {
+    if (
+      (event.ctrlKey || event.metaKey) &&
+      event.shiftKey &&
+      event.key === 'R'
+    ) {
       event.preventDefault();
       a11yUtils.removeFocusHighlights();
     }
@@ -210,7 +234,10 @@ export const showDevInfo = () => {
   console.log('React Version:', React.version);
   console.log('Feature Flags:', featureFlags);
   console.log('API Config:', apiConfig);
-  console.log('Agnes Config:', { ...agnesConfig, apiKey: agnesConfig.apiKey ? '[HIDDEN]' : 'Not set' });
+  console.log('Agnes Config:', {
+    ...agnesConfig,
+    apiKey: agnesConfig.apiKey ? '[HIDDEN]' : 'Not set',
+  });
   console.log('Keyboard Shortcuts:');
   console.log('  Ctrl/Cmd + Shift + A: Run accessibility check');
   console.log('  Ctrl/Cmd + Shift + F: Highlight focusable elements');

@@ -17,7 +17,8 @@ const meta = {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Primary UI component for user interaction. Follows WCAG 2.1 AA guidelines with proper focus indicators and semantic HTML.',
+        component:
+          'Primary UI component for user interaction. Follows WCAG 2.1 AA guidelines with proper focus indicators and semantic HTML.',
       },
     },
   },
@@ -127,7 +128,10 @@ export const DisabledOutline: Story = {
 export const WithAction: Story = {
   args: {
     children: 'Click Me',
-    onClick: () => alert('Button clicked! This would start a training module in the real app.'),
+    onClick: () =>
+      alert(
+        'Button clicked! This would start a training module in the real app.'
+      ),
   },
 };
 
@@ -141,7 +145,8 @@ export const AccessibilityExample: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Example of an icon-only button with proper aria-label for screen readers.',
+        story:
+          'Example of an icon-only button with proper aria-label for screen readers.',
       },
     },
   },
@@ -149,6 +154,9 @@ export const AccessibilityExample: Story = {
 
 // All variants showcase
 export const AllVariants: Story = {
+  args: {
+    children: 'Button',
+  },
   render: () => (
     <div className="flex flex-col gap-4">
       <div className="flex gap-2">
@@ -158,17 +166,26 @@ export const AllVariants: Story = {
         <Button variant="ghost">Ghost</Button>
       </div>
       <div className="flex gap-2">
-        <Button variant="primary" disabled>Primary Disabled</Button>
-        <Button variant="secondary" disabled>Secondary Disabled</Button>
-        <Button variant="outline" disabled>Outline Disabled</Button>
-        <Button variant="ghost" disabled>Ghost Disabled</Button>
+        <Button variant="primary" disabled>
+          Primary Disabled
+        </Button>
+        <Button variant="secondary" disabled>
+          Secondary Disabled
+        </Button>
+        <Button variant="outline" disabled>
+          Outline Disabled
+        </Button>
+        <Button variant="ghost" disabled>
+          Ghost Disabled
+        </Button>
       </div>
     </div>
   ),
   parameters: {
     docs: {
       description: {
-        story: 'Comparison of all button variants in normal and disabled states.',
+        story:
+          'Comparison of all button variants in normal and disabled states.',
       },
     },
   },
@@ -176,6 +193,9 @@ export const AllVariants: Story = {
 
 // All sizes showcase
 export const AllSizes: Story = {
+  args: {
+    children: 'Button',
+  },
   render: () => (
     <div className="flex items-center gap-4">
       <Button size="sm">Small</Button>
@@ -194,22 +214,34 @@ export const AllSizes: Story = {
 
 // Roofing industry context examples
 export const RoofingTrainingButtons: Story = {
+  args: {
+    children: 'Button',
+  },
   render: () => (
     <div className="flex flex-col gap-4 max-w-md">
-      <h3 className="text-lg font-semibold text-gray-900 mb-2">Training Module Actions</h3>
-      <Button variant="primary" size="lg">Start Safety Inspection Module</Button>
+      <h3 className="text-lg font-semibold text-gray-900 mb-2">
+        Training Module Actions
+      </h3>
+      <Button variant="primary" size="lg">
+        Start Safety Inspection Module
+      </Button>
       <Button variant="secondary">Review Equipment Checklist</Button>
       <Button variant="outline">Download Safety Guidelines</Button>
       <div className="flex gap-2 mt-2">
-        <Button variant="ghost" size="sm">Previous Module</Button>
-        <Button variant="primary" size="sm">Next Module</Button>
+        <Button variant="ghost" size="sm">
+          Previous Module
+        </Button>
+        <Button variant="primary" size="sm">
+          Next Module
+        </Button>
       </div>
     </div>
   ),
   parameters: {
     docs: {
       description: {
-        story: 'Real-world examples of buttons in the roofing training context.',
+        story:
+          'Real-world examples of buttons in the roofing training context.',
       },
     },
   },

@@ -1,0 +1,1048 @@
+import React, { useState, useEffect } from 'react';
+
+interface ModuleContent {
+  overview: string;
+  learningObjectives: string[];
+  sections: ModuleSection[];
+  interactiveLearning: InteractiveLearningSection[];
+  agnesContent: AgnesContentSection[];
+  quiz: QuizQuestion[];
+  documents: DocumentResource[];
+  matchingGame?: MatchingGame;
+}
+
+interface ModuleSection {
+  id: string;
+  title: string;
+  duration: string;
+  content: string;
+  keyPoints?: string[];
+  examples?: string[];
+  visualAids?: string[];
+}
+
+interface InteractiveLearningSection {
+  id: string;
+  title: string;
+  description?: string;
+  estimatedTime?: string;
+  type?: 'scenario' | 'exercise' | 'simulation' | 'reflection' | 'interactive-exercise' | 'workshop';
+  content: string;
+  activities?: Activity[];
+}
+
+interface Activity {
+  id: string;
+  title: string;
+  description: string;
+  type: 'drag-drop' | 'multiple-choice' | 'text-input' | 'image-matching';
+  data: any;
+}
+
+interface AgnesContentSection {
+  id: string;
+  title: string;
+  icon?: string;
+  content?: string;
+  points?: string[];
+  type?: 'video' | 'audio' | 'interactive';
+  description?: string;
+  duration?: string;
+  transcript?: string;
+}
+
+interface QuizQuestion {
+  id: string;
+  question: string;
+  type?: 'multiple-choice' | 'true-false' | 'short-answer' | 'matching';
+  options?: string[];
+  correctAnswer: string | string[] | number;
+  explanation: string;
+  points?: number;
+}
+
+interface DocumentResource {
+  id: string;
+  title: string;
+  type?: 'pdf' | 'image' | 'document' | 'template';
+  description: string;
+  content?: string;
+  pages?: number;
+  topics?: string[];
+  size?: string;
+  downloadUrl?: string;
+}
+
+interface MatchingGame {
+  id?: string;
+  title: string;
+  description?: string;
+  instructions?: string;
+  pairs: MatchingPair[];
+  timeLimit?: number;
+  difficulty?: 'easy' | 'medium' | 'hard';
+}
+
+interface MatchingPair {
+  id: string;
+  left: {
+    text: string;
+    image?: string;
+    type: 'text' | 'image' | 'both';
+  };
+  right: {
+    text: string;
+    image?: string;
+    type: 'text' | 'image' | 'both';
+  };
+}
+
+interface InteractiveModuleSystemProps {
+  moduleId: number;
+  onClose: () => void;
+  onComplete: (results: any) => void;
+}
+
+const InteractiveModuleSystem: React.FC<InteractiveModuleSystemProps> = ({
+  moduleId,
+  onClose,
+  onComplete
+}) => {
+  // Core state
+  const [currentSection, setCurrentSection] = useState('overview');
+  const [moduleContent, setModuleContent] = useState<ModuleContent | null>(null);
+  const [progress, setProgress] = useState(0);
+  const [completedSections, setCompletedSections] = useState<Set<string>>(new Set());
+
+  // Interactive state
+  const [quizState, setQuizState] = useState({
+    currentQuestion: 0,
+    answers: {} as { [key: string]: any },
+    score: 0,
+    completed: false
+  });
+
+  // Agnes helper state
+  const [showAgnesHelper, setShowAgnesHelper] = useState(false);
+  const [agnesMessage, setAgnesMessage] = useState('');
+  const [agnesPosition, setAgnesPosition] = useState({ x: 20, y: 20 });
+
+  // Matching game state
+  const [matchingGameState, setMatchingGameState] = useState({
+    selectedLeft: null as string | null,
+    selectedRight: null as string | null,
+    matched: new Set<string>(),
+    score: 0,
+    attempts: 0,
+    timeRemaining: 0
+  });
+
+  // Enhanced Module 10: Advanced Sales Cycle Management & Analytics
+  const createAdvancedSalesCycleManagementModule = (): ModuleContent => ({
+    overview: "Master advanced sales cycle management and analytics as the capstone of your RoofER training. This comprehensive module integrates all previous learning into professional mastery through advanced customer relationship management, data-driven analytics, and complete ACV calculation expertise.",
+    learningObjectives: [
+      "Master complete multi-touch sales cycles from initial contact to post-sale relationships",
+      "Develop advanced customer relationship management strategies for lifetime value optimization",
+      "Apply sales analytics and performance optimization using data-driven decision making",
+      "Achieve mastery-level ACV calculation skills with insurance claim optimization",
+      "Integrate all previous modules into cohesive professional excellence",
+      "Plan career advancement strategies and prepare for industry certification",
+      "Build referral systems and long-term customer relationships",
+      "Implement advanced forecasting and pipeline management techniques"
+    ],
+    sections: [
+      {
+        id: 'sales-cycle-mastery',
+        title: 'Complete Sales Cycle Mastery & Journey Mapping',
+        duration: '90 minutes',
+        content: `
+**Advanced Sales Cycle Management for Roofing Professionals**
+
+The modern roofing sales cycle extends far beyond a single transaction. Master-level professionals understand that sustainable success comes from managing comprehensive customer journeys that can span 30-90 days and create lifetime relationships.
+
+**The Complete 90-Day Sales Cycle Framework:**
+
+**Phase 1: Pre-Contact & Research (Days 1-7)**
+- Lead qualification and research
+- Property and neighborhood analysis
+- Initial contact strategy development
+- Multi-channel communication preparation
+
+**Phase 2: Initial Engagement (Days 8-21)**
+- First contact and relationship building
+- Needs assessment and problem identification
+- Educational content delivery
+- Trust establishment through expertise demonstration
+
+**Phase 3: Deep Assessment & Solution Design (Days 22-35)**
+- Comprehensive roof inspection and analysis
+- Insurance claim initiation (if applicable)
+- Custom solution development
+- Value proposition creation and presentation
+
+**Phase 4: Proposal & Negotiation (Days 36-50)**
+- Detailed proposal presentation
+- Objection handling and clarification
+- Contract negotiation and customization
+- Financial arrangement coordination
+
+**Phase 5: Closing & Project Initiation (Days 51-65)**
+- Final contract execution
+- Project scheduling and coordination
+- Material ordering and permits
+- Customer communication protocols
+
+**Phase 6: Installation & Quality Assurance (Days 66-80)**
+- Project management and oversight
+- Quality control and customer updates
+- Issue resolution and customer care
+- Installation completion and inspection
+
+**Phase 7: Post-Installation & Relationship Building (Days 81-90+)**
+- Final walkthrough and customer satisfaction
+- Warranty explanation and documentation
+- Referral program introduction
+- Long-term relationship maintenance
+
+**Multi-Touch Communication Strategy:**
+
+Mastering the complete sales cycle creates predictable revenue, satisfied customers, and sustainable business growth through systematic relationship development.`
+      },
+      {
+        id: 'advanced-crm',
+        title: 'Advanced Customer Relationship Management & Lifecycle Optimization',
+        duration: '75 minutes',
+        content: `
+**Strategic Customer Relationship Management for Long-term Success**
+
+Advanced CRM goes beyond basic contact management to encompass the entire customer lifecycle, from initial awareness through referral generation. Master-level professionals use sophisticated relationship strategies to maximize lifetime value and create sustainable business growth.
+
+**Customer Lifecycle Value Framework:**
+
+Advanced customer relationship management transforms one-time transactions into lifetime partnerships that drive sustainable business growth and market reputation.`
+      },
+      {
+        id: 'sales-analytics',
+        title: 'Sales Analytics & Performance Optimization with Data-Driven Decision Making',
+        duration: '85 minutes',
+        content: `
+**Master-Level Sales Analytics and Performance Optimization**
+
+Professional sales success depends on understanding, measuring, and optimizing key performance indicators. Advanced analytics enable data-driven decision making that dramatically improves results and creates competitive advantages.
+
+**Core Sales Analytics Framework:**
+
+Data-driven sales analytics transform guesswork into strategic advantage, enabling consistent performance improvement and sustainable business growth.`
+      },
+      {
+        id: 'acv-mastery',
+        title: 'ACV Calculation Mastery & Insurance Claim Optimization Workshop',
+        duration: '120 minutes',
+        content: `
+**Complete ACV Calculation Mastery for Insurance Roofing Claims**
+
+Actual Cash Value (ACV) calculations are the foundation of insurance roofing claims and represent the most critical technical skill for maximizing recoverable value. Master-level proficiency in ACV calculations, depreciation schedules, and supplement negotiations directly impacts customer satisfaction and project profitability.
+
+**Advanced ACV Calculation Framework:**
+
+**Core ACV Formula Understanding:**
+
+**Primary ACV Equation:**
+ACV = Replacement Cost Value (RCV) - Depreciation
+
+Mastering ACV calculations and insurance claim optimization directly impacts project profitability, customer satisfaction, and professional reputation while providing essential value to homeowners navigating the insurance claim process.`
+      },
+      {
+        id: 'advanced-integration',
+        title: 'Advanced Integration & Professional Mastery Capstone',
+        duration: '100 minutes',
+        content: `
+**Professional Mastery Integration and Advanced Case Study Analysis**
+
+This capstone section integrates all previous modules into comprehensive professional mastery through advanced real-world scenarios, complex problem-solving case studies, and strategic career development planning. Master-level professionals demonstrate ability to synthesize knowledge across all disciplines while adapting to complex, dynamic situations.
+
+The professional mastery capstone represents the culmination of comprehensive training, combining technical expertise, relationship management, business acumen, and industry leadership into a complete professional capable of driving industry advancement and community impact.`
+      }
+    ],
+    interactiveLearning: [
+      {
+        id: 'complete-sales-cycle-simulation',
+        title: 'Complete 90-Day Sales Cycle Simulation',
+        type: 'simulation',
+        estimatedTime: '45 minutes',
+        content: 'Experience a complete sales cycle from initial lead through post-installation relationship building.',
+        activities: [
+          {
+            id: 'cycle-management',
+            title: 'Sales Cycle Navigation Challenge',
+            description: 'Navigate a complex 90-day sales cycle with multiple touchpoints and decision points',
+            type: 'multiple-choice',
+            data: {
+              scenario: "Day 15: Customer shows strong interest but mentions they're also talking to two competitors. Your next action:",
+              options: [
+                "Schedule immediate proposal presentation to get ahead of competition",
+                "Provide additional value content and schedule follow-up consultation",
+                "Offer special pricing to close quickly before they see other proposals",
+                "Ask directly about competitor conversations and pricing"
+              ],
+              correct: 1,
+              feedback: [
+                "Rushing to proposal without proper value building often results in price-focused comparisons.",
+                "Perfect! Building value and trust while maintaining relationship momentum is the optimal approach.",
+                "Competing on price alone commoditizes your service and reduces profitability.",
+                "Direct competitive questioning can seem desperate and unprofessional."
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    agnesContent: [
+      {
+        id: 'sales-cycle-mastery',
+        title: 'Sales Cycle Excellence Coaching',
+        type: 'interactive',
+        icon: '🎯',
+        content: "Congratulations on reaching the advanced level! I'll help you master the complete sales cycle and turn every interaction into a long-term relationship opportunity.",
+        points: [
+          "Map your customer journey across all 90 days with strategic touchpoints",
+          "Optimize conversion rates at each stage through data-driven improvements",
+          "Build systematic follow-up sequences that nurture relationships",
+          "Create urgency and value throughout the extended sales process",
+          "Develop post-sale strategies that generate referrals and repeat business"
+        ],
+        duration: '20 minutes'
+      },
+      {
+        id: 'professional-mastery',
+        title: 'Professional Mastery & Leadership Development',
+        type: 'interactive',
+        icon: '👑',
+        content: "You've reached professional mastery level! Now let's focus on leadership development and industry contribution that creates lasting impact and career advancement.",
+        points: [
+          "Develop leadership skills that prepare you for management opportunities",
+          "Create systems and processes that can be taught and replicated",
+          "Build industry relationships that support career advancement",
+          "Contribute to professional development of others through mentoring",
+          "Plan your path to industry leadership and recognition"
+        ],
+        duration: '35 minutes'
+      }
+    ],
+    quiz: [
+      {
+        id: 'sales-cycle-optimization',
+        question: 'In a 90-day sales cycle, what is the optimal number of valuable touchpoints to maintain customer engagement without being pushy?',
+        type: 'multiple-choice',
+        options: [
+          '15-20 touchpoints spread evenly across the cycle',
+          '25-35 touchpoints concentrated in first 30 days',
+          '30-45 touchpoints with varying frequency by phase',
+          '10-15 touchpoints only when customer initiates contact'
+        ],
+        correctAnswer: 2,
+        explanation: 'Optimal touchpoint strategy varies by sales cycle phase: higher frequency during engagement and decision phases, lower frequency during consideration phases. 30-45 total touchpoints allow for strategic timing and value delivery.',
+        points: 3
+      },
+      {
+        id: 'customer-lifetime-value',
+        question: 'A customer generates $20,000 in initial project revenue, refers 3 customers averaging $18,000 each, and returns for $8,000 in additional work over 5 years. What is their lifetime value?',
+        type: 'multiple-choice',
+        options: [
+          '$28,000',
+          '$74,000',
+          '$82,000',
+          '$92,000'
+        ],
+        correctAnswer: 2,
+        explanation: 'Lifetime value = Initial project ($20,000) + Referral value (3 × $18,000 = $54,000) + Repeat business ($8,000) = $82,000 total.',
+        points: 2
+      },
+      {
+        id: 'master-level-thinking',
+        question: 'A master-level professional approaches a challenging customer situation by:',
+        type: 'multiple-choice',
+        options: [
+          'Applying proven techniques from similar past situations',
+          'Consulting with management for guidance and direction',
+          'Analyzing the unique situation and adapting approach while maintaining core principles',
+          'Following company procedures and escalation protocols'
+        ],
+        correctAnswer: 2,
+        explanation: 'Master-level professionals demonstrate adaptive expertise - analyzing unique situations and creating appropriate responses while maintaining consistent professional principles and standards.',
+        points: 3
+      }
+    ],
+    documents: [
+      {
+        id: 'complete-sales-cycle-guide',
+        title: 'Complete 90-Day Sales Cycle Management Guide',
+        type: 'pdf',
+        description: 'Comprehensive guide to managing extended sales cycles with strategic touchpoint planning and relationship optimization.',
+        pages: 45,
+        topics: ['Cycle Phase Management', 'Touchpoint Strategy', 'Pipeline Velocity', 'Conversion Optimization'],
+        size: '3.2 MB'
+      },
+      {
+        id: 'advanced-acv-calculator',
+        title: 'Advanced ACV Calculation Toolkit',
+        type: 'template',
+        description: 'Excel-based toolkit for complex ACV calculations including multi-component systems and condition adjustments.',
+        pages: 12,
+        topics: ['Depreciation Schedules', 'Condition Factors', 'Supplement Strategies', 'Documentation Templates'],
+        size: '1.8 MB'
+      },
+      {
+        id: 'master-case-studies',
+        title: 'Master-Level Case Study Collection',
+        type: 'document',
+        description: 'Real-world case studies demonstrating advanced problem-solving and professional integration.',
+        pages: 32,
+        topics: ['Complex Claims', 'Multi-Stakeholder Projects', 'Challenging Customers', 'Integration Examples'],
+        size: '2.8 MB'
+      }
+    ],
+    matchingGame: {
+      title: 'Advanced Sales Cycle & Analytics Mastery',
+      description: 'Match advanced sales cycle and analytics concepts with their strategic applications.',
+      instructions: 'Click on concepts from the left column, then click on their strategic applications from the right column.',
+      timeLimit: 300,
+      difficulty: 'hard',
+      pairs: [
+        {
+          id: 'pipeline-velocity',
+          left: { text: 'Pipeline Velocity', type: 'text' },
+          right: { text: 'Speed of opportunity progression through sales stages to revenue realization', type: 'text' }
+        },
+        {
+          id: 'customer-lifetime-value',
+          left: { text: 'Customer Lifetime Value', type: 'text' },
+          right: { text: 'Total revenue potential including projects, referrals, and repeat business', type: 'text' }
+        },
+        {
+          id: 'touchpoint-optimization',
+          left: { text: 'Touchpoint Optimization', type: 'text' },
+          right: { text: 'Strategic timing and value delivery across customer communication points', type: 'text' }
+        },
+        {
+          id: 'professional-integration',
+          left: { text: 'Professional Integration', type: 'text' },
+          right: { text: 'Seamless application of all skills while maintaining consistent excellence', type: 'text' }
+        }
+      ]
+    }
+  });
+
+  // Module 1: Foundation & Initial Pitch Mastery (Day 1)
+  const createFoundationModule = (): ModuleContent => ({
+    overview: "Welcome to RoofER Sales Training! This foundational module introduces you to the complete sales cycle, commission structure, and essential skills for success. Master the Initial Pitch, understand the Field Portal App, learn objection handling, and discover how to turn every door knock into an opportunity.",
+    learningObjectives: [
+      "Master the Initial Pitch with all 5 Non-Negotiables",
+      "Navigate the Field Portal App for job tracking and metrics",
+      "Handle common homeowner objections with confidence",
+      "Identify different shingle types and discontinued shingles",
+      "Understand the complete 9-16 week sales cycle from knock to payment",
+      "Learn the commission structure and bonus incentives",
+      "Set up payroll and worker's compensation requirements"
+    ],
+    sections: [
+      {
+        id: 'initial-pitch',
+        title: 'Initial Pitch Mastery - The 5 Non-Negotiables',
+        duration: '60 minutes',
+        content: `**The Foundation of Every Sale**
+
+The Initial Pitch is your first and most important interaction with homeowners. Master this script to create trust, demonstrate value, and secure inspection appointments consistently.
+
+**The 5 Non-Negotiables (Must Include Every Time):**
+1. **Who You Are** - State your name clearly and confidently
+2. **Who We Are** - "Roof-ER, a local roofing company specializing in insurance claims"
+3. **Make It Relatable** - "We're working with your neighbors who've had storm damage"
+4. **What You Are There To Do** - "Free inspection to check for qualifying damage"
+5. **Go for the Close** - Get agreement for the inspection
+
+**Complete Non-Storm Environment Script:**
+
+"Hi, how are you? My Name is ________ with Roof-ER we're a local roofing company that specializes in helping homeowners get their roof (and siding) replaced, paid for by their insurance!"
+
+[Reach for handshake]
+
+"We've had a lot of storms here in Northern Virginia/Philadelphia/Maryland over the past few months that have done a lot of damage! We're already working with your neighbors. We've been able to help them get fully approved through their insurance company to have their roof and/or siding replaced."
+
+"While I'm here, in the neighborhood, I am conducting a completely free inspection to see if you have similar, qualifiable damage. If you do, I'll take a bunch of photos and walk you through the rest of the process. If you don't, I wouldn't want to waste your time, I wouldn't want to waste mine! I will at least leave giving you peace of mind that you're in good shape."
+
+[Wait for agreement]
+
+"Alright! It will take me about 10-15 minutes. I'm gonna take a look around the perimeter of your home, then grab the ladder, and take a look at your roof."
+
+[Handshake] "What was your name again? [Their name] great to meet you, again I am (your name). Oh and by the way do you know who your insurance company is? [Wait] Great! We work with those guys all the time."
+
+"Here's my card/flier, look us up while I'm conducting the inspection! I will give you a knock when I finish up and show you what I've found."
+
+**Key Success Factors:**
+- Maintain confident, friendly body language
+- Make eye contact and smile
+- Use homeowner's name throughout
+- Project expertise and professionalism
+- Create urgency without pressure`
+      },
+      {
+        id: 'objection-handling',
+        title: 'Objection Handling - Turn "No" into "Yes"',
+        duration: '45 minutes',
+        content: `**Professional Objection Handling Framework**
+
+Every successful salesperson faces objections daily. Master these responses to convert hesitation into inspection appointments.
+
+**Common Objections & Professional Responses:**
+
+**"Not interested":**
+- React positively with agreeable response
+- "I understand! Have you had a chance to have it inspected since the [storm date]?"
+- "It only takes 15 minutes and it's completely free"
+
+**"I don't have enough time":**
+- "I completely understand! The inspection only takes 10-15 minutes"
+- "I can come back at a better time - when works for you?"
+
+**"My roof is in good shape":**
+- "That's great to hear! When was the last time you had it inspected?"
+- "A lot of storm damage isn't visible from the ground - that's why we do free inspections"
+
+**"I just had it checked":**
+- "Perfect! Who did the inspection for you?"
+- "Were they specifically looking for storm damage?"
+
+**"I don't have the money for anything right now":**
+- "I completely understand! The great news is if you have qualifying damage, your insurance company pays for the replacement"
+- "Your only cost would be your deductible"
+
+**"Roofers knock my door 5 times a week":**
+- "I totally get it! That's exactly why we're different - we're a local GAF Master Elite contractor"
+- "We work directly with your insurance company to handle the entire process"
+
+**"My roof is only 18 years old and is a 50 year roof":**
+- "That's a great roof! The issue isn't age - it's storm damage"
+- "Even new roofs can be damaged by hail and wind"
+
+**Objection Handling Principles:**
+1. Always react positively
+2. Ask questions when appropriate
+3. Repeat customer's objections to show understanding
+4. Provide education, not pressure
+5. Focus on value and peace of mind`
+      }
+    ],
+    interactiveLearning: [
+      {
+        id: 'pitch-practice',
+        title: 'Initial Pitch Role-Play Simulator',
+        type: 'scenario',
+        estimatedTime: '30 minutes',
+        content: 'Practice your Initial Pitch in realistic door-knocking scenarios with AI feedback.',
+        activities: [
+          {
+            id: 'pitch-sequence',
+            title: 'Pitch Sequence Challenge',
+            description: 'Arrange the Initial Pitch components in the correct order',
+            type: 'drag-drop',
+            data: {
+              items: [
+                { id: 'intro', text: 'Introduce yourself and Roof-ER' },
+                { id: 'handshake', text: 'Reach for handshake' },
+                { id: 'neighbors', text: 'Mention working with neighbors' },
+                { id: 'free-inspection', text: 'Offer free inspection' },
+                { id: 'timeline', text: 'Explain 10-15 minute timeline' },
+                { id: 'name-exchange', text: 'Get homeowner name and insurance' },
+                { id: 'card', text: 'Give card and set expectation for follow-up' }
+              ],
+              correctOrder: ['intro', 'handshake', 'neighbors', 'free-inspection', 'timeline', 'name-exchange', 'card']
+            }
+          }
+        ]
+      }
+    ],
+    agnesContent: [
+      {
+        id: 'welcome',
+        title: 'Welcome to Your Sales Journey!',
+        type: 'interactive',
+        icon: '👋',
+        content: "Hi! I'm Agnes, your AI training coach. I'll be with you throughout this journey to help you become a top-performing RoofER sales representative. Let's start with the foundation - your Initial Pitch!",
+        points: [
+          "Practice the Initial Pitch until it feels natural - not robotic",
+          "The 5 Non-Negotiables must appear in EVERY pitch",
+          "Your goal today: Knock 70+ doors and secure 3-5 inspections",
+          "Remember: Every 'no' brings you closer to a 'yes'",
+          "Success comes from consistency, not perfection"
+        ],
+        duration: '10 minutes'
+      }
+    ],
+    quiz: [
+      {
+        id: 'non-negotiables',
+        question: 'What are the 5 Non-Negotiables that MUST be in every Initial Pitch?',
+        type: 'multiple-choice',
+        options: [
+          'Name, Company, Price, Timeline, Close',
+          'Who You Are, Who We Are, Make it Relatable, What You Are There To Do, Go for the Close',
+          'Introduction, Handshake, Inspection, Insurance, Follow-up',
+          'Greeting, Company Info, Neighbors, Free Service, Contact Exchange'
+        ],
+        correctAnswer: 1,
+        explanation: 'The 5 Non-Negotiables are: (1) Who You Are, (2) Who We Are, (3) Make it Relatable, (4) What You Are There To Do, (5) Go for the Close. These must appear in every pitch.',
+        points: 2
+      },
+      {
+        id: 'objection-response',
+        question: 'Homeowner says: "My roof is in good shape." Your best response?',
+        type: 'multiple-choice',
+        options: [
+          '"You might be wrong - let me check for free"',
+          '"That's great! When was the last inspection? Storm damage often isn't visible from the ground"',
+          '"Most homeowners think that until we find damage"',
+          '"I'll just take a quick look to be sure"'
+        ],
+        correctAnswer: 1,
+        explanation: 'The professional response validates their statement, asks an engaging question, and provides education about why ground-level assessment can miss storm damage.',
+        points: 2
+      }
+    ],
+    documents: [
+      {
+        id: 'initial-pitch-script',
+        title: 'Initial Pitch Script (Non-Storm)',
+        type: 'document',
+        description: 'Complete memorization script for non-storm environment door knocking',
+        pages: 2,
+        topics: ['5 Non-Negotiables', 'Opening Lines', 'Objection Handling', 'Close Techniques']
+      }
+    ],
+    matchingGame: {
+      title: 'Sales Cycle & Commission Matching',
+      description: 'Match sales cycle stages with their key activities and timeline',
+      instructions: 'Match each sales cycle stage with its description',
+      timeLimit: 180,
+      difficulty: 'easy',
+      pairs: [
+        {
+          id: 'stage1',
+          left: { text: 'Stage 1: Lead Generation', type: 'text' },
+          right: { text: 'Knock 70+ doors/day, pin houses in Field Portal', type: 'text' }
+        },
+        {
+          id: 'stage2',
+          left: { text: 'Stage 2: Inspection', type: 'text' },
+          right: { text: '15-20 minute roof inspection, photo documentation', type: 'text' }
+        },
+        {
+          id: 'stage3',
+          left: { text: 'Stage 4: Adjuster Meeting', type: 'text' },
+          right: { text: 'Meet with insurance adjuster 2-7 days after claim', type: 'text' }
+        },
+        {
+          id: 'commission',
+          left: { text: 'Downpayment Commission', type: 'text' },
+          right: { text: '$1,000 when homeowner submits ACV', type: 'text' }
+        }
+      ]
+    }
+  });
+
+  // Module 2: Inspection & Post-Inspection Mastery (Day 2)
+  const createInspectionModule = (): ModuleContent => ({
+    overview: "Master the complete inspection process from roof access to claim filing. Learn to identify storm damage, document with professional photos, present findings to homeowners, and file insurance claims on the same day. This module transforms you from a door knocker into a certified storm damage expert.",
+    learningObjectives: [
+      "Identify hail damage (circular divots, granule loss, bruising)",
+      "Recognize wind damage (creased/missing shingles)",
+      "Execute the 15-20 minute inspection protocol flawlessly",
+      "Capture the required photo sequence in correct order",
+      "Deliver the Post-Inspection Pitch with confidence",
+      "File insurance claims using homeowner's app/website",
+      "Complete Claim Filing Information Sheet accurately",
+      "Practice Initial Pitch + Post-Inspection Pitch without script"
+    ],
+    sections: [
+      {
+        id: 'storm-damage-id',
+        title: 'Storm Damage Identification - Hail & Wind',
+        duration: '50 minutes',
+        content: `**Becoming a Storm Damage Expert**
+
+Your ability to identify and document storm damage determines your success. Master these identification techniques to find qualifying damage on every roof.
+
+**Hail Damage Recognition:**
+
+**Primary Indicators:**
+- **Circular divots** - Round impact marks on shingles
+- **Granule loss** - Black mat showing through protective granules
+- **Bruising** - Darkened areas where impact compressed shingle
+- **Soft spots** - Areas that feel soft when pressed (use caution)
+
+**Visual Cues:**
+- Look for pattern of circular impacts
+- Check all slopes - damage is rarely isolated to one area
+- Use flashlight for better visibility
+- Granules collect in gutters and downspouts
+
+**Wind Damage Identification:**
+
+**Primary Indicators:**
+- **Creased shingles** - Folded or bent shingles
+- **Blown-off shingles** - Missing shingles or exposed sections
+- **Lifted tabs** - Shingle tabs no longer sealed down
+- **Torn shingles** - Ripped or damaged sections
+
+**Collateral Damage Documentation:**
+- **Gutters** - Dents from hail impacts
+- **Downspouts** - Visible dents or damage
+- **Screens** - Holes or tears from hail
+- **Siding** - Impact marks or damage
+- **Roof metals** - Flashing, vents, pipes with visible damage
+
+**Critical Principle:**
+> "WHEN IN DOUBT, SIGN IT UP. Not every roof will look destroyed by 2-inch hail, but we still find a lot of success."`
+      },
+      {
+        id: 'inspection-protocol',
+        title: '15-20 Minute Inspection Protocol',
+        duration: '45 minutes',
+        content: `**Professional Inspection Sequence**
+
+Execute this exact sequence on every inspection for consistency, efficiency, and complete documentation.
+
+**Pre-Inspection (2 minutes):**
+- Confirm homeowner permission
+- Verify insurance company
+- Set expectations ("10-15 minutes")
+- Ensure ladder safety
+
+**Photo Sequence (Required Order):**
+
+**1. Mailbox/House Number Photo**
+- Establishes property identity
+- First photo of every inspection
+
+**2. Overview of House**
+- Full house shot from street
+- Shows overall property condition
+
+**3-6. Elevation Collateral Damage (Front, Right, Rear, Left)**
+For EACH elevation, photograph:
+- Screen damage (holes, tears)
+- Gutter damage (dents, detachment)
+- Downspout damage (dents, bends)
+- Siding damage (cracks, impacts)
+
+**7. Roof Overview Collateral**
+- Roof metal damage (flashing, vents, pipes)
+- Other roof collateral damage
+
+**8. Circle Hail Hits**
+- Close-up of EACH hail impact
+- Use chalk to circle damage
+- Minimum 4-6 close-ups per slope
+
+**9. Slash Wind Damage**
+- Close-up of EACH wind-damaged shingle
+- Use chalk to slash mark
+- Document creases and missing shingles
+
+**10. Overview of Chalked Damage**
+- Wide shot showing marked damage
+- Proves damage pattern across roof
+
+**11. Granules in Gutters/Downspouts**
+- Photo of granule accumulation
+- Evidence of shingle deterioration
+
+**Safety Reminder:**
+- If unsafe, DO NOT DO THE INSPECTION
+- Document from ground if necessary
+- Escalate to Team Leader`
+      }
+    ],
+    interactiveLearning: [
+      {
+        id: 'damage-identification',
+        title: 'Storm Damage Identification Challenge',
+        type: 'exercise',
+        estimatedTime: '25 minutes',
+        content: 'Test your ability to identify hail damage, wind damage, and collateral damage from photos',
+        activities: [
+          {
+            id: 'damage-types',
+            title: 'Identify the Damage Type',
+            description: 'Look at roof photos and correctly identify the type of storm damage',
+            type: 'multiple-choice',
+            data: {
+              scenario: 'You see circular indentations with exposed black mat showing through. What type of damage is this?',
+              options: [
+                'Wind damage - shingles are blown off',
+                'Hail damage - circular divots with granule loss',
+                'Age-related wear - normal deterioration',
+                'Installation defect - improper nailing'
+              ],
+              correct: 1,
+              feedback: [
+                'Wind damage appears as creases or missing shingles, not circular patterns',
+                'Correct! Circular divots with granule loss (black mat showing) is classic hail damage',
+                'Age-related wear appears more uniform, not as circular impact patterns',
+                'Installation defects show different patterns, typically along nailing lines'
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    agnesContent: [
+      {
+        id: 'inspection-mastery',
+        title: 'Inspection Excellence Coaching',
+        type: 'interactive',
+        icon: '📸',
+        content: "Great progress! Today you'll master the inspection process that separates professionals from amateurs. Remember: thorough documentation protects both you and the homeowner.",
+        points: [
+          "ALWAYS take photos in portrait orientation - landscape won't populate properly",
+          "Minimum 1 overview + 4-6 close-ups per slope",
+          "Use flashlight for better hail visibility",
+          "Granules in gutters = smoking gun evidence",
+          "When in doubt, sign it up - let the adjuster decide"
+        ],
+        duration: '15 minutes'
+      }
+    ],
+    quiz: [
+      {
+        id: 'photo-sequence',
+        question: 'What are the first TWO photos you take on every inspection?',
+        type: 'multiple-choice',
+        options: [
+          'Roof overview and hail damage close-ups',
+          'Mailbox/House number and Overview of house',
+          'Front elevation and roof access point',
+          'Insurance documents and homeowner ID'
+        ],
+        correctAnswer: 1,
+        explanation: 'Every inspection starts with (1) Mailbox/House Number to establish property, then (2) Overview of House from the street.',
+        points: 2
+      },
+      {
+        id: 'damage-marking',
+        question: 'How do you mark hail damage vs wind damage on the roof?',
+        type: 'multiple-choice',
+        options: [
+          'Hail = X marks, Wind = Circle marks',
+          'Hail = Circle marks, Wind = Slash marks',
+          'Hail = Red chalk, Wind = Blue chalk',
+          'Both types use the same marking system'
+        ],
+        correctAnswer: 1,
+        explanation: 'Hail damage is CIRCLED with chalk, Wind damage is SLASHED with chalk. This helps insurance adjusters quickly identify damage types.',
+        points: 2
+      }
+    ],
+    documents: [
+      {
+        id: 'inspection-checklist',
+        title: 'Complete Inspection Photo Checklist',
+        type: 'document',
+        description: '11-step photo sequence for every inspection with examples',
+        pages: 3,
+        topics: ['Photo Order', 'Collateral Damage', 'Hail vs Wind', 'Safety Protocol']
+      },
+      {
+        id: 'post-inspection-script',
+        title: 'Post-Inspection Pitch Script',
+        type: 'document',
+        description: 'Script for presenting findings to homeowners after inspection',
+        pages: 2,
+        topics: ['Photo Presentation', 'Damage Explanation', 'Claim Filing Process']
+      }
+    ],
+    matchingGame: {
+      title: 'Damage Type & Documentation Matching',
+      description: 'Match damage types with their correct identification and documentation methods',
+      instructions: 'Match each damage type with its key characteristics',
+      timeLimit: 180,
+      difficulty: 'medium',
+      pairs: [
+        {
+          id: 'hail',
+          left: { text: 'Hail Damage', type: 'text' },
+          right: { text: 'Circular divots, granule loss, black mat exposed', type: 'text' }
+        },
+        {
+          id: 'wind',
+          left: { text: 'Wind Damage', type: 'text' },
+          right: { text: 'Creased shingles, blown-off sections, lifted tabs', type: 'text' }
+        },
+        {
+          id: 'collateral',
+          left: { text: 'Collateral Damage', type: 'text' },
+          right: { text: 'Gutters, screens, siding, downspouts with impacts', type: 'text' }
+        },
+        {
+          id: 'photo-order',
+          left: { text: 'First Photo', type: 'text' },
+          right: { text: 'Mailbox or House Number', type: 'text' }
+        }
+      ]
+    }
+  });
+
+  // Load module content based on moduleId
+  const loadModuleContent = (id: number) => {
+    // Module content configurations for new sales curriculum
+    const moduleConfigs: { [key: number]: ModuleContent} = {
+      1: createFoundationModule(),
+      2: createInspectionModule(),
+      10: createAdvancedSalesCycleManagementModule()
+    };
+
+    const content = moduleConfigs[id];
+    if (content) {
+      setModuleContent(content);
+    }
+  };
+
+  // Load module content when component mounts or moduleId changes
+  useEffect(() => {
+    loadModuleContent(moduleId);
+  }, [moduleId]);
+
+  // Agnes helper functions
+  const showAgnesHelp = (message: string, x: number = 50, y: number = 50) => {
+    setAgnesMessage(message);
+    setAgnesPosition({ x, y });
+    setShowAgnesHelper(true);
+
+    // Auto-hide after 10 seconds
+    setTimeout(() => {
+      setShowAgnesHelper(false);
+    }, 10000);
+  };
+
+  if (!moduleContent) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-indigo-600"></div>
+          <p className="mt-4 text-lg text-gray-600">Loading Module {moduleId}...</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      {/* Header */}
+      <div className="bg-white shadow-lg border-b border-gray-200">
+        <div className="max-w-6xl mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <button
+                onClick={onClose}
+                className="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-lg transition-colors"
+              >
+                ← Back
+              </button>
+              <h1 className="text-2xl font-bold text-gray-800">
+                Module {moduleId}: Advanced Sales Cycle Management & Analytics
+              </h1>
+            </div>
+            <div className="flex items-center space-x-4">
+              <div className="bg-blue-100 px-3 py-1 rounded-full">
+                <span className="text-blue-800 font-medium">{progress}% Complete</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        <div className="bg-white rounded-xl shadow-lg p-8">
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+              Module Overview
+            </h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              {moduleContent.overview}
+            </p>
+          </div>
+
+          <div className="mb-8">
+            <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+              Learning Objectives
+            </h3>
+            <ul className="space-y-2">
+              {moduleContent.learningObjectives.map((objective, index) => (
+                <li key={index} className="flex items-start space-x-3">
+                  <span className="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center text-sm font-medium mt-0.5">
+                    {index + 1}
+                  </span>
+                  <span className="text-gray-700">{objective}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {moduleContent.sections.map((section) => (
+              <div key={section.id} className="bg-gray-50 rounded-lg p-6 hover:shadow-md transition-shadow">
+                <h4 className="text-lg font-semibold text-gray-800 mb-2">
+                  {section.title}
+                </h4>
+                <p className="text-sm text-gray-600 mb-3">
+                  Duration: {section.duration}
+                </p>
+                <p className="text-gray-700 text-sm">
+                  {section.content.substring(0, 150)}...
+                </p>
+                <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                  Start Section
+                </button>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center">
+            <button
+              onClick={() => onComplete({ score: 100, timeSpent: 3600 })}
+              className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition-colors font-semibold"
+            >
+              Complete Module
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Agnes Helper */}
+      {showAgnesHelper && (
+        <div
+          className="fixed bg-white rounded-lg shadow-xl border p-4 max-w-sm z-50"
+          style={{ left: `${agnesPosition.x}%`, top: `${agnesPosition.y}%` }}
+        >
+          <div className="flex items-start space-x-3">
+            <div className="bg-purple-100 rounded-full p-2">
+              <span className="text-purple-600">👩‍🏫</span>
+            </div>
+            <div className="flex-1">
+              <p className="text-sm text-gray-700">{agnesMessage}</p>
+              <button
+                onClick={() => setShowAgnesHelper(false)}
+                className="mt-2 text-xs text-purple-600 hover:text-purple-700"
+              >
+                Got it!
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default InteractiveModuleSystem;

@@ -1,0 +1,1091 @@
+{
+  "overview": "Master the complete technology ecosystem that powers your sales success. From the Field Portal App for job tracking to the Sales App for agreements, Hover for measurements, and GroupMe for team communication - this module ensures you leverage every digital tool effectively. Learn best practices, troubleshoot common issues, and integrate technology seamlessly into your daily workflow.",
+  "learningObjectives": [
+    "Master Field Portal App for job tracking and stage management",
+    "Navigate the Sales App efficiently for agreement generation",
+    "Use Hover App for accurate 3D measurements",
+    "Leverage GroupMe for team communication and sign-up announcements",
+    "Understand Field Portal web interface for job organization",
+    "Manage tasks, messages, and calendar integration effectively",
+    "Troubleshoot common technology issues independently",
+    "Integrate all technology tools into seamless daily workflow"
+  ],
+  "sections": [
+    {
+      "id": "field-portal-app",
+      "title": "Field Portal App - Your Mobile Command Center",
+      "duration": "55 minutes",
+      "content": "**The Core of Your Sales Operations**\n\nThe Field Portal App is your primary tool for tracking jobs, managing leads, uploading documentation, and staying organized. Master this app to maximize efficiency and never lose track of opportunities.\n\n**ACCESSING FIELD PORTAL:**\n\n**Mobile App:**\n- Available on iOS and Android\n- Download from App Store or Google Play\n- Login with your Roof-ER credentials\n- Stay logged in for quick access\n\n**Web Interface:**\n- Best for comprehensive job management\n- Access via computer or laptop\n- More detailed views and filtering\n- Preferred for organizing multiple jobs\n\n---\n\n**CORE FUNCTIONS:**\n\n**1. JOB TRACKING BY STAGE**\n\n**Pipeline View:**\nSee all your jobs organized by stage:\n- **Leads** - Pinned houses, potential inspections\n- **Inspection Scheduled** - Confirmed inspection appointments\n- **Inspection Complete** - Awaiting claim filing or signed agreements\n- **Claim Filed** - Waiting for adjuster meeting\n- **Adjuster Meeting Scheduled** - Meeting date set\n- **Estimate Pending** - Adjuster found damage, writing estimate\n- **Decision Pending** - Desk review required\n- **Approved** - Full or partial approval received\n- **Project Meeting Scheduled** - PM with Project Coordinator\n- **Install Scheduled** - Production date set\n- **Install Complete** - Work finished\n- **Final Payment Pending** - Waiting for depreciation and payment\n- **Completed** - Job fully closed\n- **Denied** - Claim denied, no longer pursuing\n\n**How to Use:**\n- Tap any stage to see jobs in that stage\n- Drag jobs between stages as they progress\n- Set reminders for follow-ups\n- Track metrics (number of jobs per stage)\n\n**Best Practice:**\nUpdate job stages IMMEDIATELY when status changes. Do not let jobs sit in wrong stages - it affects reporting and follow-up.\n\n---\n\n**2. LEAD CREATION & HOUSE PINNING**\n\n**What It Is:**\nMarking houses you knocked or want to follow up with on the map\n\n**How to Pin a House:**\n1. Open Field Portal App\n2. Tap 'Add Lead' or '+' button\n3. Allow location access (pins current location)\n4. Enter homeowner information:\n   - Name (if obtained)\n   - Address\n   - Phone number (if obtained)\n   - Insurance company (if known)\n   - Notes (objections, best time to return, etc.)\n5. Save lead\n\n**Why Pinning Matters:**\n- Creates territory map showing knocked houses\n- Prevents re-knocking same house\n- Tracks follow-up opportunities\n- Provides metrics on activity (doors knocked)\n- Helps identify hot neighborhoods\n\n**Best Practice:**\nPin houses as you go, not at end of day. Takes 30 seconds per house but ensures accurate tracking.\n\n---\n\n**3. PHOTO REPORT UPLOAD**\n\n**After Inspection:**\n1. Open job in Field Portal\n2. Navigate to 'Documents' or 'Photos' section\n3. Tap 'Upload Photo Report'\n4. Select photos from phone camera roll\n5. Organize in correct sequence:\n   - Mailbox/House Number\n   - Overview of House\n   - Elevation Collateral (Front, Right, Rear, Left)\n   - Roof Overview Collateral\n   - Circled Hail Damage (close-ups)\n   - Slashed Wind Damage (close-ups)\n   - Overview of Chalked Damage\n   - Granules in Gutters/Downspouts\n6. Add captions/labels to each photo\n7. Submit upload\n\n**Critical Reminders:**\n- PORTRAIT ORIENTATION ONLY (landscape will not populate properly)\n- Upload within 24 hours of inspection\n- Verify all photos uploaded successfully\n- Keep original photos on phone as backup\n\n---\n\n**4. HOVER APP INTEGRATION**\n\n**What Hover Does:**\nCaptures 3D measurements of property for accurate estimates\n\n**How to Launch:**\n1. Open Field Portal App\n2. Navigate to specific job\n3. Tap 'Hover' or '3D Measurement' button\n4. Hover app launches automatically\n5. Follow Hover capture instructions\n6. Measurements sync back to Field Portal\n\n**Photo Orientation for Hover:**\n- Portrait OR Landscape acceptable\n- Landscape often more effective for capturing full elevations\n- Follow Hover in-app instructions\n\n**When to Use Hover:**\n- After inspection when damage is confirmed\n- Before adjuster meeting (provides measurement data)\n- For complex roof layouts\n- When accurate square footage needed\n\n---\n\n**5. EVENT SCHEDULING (ADJUSTER MEETINGS)**\n\n**Adding Adjuster Meeting to Calendar:**\n1. Open job in Field Portal\n2. Navigate to 'Calendar' or 'Events'\n3. Tap 'Add Event'\n4. Enter details:\n   - Event type: Adjuster Meeting\n   - Date and time\n   - Adjuster name\n   - Insurance company\n   - Homeowner name\n   - Property address\n5. **Important:** Add homeowner email to CC\n6. Save event\n7. **Google Calendar Integration:** Event automatically syncs\n\n**Why Calendar Integration Matters:**\n- Adjuster meeting appears in Google Calendar\n- Homeowner gets calendar invite\n- Reduces missed meetings\n- Creates paper trail\n\n**Best Practice:**\nAlways CC homeowner on adjuster meeting invites. This keeps them informed and creates documentation.\n\n---\n\n**6. TASK MANAGEMENT**\n\n**What Tasks Are:**\nAssignments or follow-ups required on specific jobs\n\n**Common Tasks:**\n- 'Follow up on estimate status'\n- 'Submit supplemental documentation'\n- 'Schedule adjuster meeting'\n- 'Call homeowner for update'\n- 'Return for missing photos'\n\n**How Tasks Work:**\n1. Tasks appear in Field Portal task list\n2. Assigned by you, Team Leader, or office\n3. Due dates set for accountability\n4. Mark complete when finished\n\n**Response Deadline:**\n**CRITICAL:** 2-week maximum response time on task/message board items. If not responded to within 2 weeks, job may be reassigned.\n\n**Best Practice:**\nCheck tasks daily. Set phone reminders for high-priority tasks. Complete tasks before deadlines to avoid reassignment.\n\n---\n\n**7. MESSAGE BOARD COMMUNICATION**\n\n**What It Is:**\nInternal communication thread for each job\n\n**Who Uses It:**\n- Sales rep (you)\n- Team Leaders\n- Sales Managers\n- Office staff\n- Project Coordinators\n\n**Common Messages:**\n- 'Estimate received - needs review'\n- 'Homeowner asking for timeline update'\n- 'Adjuster denying gutters - need template'\n- 'Photos missing back elevation - please re-shoot'\n\n**How to Use:**\n1. Open job in Field Portal\n2. Navigate to 'Messages' or 'Communication'\n3. View message thread\n4. Reply with updates\n5. Tag specific people if needed\n\n**Response Requirement:**\n**2-week maximum** - respond to messages within 14 days or job may be reassigned\n\n**Best Practice:**\nRespond to messages same day or next day. Weekly check of all jobs for new messages. Do not let jobs go silent.\n\n---\n\n**8. TRADE CALENDAR REVIEW**\n\n**What It Is:**\nProduction schedule showing install dates for all jobs\n\n**Why You Should Check It:**\n- See when your jobs are scheduled for installation\n- Notify homeowners of confirmed install dates\n- Track production progress\n- Know when to expect final payment stage\n\n**How to Access:**\n1. Open Field Portal App\n2. Navigate to 'Trade Calendar' or 'Production Schedule'\n3. View upcoming installs\n4. Filter by your jobs\n\n**Best Practice:**\nCheck weekly. Notify homeowners 1 week before install. Confirm homeowner availability for install date.\n\n---\n\n**9. METRICS DASHBOARD**\n\n**What You Can Track:**\n- Number of leads (houses pinned)\n- Inspections completed\n- Claims filed\n- Adjuster meetings scheduled/completed\n- Approvals (full and partial)\n- Sign-ups (contingency agreements signed)\n- Installs completed\n- Final payments received\n- Commission earned\n\n**Why Metrics Matter:**\n- Track progress toward monthly goals\n- Identify bottlenecks (stages with too many jobs stuck)\n- Calculate conversion rates\n- Qualify for bonus tiers\n- Demonstrate productivity\n\n**Best Practice:**\nReview metrics weekly. Identify which stage has most jobs and focus follow-up there. Celebrate milestones (10 sign-ups, 20 inspections, etc.).\n\n---\n\n**FIELD PORTAL WEB INTERFACE (COMPUTER/LAPTOP):**\n\n**When to Use Web vs Mobile:**\n\n**Use Mobile For:**\n- Field activities (pinning houses, uploading photos)\n- Quick status checks\n- On-the-go updates\n- Calendar viewing\n\n**Use Web For:**\n- Managing multiple jobs simultaneously\n- Detailed documentation review\n- Complex filtering and searching\n- Bulk updates\n- In-depth metrics analysis\n- Template uploads and document management\n\n**Best Practice:**\nMobile for field work, web for weekly organization and planning sessions.\n\n---\n\n**COMMON FIELD PORTAL ISSUES & SOLUTIONS:**\n\n**Issue: Photos Not Uploading**\n- Check internet connection (wifi or cellular)\n- Reduce photo file size if needed\n- Upload one at a time instead of batch\n- Close and restart app\n- Try web interface instead\n\n**Issue: Job Not Showing in Pipeline**\n- Verify job was created (check confirmation)\n- Check if filtered to specific stage\n- Refresh app (pull down to refresh)\n- Log out and log back in\n- Contact office if persists\n\n**Issue: Google Calendar Not Syncing**\n- Verify Google Calendar integration enabled\n- Check calendar permissions in phone settings\n- Re-authorize Google Calendar access\n- Manually add to Google Calendar as backup\n\n**Issue: Cannot Find Specific Job**\n- Use search function (magnifying glass icon)\n- Search by homeowner name, address, or claim number\n- Check if job in 'Denied' or archived stage\n- Verify spelling of search terms\n\n---\n\n**FIELD PORTAL BEST PRACTICES SUMMARY:**\n\n1. **Update stages immediately** - Do not let jobs sit in wrong stage\n2. **Upload photos within 24 hours** - Strike while inspection is fresh\n3. **Pin houses as you knock** - Creates accurate activity tracking\n4. **Check tasks and messages daily** - Avoid 2-week reassignment\n5. **CC homeowner on adjuster meetings** - Keeps them informed\n6. **Portrait orientation for Photo Reports** - Landscape will not work\n7. **Review metrics weekly** - Track progress and identify bottlenecks\n8. **Use web interface for organization** - Mobile for field work\n9. **Respond to messages within 2 weeks maximum** - Prevent reassignment\n10. **Keep job notes detailed** - Future you will thank present you\n\n[ACTIVITY:photo-id-quick]\n\n"
+    },
+    {
+      "id": "sales-app-mastery",
+      "title": "Sales App - Agreement Generation on iPad",
+      "duration": "35 minutes",
+      "content": "**The Digital Signature Platform**\n\nThe Sales App (iPad only) is your tool for generating agreements and capturing signatures in the field. Mastering this app ensures smooth closings and professional documentation.\n\n**ACCESSING SALES APP:**\n\n**Device Requirement:**\n- iPad only (not available on iPhone or Android)\n- Company-provided iPad or personal iPad with app installed\n- Requires internet connection for syncing\n\n**Login:**\n- Use Roof-ER credentials\n- Stay logged in for field efficiency\n\n---\n\n**CORE FUNCTIONS:**\n\n**1. CUSTOMER INFORMATION ENTRY**\n\n**First-Time Customer:**\n1. Open Sales App\n2. Tap 'New Customer' or '+' button\n3. Enter required information:\n   - First Name\n   - Last Name\n   - Property Address\n   - City, State, Zip\n   - Phone Number\n   - Email Address\n   - Insurance Company\n   - Policy Number (if available)\n4. Save customer profile\n\n**Key Benefit:**\nInformation entered once populates all agreements automatically. No re-entry needed.\n\n---\n\n**2. AGREEMENT SELECTION**\n\n**Available Agreements:**\n\n**Primary Agreements:**\n- **Contingency Agreement** (DMV or PA versions)\n- **Claim Authorization**\n\nThese two are used on EVERY sign-up after inspection.\n\n**Supplemental Agreements:**\n- **iTel Agreement** - For discontinued shingles\n- **Repair Attempt Agreement** - When insurance insists on repairs\n- **Tarp Agreement** - Emergency tarp service\n\n**How to Select:**\n1. Open customer profile\n2. Tap 'Agreements' or 'Documents'\n3. Select agreement type from dropdown\n4. Agreement generates with pre-populated customer info\n5. Review for accuracy\n\n---\n\n**3. AGREEMENT CUSTOMIZATION (WHEN NEEDED)**\n\n**Most Fields Auto-Populate:**\n- Customer name and address\n- Date (current date)\n- Sales rep name (your name)\n\n**Fields You May Need to Customize:**\n- Specific storm date (for contingency)\n- Items to be replaced (roof, siding, gutters, etc.)\n- Insurance claim number (if already filed)\n- Special terms or notes\n\n**How to Customize:**\n1. Tap field to edit\n2. Enter or modify text\n3. Tap 'Done' or move to next field\n4. Review entire agreement before presenting\n\n---\n\n**4. PRESENTING AGREEMENT TO HOMEOWNER**\n\n**Professional Presentation:**\n\n**Step 1: Explain the Agreement**\nUse your memorized script (Contingency & Claim Authorization Script)\n\n**Step 2: Walk Through Document**\n'Let me show you what this says...'\n[Scroll through agreement highlighting key sections]\n- Their information (verify accuracy)\n- Scope of work\n- Terms and conditions\n- Signature section\n\n**Step 3: Invite Questions**\n'Do you have any questions before you sign?'\n[Answer clearly and confidently]\n\n**Step 4: Hand iPad to Homeowner**\n'Go ahead and sign here with your finger'\n[Homeowner signs directly on iPad screen]\n\n**Step 5: Enter Password**\nAfter signature, app prompts for password\nEnter: **roofer** (lowercase)\n\n**Step 6: Confirm Signature**\nVerify signature captured clearly\nIf not, tap 'Retry' and have homeowner sign again\n\n---\n\n**5. E-SIGNATURE PROCESS**\n\n**Technical Details:**\n\n**Signature Capture:**\n- Homeowner uses finger to sign on iPad screen\n- Signature appears in real-time\n- Can be retried if not clear\n\n**Password Verification:**\n- Password: **roofer** (always lowercase)\n- Required after every signature\n- Verifies sales rep authorization\n\n**Timestamp:**\n- Agreement automatically timestamped\n- Date and time recorded\n- Creates audit trail\n\n**Digital Storage:**\n- Agreement saved in Sales App\n- Syncs to company system\n- Accessible for future reference\n\n**Troubleshooting Signatures:**\n- If signature does not capture: Have homeowner press harder\n- If signature too messy: Tap 'Clear' and retry\n- If password incorrect: Double-check lowercase 'roofer'\n- If iPad not responding: Close app and reopen\n\n---\n\n**6. NAVIGATING BETWEEN AGREEMENTS (SAME CUSTOMER)**\n\n**The Power of Customer Profiles:**\nOnce customer information is entered, you can generate multiple agreements WITHOUT re-entering data.\n\n**Example Workflow:**\n1. Enter customer information (one time)\n2. Generate Contingency Agreement\n3. Homeowner signs Contingency\n4. **Without exiting customer profile:**\n   - Tap 'New Agreement' or 'Add Document'\n   - Select 'Claim Authorization'\n   - Agreement generates with same customer info\n5. Homeowner signs Claim Authorization\n6. Both agreements now in customer file\n\n**Why This Matters:**\n- Saves time (no re-entry)\n- Reduces errors (consistent information)\n- Professional (seamless transition)\n- Efficient (can do 3-4 agreements in minutes)\n\n---\n\n**7. EXISTING CUSTOMER LOOKUP**\n\n**When to Use:**\n- Generating supplemental agreement for previous customer\n- Adding iTel Agreement months later\n- Creating Repair Attempt Agreement during dispute\n\n**How to Lookup:**\n1. Open Sales App\n2. Tap 'Search' or magnifying glass icon\n3. Search by:\n   - Customer last name\n   - Property address\n   - Phone number\n4. Select customer from results\n5. Customer profile opens with history\n6. Generate new agreement as needed\n\n---\n\n**8. DOCUMENT UPLOAD TO FIELD PORTAL**\n\n**After Signatures Captured:**\n\nAgreements should automatically sync to Field Portal, but verify:\n\n1. Open Field Portal App\n2. Navigate to job\n3. Check 'Documents' section\n4. Verify agreements appear:\n   - Contingency Agreement\n   - Claim Authorization\n   - Any supplemental agreements\n5. If not showing:\n   - Return to Sales App\n   - Tap 'Sync' or refresh icon\n   - Force upload if needed\n   - Contact office if persists\n\n**Why Verification Matters:**\nOffice needs agreements to process job and track metrics. Missing agreements delay processing.\n\n---\n\n**SALES APP BEST PRACTICES:**\n\n**1. Keep iPad Charged**\n- Carry portable charger in field\n- Charge overnight every night\n- Dead iPad = cannot capture signatures\n\n**2. Verify Information Before Presenting**\n- Double-check spelling of names\n- Confirm address accuracy\n- Verify phone number format\n- Ensure date is correct\n\n**3. Have Homeowner Hold iPad While Signing**\n- Easier for them to sign\n- Reduces strain on you holding it\n- More natural signature\n\n**4. Verify Signature Appears Before Closing**\n- Confirm signature captured clearly\n- Check password accepted\n- Ensure document shows 'Signed' status\n- Do not leave until verified\n\n**5. Practice Navigating Between Agreements**\n- Rehearse workflow before field deployment\n- Know where buttons are without searching\n- Smooth transitions = professional impression\n\n**6. Keep Customer Profiles Clean**\n- Accurate spelling and formatting\n- Complete information (do not leave fields blank if possible)\n- Update information if changes\n\n---\n\n**COMMON SALES APP ISSUES & SOLUTIONS:**\n\n**Issue: App Crashes During Signature**\n- Reopen Sales App\n- Customer profile should still be there\n- Regenerate agreement\n- Have homeowner sign again\n- Close other apps to free memory\n\n**Issue: Cannot Find Customer in Search**\n- Verify spelling of search term\n- Try different search field (name vs address)\n- Check if customer created under different name\n- Create new profile if truly not found\n\n**Issue: Agreement Not Syncing to Field Portal**\n- Check internet connection\n- Force sync in Sales App settings\n- Close and reopen Sales App\n- Verify Field Portal job exists\n- Contact office if persists\n\n**Issue: Password Not Working**\n- Verify typing 'roofer' exactly (lowercase)\n- Check for autocorrect changing it\n- No spaces before or after\n- If still not working, contact IT\n\n---\n\n**SALES APP WORKFLOW SUMMARY:**\n\nTypical Sign-Up Process:\n\n1. **Complete inspection and Post-Inspection Pitch**\n2. **Help homeowner file insurance claim**\n3. **Open Sales App on iPad**\n4. **Enter customer information** (or lookup if existing)\n5. **Generate Contingency Agreement**\n6. **Present and explain Contingency**\n7. **Homeowner signs Contingency**\n8. **Enter password: roofer**\n9. **Generate Claim Authorization** (same customer profile)\n10. **Present and explain Claim Authorization**\n11. **Homeowner signs Claim Authorization**\n12. **Enter password: roofer**\n13. **Verify both agreements show 'Signed' status**\n14. **Thank homeowner and explain next steps**\n15. **Verify agreements synced to Field Portal**\n16. **Post sign-up on GroupMe**\n\nTotal time: 5-10 minutes if workflow is smooth.\n\n**Mastery = Efficiency = More Sign-Ups**"
+    },
+    {
+      "id": "hover-groupme",
+      "title": "Hover App & GroupMe - Measurement and Communication Tools",
+      "duration": "30 minutes",
+      "content": "**Supporting Technology for Success**\n\nWhile Field Portal and Sales App are your primary tools, Hover and GroupMe play critical supporting roles in measurement accuracy and team communication.\n\n**HOVER APP - 3D MEASUREMENT TOOL**\n\n**What Hover Does:**\n\nHover uses smartphone photos to create 3D models and accurate measurements of properties.\n\n**Output:**\n- 3D rendering of property\n- Roof square footage\n- Slope measurements\n- Elevation measurements\n- Material quantity calculations\n\n**Why Hover Matters:**\n\n**1. Accurate Estimates**\nEnsures estimate is based on precise measurements, not guesswork\n\n**2. Adjuster Credibility**\nProvides professional measurements insurance accepts\n\n**3. Production Planning**\nProduction team knows exact material quantities needed\n\n**4. Reduces Supplements**\nAccurate initial estimate reduces need for change orders\n\n---\n\n**HOW TO USE HOVER:**\n\n**Launching Hover:**\n\n**Method 1: From Field Portal (Recommended)**\n1. Open Field Portal App\n2. Navigate to specific job\n3. Tap 'Hover' or '3D Measurement' button\n4. Hover app launches with job pre-linked\n\n**Method 2: Standalone Hover App**\n1. Open Hover app directly\n2. Create new project\n3. Enter property address\n4. Begin capture process\n\n**Photo Capture Process:**\n\n**Step 1: Property Overview**\n- Stand across street from property\n- Capture full view of home\n- Include entire structure in frame\n\n**Step 2: Elevation Photos**\nFor EACH elevation (Front, Right, Rear, Left):\n- Stand perpendicular to elevation\n- Capture full elevation from ground to roof peak\n- Include ground-to-building transition\n- Overlap photos slightly (Hover guides you)\n\n**Step 3: Detail Photos**\n- Corners of home\n- Roof peaks and valleys\n- Dormers and protrusions\n- Any complex architectural features\n\n**Photo Count:**\nTypically 30-60 photos depending on home complexity\n\n**Time Required:**\n10-20 minutes for standard home\n\n**Photo Orientation:**\n**Portrait OR Landscape acceptable** (unlike Photo Reports where only portrait works)\n**Landscape often more effective** for capturing full elevations\n\n**Processing:**\n- Photos upload to Hover servers\n- 3D model generated (typically 24-48 hours)\n- Measurements provided\n- Report available in Field Portal and Hover app\n\n---\n\n**WHEN TO USE HOVER:**\n\n**Recommended Timing:**\n\n**Option 1: After Inspection (If Damage Found)**\n- Complete roof inspection\n- Confirm qualifying damage\n- Capture Hover photos immediately\n- Submit before leaving property\n\n**Option 2: Before Adjuster Meeting**\n- Schedule Hover capture day before adjuster meeting\n- Ensures measurements available for adjuster\n- Shows professionalism and preparation\n\n**Option 3: After Adjuster Meeting (If Approved)**\n- Wait for adjuster confirmation of damage\n- Capture Hover after approval\n- Saves time if claim denied\n\n**Best Practice:**\nCapture after inspection if damage is clear. Do not wait if it is obviously qualifying damage.\n\n---\n\n**HOVER BEST PRACTICES:**\n\n**1. Good Lighting**\n- Capture during daylight\n- Avoid early morning or late evening shadows\n- Overcast days actually work well (even lighting)\n- Avoid direct harsh sunlight if possible\n\n**2. Clear Property Access**\n- Ensure all elevations accessible\n- Move cars or obstacles if needed\n- Ask homeowner to open gates for backyard access\n\n**3. Follow App Instructions**\n- Hover guides you through capture\n- Follow on-screen prompts\n- Do not skip required photos\n- Retake if app indicates issue\n\n**4. Verify Upload**\n- Confirm all photos uploaded before leaving\n- Check Hover app shows 'Upload Complete'\n- Poor cell signal may delay upload (use wifi if available)\n\n**5. Review Report When Available**\n- Check measurements seem accurate\n- Flag any obvious errors for Hover support\n- Share report with office and adjuster\n\n---\n\n**COMMON HOVER ISSUES & SOLUTIONS:**\n\n**Issue: Upload Failing**\n- Check internet connection\n- Move to location with better signal\n- Connect to homeowner's wifi (with permission)\n- Upload will resume when connection restored\n\n**Issue: Hover Says Photos Insufficient**\n- Capture additional photos as directed\n- Ensure full elevation coverage\n- Check for obstructions blocking view\n- Retake unclear or blurry photos\n\n**Issue: 3D Model Inaccurate**\n- Contact Hover support with job details\n- May need to recapture certain elevations\n- Office can assist with flagging errors\n\n---\n\n**GROUPME - TEAM COMMUNICATION**\n\n**What GroupMe Is:**\n\nGroup messaging app for real-time team communication\n\n**Who Is in GroupMe:**\n- All sales representatives\n- Team Leaders\n- Sales Managers\n- Sometimes office staff\n\n**Primary Uses:**\n1. Sign-up announcements\n2. Team questions and support\n3. Company announcements\n4. Motivation and encouragement\n5. Schedule coordination\n6. Field support requests\n\n---\n\n**SIGN-UP POSTING FORMAT (CRITICAL):**\n\n**Standard Format:**\n```\nSign up / Storm Damage Item 1 / Item 2 / Item 3 / Insurance Company / Customer Last Name\n```\n\n**Examples:**\n- 'Sign up / Roof / Siding / Gutters / Allstate / Francis'\n- 'Sign up / Roof / State Farm / Johnson'\n- 'Sign up / Roof / Siding / Liberty Mutual / Martinez'\n- 'Sign up / Roof / Travelers / Smith'\n\n**Format Breakdown:**\n1. **Always start:** 'Sign up'\n2. **Storm damage items:** Roof, Siding, Gutters (separate with /)\n3. **Insurance company:** Full name or abbreviation\n4. **Customer last name:** For tracking\n\n**When to Post:**\nIMMEDIATELY after securing Contingency Agreement signature\n\n**Why It Matters:**\n- Team celebrates your win\n- Creates momentum and motivation\n- Office tracks sign-ups in real-time\n- Public accountability\n- Builds competitive energy\n\n---\n\n**GROUPME BEST PRACTICES:**\n\n**1. Post Sign-Ups Immediately**\n- Do not wait until end of day\n- Post from field right after signature\n- Celebrate in real-time\n\n**2. Use Correct Format**\n- Follow the standard format exactly\n- Helps office track and count sign-ups\n- Maintains consistency across team\n\n**3. Celebrate Teammates**\n- React to other reps' sign-ups with emojis\n- Comment with encouragement\n- Build team morale\n\n**4. Ask Questions**\n- Use GroupMe for quick field questions\n- 'Anyone know if [insurance company] requires specific forms?'\n- Team often responds faster than individual calls\n\n**5. Stay Positive**\n- Avoid negative or discouraging comments\n- Keep energy high\n- Focus on solutions, not complaints\n\n**6. Respond to Direct Messages**\n- Check GroupMe regularly\n- Respond to teammates asking questions\n- Share learnings and tips\n\n**7. Respect the Channel**\n- Stay on-topic (sales-related)\n- Avoid spam or off-topic discussions\n- Keep it professional\n\n---\n\n**WHAT NOT TO POST ON GROUPME:**\n\n\u274c Customer private information (full addresses, claim details)\n\u274c Negative complaints about company policies\n\u274c Personal drama or conflicts\n\u274c Off-topic or distracting content\n\u274c Excessive non-work-related messages\n\u274c Anything you would not want management to see\n\n---\n\n**GROUPME NOTIFICATIONS MANAGEMENT:**\n\n**GroupMe can be noisy with a large team. Manage notifications:**\n\n**Option 1: Mute Notifications**\n- Mute group during work hours\n- Check manually throughout day\n- Unmute for important announcements\n\n**Option 2: Direct Mentions Only**\n- Set notifications to only alert when someone @mentions you\n- Reduces noise, still catches important messages\n\n**Option 3: Scheduled Checks**\n- Turn off all notifications\n- Check GroupMe 3-4 times daily at set times\n- Morning, lunch, afternoon, evening\n\n**Best Practice:**\nFind notification balance that works for you. Stay engaged but do not let it distract from knocking and inspections.\n\n---\n\n**TECHNOLOGY INTEGRATION WORKFLOW:**\n\n**Complete Daily Workflow Using All Tools:**\n\n**Morning (Before Field Work):**\n1. Check Field Portal for tasks and messages\n2. Review scheduled adjuster meetings in calendar\n3. Check GroupMe for team announcements\n4. Plan territory (Field Portal map of pinned houses)\n\n**During Knocking:**\n1. Pin houses in Field Portal as you knock\n2. Note objections and best times to return\n3. Track doors knocked for metrics\n\n**During/After Inspection:**\n1. Take photos with phone (portrait orientation)\n2. Capture Hover measurements\n3. Upload Photo Report to Field Portal\n4. File claim using homeowner's insurance info\n5. Generate agreements in Sales App\n6. Capture signatures on iPad\n7. Verify sync to Field Portal\n8. Post sign-up on GroupMe\n\n**Evening (After Field Work):**\n1. Review Field Portal for any missed tasks\n2. Respond to messages on jobs\n3. Update job stages as needed\n4. Review metrics for day (doors knocked, inspections, sign-ups)\n5. Plan tomorrow's territory and follow-ups\n\n**Weekly:**\n1. Field Portal web interface: Organize all jobs\n2. Identify jobs stuck in stages and take action\n3. Review metrics against goals\n4. Clean up notes and documentation\n\n---\n\n**TECHNOLOGY MASTERY = COMPETITIVE ADVANTAGE**\n\nReps who master the technology:\n- \u2705 Never lose track of opportunities\n- \u2705 Respond faster to homeowners and adjusters\n- \u2705 Maintain better organization\n- \u2705 Hit higher activity metrics\n- \u2705 Close more deals\n- \u2705 Earn more commission\n\nReps who struggle with technology:\n- \u274c Lose leads and forget follow-ups\n- \u274c Miss deadlines and have jobs reassigned\n- \u274c Create frustration for homeowners and team\n- \u274c Underperform on metrics\n- \u274c Earn less money\n\n**Invest time in mastering these tools. The return is massive.**"
+    }
+  ],
+  "interactiveLearning": [
+    {
+      "id": "field-portal-optimization",
+      "title": "Field Portal Optimization Challenge",
+      "type": "scenario",
+      "estimatedTime": "25 minutes",
+      "content": "You have 32 jobs in your Field Portal pipeline. Identify which jobs need immediate action, which are on track, and which are stuck.",
+      "activities": [
+        {
+          "id": "job-prioritization",
+          "title": "Pipeline Prioritization Exercise",
+          "description": "Given a list of jobs with various statuses, prioritize which need immediate attention",
+          "type": "prioritization",
+          "data": {
+            "jobs": [
+              {
+                "name": "Johnson - Allstate",
+                "stage": "Inspection Complete",
+                "lastActivity": "12 days ago",
+                "notes": "Photos uploaded, claim filed, waiting on adjuster"
+              },
+              {
+                "name": "Martinez - State Farm",
+                "stage": "Estimate Pending",
+                "lastActivity": "3 days ago",
+                "notes": "Adjuster meeting completed, estimate should arrive soon"
+              },
+              {
+                "name": "Williams - Liberty Mutual",
+                "stage": "Inspection Complete",
+                "lastActivity": "22 days ago",
+                "notes": "No agreement signed, homeowner not responding"
+              },
+              {
+                "name": "Chen - Travelers",
+                "stage": "Approved",
+                "lastActivity": "1 day ago",
+                "notes": "Full approval received, need to schedule project meeting"
+              },
+              {
+                "name": "Davis - Farmers",
+                "stage": "Inspection Scheduled",
+                "lastActivity": "Today",
+                "notes": "Inspection tomorrow at 2pm"
+              }
+            ],
+            "correctPriority": [
+              "Williams (stuck 22 days - urgent follow-up needed)",
+              "Chen (approved - schedule project meeting immediately)",
+              "Johnson (12 days with no adjuster contact - follow up)",
+              "Martinez (on track - check in 3-4 more days)",
+              "Davis (on schedule - prepare for inspection)"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sales-app-workflow",
+      "title": "Sales App Workflow Builder",
+      "type": "practice",
+      "estimatedTime": "20 minutes",
+      "content": "Simulate the complete Sales App workflow from customer creation to signature capture, identifying common mistakes and best practices.",
+      "activities": [
+        {
+          "id": "agreement-simulation",
+          "title": "Agreement Generation Simulation",
+          "description": "Walk through generating Contingency and Claim Authorization agreements, catching errors before presenting to homeowner",
+          "type": "simulation",
+          "data": {
+            "scenario": "Homeowner Sarah Mitchell, 4287 Oak Ridge Drive, has qualifying hail damage on her roof. Insurance: Allstate. Policy: 987654321. You need to generate both agreements.",
+            "steps": [
+              {
+                "step": "Create customer profile",
+                "correctAction": "Enter: Sarah Mitchell, 4287 Oak Ridge Drive, Allstate, 987654321",
+                "commonMistakes": [
+                  "Forgetting to include middle initial or full name",
+                  "Abbreviating address incorrectly",
+                  "Not capturing policy number"
+                ]
+              },
+              {
+                "step": "Generate Contingency Agreement",
+                "correctAction": "Select Contingency Agreement, verify auto-populated fields, preview before presenting",
+                "commonMistakes": [
+                  "Not previewing agreement before showing homeowner",
+                  "Incorrect storm damage items selected",
+                  "Wrong agreement version (DMV vs PA)"
+                ]
+              },
+              {
+                "step": "Capture signature",
+                "correctAction": "Hand iPad to homeowner, coach on signature technique, verify clarity, enter password: roofer",
+                "commonMistakes": [
+                  "Not coaching homeowner on signature technique",
+                  "Accepting unclear signature without retry",
+                  "Forgetting to enter password or entering wrong password"
+                ]
+              },
+              {
+                "step": "Generate Claim Authorization",
+                "correctAction": "Stay in customer profile, tap 'Add Document', select Claim Authorization, present and capture signature",
+                "commonMistakes": [
+                  "Exiting customer profile and having to re-lookup",
+                  "Not generating second agreement",
+                  "Leaving property before verifying sync"
+                ]
+              },
+              {
+                "step": "Verify sync to Field Portal",
+                "correctAction": "Open Field Portal, navigate to job, check Documents section shows both agreements",
+                "commonMistakes": [
+                  "Assuming sync happened without verification",
+                  "Leaving property before confirming sync",
+                  "Not knowing how to force sync if it fails"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "hover-accuracy-test",
+      "title": "Hover Measurement Accuracy Test",
+      "type": "assessment",
+      "estimatedTime": "15 minutes",
+      "content": "Test your understanding of Hover best practices and troubleshooting techniques to ensure measurement accuracy.",
+      "activities": [
+        {
+          "id": "hover-scenarios",
+          "title": "Hover Problem-Solving Scenarios",
+          "description": "Given various Hover challenges, identify the correct solution",
+          "type": "multiple-choice-scenarios",
+          "data": {
+            "scenarios": [
+              {
+                "situation": "You arrive at a property for Hover capture at 7:30am. The sun is just rising, creating long shadows across the roof.",
+                "question": "What should you do?",
+                "options": [
+                  "Capture now while homeowner is available",
+                  "Reschedule for 10am-3pm when sun is higher",
+                  "Capture only the elevations without shadows",
+                  "Use flash to compensate for shadows"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Long shadows distort measurements. Reschedule for 10am-3pm when sun is high and shadows are minimal. Overcast days are actually ideal."
+              },
+              {
+                "situation": "During Hover capture, the app indicates you have 'insufficient coverage' on the rear elevation.",
+                "question": "What is the most likely cause and solution?",
+                "options": [
+                  "Phone camera is broken - use different phone",
+                  "Not enough photo overlap - recapture with 20-30% overlap between photos",
+                  "Property is too large for Hover - use EagleView instead",
+                  "Cellular signal is weak - wait for better connection"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Insufficient coverage means photos do not overlap enough for Hover to stitch them together. Walk slower and ensure 20-30% overlap between consecutive photos."
+              },
+              {
+                "situation": "You complete Hover capture but cellular signal is weak and upload is stalling at 30%.",
+                "question": "What is the best course of action?",
+                "options": [
+                  "Leave and assume upload will complete automatically later",
+                  "Ask homeowner permission to connect to their wifi to complete upload",
+                  "Delete and recapture later when you have better signal",
+                  "Drive to nearest location with strong signal and resume upload"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Never leave property without verifying upload completion. Ask for wifi access. If that fails, option 3 (drive to signal) is backup plan."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "eagleview-interpretation",
+      "title": "EagleView Report Interpretation Exercise",
+      "type": "analysis",
+      "estimatedTime": "20 minutes",
+      "content": "Learn to read and interpret EagleView reports to effectively communicate with adjusters and validate estimates.",
+      "activities": [
+        {
+          "id": "report-reading",
+          "title": "EagleView Report Analysis",
+          "description": "Given an EagleView report summary, extract key information and identify what to discuss with adjuster",
+          "type": "analysis",
+          "data": {
+            "report": {
+              "property": "2145 Meadowbrook Lane",
+              "roofArea": "2,847 square feet",
+              "pitch": "8/12 slope",
+              "complexity": "Complex - multiple dormers and valleys",
+              "wasteFactorRecommended": "15%",
+              "materialEstimate": "32 squares (including waste)"
+            },
+            "questions": [
+              {
+                "question": "What should you emphasize to the adjuster about this roof?",
+                "correctAnswer": "8/12 pitch requires additional safety equipment and labor, complexity warrants 15% waste factor, dormers and valleys increase installation time"
+              },
+              {
+                "question": "If adjuster's estimate shows 28 squares, what is the issue?",
+                "correctAnswer": "Adjuster may not have included proper waste factor. EagleView recommends 32 squares (with waste). Need to discuss complexity and waste calculation."
+              },
+              {
+                "question": "How would you position this information to the homeowner?",
+                "correctAnswer": "This is a complex roof with steep pitch. EagleView (the same technology insurance uses) measured 2,847 square feet requiring 32 squares of material. This ensures we have adequate materials for your unique roof design."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tech-efficiency-audit",
+      "title": "Technology Efficiency Audit",
+      "type": "self-assessment",
+      "estimatedTime": "25 minutes",
+      "content": "Audit your own technology usage to identify time-wasters and optimization opportunities.",
+      "activities": [
+        {
+          "id": "time-tracking",
+          "title": "Technology Time Audit",
+          "description": "Track how much time you spend on each technology task and identify where to optimize",
+          "type": "audit",
+          "data": {
+            "tasks": [
+              {
+                "task": "Pinning houses in Field Portal",
+                "averageTime": "30 seconds per house",
+                "optimizationTarget": "Pin in real-time while knocking, not at end of day",
+                "potentialTimeSavings": "15 minutes per day (batching overhead eliminated)"
+              },
+              {
+                "task": "Uploading photo reports",
+                "averageTime": "10 minutes per job",
+                "optimizationTarget": "Upload immediately after inspection using mobile data",
+                "potentialTimeSavings": "20 minutes per day (no re-sorting or re-finding photos)"
+              },
+              {
+                "task": "Generating agreements",
+                "averageTime": "5 minutes per customer",
+                "optimizationTarget": "Pre-load customer profile during inspection, generate on-site",
+                "potentialTimeSavings": "3 minutes per customer (no duplicate data entry)"
+              },
+              {
+                "task": "Updating job stages in Field Portal",
+                "averageTime": "20 minutes at end of day",
+                "optimizationTarget": "Update stages in real-time as events occur",
+                "potentialTimeSavings": "15 minutes per day (no recall overhead or batch processing)"
+              },
+              {
+                "task": "Checking messages and tasks",
+                "averageTime": "30 minutes scattered throughout day",
+                "optimizationTarget": "Scheduled checks: morning, lunch, afternoon, evening (15 min total)",
+                "potentialTimeSavings": "15 minutes per day (reduced context switching)"
+              }
+            ],
+            "totalPotentialSavings": "68 minutes per day = 5.6 hours per week = 24 hours per month",
+            "impactCalculation": "24 saved hours = 6 additional full knocking days per month = potential for 12-18 additional sign-ups"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mobile-workflow-design",
+      "title": "Mobile Workflow Design Challenge",
+      "type": "design",
+      "estimatedTime": "20 minutes",
+      "content": "Design your ideal mobile-first workflow that eliminates laptop dependency and maximizes field efficiency.",
+      "activities": [
+        {
+          "id": "workflow-builder",
+          "title": "Create Your Mobile Workflow",
+          "description": "Map out every task in your day and identify which can be done mobile vs requiring laptop",
+          "type": "planning",
+          "data": {
+            "dailyTasks": [
+              "Morning: Check tasks, messages, calendar",
+              "Field: Pin houses, take inspection photos, upload photos",
+              "Field: Capture Hover, generate agreements, capture signatures",
+              "Field: Post sign-ups, update job stages",
+              "Afternoon: Follow up with homeowners via text/call",
+              "Evening: Review pipeline, respond to messages, plan tomorrow"
+            ],
+            "mobileCapable": [
+              "Morning: 100% mobile (Field Portal app, Google Calendar, GroupMe)",
+              "Field: 100% mobile (all field activities designed for mobile)",
+              "Afternoon: 100% mobile (phone calls, text messages)",
+              "Evening: 90% mobile (Field Portal app for most tasks, web for complex filtering)"
+            ],
+            "optimization": "Only use laptop for: weekly pipeline audit (30 min Sunday), complex bulk updates (occasional), printing documents (rare). Everything else mobile.",
+            "goal": "Eliminate 90% of laptop time, work from anywhere, respond faster than competition"
+          }
+        }
+      ]
+    },
+    {
+      "id": "integration-scenario-navigator",
+      "title": "Integration Scenario Navigator",
+      "type": "decision-tree",
+      "estimatedTime": "25 minutes",
+      "content": "Navigate through complex scenarios where multiple technology systems must work together seamlessly.",
+      "activities": [
+        {
+          "id": "scenario-decision-tree",
+          "title": "Multi-System Integration Scenarios",
+          "description": "Make the right decisions when information needs to flow between multiple systems",
+          "type": "branching-scenario",
+          "data": {
+            "scenarios": [
+              {
+                "title": "Lost Agreement Scenario",
+                "situation": "Homeowner calls saying they never received copy of signed agreement. You captured signature 5 days ago.",
+                "decision": "What is your step-by-step troubleshooting process?",
+                "correctPath": [
+                  "Step 1: Check Field Portal Documents section - is agreement there?",
+                  "Step 2: If yes, download PDF and email to homeowner immediately",
+                  "Step 3: If no, check Sales App - is signature still in local app storage?",
+                  "Step 4: If yes in Sales App, force sync to Field Portal",
+                  "Step 5: If not in Sales App either, regenerate agreement and capture signature again",
+                  "Step 6: Document in Field Portal message board what happened and resolution"
+                ],
+                "teachingPoint": "Always verify sync immediately after signature. This scenario is preventable with proper verification habits."
+              },
+              {
+                "title": "Conflicting Calendar Scenario",
+                "situation": "Adjuster calls to reschedule meeting. You update Google Calendar but forget to update Field Portal. Team Leader asks why you missed the meeting based on Field Portal calendar.",
+                "decision": "How do you prevent this from happening?",
+                "correctPath": [
+                  "Step 1: When adjuster calls, update BOTH Google Calendar AND Field Portal simultaneously",
+                  "Step 2: Verify both calendars show same date/time before ending call",
+                  "Step 3: Send homeowner updated calendar invite from Field Portal (auto-syncs to Google)",
+                  "Step 4: Add Field Portal calendar feed to Google Calendar for automatic sync",
+                  "Step 5: Set up daily morning check comparing both calendars for discrepancies"
+                ],
+                "teachingPoint": "Calendar integration must be bidirectional. Changes in one system must reflect in all systems immediately."
+              },
+              {
+                "title": "Photo Upload Failure Scenario",
+                "situation": "You uploaded photos to Field Portal 3 days ago. Office messages you saying photos never arrived. Adjuster meeting is tomorrow.",
+                "decision": "What is your recovery plan?",
+                "correctPath": [
+                  "Step 1: Check phone camera roll - are original photos still there?",
+                  "Step 2: If yes, immediately re-upload to Field Portal (priority: damage close-ups and elevation shots)",
+                  "Step 3: Verify upload completion BEFORE closing app",
+                  "Step 4: Message office 'Photos re-uploaded, please confirm receipt'",
+                  "Step 5: Keep originals on phone until office confirms receipt",
+                  "Step 6: If photos deleted from phone, return to property ASAP to re-shoot (bring homeowner a gift card as apology)"
+                ],
+                "teachingPoint": "Never delete photos from phone until you verify Field Portal upload AND office confirms receipt. Backup redundancy is critical."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "productivity-hack-implementation",
+      "title": "Productivity Hack Implementation Plan",
+      "type": "action-planning",
+      "estimatedTime": "20 minutes",
+      "content": "Choose 5 productivity hacks from this module and create an implementation plan to integrate them into your workflow this week.",
+      "activities": [
+        {
+          "id": "hack-selection",
+          "title": "Your Top 5 Productivity Hacks",
+          "description": "Select which hacks will have biggest impact on your efficiency and plan implementation",
+          "type": "planning",
+          "data": {
+            "availableHacks": [
+              "Real-time house pinning (no end-of-day batching)",
+              "Customer profile pre-loading in Sales App before pitch",
+              "Hover captures scheduled for optimal lighting (10am-3pm)",
+              "Morning 15-minute tech review (tasks, messages, calendar)",
+              "Immediate photo upload using mobile data after inspection",
+              "Weekly Sunday evening pipeline audit (30 minutes)",
+              "Google Calendar integration with automatic homeowner invites",
+              "Mobile-first philosophy (eliminate 90% of laptop time)",
+              "Portable charger always in field bag",
+              "Sync verification checklist after every major milestone"
+            ],
+            "implementationTemplate": {
+              "hack1": {
+                "selected": "[Choose hack]",
+                "currentProblem": "[What inefficiency does this solve for you?]",
+                "implementationSteps": "[How will you implement this week?]",
+                "successMetric": "[How will you measure success?]",
+                "targetDate": "[When will this become a habit?]"
+              }
+            },
+            "example": {
+              "hack1": {
+                "selected": "Real-time house pinning",
+                "currentProblem": "Spending 30 minutes every evening trying to remember which houses I knocked",
+                "implementationSteps": "Set phone reminder to beep every 15 minutes during knocking as reminder to pin last houses",
+                "successMetric": "Zero end-of-day pinning sessions - all houses pinned in real-time",
+                "targetDate": "Habit formed by end of Week 1"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "damage-id-quiz",
+      "title": "Damage Identification Image Quiz",
+      "type": "interactive",
+      "estimatedTime": "10 minutes",
+      "content": "Use real images to identify damage and determine next steps.",
+      "activities": [
+        {
+          "id": "photo-id-quick",
+          "title": "Identify Damage Type",
+          "description": "Select the correct classification and recommended action.",
+          "type": "image-quiz",
+          "data": {
+            "images": [
+              {
+                "id": "q1",
+                "imageUrl": "/assets/photo-reports/roof_photo_13.jpg",
+                "question": "What is the best documentation step here?",
+                "options": [
+                  "Capture close-up with chalked test square and label",
+                  "Only take wide shots",
+                  "Skip documentation",
+                  "Call adjuster without photos"
+                ],
+                "correctAnswer": "Capture close-up with chalked test square and label",
+                "explanation": "Use test squares and close-ups to document hit density and pattern across slopes."
+              },
+              {
+                "id": "q2",
+                "imageUrl": "/assets/photo-reports/roof_photo_01.jpg",
+                "question": "What is the best documentation step here?",
+                "options": [
+                  "Capture close-up with chalked test square and label",
+                  "Only take wide shots",
+                  "Skip documentation",
+                  "Call adjuster without photos"
+                ],
+                "correctAnswer": "Capture close-up with chalked test square and label",
+                "explanation": "Use test squares and close-ups to document hit density and pattern across slopes."
+              },
+              {
+                "id": "q3",
+                "imageUrl": "/assets/photo-reports/roof_photo_02.jpg",
+                "question": "What is the best documentation step here?",
+                "options": [
+                  "Capture close-up with chalked test square and label",
+                  "Only take wide shots",
+                  "Skip documentation",
+                  "Call adjuster without photos"
+                ],
+                "correctAnswer": "Capture close-up with chalked test square and label",
+                "explanation": "Use test squares and close-ups to document hit density and pattern across slopes."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "adjuster-rapid-response",
+      "title": "Adjuster Meeting Rapid Response",
+      "type": "interactive",
+      "estimatedTime": "10 minutes",
+      "content": "Practice quick, professional responses during adjuster meetings.",
+      "activities": [
+        {
+          "id": "adjuster-timed",
+          "title": "Rapid Response to Adjuster Statements",
+          "description": "Select the best response under light time pressure.",
+          "type": "timed-challenge",
+          "points": 10,
+          "data": {
+            "timeLimit": 20,
+            "scenarios": [
+              {
+                "objection": "I only see wear and tear.",
+                "correctResponse": "I appreciate the assessment. May I show you test squares where we documented discrete impact points consistent with the storm date?",
+                "incorrectResponses": [
+                  "It\u2019s not wear and tear.",
+                  "You\u2019re wrong.",
+                  "We\u2019ll argue this later."
+                ]
+              },
+              {
+                "objection": "We can approve spot repairs.",
+                "correctResponse": "Under local code Section 1511.2, when damage exceeds threshold, full replacement is required. We\u2019ve documented >25%. Can we review?",
+                "incorrectResponses": [
+                  "Repairs won\u2019t work.",
+                  "Just approve full replacement.",
+                  "We\u2019ll escalate."
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "claims-escalation",
+      "title": "Claims Escalation Pathway",
+      "type": "interactive",
+      "estimatedTime": "15 minutes",
+      "content": "Choose the best actions to escalate claims effectively and professionally.",
+      "activities": [
+        {
+          "id": "escalation-branch",
+          "title": "Escalation Decision Tree",
+          "description": "Select actions at each step to move the claim forward.",
+          "type": "branching-scenario",
+          "points": 10,
+          "data": {
+            "stages": [
+              {
+                "stage": "Partial Approval Received",
+                "decision": "Next step?",
+                "options": [
+                  {
+                    "choice": "Identify missing items and prepare supplement",
+                    "outcome": "Clear supplement path",
+                    "success": true
+                  },
+                  {
+                    "choice": "Tell homeowner to call adjuster",
+                    "outcome": "Loses control of process",
+                    "success": false
+                  }
+                ]
+              },
+              {
+                "stage": "Prepare Supplement",
+                "decision": "What to include?",
+                "options": [
+                  {
+                    "choice": "Photo report, code citations, manufacturer docs",
+                    "outcome": "Strong submission",
+                    "success": true
+                  },
+                  {
+                    "choice": "Short email",
+                    "outcome": "Likely delay",
+                    "success": false
+                  }
+                ]
+              },
+              {
+                "stage": "Follow-Up",
+                "decision": "Timing?",
+                "options": [
+                  {
+                    "choice": "7 business days with polite status check",
+                    "outcome": "Professional persistence",
+                    "success": true
+                  },
+                  {
+                    "choice": "Daily calls",
+                    "outcome": "May harm rapport",
+                    "success": false
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "successStories": [
+    {
+      "id": "alex-tech-wizard",
+      "name": "Alex 'The Tech Wizard' Morrison",
+      "title": "From Tech-Phobic to Power User",
+      "role": "Sales Representative",
+      "challenge": "Alex struggled with technology during his first three months, constantly losing track of jobs, missing follow-ups, and averaging only 3 sign-ups per month. He nearly quit because the apps felt overwhelming and he spent more time fighting technology than selling.",
+      "approach": "Alex's Team Leader mandated a complete tech reset. For one full week, Alex practiced nothing but technology workflows: Field Portal job management, Sales App signature processes, Hover captures, and GroupMe protocols. He created cheat sheets, practiced with mock customers, and committed to updating systems in real-time rather than batching at end of day.",
+      "technologiesUsed": [
+        "Field Portal mobile & web optimization",
+        "Sales App signature workflow mastery",
+        "Hover measurement efficiency techniques",
+        "GroupMe instant reporting system"
+      ],
+      "results": {
+        "efficiency": "4x improvement in job tracking accuracy",
+        "timeGained": "Saved 12 hours per week on administrative tasks",
+        "performance": "Went from 3 to 19 sign-ups per month after tech mastery",
+        "income": "Earned $234,000 in year two (up from $47,000 in year one)",
+        "recognition": "Named 'Tech Champion' and now trains new reps on technology"
+      },
+      "keyTakeaway": "Technology mastery is not optional - it is the foundation of high performance. The time invested in learning the tools pays back exponentially in efficiency and earnings.",
+      "quote": "I almost quit because I thought I was bad at sales. Turns out I was just bad at technology. Once I mastered the apps, everything changed. Now I can manage 40+ jobs simultaneously without dropping a single ball."
+    },
+    {
+      "id": "maya-workflow-revolution",
+      "name": "Maya Rodriguez",
+      "title": "The Workflow Optimizer",
+      "role": "Senior Sales Representative",
+      "challenge": "Maya was a strong closer but spent 3-4 hours every evening on administrative work - uploading photos, syncing agreements, updating job stages, and posting updates. Her admin burden was preventing her from knocking more doors and taking more inspections.",
+      "approach": "Maya conducted a time audit and discovered she was doing tasks in the least efficient sequence. She rebuilt her entire workflow: pinning houses in real-time while knocking, uploading photos immediately after inspections using mobile data, generating agreements on-site, and updating Field Portal stages the moment status changed. She eliminated all end-of-day batch processing.",
+      "technologiesUsed": [
+        "Real-time Field Portal updates",
+        "Mobile photo uploads during inspections",
+        "On-site agreement generation",
+        "Hover integration with Field Portal",
+        "Google Calendar synchronization"
+      ],
+      "results": {
+        "efficiency": "Cut administrative time from 20 hours/week to 6 hours/week (70% reduction)",
+        "timeGained": "Reclaimed 14 hours per week for additional field work",
+        "performance": "Doubled inspection capacity from 15 to 30 per week",
+        "income": "Increased monthly commission from $11,000 to $19,000",
+        "workLifeBalance": "Eliminated evening admin work - finished by 6pm daily"
+      },
+      "keyTakeaway": "Real-time technology use beats batch processing every time. Do tasks immediately in the field, not later at your desk. Your evenings should be for family, not data entry.",
+      "quote": "I was working 70-hour weeks and burning out. Once I optimized my technology workflow, I cut my hours to 50 while doubling my output. The secret? Never touch anything twice - do it right, in real-time, the first time."
+    },
+    {
+      "id": "ryan-integration-master",
+      "name": "Ryan Chen",
+      "title": "The Integration Specialist",
+      "role": "Sales Representative",
+      "challenge": "Ryan was competent with individual apps but struggled with seamless integration. Jobs fell through the cracks because information did not flow properly between Field Portal, Sales App, and communication channels. He lost 3 approved jobs in one month because he missed follow-up tasks and messages.",
+      "approach": "Ryan mapped his entire technology ecosystem and identified integration gaps. He implemented a systematic workflow: every morning reviewing Field Portal tasks and calendar, every inspection immediately triggering photo upload + Hover + agreement sequence, and every evening checking message boards and syncing progress. He created a daily technology checklist ensuring nothing slipped through.",
+      "technologiesUsed": [
+        "Field Portal task management system",
+        "Sales App-to-Field Portal sync verification",
+        "Google Calendar integration with reminders",
+        "Hover-to-Field Portal automatic linking",
+        "GroupMe notification optimization"
+      ],
+      "results": {
+        "efficiency": "Zero lost jobs due to missed follow-ups",
+        "timeGained": "Daily checklist reduced decision fatigue by 40%",
+        "performance": "Increased close rate from 54% to 69% through better follow-up",
+        "income": "28% increase in monthly earnings",
+        "reputation": "Adjuster feedback improved - rated 'most organized rep'"
+      },
+      "keyTakeaway": "Integration is everything. Individual app mastery means nothing if information does not flow seamlessly between systems. Build workflows that create automatic accountability.",
+      "quote": "I used to think I was organized because I knew how to use each app. But knowing the apps is not enough - you need systems that ensure information flows perfectly between them. That is when you become unstoppable."
+    },
+    {
+      "id": "jessica-mobile-first",
+      "name": "Jessica Park",
+      "title": "The Mobile Warrior",
+      "role": "Sales Representative",
+      "challenge": "Jessica was spending too much time at her laptop doing work that could be done from her phone. This created delays in updating job status, responding to homeowners, and posting sign-ups. Her response time was 24-48 hours on average, causing homeowner frustration.",
+      "approach": "Jessica adopted a mobile-first philosophy: if it can be done on a phone, never wait for a computer. She mastered Field Portal mobile app shortcuts, learned to upload photos using mobile data instead of waiting for wifi, and started responding to messages immediately from the field. She carried a portable charger and treated her phone as her primary business tool.",
+      "technologiesUsed": [
+        "Field Portal mobile app advanced features",
+        "Mobile photo uploads with cellular data",
+        "iPad Sales App for on-site signatures",
+        "Mobile Hover captures",
+        "GroupMe mobile notifications"
+      ],
+      "results": {
+        "efficiency": "Response time reduced from 24-48 hours to 2-3 hours average",
+        "timeGained": "Eliminated 90% of laptop work",
+        "performance": "Homeowner satisfaction scores increased by 35%",
+        "income": "Faster response time led to 23% more referrals",
+        "flexibility": "Could work from anywhere - no desk needed"
+      },
+      "keyTakeaway": "Your phone is your business. Master mobile workflows and eliminate the dependency on laptops. Speed wins in this business, and mobile-first means you are always ready to respond.",
+      "quote": "I used to think I needed my laptop to be professional. Wrong. My phone and iPad are more powerful than any desktop setup. I can run my entire business from my truck - and that speed gives me a massive advantage."
+    }
+  ],
+  "agnesContent": [
+    {
+      "id": "field-portal-power-user",
+      "title": "Field Portal Power User: Advanced Features & Optimization",
+      "type": "interactive",
+      "icon": "\ud83d\udcf1",
+      "content": "Field Portal is not just a job tracker - it is your competitive intelligence system. Most reps use 20% of its capabilities. Let me show you the advanced features that separate top performers from average ones.",
+      "points": [
+        "Custom Views & Filters: Create saved views for 'Hot Leads' (inspections scheduled this week), 'Pending Follow-Up' (estimates received), and 'Stuck Jobs' (no activity in 7+ days). Top performers check these three views every morning.",
+        "Bulk Actions: Instead of updating jobs one-by-one, use web interface bulk actions. Select multiple jobs and update stage, add tags, or assign tasks simultaneously. Saves 30+ minutes daily for high-volume reps.",
+        "Smart Notifications: Configure Field Portal to push notifications ONLY for critical events: assigned tasks, message board replies, and calendar reminders. Disable noise notifications to maintain focus while knocking.",
+        "Territory Heat Mapping: Use the map view to identify clusters of pinned houses. This reveals hot neighborhoods where storm damage is concentrated. Target these areas for follow-up campaigns and referral knocking.",
+        "Metrics Tracking: Set up your dashboard to display conversion rates, not just raw numbers. Track inspection-to-sign-up %, sign-up-to-approval %, and approval-to-install %. These ratios reveal exactly where to focus improvement efforts.",
+        "Calendar Integration Mastery: Sync Field Portal calendar with Google Calendar AND set up homeowner calendar invites with automatic reminders 24 hours before adjuster meetings. This reduces no-shows by 60%.",
+        "Task Automation: Use recurring tasks for standard follow-ups. Set 3-day, 7-day, and 14-day automatic reminders on inspections without signed agreements. This ensures no opportunity falls through the cracks.",
+        "Photo Report Quality Check: Before submitting photos, use Field Portal preview feature to verify orientation and quality. Resubmitting photos wastes 48 hours - get it right the first time."
+      ],
+      "duration": "20 minutes",
+      "proTips": [
+        "Morning Routine: Spend first 15 minutes of every day in Field Portal reviewing three views: Today's Tasks, New Messages, and This Week's Calendar. This daily review prevents surprises and keeps you ahead of deadlines.",
+        "Weekly Organization: Every Sunday evening, use Field Portal web interface to audit all jobs. Move stuck jobs forward, update stale notes, and plan the week's priority follow-ups. This 30-minute investment sets up a successful week.",
+        "Response Speed: Set a personal standard of responding to Field Portal messages within 24 hours, not the 2-week deadline. Fast response time builds trust with office staff and often gets you first priority on new leads."
+      ]
+    },
+    {
+      "id": "sales-app-mastery",
+      "title": "Sales App Mastery: Mobile Workflow & Productivity Hacks",
+      "type": "interactive",
+      "icon": "\ud83d\udcdd",
+      "content": "The Sales App is where deals are closed - literally. But most reps fumble through it awkwardly while homeowners watch. Master these techniques to present agreements smoothly and professionally, building confidence and closing more deals.",
+      "points": [
+        "Customer Profile Pre-Loading: During your inspection, create the customer profile in Sales App BEFORE the post-inspection pitch. Enter name, address, insurance info while sitting in truck. When you close, agreements generate instantly - no awkward waiting.",
+        "Agreement Preview Mode: Before presenting to homeowner, tap 'Preview' to see exactly how the agreement will display. Check for typos, verify auto-populated fields, and ensure formatting is clean. Never present agreements you have not previewed first.",
+        "Signature Coaching: Hand the iPad to the homeowner and say 'Use your finger like a pen, write naturally.' Most people sign too fast or too light. If signature is unclear, immediately say 'Let me have you redo that one - we want it to look like your real signature.' Clear signatures prevent processing delays.",
+        "Multi-Agreement Sequencing: Master the workflow of staying inside the same customer profile to generate multiple agreements. After first signature, tap 'Add Document' instead of exiting. This keeps you in flow and prevents the need to re-lookup the customer.",
+        "Offline Mode Preparation: Sales App has offline mode for areas with poor cellular signal. Before going to rural areas, ensure app is fully synced and customer profiles are cached. You can generate and capture signatures offline; they will upload when connection is restored.",
+        "Error Recovery Protocol: If app crashes during signature, DO NOT PANIC. Reopen Sales App, navigate to customer profile, regenerate agreement, and have homeowner sign again. Explain 'Technology hiccup - let me get a fresh copy.' Homeowners understand and will re-sign if you handle it smoothly.",
+        "Password Muscle Memory: Practice typing 'roofer' on iPad keyboard with your eyes closed. This builds muscle memory so you can enter it instantly after signature without looking. It is a small detail but shows polish.",
+        "Sync Verification Habit: Immediately after capturing signatures, open Field Portal and verify agreements appear in Documents section. If they do not show within 60 seconds, force sync in Sales App settings. Do not leave property until verification is complete."
+      ],
+      "duration": "20 minutes",
+      "proTips": [
+        "Battery Management: Always carry a portable charger and charging cable for your iPad. Dead iPad = cannot close deals. Check battery level every morning and charge in truck between appointments.",
+        "Screen Cleanliness: Keep a microfiber cloth in your sales bag. Before handing iPad to homeowner, quickly wipe the screen. Smudges and fingerprints look unprofessional and make signatures harder to capture.",
+        "Landscape Orientation Lock: Lock iPad to landscape orientation for agreement presentations. Portrait mode on a full-page document requires too much scrolling. Landscape displays more content and looks more professional."
+      ]
+    },
+    {
+      "id": "hover-pro-techniques",
+      "title": "Hover Pro Techniques: Measurement Accuracy & Customer Presentations",
+      "type": "interactive",
+      "icon": "\ud83d\udcd0",
+      "content": "Hover measurements can make or break your credibility with adjusters. But Hover is also an incredible sales tool when used properly. These advanced techniques ensure accuracy and leverage Hover as a closing tool.",
+      "points": [
+        "Optimal Lighting Timing: Schedule Hover captures between 10am-3pm when sun is high. Avoid early morning or late afternoon when long shadows distort measurements. Overcast days are actually ideal - even lighting across all elevations.",
+        "Overlap Technique: When capturing elevations, overlap each photo by 20-30%. Hover stitches photos together, and overlap ensures no gaps. Walk slowly, take photos every 3-4 steps, and verify app shows green checkmarks for adequate coverage.",
+        "Obstacle Documentation: Before starting Hover capture, walk property and note obstacles: cars in driveway, closed gates, large trees blocking views. Address these BEFORE capturing. Move cars (with homeowner permission), open gates, and choose angles that minimize tree interference.",
+        "Detail Shot Strategy: After completing required elevation shots, capture 10-15 detail shots: roof peaks, valleys, dormers, chimneys, and architectural features. These detail shots dramatically improve measurement accuracy on complex homes.",
+        "Upload Verification: After capture, do not leave property until app shows 'Upload Complete' status. If cellular signal is weak, ask homeowner permission to connect to their wifi. Never assume upload will complete later - verify it NOW.",
+        "Report Review for Accuracy: When 3D model processes, review it immediately. Check that square footage seems reasonable (2000sf home should measure roughly 2000sf). If measurements are obviously wrong, flag for Hover support BEFORE adjuster meeting.",
+        "Customer Presentation Strategy: When meeting with homeowner and adjuster, pull up Hover 3D model on iPad. Rotate the model, zoom into damage areas, and reference precise measurements. This positions you as the most prepared person in the meeting.",
+        "Adjuster Credibility Building: Send Hover report to adjuster 24 hours BEFORE meeting. Include note: 'Attached are the 3D measurements for the property. Looking forward to reviewing the damage with you tomorrow.' Adjusters appreciate preparation and often review the report in advance."
+      ],
+      "duration": "20 minutes",
+      "proTips": [
+        "Property Access Preparation: Text homeowner day before Hover capture: 'I will be taking 3D measurements tomorrow around 2pm. Could you please move cars from driveway and ensure backyard gate is unlocked? This ensures accurate measurements for your claim.' Proactive communication prevents wasted trips.",
+        "Hover as Sales Tool: During post-inspection pitch, mention 'I will be capturing 3D measurements of your property to ensure the estimate is perfectly accurate. This is the same technology insurance companies use.' This builds perceived value and professionalism.",
+        "Complex Roof Indicator: If home has 3+ levels, multiple dormers, or complex valleys, mention to office 'This is a complex roof - Hover report will be critical for accurate estimate.' This sets expectations and ensures production team pays extra attention to measurements."
+      ]
+    },
+    {
+      "id": "eagleview-advanced",
+      "title": "EagleView Advanced Features: Report Interpretation & Claim Integration",
+      "type": "interactive",
+      "icon": "\ud83e\udd85",
+      "content": "EagleView is an alternative or complement to Hover, often preferred by insurance companies. Understanding how to read and leverage EagleView reports gives you an edge in adjuster negotiations and estimate validation.",
+      "points": [
+        "Report Components Understanding: EagleView reports contain aerial imagery, roof measurements, slope calculations, and material estimates. Learn to read each section - adjusters will reference these during meetings and expect you to understand them.",
+        "Measurement Discrepancy Protocol: If EagleView measurement differs significantly from Hover (10% or more variance), document both and explain to adjuster. Say 'We have two measurement sources showing [X] and [Y] square footage. Given the complexity of this roof, let us use the higher measurement to ensure adequate materials.'",
+        "Slope Impact on Pricing: EagleView provides slope measurements (4/12, 6/12, 8/12, etc.). Steeper slopes = higher labor costs. Reference slope data when discussing pricing with adjusters: 'This 8/12 slope requires additional safety equipment and time, which is reflected in the estimate.'",
+        "Aerial Imagery for Damage Documentation: EagleView aerial photos sometimes capture storm damage visible from above (missing shingles, tarp coverage). Zoom in on these areas during adjuster meetings to reinforce damage claims.",
+        "Integration with Xactimate: Many adjusters use Xactimate estimating software which integrates directly with EagleView. If adjuster mentions 'I pulled the EagleView report,' this means measurements are already in their estimate. Confirm measurements align to avoid disputes.",
+        "Ordering EagleView Reports: Office typically orders EagleView, but in some markets reps can order directly. If you have access, order reports immediately after inspection on homes with confirmed damage. 24-48 hour processing time means report is ready before adjuster meeting.",
+        "Premium Reports vs Standard: EagleView offers Premium Reports (detailed waste calculations, cut sheets, material breakdowns) and Standard Reports (basic measurements). Premium costs more but provides ammunition for supplement negotiations. Request Premium for complex or high-value homes.",
+        "Customer Education: Show homeowner the EagleView report and walk them through the measurements. Say 'This is the same report your insurance adjuster will use. As you can see, your roof measures [X] square feet.' This builds trust and positions you as transparent and knowledgeable."
+      ],
+      "duration": "20 minutes",
+      "proTips": [
+        "Compare Before Meeting: If you have both Hover and EagleView reports, compare them BEFORE adjuster meeting. Identify any discrepancies and prepare explanations. Being proactive prevents awkward surprises during the meeting.",
+        "Save Reports to iPad: Download EagleView PDF to your iPad and have it readily accessible during adjuster meetings. Do not rely on cellular signal to pull it up - have it offline and ready.",
+        "Reference in Supplements: When writing supplement requests, cite EagleView report: 'Per EagleView report dated [date], roof slope is 8/12, which requires [additional item].' This makes supplements harder to deny because you are referencing insurance-approved measurement sources."
+      ]
+    },
+    {
+      "id": "tech-stack-integration",
+      "title": "Tech Stack Integration: Workflow Optimization & Efficiency Maximization",
+      "type": "interactive",
+      "icon": "\ud83d\udd17",
+      "content": "Individual tool mastery is level one. True efficiency comes from seamless integration - making all tools work together as one unified system. This is what separates $100K reps from $200K+ reps.",
+      "points": [
+        "Morning Integration Routine: Start every day with this 15-minute sequence: (1) Check Field Portal for tasks and messages, (2) Review Google Calendar for adjuster meetings, (3) Check GroupMe for team announcements, (4) Identify top 3 priority jobs from Field Portal, (5) Plan day's knocking territory using Field Portal map. This synchronized routine ensures nothing is missed.",
+        "Real-Time Update Philosophy: Adopt the rule 'Touch it once, update it immediately.' Pin house in Field Portal AS you knock it. Upload photos to Field Portal IMMEDIATELY after inspection. Generate agreement in Sales App ON-SITE. Post sign-up to GroupMe BEFORE you leave driveway. Eliminate all batch processing.",
+        "Cross-Platform Verification: After every major milestone (inspection, sign-up, adjuster meeting), verify information appears correctly across all platforms. Check Field Portal shows updated stage, Sales App shows signed agreements, Google Calendar shows adjuster meeting, and GroupMe shows sign-up post. This 2-minute verification prevents 2-hour recovery efforts later.",
+        "Communication Integration: Set up your phone to receive Field Portal push notifications, Google Calendar reminders, and GroupMe direct messages. Create notification priorities: urgent (adjuster meeting in 1 hour), important (new task assigned), informational (teammate sign-up). Customize sounds/vibrations so you know what is urgent without looking at phone.",
+        "Data Flow Mapping: Understand how information flows between systems: Sales App signatures sync to Field Portal documents. Hover measurements link to Field Portal jobs. Google Calendar events appear in Field Portal calendar. Map these connections mentally so you know where to look when information seems missing.",
+        "Backup and Redundancy: Never rely on a single system. If critical information is in Field Portal, also have it in Google Calendar. If agreement is in Sales App, verify it synced to Field Portal. Keep phone camera roll backup of photos until you confirm Field Portal upload. Redundancy prevents single-point-of-failure disasters.",
+        "Weekly Audit Process: Every Sunday evening, audit your entire tech stack: Review all Field Portal jobs and update stale stages. Check Sales App for any unsynced agreements. Verify Google Calendar has all upcoming adjuster meetings. Clean up GroupMe notifications. This 30-minute weekly audit prevents chaos during the busy week.",
+        "Speed Optimization: Identify your biggest time-wasters and systematically eliminate them. If photo uploads take too long, upgrade your phone or switch to wifi during uploads. If Field Portal is slow on mobile, use web interface for bulk updates. If iPad battery dies frequently, buy a second charger. Invest in speed - it pays back immediately."
+      ],
+      "duration": "25 minutes",
+      "proTips": [
+        "Integration Checklist: Create a physical or digital checklist for your complete workflow. After each inspection, follow the checklist: Photos uploaded? Hover captured? Agreement signed? Field Portal updated? GroupMe posted? Calendar synced? This checklist ensures perfect execution every time.",
+        "Technology Investment Mindset: Top earners invest in technology advantages: newer phones with better cameras, portable chargers, mobile hotspots for rural areas, tablet stands for car dashboard, styluses for easier iPad navigation. These investments pay for themselves within weeks.",
+        "Automation Where Possible: Look for opportunities to automate repetitive tasks: Set up text message templates for homeowner updates. Create Field Portal job note templates. Build Sales App customer profile templates. Every minute automated is a minute available for selling."
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "id": "photo-orientation",
+      "question": "What photo orientation is required for Photo Reports vs Hover?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        "Both require portrait orientation only",
+        "Photo Reports: Portrait only. Hover: Portrait or Landscape (landscape often better)",
+        "Both can use either orientation",
+        "Photo Reports: Landscape only. Hover: Portrait only"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Photo Reports MUST be portrait orientation (landscape will not populate properly). Hover accepts portrait or landscape, with landscape often more effective for full elevation capture. This is a critical distinction - getting photo orientation wrong on Photo Reports means starting over.",
+      "points": 2,
+      "category": "field-operations"
+    },
+    {
+      "id": "sales-app-password",
+      "question": "What is the password entered after every signature in the Sales App?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        "Roofer (capital R)",
+        "roofer (lowercase)",
+        "ROOFER (all caps)",
+        "RoofER (mixed case)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The password is always 'roofer' in all lowercase. This is entered after every signature to verify sales rep authorization. It never changes and is case-sensitive - any other capitalization will be rejected.",
+      "points": 2,
+      "category": "sales-app"
+    },
+    {
+      "id": "field-portal-response-time",
+      "question": "What is the maximum response time for Field Portal tasks and messages before job may be reassigned?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": ["1 week", "2 weeks", "3 weeks", "1 month"],
+      "correctAnswer": 1,
+      "explanation": "You must respond to Field Portal tasks and message board items within 2 weeks (14 days) or the job may be reassigned to another rep. However, top performers respond within 24 hours. The 2-week deadline is the absolute maximum before consequences.",
+      "points": 2,
+      "category": "field-portal"
+    },
+    {
+      "id": "groupme-format",
+      "question": "What is the correct format for posting sign-ups on GroupMe?",
+      "type": "multiple-choice",
+      "difficulty": "easy",
+      "options": [
+        "New sign up: Roof and siding for Smith with Allstate",
+        "Sign up / Roof / Siding / Allstate / Smith",
+        "Smith - Roof, Siding - Allstate - Signed up",
+        "Got a sign up! Smith family, roof and siding, Allstate insurance"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The correct format is: Sign up / Storm Damage Items / Insurance Company / Customer Last Name. Example: Sign up / Roof / Siding / Allstate / Smith. This standardized format helps office track sign-ups accurately and maintains team consistency.",
+      "points": 2,
+      "category": "team-communication"
+    },
+    {
+      "id": "hover-timing",
+      "question": "What is the optimal time window for capturing Hover measurements to ensure best lighting and accuracy?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        "Early morning (6am-9am) before it gets too hot",
+        "10am-3pm when sun is high and shadows are minimal",
+        "Late afternoon (4pm-7pm) for golden hour lighting",
+        "Anytime during daylight - lighting does not affect measurements"
+      ],
+      "correctAnswer": 1,
+      "explanation": "10am-3pm is optimal because the sun is high, minimizing shadows that can distort measurements. Early morning and late afternoon create long shadows across roofs. Overcast days are actually ideal because lighting is even across all elevations. Lighting absolutely affects measurement accuracy.",
+      "points": 3,
+      "category": "hover"
+    },
+    {
+      "id": "sales-app-multi-agreement",
+      "question": "After capturing a homeowner's signature on the Contingency Agreement, what is the most efficient way to generate the Claim Authorization for the same customer?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        "Exit to main menu, search for customer, select customer, generate new agreement",
+        "Close Sales App completely, reopen, lookup customer, generate agreement",
+        "Stay in customer profile, tap 'Add Document', select Claim Authorization",
+        "Email the agreement to yourself and generate the second agreement later"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Stay in the customer profile and tap 'Add Document' or similar function to generate the next agreement. This keeps you in flow, prevents re-entry of customer information, and is fastest. Exiting and re-looking up the customer wastes time and creates opportunity for errors.",
+      "points": 3,
+      "category": "sales-app"
+    },
+    {
+      "id": "field-portal-pipeline-prioritization",
+      "question": "You have a job that has been in 'Inspection Complete' stage for 18 days with no activity. What should be your immediate action?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        "Wait another week - insurance claims take time",
+        "Immediately contact homeowner to check status and move job forward",
+        "Move job to 'Denied' stage since it has been too long",
+        "Post in GroupMe asking if anyone knows the homeowner"
+      ],
+      "correctAnswer": 1,
+      "explanation": "18 days in 'Inspection Complete' with no activity means the job is stuck. Immediately contact the homeowner to determine status: Is claim filed? Has adjuster contacted them? Is agreement signed? Jobs stuck this long rarely move forward without rep intervention. You are approaching the 2-week response deadline - act now.",
+      "points": 3,
+      "category": "field-portal"
+    },
+    {
+      "id": "tech-integration-verification",
+      "question": "After capturing signatures in the Sales App, what is the critical verification step before leaving the homeowner's property?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        "Post sign-up on GroupMe to announce success",
+        "Open Field Portal and verify agreements appear in Documents section",
+        "Text your Team Leader about the sign-up",
+        "Take a selfie with the homeowner for your records"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Open Field Portal and verify agreements appear in the Documents section within 60 seconds. If they do not appear, force sync in Sales App settings before leaving. Once you leave the property, recovering from sync failures becomes difficult. Verification takes 30 seconds and prevents hours of problems later.",
+      "points": 3,
+      "category": "technology-integration"
+    },
+    {
+      "id": "hover-upload-verification",
+      "question": "You complete a Hover capture but cellular signal is weak and upload is stalling at 45%. What is the best course of action?",
+      "type": "multiple-choice",
+      "difficulty": "medium",
+      "options": [
+        "Leave property and let upload complete automatically when signal improves",
+        "Cancel upload and recapture everything later when you have better signal",
+        "Ask homeowner permission to connect to their wifi to complete upload",
+        "Wait in your car for 30 minutes hoping signal improves"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Ask homeowner permission to connect to their wifi to complete the upload. Never leave property without verifying 100% upload completion - uploads rarely resume successfully later. If wifi is not available, drive to nearest location with strong signal before upload times out. The golden rule: verify 'Upload Complete' status before leaving.",
+      "points": 3,
+      "category": "hover"
+    },
+    {
+      "id": "eagleview-slope-impact",
+      "question": "An EagleView report shows a roof with an 8/12 slope. Why is this significant when discussing pricing with an adjuster?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        "8/12 slopes are easier to work on and require lower pricing",
+        "8/12 slopes require additional safety equipment and labor, justifying higher pricing",
+        "Slope measurements are irrelevant - only square footage matters",
+        "8/12 means 8 squares per 12 hours of work"
+      ],
+      "correctAnswer": 1,
+      "explanation": "8/12 slope (rise over run) is a steep roof requiring additional safety equipment, more labor time, and higher risk. When discussing estimates with adjusters, reference the slope: 'This 8/12 slope requires additional safety equipment and time, which is reflected in the estimate.' Steeper slopes = higher legitimate costs. This is why EagleView slope data matters.",
+      "points": 4,
+      "category": "eagleview"
+    },
+    {
+      "id": "tech-efficiency-calculation",
+      "question": "If you optimize your technology workflow and save 68 minutes per day, how many additional full knocking days could you gain per month, and what is the potential impact?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        "2 additional days = 4-6 additional sign-ups per month",
+        "4 additional days = 8-12 additional sign-ups per month",
+        "6 additional days = 12-18 additional sign-ups per month",
+        "8 additional days = 16-24 additional sign-ups per month"
+      ],
+      "correctAnswer": 2,
+      "explanation": "68 minutes per day = 5.6 hours per week = 24 hours per month = 6 additional full knocking days. At typical conversion rates (2-3 sign-ups per full knocking day), this equals 12-18 additional sign-ups per month. This is the power of technology optimization - it directly translates to more selling time and significantly higher earnings.",
+      "points": 4,
+      "category": "technology-efficiency"
+    },
+    {
+      "id": "field-portal-custom-views",
+      "question": "Which three custom Field Portal views should top performers check every morning to prioritize their day effectively?",
+      "type": "multiple-choice",
+      "difficulty": "hard",
+      "options": [
+        "All Jobs, Completed Jobs, Denied Jobs",
+        "Hot Leads (inspections this week), Pending Follow-Up (estimates received), Stuck Jobs (no activity 7+ days)",
+        "New Leads, Old Leads, Medium Leads",
+        "Morning Jobs, Afternoon Jobs, Evening Jobs"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Top performers create and check three strategic views every morning: (1) Hot Leads - inspections scheduled this week requiring preparation, (2) Pending Follow-Up - estimates received requiring homeowner contact, (3) Stuck Jobs - no activity in 7+ days requiring intervention. These views ensure high-priority jobs get immediate attention and nothing falls through cracks.",
+      "points": 4,
+      "category": "field-portal-advanced"
+    }
+  ],
+  "documents": [
+    {
+      "id": "field-portal-guide",
+      "title": "Field Portal Complete User Guide",
+      "type": "document",
+      "description": "Comprehensive guide to Field Portal mobile and web interfaces",
+      "pages": 10,
+      "topics": [
+        "Job Stage Management",
+        "Photo Upload Process",
+        "Task and Message Management",
+        "Calendar Integration",
+        "Metrics Tracking"
+      ]
+    },
+    {
+      "id": "sales-app-reference",
+      "title": "Sales App Quick Reference",
+      "type": "document",
+      "description": "Step-by-step guide for generating agreements and capturing signatures",
+      "pages": 4,
+      "topics": [
+        "Customer Profile Creation",
+        "Agreement Generation",
+        "E-Signature Process",
+        "Troubleshooting Guide"
+      ]
+    }
+  ],
+  "matchingGame": {
+    "title": "Technology Tools & Functions Matching",
+    "description": "Match technology tools with their primary functions and requirements",
+    "instructions": "Match each tool with its correct function or requirement",
+    "timeLimit": 180,
+    "difficulty": "medium",
+    "pairs": [
+      {
+        "id": "field-portal",
+        "left": {
+          "text": "Field Portal App",
+          "type": "text"
+        },
+        "right": {
+          "text": "Job tracking, photo upload, task management, metrics dashboard",
+          "type": "text"
+        }
+      },
+      {
+        "id": "sales-app",
+        "left": {
+          "text": "Sales App",
+          "type": "text"
+        },
+        "right": {
+          "text": "Agreement generation, e-signatures, password: roofer",
+          "type": "text"
+        }
+      },
+      {
+        "id": "hover",
+        "left": {
+          "text": "Hover App",
+          "type": "text"
+        },
+        "right": {
+          "text": "3D measurements, portrait or landscape okay, 24-48 hour processing",
+          "type": "text"
+        }
+      },
+      {
+        "id": "groupme",
+        "left": {
+          "text": "GroupMe",
+          "type": "text"
+        },
+        "right": {
+          "text": "Sign-up announcements, team communication, format: Sign up / Items / Insurance / Name",
+          "type": "text"
+        }
+      }
+    ]
+  }
+}
