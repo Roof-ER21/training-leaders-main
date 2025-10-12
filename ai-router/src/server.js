@@ -42,13 +42,14 @@ const limiter = rateLimit({
 });
 app.use('/api/', limiter);
 
-// HuggingFace Pro Models Configuration
+// HuggingFace Models Configuration
+// Using models that work reliably with Inference API
 const HF_MODELS = {
-  conversational: 'meta-llama/Meta-Llama-3.1-70B-Instruct',
-  conversationalFast: 'meta-llama/Meta-Llama-3.1-8B-Instruct',
-  code: 'Qwen/Qwen2.5-Coder-32B-Instruct',
-  reasoning: 'deepseek-ai/DeepSeek-R1',
-  roofing: 'meta-llama/Meta-Llama-3.1-70B-Instruct' // Custom trained on roofing data
+  conversational: 'mistralai/Mistral-7B-Instruct-v0.3',
+  conversationalFast: 'mistralai/Mistral-7B-Instruct-v0.3',
+  code: 'bigcode/starcoder2-15b',
+  reasoning: 'mistralai/Mistral-7B-Instruct-v0.3',
+  roofing: 'mistralai/Mistral-7B-Instruct-v0.3' // Excellent instruction-following model
 };
 
 // Ollama configuration
@@ -97,28 +98,32 @@ function selectModel(message, context = '') {
 }
 
 /**
- * Query HuggingFace model
+ * Query HuggingFace model using Chat Completion API
  */
 async function queryHuggingFace(model, message, systemPrompt = '') {
   try {
-    const fullPrompt = systemPrompt
-      ? `${systemPrompt}\n\nUser: ${message}\n\nAssistant:`
-      : message;
-
-    const response = await hf.textGeneration({
+    // Use chatCompletion for better model support
+    const response = await hf.chatCompletion({
       model: model,
-      inputs: fullPrompt,
-      parameters: {
-        max_new_tokens: 1000,
-        temperature: 0.7,
-        top_p: 0.95,
-        return_full_text: false
-      }
+      messages: [
+        {
+          role: "system",
+          content: systemPrompt || 'You are Agnes, an expert roofing AI assistant. Provide helpful, accurate, and professional guidance on roofing inspection, damage assessment, and industry best practices.'
+        },
+        {
+          role: "user",
+          content: message
+        }
+      ],
+      max_tokens: 500,
+      temperature: 0.7
     });
+
+    const assistantMessage = response.choices[0].message.content;
 
     return {
       success: true,
-      response: response.generated_text,
+      response: assistantMessage,
       model: model,
       provider: 'huggingface'
     };
