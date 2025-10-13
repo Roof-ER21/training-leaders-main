@@ -5,7 +5,12 @@ import Homepage from './Homepage';
 import EnhancedTrainingInterface from './EnhancedTrainingInterface';
 import AgnesIntegratedTraining from './AgnesIntegratedTraining';
 import AnalyticsDashboard from './AnalyticsDashboard';
+import DocsLibrary from './DocsLibrary';
+import AdminDashboard from './AdminDashboard';
+import ProtectedRoute from './ProtectedRoute';
 import analytics from '../utils/analytics';
+import authService from '../services/authService';
+import trainingService from '../services/trainingService';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 
@@ -17,9 +22,25 @@ type ViewType =
   | 'resources'
   | 'community'
   | 'dashboard'
+  | 'admin'
   | 'profile'
   | 'login'
-  | 'signup';
+  | 'signup'
+  | 'foundation'
+  | 'advanced'
+  | 'sales'
+  | 'certifications'
+  | 'practice'
+  | 'feedback'
+  | 'assessment'
+  | 'videos'
+  | 'docs'
+  | 'cases'
+  | 'news'
+  | 'forums'
+  | 'qa'
+  | 'stories'
+  | 'events';
 
 interface UserProgress {
   overall: number;
@@ -40,19 +61,20 @@ const RoofERMainApp: React.FC = () => {
     completedModules: [1, 2],
   });
 
-  // Initialize AOS for scroll animations
+  // Initialize services and AOS
   useEffect(() => {
+    // Initialize auth service
+    authService.initialize();
+
+    // Initialize AOS for scroll animations
     AOS.init({
       duration: 800,
       easing: 'ease-in-out',
       once: true,
       offset: 100,
     });
-  }, []);
 
-  // Mock authentication
-  useEffect(() => {
-    // Simulate user login for demo purposes
+    // Mock authentication (for demo)
     const timer = setTimeout(() => {
       setIsLoggedIn(true);
     }, 1000);
@@ -211,6 +233,20 @@ const RoofERMainApp: React.FC = () => {
           </motion.div>
         );
 
+      case 'docs':
+        return (
+          <motion.div
+            key="docs"
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="min-h-screen bg-gray-50 pt-24"
+          >
+            <DocsLibrary />
+          </motion.div>
+        );
+
       case 'community':
         return (
           <motion.div
@@ -237,6 +273,24 @@ const RoofERMainApp: React.FC = () => {
                 </button>
               </div>
             </div>
+          </motion.div>
+        );
+
+      case 'admin':
+        return (
+          <motion.div
+            key="admin"
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+          >
+            <ProtectedRoute
+              requireAdmin={true}
+              onUnauthorized={() => handleNavigate('dashboard')}
+            >
+              <AdminDashboard onNavigateHome={handleNavigateHome} />
+            </ProtectedRoute>
           </motion.div>
         );
 
@@ -564,6 +618,105 @@ const RoofERMainApp: React.FC = () => {
           </motion.div>
         );
 
+      // Training dropdown views
+      case 'foundation':
+      case 'advanced':
+      case 'sales':
+      case 'certifications':
+        return (
+          <motion.div
+            key={currentView}
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+          >
+            <AgnesIntegratedTraining onNavigateHome={handleNavigateHome} />
+          </motion.div>
+        );
+
+      // AI Coach dropdown views
+      case 'practice':
+      case 'feedback':
+      case 'assessment':
+        return (
+          <motion.div
+            key={currentView}
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+          >
+            <AgnesIntegratedTraining onNavigateHome={handleNavigateHome} />
+          </motion.div>
+        );
+
+      // Resources dropdown views
+      case 'videos':
+      case 'docs':
+      case 'cases':
+      case 'news':
+        return (
+          <motion.div
+            key={currentView}
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="min-h-screen bg-gray-50 pt-24"
+          >
+            <div className="max-w-7xl mx-auto px-6 py-8">
+              <div className="text-center">
+                <h1 className="text-4xl font-bold text-gray-900 mb-4">
+                  Resources Library
+                </h1>
+                <p className="text-xl text-gray-600 mb-8">
+                  Comprehensive resources and documentation coming soon.
+                </p>
+                <button
+                  onClick={() => handleNavigate('training')}
+                  className="px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-lg hover:from-red-700 hover:to-red-800 transition-all duration-300"
+                >
+                  Start Learning
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        );
+
+      // Community dropdown views
+      case 'forums':
+      case 'qa':
+      case 'stories':
+      case 'events':
+        return (
+          <motion.div
+            key={currentView}
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="min-h-screen bg-gray-50 pt-24"
+          >
+            <div className="max-w-7xl mx-auto px-6 py-8">
+              <div className="text-center">
+                <h1 className="text-4xl font-bold text-gray-900 mb-4">
+                  Roofing Community
+                </h1>
+                <p className="text-xl text-gray-600 mb-8">
+                  Connect with fellow professionals and share experiences.
+                </p>
+                <button
+                  onClick={() => handleNavigate('training')}
+                  className="px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-lg hover:from-red-700 hover:to-red-800 transition-all duration-300"
+                >
+                  Join Training
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        );
+
       default:
         return (
           <motion.div
@@ -625,8 +778,8 @@ const RoofERMainApp: React.FC = () => {
                   </div>
                 </div>
                 <p className="text-gray-400 leading-relaxed">
-                  Empowering roofing professionals worldwide with AI-powered
-                  training and certification programs.
+                  Professional roofing sales training and hail damage assessment
+                  certification for emergency roof repair specialists.
                 </p>
               </div>
 
@@ -635,31 +788,31 @@ const RoofERMainApp: React.FC = () => {
                 <ul className="space-y-2 text-gray-400">
                   <li>
                     <button
-                      onClick={() => handleNavigate('training')}
+                      onClick={() => handleNavigate('foundation')}
                       className="hover:text-white transition-colors"
                     >
-                      Foundation & Safety
+                      Sales Fundamentals
                     </button>
                   </li>
                   <li>
                     <button
-                      onClick={() => handleNavigate('training')}
+                      onClick={() => handleNavigate('advanced')}
                       className="hover:text-white transition-colors"
                     >
-                      Advanced Techniques
+                      Hail Damage Assessment
                     </button>
                   </li>
                   <li>
                     <button
-                      onClick={() => handleNavigate('training')}
+                      onClick={() => handleNavigate('sales')}
                       className="hover:text-white transition-colors"
                     >
-                      Sales Training
+                      Advanced Sales Mastery
                     </button>
                   </li>
                   <li>
                     <button
-                      onClick={() => handleNavigate('training')}
+                      onClick={() => handleNavigate('certifications')}
                       className="hover:text-white transition-colors"
                     >
                       Certifications

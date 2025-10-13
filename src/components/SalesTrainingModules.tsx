@@ -33,7 +33,9 @@ import {
   ChevronDown,
   Lightbulb,
   XCircle,
+  Mic,
 } from 'lucide-react';
+import SalesPitchRecorder from './SalesPitchRecorder';
 
 interface SalesModule {
   id: string;
@@ -124,6 +126,7 @@ const SalesTrainingModules: React.FC<SalesTrainingModulesProps> = ({
   const [quizAnswers, setQuizAnswers] = useState<{ [key: number]: number }>({});
   const [showQuizResults, setShowQuizResults] = useState(false);
   const [quizScore, setQuizScore] = useState(0);
+  const [showRecorder, setShowRecorder] = useState(false);
 
   // Sales training modules based on the Roof-ER Sales Training PDF
   const salesModules: SalesModule[] = [
@@ -1408,8 +1411,8 @@ const SalesTrainingModules: React.FC<SalesTrainingModulesProps> = ({
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-8 mb-8">
-                    <div className="bg-blue-50 rounded-lg p-6">
-                      <h4 className="font-semibold text-blue-900 mb-4 flex items-center">
+                    <div className="bg-gray-50 rounded-lg p-6">
+                      <h4 className="font-semibold text-gray-900 mb-4 flex items-center">
                         <Lightbulb className="w-5 h-5 mr-2" />
                         Key Learning Points
                       </h4>
@@ -1540,7 +1543,7 @@ const SalesTrainingModules: React.FC<SalesTrainingModulesProps> = ({
                                       {script.keyPhrases.map((phrase, pidx) => (
                                         <div
                                           key={pidx}
-                                          className="flex items-center p-2 bg-blue-50 rounded"
+                                          className="flex items-center p-2 bg-gray-50 rounded"
                                         >
                                           <MessageSquare className="w-4 h-4 text-blue-600 mr-2" />
                                           <span className="text-blue-800 text-sm">
@@ -1616,7 +1619,7 @@ const SalesTrainingModules: React.FC<SalesTrainingModulesProps> = ({
                             </p>
 
                             <div className="flex items-center space-x-4 text-sm">
-                              <div className="flex items-center px-3 py-1 bg-blue-100 text-blue-800 rounded-full">
+                              <div className="flex items-center px-3 py-1 bg-gray-100 text-blue-800 rounded-full">
                                 <Zap className="w-3 h-3 mr-1" />
                                 {objection.technique}
                               </div>
@@ -1641,6 +1644,32 @@ const SalesTrainingModules: React.FC<SalesTrainingModulesProps> = ({
                     Practice Scenarios
                   </h3>
 
+                  {/* Record Sales Pitch Button */}
+                  <div className="bg-gradient-to-r from-black to-neutral-900 rounded-lg p-6 mb-8">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
+                          <Mic className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <h4 className="text-xl font-bold text-white mb-1">
+                            Record Your Sales Pitch
+                          </h4>
+                          <p className="text-gray-300 text-sm">
+                            Practice and submit your pitch for manager review
+                          </p>
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => setShowRecorder(true)}
+                        className="px-6 py-3 bg-white text-roofRed rounded-lg font-semibold hover:bg-gray-50 transition-colors flex items-center space-x-2"
+                      >
+                        <Mic className="w-5 h-5" />
+                        <span>Start Recording</span>
+                      </button>
+                    </div>
+                  </div>
+
                   <div className="grid md:grid-cols-2 gap-6">
                     {currentModule.content.practiceScenarios.map(
                       (scenario, idx) => (
@@ -1649,7 +1678,7 @@ const SalesTrainingModules: React.FC<SalesTrainingModulesProps> = ({
                           className="bg-white border border-gray-200 rounded-lg p-6"
                         >
                           <div className="flex items-center mb-4">
-                            <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                            <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mr-4">
                               <Users className="w-5 h-5 text-purple-600" />
                             </div>
                             <h4 className="font-semibold text-gray-900">
@@ -1660,7 +1689,7 @@ const SalesTrainingModules: React.FC<SalesTrainingModulesProps> = ({
                           <p className="text-gray-700 mb-4">{scenario}</p>
 
                           <div className="flex space-x-3">
-                            <button className="flex-1 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm">
+                            <button className="flex-1 px-4 py-2 bg-roofRed text-white rounded-lg hover:bg-roofRed-dark transition-colors text-sm">
                               Practice Now
                             </button>
                             <button className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors text-sm">
@@ -1672,6 +1701,18 @@ const SalesTrainingModules: React.FC<SalesTrainingModulesProps> = ({
                     )}
                   </div>
                 </div>
+              )}
+
+              {/* Sales Pitch Recorder Modal */}
+              {showRecorder && currentModule && (
+                <SalesPitchRecorder
+                  isOpen={showRecorder}
+                  onClose={() => setShowRecorder(false)}
+                  moduleName={currentModule.title}
+                  moduleId={currentModule.id}
+                  userName="John Doe"
+                  userEmail="user@example.com"
+                />
               )}
 
               {activeSection === 'interactive-learning' && (
@@ -1691,9 +1732,9 @@ const SalesTrainingModules: React.FC<SalesTrainingModulesProps> = ({
                         {currentModule.content.keyPoints.map((point, idx) => (
                           <div
                             key={idx}
-                            className="flex items-start space-x-3 p-3 bg-blue-50 rounded-lg"
+                            className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg"
                           >
-                            <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                            <div className="w-6 h-6 bg-roofRed text-white rounded-full flex items-center justify-center text-sm font-bold">
                               {idx + 1}
                             </div>
                             <span className="text-blue-800 text-sm">
@@ -1740,8 +1781,8 @@ const SalesTrainingModules: React.FC<SalesTrainingModulesProps> = ({
                             </ul>
                           </div>
 
-                          <div className="bg-purple-50 rounded-lg p-4">
-                            <h6 className="font-semibold text-purple-900 mb-3">
+                          <div className="bg-gray-50 rounded-lg p-4">
+                            <h6 className="font-semibold text-gray-900 mb-3">
                               Success Factors
                             </h6>
                             <div className="space-y-2">
@@ -1821,7 +1862,7 @@ const SalesTrainingModules: React.FC<SalesTrainingModulesProps> = ({
                         <p className="text-blue-100 mb-4">
                           Interactive video training with Agnes AI instructor
                         </p>
-                        <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                        <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
                           Start Video Training
                         </button>
                       </div>
@@ -1892,12 +1933,12 @@ const SalesTrainingModules: React.FC<SalesTrainingModulesProps> = ({
                         <MessageSquare className="w-5 h-5 mr-2 text-purple-600" />
                         Ask Agnes About This Module
                       </h4>
-                      <div className="bg-purple-50 rounded-lg p-4 border border-purple-200">
+                      <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                         <div className="flex items-center space-x-3 mb-3">
-                          <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
+                          <div className="w-8 h-8 bg-roofRed rounded-full flex items-center justify-center">
                             <MessageSquare className="w-4 h-4 text-white" />
                           </div>
-                          <span className="font-medium text-purple-900">
+                          <span className="font-medium text-gray-900">
                             Agnes AI
                           </span>
                         </div>
@@ -1907,7 +1948,7 @@ const SalesTrainingModules: React.FC<SalesTrainingModulesProps> = ({
                           specific techniques, real-world applications, or
                           anything that needs clarification!"
                         </p>
-                        <button className="w-full py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                        <button className="w-full py-3 bg-roofRed text-white rounded-lg hover:bg-roofRed-dark transition-colors">
                           Start Chat with Agnes
                         </button>
                       </div>
@@ -1934,14 +1975,14 @@ const SalesTrainingModules: React.FC<SalesTrainingModulesProps> = ({
                           (resource, idx) => (
                             <div
                               key={idx}
-                              className="flex items-center justify-between p-4 bg-blue-50 rounded-lg border border-blue-200"
+                              className="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200"
                             >
                               <div className="flex items-center space-x-3">
-                                <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                                <div className="w-10 h-10 bg-roofRed rounded-lg flex items-center justify-center">
                                   <FileText className="w-5 h-5 text-white" />
                                 </div>
                                 <div>
-                                  <h6 className="font-medium text-blue-900">
+                                  <h6 className="font-medium text-gray-900">
                                     {resource.title}
                                   </h6>
                                   <p className="text-blue-700 text-sm">
@@ -1952,7 +1993,7 @@ const SalesTrainingModules: React.FC<SalesTrainingModulesProps> = ({
                                   </span>
                                 </div>
                               </div>
-                              <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm">
+                              <button className="px-4 py-2 bg-roofRed text-white rounded-lg hover:bg-roofRed-dark transition-colors text-sm">
                                 <Download className="w-4 h-4 inline mr-1" />
                                 Download
                               </button>

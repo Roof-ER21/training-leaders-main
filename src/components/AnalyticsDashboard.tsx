@@ -162,7 +162,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
-          <div className="bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600 px-8 py-6 text-white">
+          <div className="bg-gradient-to-r from-black via-neutral-900 to-black px-8 py-6 text-white">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
@@ -319,8 +319,8 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
                       <div
                         className={`h-full rounded-full transition-all ${
                           module.completed
-                            ? 'bg-gradient-to-r from-green-500 to-green-600'
-                            : 'bg-gradient-to-r from-blue-400 to-blue-500'
+                            ? 'bg-gradient-to-r from-black to-neutral-900'
+                            : 'bg-gradient-to-r from-black to-neutral-900'
                         }`}
                         style={{ width: `${module.completed ? 100 : 0}%` }}
                       />
@@ -338,7 +338,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
                     {activityMetrics.map((metric) => (
                       <div
                         key={metric.activityType}
-                        className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border-2 border-purple-200"
+                        className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border-2 border-gray-200"
                       >
                         <h4 className="font-bold text-gray-800 mb-3">{metric.activityType}</h4>
                         <div className="space-y-2">
@@ -387,7 +387,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 border-2 border-blue-200">
+                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 border-2 border-gray-200">
                   <div className="flex items-center gap-3 mb-4">
                     <Calendar className="w-6 h-6 text-blue-600" />
                     <h3 className="text-xl font-bold text-gray-800">Keep Your Streak Alive!</h3>

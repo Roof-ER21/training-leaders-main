@@ -165,6 +165,10 @@ const AgnesChat: React.FC<AgnesChatProps> = ({
       recognition.current.onresult = (event: any) => {
         const transcript = event.results[0][0].transcript;
         setInputMessage(transcript);
+        // Auto-send after capture
+        setTimeout(() => {
+          handleSendMessage(transcript);
+        }, 50);
         // Auto-focus input after voice recognition
         if (inputRef.current) {
           inputRef.current.focus();
@@ -275,8 +279,9 @@ const AgnesChat: React.FC<AgnesChatProps> = ({
   };
 
   // Handle sending messages
-  const handleSendMessage = async () => {
-    if (!inputMessage.trim() || isLoading) {
+  const handleSendMessage = async (overrideMessage?: string) => {
+    const pending = (overrideMessage ?? inputMessage).trim();
+    if (!pending || isLoading) {
       return;
     }
 
@@ -296,7 +301,7 @@ const AgnesChat: React.FC<AgnesChatProps> = ({
 
     const userMessage: Message = {
       id: Date.now().toString(),
-      content: inputMessage.trim(),
+      content: pending,
       sender: 'user',
       timestamp: new Date(),
     };
@@ -1018,7 +1023,7 @@ const AgnesChat: React.FC<AgnesChatProps> = ({
           )}
 
           <button
-            onClick={handleSendMessage}
+            onClick={() => handleSendMessage()}
             disabled={isLoading || !inputMessage.trim()}
             className={`p-3 rounded-xl transition-colors ${
               isLoading || !inputMessage.trim()

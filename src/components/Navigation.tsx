@@ -61,9 +61,9 @@ const Navigation: React.FC<NavigationProps> = ({
       label: 'Training',
       key: 'training',
       dropdown: [
-        { label: 'Foundation & Safety', key: 'foundation', icon: BookOpen },
-        { label: 'Advanced Techniques', key: 'advanced', icon: Trophy },
-        { label: 'Sales Training', key: 'sales', icon: BarChart3 },
+        { label: 'Sales Fundamentals', key: 'foundation', icon: BookOpen },
+        { label: 'Hail Damage Assessment', key: 'advanced', icon: Trophy },
+        { label: 'Advanced Sales Mastery', key: 'sales', icon: BarChart3 },
         { label: 'Certifications', key: 'certifications', icon: Trophy },
       ],
     },
@@ -71,29 +71,29 @@ const Navigation: React.FC<NavigationProps> = ({
       label: 'AI Coach',
       key: 'ai-coach',
       dropdown: [
-        { label: 'Practice Sessions', key: 'practice', icon: User },
-        { label: 'Real-time Feedback', key: 'feedback', icon: BarChart3 },
-        { label: 'Skill Assessment', key: 'assessment', icon: Trophy },
+        { label: 'Sales Roleplay', key: 'practice', icon: User },
+        { label: 'Performance Feedback', key: 'feedback', icon: BarChart3 },
+        { label: 'Skills Assessment', key: 'assessment', icon: Trophy },
       ],
     },
     {
       label: 'Resources',
       key: 'resources',
       dropdown: [
-        { label: 'Video Library', key: 'videos', icon: BookOpen },
-        { label: 'Documentation', key: 'docs', icon: BookOpen },
-        { label: 'Case Studies', key: 'cases', icon: BarChart3 },
-        { label: 'Industry News', key: 'news', icon: BookOpen },
+        { label: 'Training Videos', key: 'videos', icon: BookOpen },
+        { label: 'Sales Resources', key: 'docs', icon: BookOpen },
+        { label: 'Success Stories', key: 'cases', icon: BarChart3 },
+        { label: 'Industry Insights', key: 'news', icon: BookOpen },
       ],
     },
     {
       label: 'Community',
       key: 'community',
       dropdown: [
-        { label: 'Discussion Forums', key: 'forums', icon: User },
-        { label: 'Expert Q&A', key: 'qa', icon: User },
-        { label: 'Success Stories', key: 'stories', icon: Trophy },
-        { label: 'Events', key: 'events', icon: BookOpen },
+        { label: 'Sales Forum', key: 'forums', icon: User },
+        { label: 'Expert Advice', key: 'qa', icon: User },
+        { label: 'Top Performers', key: 'stories', icon: Trophy },
+        { label: 'Events & Webinars', key: 'events', icon: BookOpen },
       ],
     },
   ];
@@ -102,15 +102,28 @@ const Navigation: React.FC<NavigationProps> = ({
     <motion.div
       className="flex items-center space-x-3 cursor-pointer"
       onClick={() => onNavigate('homepage')}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.97 }}
     >
-      <div className="w-10 h-10 bg-gradient-to-br from-gray-600 via-gray-400 to-gray-300 rounded-full flex items-center justify-center border-2 border-red-600 shadow-lg">
-        <Eye className="w-5 h-5 text-white" />
-      </div>
-      <div className="text-gray-800 font-bold">
-        <div className="text-red-600 text-xl leading-tight">RoofER</div>
-        <div className="text-gray-600 text-xs">Training Academy</div>
+      {/* Use provided brand logo from public if available */}
+      <img
+        src="/brand/roofer-logo.png"
+        alt="Roof ER — The Roof Docs"
+        className="h-10 w-auto"
+        onError={(e) => {
+          // fallback to simple wordmark colors if image missing
+          const container = (e.currentTarget.parentElement as HTMLElement);
+          if (container) {
+            e.currentTarget.style.display = 'none';
+            const fallback = document.createElement('div');
+            fallback.className = 'flex items-baseline gap-1';
+            fallback.innerHTML = '<span class=\"text-gray-900 font-black text-xl\">ROOF</span><span class=\"text-roofRed font-black text-xl\">ER</span>';
+            container.prepend(fallback);
+          }
+        }}
+      />
+      <div className="hidden sm:block text-xs font-semibold tracking-wide text-gray-600">
+        THE ROOF DOCS
       </div>
     </motion.div>
   );

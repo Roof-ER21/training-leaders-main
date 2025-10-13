@@ -22,6 +22,12 @@ import {
 import AgnesRoleplaySystem from './AgnesRoleplaySystem';
 import InteractiveLearningActivity from './InteractiveLearningActivity';
 import type { Activity as LearningActivity } from './InteractiveLearningActivity';
+import AgnesKnowledgeActivities from './AgnesKnowledgeActivities';
+import type { KnowledgeActivity } from './AgnesKnowledgeActivities';
+import AgnesSkillBuilders from './AgnesSkillBuilders';
+import type { SkillBuildingActivity } from './AgnesSkillBuilders';
+import AgnesGamifiedAndPractical from './AgnesGamifiedAndPractical';
+import type { GamifiedOrPracticalActivity } from './AgnesGamifiedAndPractical';
 
 // Import module content from JSON files
 import module1Content from '../data/modules/module1.json';
@@ -34,6 +40,9 @@ import module7Content from '../data/modules/module7.json';
 import module8Content from '../data/modules/module8.json';
 import module9Content from '../data/modules/module9.json';
 import photoManifest from '../data/media/photoManifest.json';
+import slideImages from '../data/media/slideImages.json';
+import topicPhotos from '../data/media/topicPhotos.json';
+import ModalPortal from './ModalPortal';
 
 interface ModuleContent {
   overview: string;
@@ -86,11 +95,36 @@ interface Activity {
     | 'roleplay'
     | 'text-input'
     | 'image-matching'
+    | 'matching'
     | 'timed-challenge'
     | 'simulation'
     | 'calculator'
     | 'image-quiz'
-    | 'branching-scenario';
+    | 'branching-scenario'
+    | 'scenario-response'
+    | 'drag-drop-sequence'
+    | 'multiple-choice-scenarios'
+    // Knowledge Activities
+    | 'flashcards'
+    | 'quick-quiz'
+    | 'concept-matching'
+    | 'true-false-challenge'
+    | 'memory-game'
+    // Skill-Building Activities
+    | 'estimation-calculator'
+    | 'damage-assessment'
+    | 'photo-analysis'
+    | 'price-quote-exercise'
+    | 'workflow-simulator'
+    // Gamified Activities
+    | 'achievement-unlock'
+    | 'leaderboard-challenge'
+    | 'streak-tracker'
+    | 'badge-collection'
+    // Practical Activities
+    | 'worksheet'
+    | 'checklist-exercise'
+    | 'resource-download';
   data: any;
   points?: number;
   agnesTip?: string;
@@ -198,19 +232,46 @@ const InteractiveModuleSystem: React.FC<InteractiveModuleSystemProps> = ({
   const [currentActivitySection, setCurrentActivitySection] =
     useState<InteractiveLearningSection | null>(null);
 
-  // Only allow activities supported by InteractiveLearningActivity component
-  const isSupportedLearningActivity = (a: Activity): a is LearningActivity =>
+  // Type checking functions for different activity categories
+  const isSupportedLearningActivity = (a: Activity): boolean =>
     a.type === 'drag-drop' ||
+    a.type === 'drag-drop-sequence' ||
     a.type === 'multiple-choice' ||
+    a.type === 'multiple-choice-scenarios' ||
     a.type === 'fill-blank' ||
     a.type === 'scenario-tree' ||
+    a.type === 'scenario-response' ||
     a.type === 'calculation' ||
     a.type === 'roleplay' ||
     a.type === 'image-quiz' ||
     a.type === 'branching-scenario' ||
     a.type === 'timed-challenge' ||
     a.type === 'calculator' ||
-    a.type === 'simulation';
+    a.type === 'simulation' ||
+    a.type === 'matching';
+
+  const isKnowledgeActivity = (a: Activity): boolean =>
+    a.type === 'flashcards' ||
+    a.type === 'quick-quiz' ||
+    a.type === 'concept-matching' ||
+    a.type === 'true-false-challenge' ||
+    a.type === 'memory-game';
+
+  const isSkillBuildingActivity = (a: Activity): boolean =>
+    a.type === 'estimation-calculator' ||
+    a.type === 'damage-assessment' ||
+    a.type === 'photo-analysis' ||
+    a.type === 'price-quote-exercise' ||
+    a.type === 'workflow-simulator';
+
+  const isGamifiedOrPracticalActivity = (a: Activity): boolean =>
+    a.type === 'achievement-unlock' ||
+    a.type === 'leaderboard-challenge' ||
+    a.type === 'streak-tracker' ||
+    a.type === 'badge-collection' ||
+    a.type === 'worksheet' ||
+    a.type === 'checklist-exercise' ||
+    a.type === 'resource-download';
 
   // Enrich image-quiz questions from curated manifest when tagged
   const enrichImageQuiz = (a: Activity): LearningActivity => {
@@ -518,8 +579,12 @@ The professional mastery capstone represents the culmination of comprehensive tr
       10: createAdvancedSalesCycleManagementModule(),
     };
 
-    const content = moduleConfigs[id];
+    let content = moduleConfigs[id];
     if (content) {
+      // For modules 4–9, auto-seed sparse sections to ensure at least 2–3 activities per section
+      if (id >= 4 && id <= 9) {
+        content = augmentSparseSections(content);
+      }
       setModuleContent(content);
     }
   };
@@ -534,6 +599,107 @@ The professional mastery capstone represents the culmination of comprehensive tr
     const totalSections = moduleContent.sections.length;
     const completed = completedSections.size;
     return Math.round((completed / totalSections) * 100);
+  };
+
+  // Auto-augment sparse sections with slide-powered activities
+  const augmentSparseSections = (input: ModuleContent): ModuleContent => {
+    const cloned: ModuleContent = JSON.parse(JSON.stringify(input));
+    const topics: Array<{ key: string; aliases?: string[]; images?: string[] }> =
+      (topicPhotos as any)?.topics || [];
+    const slides: Record<string, string[]> = (slideImages as any)?.slides || {};
+
+    const pickTopicImages = (topicKey: string, count = 2) => {
+      const t = topics.find(t => t.key === topicKey);
+      if (!t || !t.images || t.images.length === 0) return [];
+      return t.images.slice(0, count);
+    };
+
+    const pickAnySlideImages = (count = 2) => {
+      const all: string[] = Object.values(slides).flat();
+      if (all.length === 0) return [];
+      // pick first N unique (deterministic)
+      return all.slice(0, count);
+    };
+
+    const inferTopicForSection = (section: ModuleSection): string | null => {
+      const text = `${section.title} ${section.content}`.toLowerCase();
+      const tryKey = (key: string) => key;
+      const match = (k: string) => text.includes(k);
+      if (match('field portal') || match('sales app') || match('ipad')) return tryKey('field portal app');
+      if (match('discontinued shingle') || match('discontinued')) return tryKey('discontinued shingles');
+      if (match('claim') || match('claims portal') || match('insurance app')) return tryKey('claims filing portal');
+      if (match('commission') || match('earnings')) return tryKey('commission structure');
+      if (match('photo sequence') || match('photo report') || match('photo order')) return tryKey('photo sequence');
+      if (match('adjuster')) return tryKey('adjuster meeting');
+      return null;
+    };
+
+    const buildPhotoAnalysis = (sectionId: string, idx: number, images: string[]): Activity => ({
+      id: `${sectionId}-photo-analysis-${idx + 1}`,
+      title: 'Photo Analysis Challenge',
+      description: 'Identify what these images indicate and choose the best next action.',
+      type: 'photo-analysis',
+      points: 10,
+      data: {
+        images: images.slice(0, 2).map((img, i) => ({
+          id: `${sectionId}-img-${idx}-${i}`,
+          imageUrl: img,
+          description: 'Training slide reference',
+          questions: [
+            {
+              question: 'What does this indicate?',
+              correctAnswer: 'Proceed with documentation',
+              options: ['Proceed with documentation', 'No action needed', 'Cancel inspection'],
+            },
+          ],
+        })),
+      },
+    }) as Activity;
+
+    const buildWorkflowSimulator = (section: ModuleSection): Activity => ({
+      id: `${section.id}-workflow-sim`,
+      title: 'Workflow Simulator',
+      description: 'Practice the correct sequence of actions based on this section.',
+      type: 'workflow-simulator',
+      points: 15,
+      data: {
+        scenario: `Apply the concepts from "${section.title}" in the correct order.`,
+        timeLimit: 240,
+        workflowSteps: [
+          { id: 'prep', step: 'Prepare resources', correctOrder: 1, duration: '30s', tips: ['Review section checklist'] },
+          { id: 'execute', step: 'Execute core step', correctOrder: 2, duration: '1-2m', tips: ['Follow best practices outlined'] },
+          { id: 'document', step: 'Document & upload', correctOrder: 3, duration: '1m', tips: ['Ensure accuracy before upload'] },
+        ],
+        scenarioDetails: section.content?.slice(0, 200) || '',
+      },
+    }) as Activity;
+
+    cloned.sections = cloned.sections.map((section) => {
+      const activities = section.activities ? [...section.activities] : [];
+      const currentCount = activities.length;
+      const minTarget = 3;
+      if (currentCount >= minTarget) return { ...section, activities };
+
+      // Always add one workflow simulator first
+      activities.push(buildWorkflowSimulator(section));
+
+      // Add 1–2 photo-analysis based on topic images or fallback to any slides
+      const topicKey = inferTopicForSection(section);
+      let images = topicKey ? pickTopicImages(topicKey, 2) : pickAnySlideImages(2);
+      if (images.length === 0) images = pickAnySlideImages(2);
+      activities.push(buildPhotoAnalysis(section.id, 0, images));
+
+      if (activities.length < minTarget) {
+        // Add one more photo-analysis if still below target
+        let more = topicKey ? pickTopicImages(topicKey, 2) : pickAnySlideImages(2);
+        if (more.length === 0) more = pickAnySlideImages(2);
+        activities.push(buildPhotoAnalysis(section.id, 1, more));
+      }
+
+      return { ...section, activities };
+    });
+
+    return cloned;
   };
 
   // Section navigation
@@ -612,6 +778,19 @@ The professional mastery capstone represents the culmination of comprehensive tr
   ) => {
     const lines = content.split('\n');
     const elements: React.ReactNode[] = [];
+    const placedActivityIds = new Set<string>();
+    // Curated photo pool for inline images
+    const photos: Array<{ imageUrl: string; tag?: string; notes?: string }> =
+      (photoManifest as any)?.photos || [];
+    const pickPhotoByTag = (tag?: string) => {
+      if (!tag) return null;
+      const pool = photos.filter(p => (p as any).tag === tag);
+      return pool.length ? pool[Math.floor(Math.random() * pool.length)] : null;
+    };
+    // Topic-driven external/reference photos (e.g., Field Portal App, Discontinued Shingles)
+    const topicDefs: Array<{ key: string; aliases?: string[]; images: string[]; caption?: string }>
+      = ((topicPhotos as unknown) as any)?.topics || [];
+    const insertedTopicKeys = new Set<string>();
 
     lines.forEach((line, index) => {
       // Check for activity placeholder: [ACTIVITY:activity-id]
@@ -621,6 +800,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
         const activity = sectionActivities.find(a => a.id === activityId);
 
         if (activity) {
+          placedActivityIds.add(activity.id);
           // Render inline activity card
           elements.push(
             <div
@@ -655,7 +835,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="bg-cyan-600 text-white text-xs font-bold px-2 py-1 rounded uppercase">
+                    <span className="bg-roofRed text-white text-xs font-bold px-2 py-1 rounded uppercase">
                       Interactive Activity
                     </span>
                     <span className="text-xs text-gray-600 capitalize">
@@ -684,11 +864,26 @@ The professional mastery capstone represents the culmination of comprehensive tr
                       content: '',
                       activities: sectionActivities,
                     });
+                  } else if (isKnowledgeActivity(activity) || isSkillBuildingActivity(activity) || isGamifiedOrPracticalActivity(activity)) {
+                    setViewingActivity(activity as unknown as LearningActivity);
+                    setCurrentActivitySection({
+                      id: viewingSection?.id || '',
+                      title: viewingSection?.title || '',
+                      content: '',
+                      activities: sectionActivities,
+                    });
                   } else {
-                    alert('This activity type is not yet supported.');
+                    // Fall back to generic viewer instead of alert
+                    setViewingActivity(activity as unknown as LearningActivity);
+                    setCurrentActivitySection({
+                      id: viewingSection?.id || '',
+                      title: viewingSection?.title || '',
+                      content: '',
+                      activities: sectionActivities,
+                    });
                   }
                 }}
-                className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-6 py-3 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+                className="w-full bg-roofRed hover:bg-roofRed-dark text-white px-6 py-3 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
               >
                 <PlayCircle className="w-5 h-5" />
                 Start Activity
@@ -699,6 +894,81 @@ The professional mastery capstone represents the culmination of comprehensive tr
         }
       }
 
+      // Photo placeholder: [PHOTO:tag=hail] | [PHOTO:random] | [PHOTO:/assets/...]
+      const photoMatch = line.match(/\[PHOTO:([^\]]+)\]/);
+      if (photoMatch) {
+        const spec = photoMatch[1].trim();
+        let photo: any = null;
+        if (spec.startsWith('tag=')) {
+          const tag = spec.split('=')[1];
+          photo = pickPhotoByTag(tag);
+        } else if (spec === 'random') {
+          photo = photos[Math.floor(Math.random() * photos.length)];
+        } else if (spec.startsWith('/assets')) {
+          photo = { imageUrl: spec };
+        }
+
+        if (photo && photo.imageUrl) {
+          elements.push(
+            <div
+              key={`photo-${index}`}
+              className="my-6 rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-sm"
+            >
+              <img
+                src={photo.imageUrl}
+                alt={photo?.notes || 'Training photo'}
+                className="w-full h-auto object-cover"
+              />
+              {(photo?.notes || photo?.tag) && (
+                <div className="px-4 py-3 text-sm text-gray-700 bg-gray-50 border-t border-gray-200">
+                  {photo?.tag && (
+                    <span className="inline-block text-xs font-semibold uppercase tracking-wide text-purple-700 bg-purple-100 rounded px-2 py-0.5 mr-2">
+                      {photo.tag}
+                    </span>
+                  )}
+                  <span className="align-middle">{photo?.notes}</span>
+                </div>
+              )}
+            </div>
+          );
+          return;
+        }
+      }
+
+      // Topic-driven photo injection based on content keywords
+      const maybeInsertTopicPhotos = () => {
+        const lower = (line || '').toLowerCase();
+        for (const t of topicDefs) {
+          const keys = [t.key, ...(t.aliases || [])].map(k => k.toLowerCase());
+          if (!insertedTopicKeys.has(t.key) && keys.some(k => lower.includes(k))) {
+            elements.push(
+              <div
+                key={`topic-photo-${t.key}-${index}`}
+                className="my-6 rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-sm"
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 p-3">
+                  {t.images.slice(0, 2).map((src, i) => (
+                    <img
+                      key={`${t.key}-${i}`}
+                      src={src}
+                      alt={t.caption || t.key}
+                      className="w-full h-auto object-contain bg-white"
+                    />
+                  ))}
+                </div>
+                {t.caption && (
+                  <div className="px-4 py-3 text-sm text-gray-700 bg-gray-50 border-t border-gray-200">
+                    {t.caption}
+                  </div>
+                )}
+              </div>
+            );
+            insertedTopicKeys.add(t.key);
+            break;
+          }
+        }
+      };
+
       // Headers
       if (line.startsWith('### ')) {
         elements.push(
@@ -706,6 +976,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
             {line.replace('### ', '')}
           </h3>
         );
+        maybeInsertTopicPhotos();
         return;
       }
       if (line.startsWith('## ')) {
@@ -717,6 +988,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
             {line.replace('## ', '')}
           </h2>
         );
+        maybeInsertTopicPhotos();
         return;
       }
       if (line.startsWith('# ')) {
@@ -728,6 +1000,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
             {line.replace('# ', '')}
           </h1>
         );
+        maybeInsertTopicPhotos();
         return;
       }
 
@@ -738,6 +1011,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
             {line.replace(/\*\*/g, '')}
           </p>
         );
+        maybeInsertTopicPhotos();
         return;
       }
 
@@ -748,6 +1022,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
             {line.replace('- ', '')}
           </li>
         );
+        maybeInsertTopicPhotos();
         return;
       }
 
@@ -758,11 +1033,62 @@ The professional mastery capstone represents the culmination of comprehensive tr
             {line}
           </p>
         );
+        maybeInsertTopicPhotos();
         return;
       }
 
       elements.push(<br key={index} />);
     });
+
+    // If there are activities without explicit placeholders, surface them at the end
+    if (sectionActivities && placedActivityIds.size < sectionActivities.length) {
+      const remaining = sectionActivities.filter(a => !placedActivityIds.has(a.id));
+      if (remaining.length > 0) {
+        elements.push(
+          <div key="more-activities" className="mt-8">
+            <h4 className="text-lg font-bold text-gray-900 mb-3">More Practice</h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {remaining.map(activity => (
+                <div key={activity.id} className="border-2 border-roofRed/30 rounded-xl p-4 bg-white">
+                  <div className="flex items-center justify-between mb-2">
+                    <h5 className="font-semibold text-gray-900">{activity.title}</h5>
+                    {activity.points ? (
+                      <span className="text-xs bg-roofRed text-white rounded px-2 py-0.5">{activity.points} pts</span>
+                    ) : null}
+                  </div>
+                  <p className="text-sm text-gray-700 mb-3 line-clamp-3">{activity.description}</p>
+                  <button
+                    onClick={() => {
+                      if (isSupportedLearningActivity(activity)) {
+                        const prepared = activity.type === 'image-quiz' ? enrichImageQuiz(activity) : (activity as unknown as LearningActivity);
+                        setViewingActivity(prepared);
+                        setCurrentActivitySection({
+                          id: viewingSection?.id || '',
+                          title: viewingSection?.title || '',
+                          content: '',
+                          activities: sectionActivities,
+                        });
+                      } else if (isKnowledgeActivity(activity) || isSkillBuildingActivity(activity) || isGamifiedOrPracticalActivity(activity)) {
+                        setViewingActivity(activity as unknown as LearningActivity);
+                        setCurrentActivitySection({
+                          id: viewingSection?.id || '',
+                          title: viewingSection?.title || '',
+                          content: '',
+                          activities: sectionActivities,
+                        });
+                      }
+                    }}
+                    className="w-full bg-roofRed hover:bg-roofRed-dark text-white px-4 py-2 rounded-lg font-semibold"
+                  >
+                    Start
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      }
+    }
 
     return elements;
   };
@@ -780,8 +1106,8 @@ The professional mastery capstone represents the culmination of comprehensive tr
     );
   }
 
-  // Render section viewer
-  if (viewingSection) {
+  // Render section viewer (suppressed when an activity is opened to allow split view)
+  if (viewingSection && !viewingActivity) {
     return (
       <motion.div
         initial={{ opacity: 0 }}
@@ -795,7 +1121,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
           className="bg-white rounded-2xl shadow-2xl max-w-5xl w-full my-8 max-h-[90vh] flex flex-col"
         >
           {/* Section Header */}
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 rounded-t-2xl flex-shrink-0">
+          <div className="bg-gradient-to-r from-black to-neutral-900 text-white p-6 rounded-t-2xl flex-shrink-0">
             <div className="flex justify-between items-start mb-4">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-2">
@@ -829,7 +1155,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
 
           {/* Section Content */}
           <div className="flex-1 overflow-auto p-8">
-            <div className="prose prose-lg max-w-none">
+            <div className="prose prose-lg max-w-none prose-headings:font-semibold prose-h2:text-gray-900 prose-p:text-gray-800 prose-strong:text-purple-700 prose-li:marker:text-roofRed prose-a:text-roofRed prose-a:underline">
               {renderMarkdownContent(
                 viewingSection.content,
                 viewingSection.activities
@@ -839,7 +1165,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
             {/* Key Points */}
             {viewingSection.keyPoints &&
               viewingSection.keyPoints.length > 0 && (
-                <div className="mt-8 bg-blue-50 border border-blue-200 rounded-xl p-6">
+                <div className="mt-8 bg-gray-50 border border-gray-200 rounded-xl p-6">
                   <h3 className="text-lg font-bold text-blue-900 mb-3 flex items-center gap-2">
                     <Target className="w-5 h-5" />
                     Key Points
@@ -987,7 +1313,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
                     key={idx}
                     className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg"
                   >
-                    <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-roofRed flex-shrink-0 mt-0.5" />
                     <span className="text-gray-800">{point}</span>
                   </div>
                 ))}
@@ -1006,7 +1332,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
                 setShowAgnesHelper(false);
                 setShowRoleplay(true);
               }}
-              className="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors"
+              className="flex-1 bg-roofRed hover:bg-roofRed-dark text-white font-semibold py-3 px-6 rounded-xl transition-colors"
             >
               Practice Roleplay
             </button>
@@ -1030,34 +1356,82 @@ The professional mastery capstone represents the culmination of comprehensive tr
     );
   }
 
-  // Render Interactive Activity
+  // Render Interactive Activity in Split Screen (or full-screen modal if no lesson section)
   if (viewingActivity && currentActivitySection) {
+    // Check if we have lesson content to display alongside the activity
+    const lessonSection: ModuleSection | null = viewingSection;
+    const hasLessonContent = lessonSection !== null;
+
     return (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 bg-black bg-opacity-60 z-[60] flex items-center justify-center p-4 overflow-auto"
-      >
+      <div className="fixed inset-0 bg-gradient-to-br from-blue-50 to-indigo-100 z-[60] flex">
+        {/* LEFT PANEL - Lesson Content (40%) - Only shown if viewing a lesson section */}
+        {(() => {
+          if (!lessonSection) return null;
+
+          const section: ModuleSection = lessonSection;
+          return (
+            <motion.div
+              initial={{ x: -50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              className="w-2/5 border-r-4 border-blue-600 bg-white overflow-auto shadow-2xl"
+            >
+              {/* Lesson Header */}
+              <div className="bg-gradient-to-r from-black to-neutral-900 text-white p-4 sticky top-0 z-10">
+                <div className="flex items-center gap-2 mb-1">
+                  <BookOpen className="w-4 h-4" />
+                  <span className="text-xs text-blue-100">Lesson Reference</span>
+                </div>
+                <h3 className="text-lg font-bold">{section.title}</h3>
+              </div>
+
+              {/* Lesson Content */}
+              <div className="p-6">
+                <div className="prose prose-sm max-w-none prose-headings:font-semibold prose-h2:text-gray-900 prose-p:text-gray-700 prose-strong:text-purple-700">
+                  {renderMarkdownContent(section.content, [])}
+                </div>
+
+                {/* Key Points */}
+                {section.keyPoints && section.keyPoints.length > 0 && (
+                  <div className="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-4">
+                    <h4 className="text-sm font-bold text-blue-900 mb-2 flex items-center gap-2">
+                      <Target className="w-4 h-4" />
+                      Key Points
+                    </h4>
+                    <ul className="space-y-1 text-sm">
+                      {section.keyPoints.map((point: string, idx: number) => (
+                        <li key={idx} className="flex items-start gap-2 text-blue-800">
+                          <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          );
+        })()}
+
+        {/* RIGHT PANEL - Activity (60% with lesson, 100% without) */}
         <motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          className="bg-white rounded-2xl shadow-2xl max-w-6xl w-full my-8 max-h-[95vh] flex flex-col"
+          initial={{ x: 50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          className={`${hasLessonContent ? 'w-3/5' : 'w-full'} flex flex-col bg-white`}
         >
           {/* Activity Header */}
-          <div className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white p-6 rounded-t-2xl flex-shrink-0">
+          <div className="bg-gradient-to-r from-black to-neutral-900 text-white p-6 flex-shrink-0">
             <div className="flex justify-between items-start">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-2">
                   <PlayCircle className="w-5 h-5" />
-                  <span className="text-sm text-cyan-100">
+                  <span className="text-sm text-gray-300">
                     {currentActivitySection.title}
                   </span>
                 </div>
-                <h2 className="text-3xl font-bold mb-2">
+                <h2 className="text-2xl font-bold mb-2">
                   {viewingActivity.title}
                 </h2>
-                <p className="text-cyan-100 text-sm">
+                <p className="text-gray-300 text-sm">
                   {viewingActivity.description}
                 </p>
               </div>
@@ -1067,6 +1441,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
                   setCurrentActivitySection(null);
                 }}
                 className="text-white hover:text-gray-200 transition-colors ml-4"
+                aria-label="Close activity"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -1074,18 +1449,78 @@ The professional mastery capstone represents the culmination of comprehensive tr
           </div>
 
           {/* Activity Content */}
-          <div className="flex-1 overflow-auto p-8">
-            <InteractiveLearningActivity
-              activity={viewingActivity}
-              onComplete={(score: number) => {
-                console.log('Activity completed with score:', score);
-                // You could add score tracking here
-              }}
-            />
+          <div className="flex-1 overflow-auto p-6">
+            {/* Render appropriate component based on activity type */}
+            {viewingActivity && isSupportedLearningActivity(viewingActivity as Activity) && (
+              <InteractiveLearningActivity
+                activity={viewingActivity}
+                onComplete={(score: number) => {
+                  console.log('Activity completed with score:', score);
+                }}
+              />
+            )}
+            {viewingActivity && isKnowledgeActivity(viewingActivity as Activity) && (
+              <AgnesKnowledgeActivities
+                activity={viewingActivity as unknown as KnowledgeActivity}
+                onComplete={(score: number, totalPoints: number) => {
+                  console.log(`Activity completed: ${score}/${totalPoints}`);
+                }}
+              />
+            )}
+            {viewingActivity && isSkillBuildingActivity(viewingActivity as Activity) && (
+              <AgnesSkillBuilders
+                activity={viewingActivity as unknown as SkillBuildingActivity}
+                onComplete={(score: number, totalPoints: number) => {
+                  console.log(`Activity completed: ${score}/${totalPoints}`);
+                }}
+              />
+            )}
+            {viewingActivity && isGamifiedOrPracticalActivity(viewingActivity as Activity) && (
+              <AgnesGamifiedAndPractical
+                activity={viewingActivity as unknown as GamifiedOrPracticalActivity}
+                onComplete={(score: number, totalPoints: number) => {
+                  console.log(`Activity completed: ${score}/${totalPoints}`);
+                }}
+              />
+            )}
+            {viewingActivity &&
+              !(
+                isSupportedLearningActivity(viewingActivity as Activity) ||
+                isKnowledgeActivity(viewingActivity as Activity) ||
+                isSkillBuildingActivity(viewingActivity as Activity) ||
+                isGamifiedOrPracticalActivity(viewingActivity as Activity)
+              ) && (
+                <div className="bg-white border-2 border-gray-200 rounded-xl p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    {viewingActivity.title || 'Interactive Activity'}
+                  </h3>
+                  <p className="text-gray-700 mb-4">
+                    {viewingActivity.description || 'Review this scenario and mark complete when finished.'}
+                  </p>
+                  {/* Show scenario/instruction text when present */}
+                  {((viewingActivity as any).data?.scenario || (viewingActivity as any).data?.instruction) && (
+                    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 mb-4">
+                      <div className="text-sm text-gray-800 whitespace-pre-wrap">
+                        {((viewingActivity as any).data?.scenario || (viewingActivity as any).data?.instruction) as string}
+                      </div>
+                    </div>
+                  )}
+                  <button
+                    onClick={() => {
+                      console.log('Generic activity completed');
+                      setViewingActivity(null);
+                      setCurrentActivitySection(null);
+                    }}
+                    className="px-6 py-3 bg-roofRed text-white rounded-lg font-semibold hover:bg-roofRed-dark"
+                  >
+                    Mark Complete
+                  </button>
+                </div>
+              )}
           </div>
 
           {/* Activity Footer */}
-          <div className="bg-gray-50 p-6 rounded-b-2xl border-t border-gray-200 flex-shrink-0">
+          <div className="bg-gray-50 p-4 border-t border-gray-200 flex-shrink-0">
             <button
               onClick={() => {
                 setViewingActivity(null);
@@ -1097,7 +1532,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
             </button>
           </div>
         </motion.div>
-      </motion.div>
+      </div>
     );
   }
 
@@ -1135,7 +1570,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
               </div>
               <button
                 onClick={() => setShowRoleplay(true)}
-                className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition-colors"
+                className="bg-roofRed hover:bg-roofRed-dark text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition-colors"
               >
                 <MessageCircle className="w-4 h-4" />
                 Practice with Agnes
@@ -1195,11 +1630,11 @@ The professional mastery capstone represents the culmination of comprehensive tr
                     <BookOpen className="w-8 h-8 text-blue-600" />
                     Module Overview
                   </h2>
-                  <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                    {moduleContent.overview}
-                  </p>
+                  <div className="prose prose-lg max-w-none prose-headings:font-semibold prose-h2:text-gray-900 prose-p:text-gray-800 prose-strong:text-purple-700 prose-li:marker:text-roofRed prose-a:text-roofRed prose-a:underline mb-6">
+                    {renderMarkdownContent(moduleContent.overview)}
+                  </div>
 
-                  <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
+                  <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
                     <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
                       <Target className="w-6 h-6 text-blue-600" />
                       Learning Objectives
@@ -1246,8 +1681,8 @@ The professional mastery capstone represents the culmination of comprehensive tr
                     onClick={() => setShowRoleplay(true)}
                     className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all text-left group"
                   >
-                    <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-600 transition-colors">
-                      <MessageCircle className="w-6 h-6 text-purple-600 group-hover:text-white transition-colors" />
+                    <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-roofRed transition-colors">
+                      <MessageCircle className="w-6 h-6 text-roofRed group-hover:text-white transition-colors" />
                     </div>
                     <h3 className="text-lg font-bold text-gray-800 mb-2">
                       Practice Roleplay
@@ -1330,7 +1765,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
               <div className="space-y-6">
                 <div className="bg-white rounded-xl shadow-lg p-8">
                   <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
-                    <PlayCircle className="w-7 h-7 text-purple-600" />
+                    <PlayCircle className="w-7 h-7 text-roofRed" />
                     Interactive Learning
                   </h2>
 
@@ -1343,7 +1778,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
                       {moduleContent.agnesContent.map(content => (
                         <div
                           key={content.id}
-                          className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border border-purple-200"
+                          className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border border-roofRed/30"
                         >
                           <div className="flex items-start gap-3 mb-3">
                             <div className="text-3xl">
@@ -1370,7 +1805,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
                               setSelectedAgnesContent(content);
                               setShowAgnesHelper(true);
                             }}
-                            className="w-full bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
+                            className="w-full bg-roofRed hover:bg-roofRed-dark text-white px-4 py-2 rounded-lg font-semibold transition-colors"
                           >
                             View Coaching
                           </button>
@@ -1396,7 +1831,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
                             className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-8 border-2 border-cyan-200"
                           >
                             <div className="flex items-start gap-4 mb-4">
-                              <div className="w-12 h-12 bg-cyan-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                              <div className="w-12 h-12 bg-roofRed rounded-xl flex items-center justify-center flex-shrink-0">
                                 <PlayCircle className="w-7 h-7 text-white" />
                               </div>
                               <div className="flex-1">
@@ -1477,7 +1912,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
                                           <h5 className="font-bold text-gray-900 group-hover:text-white transition-colors">
                                             {activity.title}
                                           </h5>
-                                          <p className="text-xs text-gray-600 group-hover:text-cyan-100 capitalize transition-colors">
+                                          <p className="text-xs text-gray-600 group-hover:text-gray-300 capitalize transition-colors">
                                             {activity.type.replace('-', ' ')}{' '}
                                             activity
                                           </p>
@@ -1508,7 +1943,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
                     </p>
                     <button
                       onClick={() => setShowRoleplay(true)}
-                      className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-lg transition-colors inline-flex items-center gap-3"
+                      className="bg-white text-roofRed hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-lg transition-colors inline-flex items-center gap-3"
                     >
                       <MessageCircle className="w-6 h-6" />
                       Start Roleplay Training
@@ -1649,7 +2084,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
                                   selectedAnswers[
                                     moduleContent.quiz[currentQuestionIndex].id
                                   ] === idx
-                                    ? 'border-blue-600 bg-blue-50'
+                                    ? 'border-blue-600 bg-gray-50'
                                     : 'border-gray-200 hover:border-gray-300 bg-white'
                                 }`}
                               >
@@ -1820,7 +2255,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
                       <p className="mb-6">
                         {moduleContent.matchingGame.description}
                       </p>
-                      <button className="bg-white text-purple-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-bold transition-colors">
+                      <button className="bg-white text-roofRed hover:bg-gray-100 px-6 py-3 rounded-lg font-bold transition-colors">
                         Play Matching Game
                       </button>
                     </div>
@@ -1857,7 +2292,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
                       </div>
                     </div>
                     <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 text-center">
-                      <div className="text-4xl font-bold text-purple-600 mb-2">
+                      <div className="text-4xl font-bold text-roofRed mb-2">
                         {quizScore || 0}%
                       </div>
                       <div className="text-sm text-gray-700">Quiz Score</div>

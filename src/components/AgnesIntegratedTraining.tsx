@@ -542,8 +542,8 @@ const AgnesIntegratedTraining: React.FC<AgnesIntegratedTrainingProps> = ({
             : isCompleted
               ? 'border-green-200 shadow-lg hover:shadow-xl'
               : inProgress
-                ? 'border-purple-200 shadow-lg hover:shadow-xl'
-                : 'border-gray-200 hover:border-purple-200 shadow-md hover:shadow-xl'
+                ? 'border-roofRed/30 shadow-lg hover:shadow-xl'
+                : 'border-gray-200 hover:border-roofRed/30 shadow-md hover:shadow-xl'
         }`}
       >
         <div className="relative p-6 pb-4">
@@ -577,7 +577,7 @@ const AgnesIntegratedTraining: React.FC<AgnesIntegratedTrainingProps> = ({
                     isCompleted
                       ? 'text-green-600'
                       : inProgress
-                        ? 'text-purple-600'
+                        ? 'text-roofRed'
                         : 'text-gray-600'
                   }`}
                 />
@@ -628,14 +628,14 @@ const AgnesIntegratedTraining: React.FC<AgnesIntegratedTrainingProps> = ({
 
           {module.instructor && (
             <div className="flex items-center space-x-3 mb-4 p-3 bg-purple-50 rounded-lg border border-purple-100">
-              <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-roofRed rounded-full flex items-center justify-center">
                 <Bot className="w-5 h-5 text-white" />
               </div>
               <div>
                 <div className="text-sm font-medium text-gray-900">
                   {module.instructor.name}
                 </div>
-                <div className="text-xs text-purple-600">
+                <div className="text-xs text-roofRed">
                   AI-Powered Instructor
                 </div>
               </div>
@@ -750,12 +750,12 @@ const AgnesIntegratedTraining: React.FC<AgnesIntegratedTrainingProps> = ({
       <div className="bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl p-6 text-white">
         <div className="flex items-center justify-between mb-4">
           <Bot className="w-8 h-8" />
-          <span className="text-purple-100 text-sm">Agnes AI</span>
+          <span className="text-gray-300 text-sm">Agnes AI</span>
         </div>
         <div className="text-3xl font-bold mb-1">
           {userProgress.agnesInteractions}
         </div>
-        <div className="text-purple-100">Interactions</div>
+        <div className="text-gray-300">Interactions</div>
       </div>
 
       <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-6 text-white">
@@ -803,7 +803,7 @@ const AgnesIntegratedTraining: React.FC<AgnesIntegratedTrainingProps> = ({
               </button>
               <button
                 onClick={() => setShowAgnesChat(true)}
-                className="flex items-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                className="flex items-center px-4 py-2 bg-roofRed text-white rounded-lg hover:bg-roofRed-dark transition-colors"
               >
                 <Bot className="w-4 h-4 mr-2" />
                 Chat with Agnes
@@ -832,7 +832,7 @@ const AgnesIntegratedTraining: React.FC<AgnesIntegratedTrainingProps> = ({
               onClick={() => setSelectedCategory(category.id)}
               className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-all duration-200 ${
                 selectedCategory === category.id
-                  ? 'bg-purple-600 text-white'
+                  ? 'bg-roofRed text-white'
                   : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
               }`}
             >
@@ -840,7 +840,7 @@ const AgnesIntegratedTraining: React.FC<AgnesIntegratedTrainingProps> = ({
               <span
                 className={`px-2 py-1 rounded-full text-xs ${
                   selectedCategory === category.id
-                    ? 'bg-purple-700 text-purple-100'
+                    ? 'bg-purple-700 text-gray-300'
                     : 'bg-gray-200 text-gray-600'
                 }`}
               >
@@ -881,7 +881,7 @@ const AgnesIntegratedTraining: React.FC<AgnesIntegratedTrainingProps> = ({
                 </button>
                 <button
                   onClick={() => setShowAgnesChat(true)}
-                  className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors flex items-center space-x-2"
+                  className="px-4 py-2 bg-roofRed text-white rounded-lg hover:bg-roofRed-dark transition-colors flex items-center space-x-2"
                 >
                   <Bot className="w-4 h-4" />
                   <span>Ask Agnes</span>
@@ -897,12 +897,12 @@ const AgnesIntegratedTraining: React.FC<AgnesIntegratedTrainingProps> = ({
                 Interactive lesson content with Agnes AI guidance would be
                 loaded here.
               </p>
-              <div className="bg-purple-50 border border-purple-200 rounded-lg p-6 max-w-2xl mx-auto">
-                <Bot className="w-12 h-12 text-purple-600 mx-auto mb-4" />
+              <div className="bg-purple-50 border border-roofRed/30 rounded-lg p-6 max-w-2xl mx-auto">
+                <Bot className="w-12 h-12 text-roofRed mx-auto mb-4" />
                 <p className="text-purple-800 font-medium mb-2">
                   Agnes AI is ready to guide you through this lesson!
                 </p>
-                <p className="text-purple-600 text-sm">
+                <p className="text-roofRed text-sm">
                   Click "Chat with Agnes" above to get personalized instruction
                   and answers to your questions.
                 </p>
@@ -921,10 +921,10 @@ const AgnesIntegratedTraining: React.FC<AgnesIntegratedTrainingProps> = ({
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
               <div className="bg-purple-50 rounded-lg p-4">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-purple-600 text-sm font-medium">
+                  <span className="text-roofRed text-sm font-medium">
                     Agnes Confidence
                   </span>
-                  <Bot className="w-4 h-4 text-purple-600" />
+                  <Bot className="w-4 h-4 text-roofRed" />
                 </div>
                 <div className="text-2xl font-bold text-purple-900">
                   {Math.round(agnesMetrics.averageConfidence * 100)}%
@@ -1006,7 +1006,7 @@ const AgnesIntegratedTraining: React.FC<AgnesIntegratedTrainingProps> = ({
             <h3 className="text-xl font-semibold text-gray-900">
               Your Learning Journey
             </h3>
-            <span className="text-2xl font-bold text-purple-600">
+            <span className="text-2xl font-bold text-roofRed">
               {userProgress.overall}%
             </span>
           </div>

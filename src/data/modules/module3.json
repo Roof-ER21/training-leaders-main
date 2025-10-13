@@ -16,7 +16,169 @@
       "id": "sales-app-mastery",
       "title": "Sales App Training - iPad Technology",
       "duration": "45 minutes",
-      "content": "**The Digital Agreement System**\n\nThe Sales App is your primary tool for generating agreements and capturing signatures. Master this technology to streamline your workflow and project professionalism.\n\n**Tyler's $47,000 Contract Win**\n\nTyler Martinez had been struggling with the Sales App for his first week. He would fumble through screens, forget the password, and look unprofessional in front of homeowners. Then came the Morrison property - a massive colonial with obvious hail damage on all four elevations.\n\n\"Mrs. Morrison, I found significant damage across your entire roof,\" Tyler explained after his inspection. \"Let me pull up our agreement on the iPad.\"\n\nFor the first time, Tyler navigated smoothly:\n- Entered customer information once\n- Generated the Contingency Agreement seamlessly\n- Switched to Claim Authorization without re-entering data\n- Collected both signatures with confidence\n- Uploaded to Field Portal before leaving the driveway\n\nThe Morrison claim approved for $47,000 - Tyler's largest deal to date. \"Mastering the Sales App made me look like a pro,\" Tyler said. \"When you can move through technology smoothly, homeowners trust you with a $50,000 decision.\"\n\n**Sales App Core Functions:**\n\n**1. Customer Information Entry**\n- Enter homeowner details once\n- Information saves for multiple agreements\n- Quick lookup for existing customers\n- Automatic population across all documents\n\n**Tyler's Tip:** \"I keep a portable charger in my bag and enter customer info while walking the property. By the time I'm done inspecting, the system is ready for signatures.\"\n\n**2. Agreement Selection & Navigation**\n- **Contingency Agreement** - Primary agreement after inspection\n- **Claim Authorization** - Communication permission form\n- **iTel Agreement** - Discontinued/unavailable shingles\n- **Repair Attempt Agreement** - Documentation of failed repairs\n- **Tarp Agreement** - Emergency service authorization\n\n**3. E-Signature Collection**\n- Homeowner signs directly on iPad\n- Password entry: 'roofer' (lowercase)\n- Automatic timestamp and verification\n- Instant document generation\n\n**4. Document Switching**\n- Navigate between agreements for same customer\n- No need to re-enter customer information\n- Switch seamlessly during single visit\n\n**5. Existing Customer Lookup**\n- Search by name, address, or phone\n- Retrieve previous agreements\n- Add supplemental documents to existing files\n\n**Best Practices:**\n- Keep iPad charged (carry portable charger)\n- Have homeowner hold iPad while signing\n- Verify signature appears before closing document\n- Upload to Field Portal immediately after signature\n- Practice navigating between agreements before field deployment\n\n**Tyler's Final Word:** \"The Sales App is your credibility tool. Master it in training, and you'll close more deals in the field. Fumble through it, and homeowners question if you can handle their $30,000 claim.\"\n\n[ACTIVITY:double-layer-code]\n\n[ACTIVITY:collateral-timed]\n\n"
+      "content": "**The Digital Agreement System**\n\nThe Sales App is your primary tool for generating agreements and capturing signatures. Master this technology to streamline your workflow and project professionalism.\n\n**Tyler's $47,000 Contract Win**\n\nTyler Martinez had been struggling with the Sales App for his first week. He would fumble through screens, forget the password, and look unprofessional in front of homeowners. Then came the Morrison property - a massive colonial with obvious hail damage on all four elevations.\n\n\"Mrs. Morrison, I found significant damage across your entire roof,\" Tyler explained after his inspection. \"Let me pull up our agreement on the iPad.\"\n\nFor the first time, Tyler navigated smoothly:\n- Entered customer information once\n- Generated the Contingency Agreement seamlessly\n- Switched to Claim Authorization without re-entering data\n- Collected both signatures with confidence\n- Uploaded to Field Portal before leaving the driveway\n\nThe Morrison claim approved for $47,000 - Tyler's largest deal to date. \"Mastering the Sales App made me look like a pro,\" Tyler said. \"When you can move through technology smoothly, homeowners trust you with a $50,000 decision.\"\n\n**Sales App Core Functions:**\n\n**1. Customer Information Entry**\n- Enter homeowner details once\n- Information saves for multiple agreements\n- Quick lookup for existing customers\n- Automatic population across all documents\n\n**Tyler's Tip:** \"I keep a portable charger in my bag and enter customer info while walking the property. By the time I'm done inspecting, the system is ready for signatures.\"\n\n**2. Agreement Selection & Navigation**\n- **Contingency Agreement** - Primary agreement after inspection\n- **Claim Authorization** - Communication permission form\n- **iTel Agreement** - Discontinued/unavailable shingles\n- **Repair Attempt Agreement** - Documentation of failed repairs\n- **Tarp Agreement** - Emergency service authorization\n\n**3. E-Signature Collection**\n- Homeowner signs directly on iPad\n- Password entry: 'roofer' (lowercase)\n- Automatic timestamp and verification\n- Instant document generation\n\n**4. Document Switching**\n- Navigate between agreements for same customer\n- No need to re-enter customer information\n- Switch seamlessly during single visit\n\n**5. Existing Customer Lookup**\n- Search by name, address, or phone\n- Retrieve previous agreements\n- Add supplemental documents to existing files\n\n**Best Practices:**\n- Keep iPad charged (carry portable charger)\n- Have homeowner hold iPad while signing\n- Verify signature appears before closing document\n- Upload to Field Portal immediately after signature\n- Practice navigating between agreements before field deployment\n\n**Tyler's Final Word:** \"The Sales App is your credibility tool. Master it in training, and you'll close more deals in the field. Fumble through it, and homeowners question if you can handle their $30,000 claim.\"\n\n[ACTIVITY:double-layer-code]\n\n[ACTIVITY:collateral-timed]\n\n",
+      "activities": [
+        {
+          "id": "agreement-execution-flow",
+          "title": "Agreement Execution Workflow",
+          "description": "Simulate the exact steps to generate and sign Contingency + Claim Authorization in one visit",
+          "type": "workflow-simulator",
+          "points": 20,
+          "data": {
+            "scenario": "Homeowner agrees to move forward after inspection. Execute agreements smoothly on the iPad.",
+            "timeLimit": 300,
+            "workflowSteps": [
+              {
+                "id": "customer",
+                "step": "Enter customer info (once)",
+                "correctOrder": 1,
+                "duration": "1-2m",
+                "tips": [
+                  "Verify spelling and email",
+                  "Pre-fill while walking property"
+                ]
+              },
+              {
+                "id": "contingency",
+                "step": "Generate Contingency Agreement",
+                "correctOrder": 2,
+                "duration": "1m",
+                "tips": [
+                  "Summarize commitment clearly"
+                ]
+              },
+              {
+                "id": "signature1",
+                "step": "Collect e-signature (Contingency)",
+                "correctOrder": 3,
+                "duration": "1m",
+                "tips": [
+                  "Ask homeowner to hold iPad",
+                  "Confirm signature saved"
+                ]
+              },
+              {
+                "id": "claimauth",
+                "step": "Switch to Claim Authorization (no re-entry)",
+                "correctOrder": 4,
+                "duration": "30s",
+                "tips": [
+                  "Demonstrate smooth navigation"
+                ]
+              },
+              {
+                "id": "signature2",
+                "step": "Collect e-signature (Claim Auth)",
+                "correctOrder": 5,
+                "duration": "1m",
+                "tips": [
+                  "Reassure about communication use only"
+                ]
+              },
+              {
+                "id": "upload",
+                "step": "Upload to Field Portal immediately",
+                "correctOrder": 6,
+                "duration": "30s",
+                "tips": [
+                  "Confirm upload completed"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "discontinued-shingle-check",
+          "title": "Discontinued Shingle Identification",
+          "description": "Analyze product references and determine if shingles qualify as discontinued",
+          "type": "photo-analysis",
+          "points": 15,
+          "data": {
+            "images": [
+              {
+                "id": "ds-1",
+                "imageUrl": "/assets/slides/slide-16-image21.jpeg",
+                "description": "Reference image from discontinued shingle deck",
+                "questions": [
+                  {
+                    "question": "Is this shingle likely discontinued?",
+                    "correctAnswer": "Yes",
+                    "options": [
+                      "Yes",
+                      "No",
+                      "Not enough info"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "ds-2",
+                "imageUrl": "/assets/slides/slide-16-image22.jpeg",
+                "description": "Brand/style catalog excerpt",
+                "questions": [
+                  {
+                    "question": "What is the best next step if discontinued?",
+                    "correctAnswer": "Generate iTel/like-kind documentation",
+                    "options": [
+                      "Offer a cheaper alternative",
+                      "Generate iTel/like-kind documentation",
+                      "Skip documentation and proceed"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "double-layer-code",
+          "title": "Placeholder: double-layer-code",
+          "description": "Auto-inserted activity stub for unresolved placeholder.",
+          "type": "multiple-choice",
+          "data": {
+            "question": "This is a placeholder for activity 'double-layer-code'.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ok, got it",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Skip",
+                "isCorrect": false
+              }
+            ],
+            "allowMultiple": false
+          },
+          "points": 5,
+          "agnesTip": "Replace this stub with the intended activity."
+        },
+        {
+          "id": "collateral-timed",
+          "title": "Placeholder: collateral-timed",
+          "description": "Auto-inserted activity stub for unresolved placeholder.",
+          "type": "multiple-choice",
+          "data": {
+            "question": "This is a placeholder for activity 'collateral-timed'.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ok, got it",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Skip",
+                "isCorrect": false
+              }
+            ],
+            "allowMultiple": false
+          },
+          "points": 5,
+          "agnesTip": "Replace this stub with the intended activity."
+        }
+      ]
     },
     {
       "id": "contingency-claim-auth",
@@ -126,7 +288,12 @@
           "type": "multiple-choice",
           "data": {
             "scenario": "EagleView report shows: Total Area: 4,283 sq ft (42.83 squares), Ridge: 312 linear feet, Valley: 168 linear feet. What is the approximate roofing squares?",
-            "options": ["38 squares", "43 squares", "47 squares", "52 squares"],
+            "options": [
+              "38 squares",
+              "43 squares",
+              "47 squares",
+              "52 squares"
+            ],
             "correct": 1,
             "feedback": [
               "Too low - remember to round properly",
@@ -397,7 +564,7 @@
       "activities": [
         {
           "id": "double-layer-code",
-          "title": "Double Layer \u2013 Recover or Tear-off?",
+          "title": "Double Layer – Recover or Tear-off?",
           "description": "Local code and manufacturer guidance when a double layer exists.",
           "type": "multiple-choice",
           "points": 5,
@@ -538,7 +705,7 @@
       "id": "contingency-mastery",
       "title": "Mastering the Contingency Agreement",
       "type": "coaching",
-      "icon": "\ud83d\udcdd",
+      "icon": "📝",
       "content": "The Contingency Agreement is your commitment tool. When delivered properly, it ensures homeowners stay with you through the entire process. When rushed through, you lose $50,000 deals to competitors.\n\nHere's what makes the difference:\n\n**The Psychology:**\nHomeowners hear 'agreement' and get nervous. They think commitment means risk. Your job is to flip that:\n\n'This agreement PROTECTS you. If insurance doesn't fully approve, you owe us nothing. It's null and void. But if they DO approve, this ensures we dedicate our resources to fighting for your claim.'\n\nSee what happened? You turned the agreement from a risk into a protection.\n\n**The Pacing:**\nDon't rush. Take 90 seconds to explain it fully. Homeowners who understand WHY they're signing stay loyal. Homeowners who just 'sign here' shop around later.\n\n**The Confidence Test:**\nIf you can't deliver this script without looking at your notes, you're not ready for the field. Practice until it flows naturally.",
       "points": [
         "The Contingency Agreement commits them ONLY if fully approved - stress this heavily",
@@ -553,7 +720,7 @@
       "id": "eagleview-credibility",
       "title": "EagleView as Your Credibility Weapon",
       "type": "coaching",
-      "icon": "\ud83d\udcd0",
+      "icon": "📐",
       "content": "EagleView isn't just about measurements - it's about positioning yourself as a professional.\n\nWhen you show up to an adjuster meeting with an EagleView report, you communicate:\n- 'I use engineering-grade tools'\n- 'I'm not a rookie door-knocker'\n- 'My numbers are defensible'\n- 'I'm serious about this claim'\n\nAdjusters see hundreds of reps. Most bring notebook sketches. You bring a detailed report with 3D models and precise measurements.\n\n**When to Use EagleView:**\n- Claims over $25,000 (worth the $45 investment)\n- Complex roof structures\n- When measurements might be disputed\n- Properties with difficult roof access\n\n**When to Use Hover:**\n- Simple structures (ranch, basic gable)\n- Smaller claims under $20,000\n- Need instant results\n- Good lighting conditions\n\n**The Investment Mindset:**\nSpending $45 on EagleView for a $40,000 claim is a 0.1% investment. If it increases your approval rate by even 5%, it pays for itself 20 times over.",
       "points": [
         "EagleView = professional credibility with adjusters",
@@ -568,7 +735,7 @@
       "id": "hover-speed-advantage",
       "title": "Hover for Speed and Simplicity",
       "type": "coaching",
-      "icon": "\ud83d\udcf1",
+      "icon": "📱",
       "content": "Hover is your instant measurement tool. While EagleView takes 24 hours, Hover gives you results in 10 minutes.\n\n**The Hover Advantage:**\nYou're at a property. Simple ranch home, maybe 2,400 square feet. Homeowner asks, 'How much will this cost?'\n\nWithout Hover: 'I'll get back to you in a few days with measurements.'\nWith Hover: 'Let me walk around real quick and I'll tell you right now.'\n\nTen minutes later: 'Your roof is 28 squares. With current material costs, insurance will likely approve around $22,000.'\n\nHomeowner is impressed. You closed the information gap immediately.\n\n**Best Practices:**\n- Take 8-12 photos from different angles\n- Walk completely around the property\n- Use in good lighting (avoid late evening)\n- Show the 3D model to homeowner - they love seeing it\n\n**The Balance:**\nUse Hover for speed and simplicity. Use EagleView for precision and credibility. Master both, and you'll have the right tool for every situation.",
       "points": [
         "Hover = instant measurements (10 minutes vs 24 hours)",
@@ -583,7 +750,7 @@
       "id": "docusign-flexibility",
       "title": "DocuSign: Close Deals From Anywhere",
       "type": "coaching",
-      "icon": "\u2709\ufe0f",
+      "icon": "✉️",
       "content": "DocuSign is your freedom tool. It means you're not tied to being physically present for every signature.\n\n**The Modern Sales Rep:**\nOld way: 'I need to drive back to get your signature.'\nNew way: 'I'll send this to your email. Sign it when you're ready.'\n\n**Strategic Uses:**\n\n**1. Remote Closing:**\nYou're traveling, homeowner's claim gets approved. Send DocuSign. Deal closed.\n\n**2. Homeowner Preference:**\nSome homeowners prefer digital. Offer it as an option:\n\n'I can have you sign on the iPad now, or send it to your email so you can review it carefully. What's your preference?'\n\nAbout 30% choose email. They feel less pressured and appreciate the option.\n\n**3. Follow-Up Signatures:**\nHomeowner forgot to sign something. DocuSign gets it done without another visit.\n\n**The Follow-Up Formula:**\n- Send DocuSign\n- Text within 2 hours if not signed: 'Hey, did you get my email? Let me know if you have questions.'\n- Call within 24 hours if still not signed\n\n**Success Rate:**\nWhen you follow up properly, DocuSign has a 90%+ completion rate within 48 hours.",
       "points": [
         "Offer DocuSign as an option to every homeowner - shows you're modern",
@@ -598,7 +765,7 @@
       "id": "documentation-excellence",
       "title": "Documentation Excellence Wins Claims",
       "type": "coaching",
-      "icon": "\ud83d\udcf8",
+      "icon": "📸",
       "content": "Your documentation quality directly impacts your approval rate. Amateur documentation loses claims. Professional documentation wins them.\n\n**The Portrait Rule:**\nThis is non-negotiable. Landscape photos will NOT populate in Photo Report templates. Take every single photo in portrait mode.\n\nWhy? Insurance systems are designed for vertical photos. When you submit landscape photos, they either don't display or display incorrectly, and adjusters reject your report.\n\n**The Professional Standard:**\n\nAMATEUR: Takes 15 random photos, uploads to Field Portal, hopes for the best.\n\nPROFESSIONAL:\n1. Plans photo sequence before climbing ladder\n2. Takes establishing shots (mailbox, full house, all elevations)\n3. Documents collateral damage systematically (front, right, rear, left)\n4. Takes 4-6 close-ups PER SLOPE of circled damage\n5. Documents granule loss in gutters\n6. Organizes photos into Photo Report template\n7. Labels every photo clearly\n8. Submits within 24 hours\n9. Emails to adjuster before meeting\n\n**The Impact:**\nWhen an adjuster receives your Photo Report and sees professional organization and portrait orientation, they think: 'This rep knows what they're doing.'\n\nWhen they receive landscape photos and poor organization, they think: 'Amateur.'\n\nYour documentation sets expectations for everything that follows.",
       "points": [
         "ALWAYS portrait orientation - landscape will not work",

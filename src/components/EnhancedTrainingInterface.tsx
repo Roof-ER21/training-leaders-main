@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ModalPortal from './ModalPortal';
 import analytics from '../utils/analytics';
 import {
   Play,
@@ -319,7 +320,7 @@ const EnhancedTrainingInterface: React.FC<EnhancedTrainingInterfaceProps> = ({
       case 'Beginner':
         return 'bg-green-100 text-green-800 border-green-200';
       case 'Intermediate':
-        return 'bg-blue-100 text-blue-800 border-blue-200';
+        return 'bg-gray-100 text-blue-800 border-gray-200';
       case 'Advanced':
         return 'bg-orange-100 text-orange-800 border-orange-200';
       case 'Expert':
@@ -558,7 +559,7 @@ const EnhancedTrainingInterface: React.FC<EnhancedTrainingInterfaceProps> = ({
         <div className="text-blue-100">Course Progress</div>
       </div>
 
-      <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-2xl p-6 text-white">
+      <div className="bg-gradient-to-r from-black to-neutral-900 rounded-2xl p-6 text-white">
         <div className="flex items-center justify-between mb-4">
           <Zap className="w-8 h-8" />
           <span className="text-green-100 text-sm">Streak</span>
@@ -572,12 +573,12 @@ const EnhancedTrainingInterface: React.FC<EnhancedTrainingInterfaceProps> = ({
       <div className="bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl p-6 text-white">
         <div className="flex items-center justify-between mb-4">
           <Clock className="w-8 h-8" />
-          <span className="text-purple-100 text-sm">Time</span>
+          <span className="text-gray-300 text-sm">Time</span>
         </div>
         <div className="text-3xl font-bold mb-1">
           {userProgress.totalHours}h
         </div>
-        <div className="text-purple-100">Total Learning</div>
+        <div className="text-gray-300">Total Learning</div>
       </div>
 
       <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-6 text-white">
@@ -598,7 +599,7 @@ const EnhancedTrainingInterface: React.FC<EnhancedTrainingInterfaceProps> = ({
       onClick={() => setShowAICoach(true)}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-full shadow-2xl flex items-center justify-center z-40 hover:shadow-3xl transition-all duration-300"
+      className="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-r from-black to-neutral-900 text-white rounded-full shadow-2xl flex items-center justify-center z-40 hover:shadow-3xl transition-all duration-300"
     >
       <Bot className="w-8 h-8" />
       <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white" />
@@ -707,11 +708,12 @@ const EnhancedTrainingInterface: React.FC<EnhancedTrainingInterfaceProps> = ({
     if (!showQuiz || !currentQuizModule) return null;
 
     return (
+      <ModalPortal>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+        className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4"
         onClick={() => setShowQuiz(false)}
       >
         <motion.div
@@ -832,6 +834,7 @@ const EnhancedTrainingInterface: React.FC<EnhancedTrainingInterfaceProps> = ({
           )}
         </motion.div>
       </motion.div>
+      </ModalPortal>
     );
   };
 
@@ -840,6 +843,7 @@ const EnhancedTrainingInterface: React.FC<EnhancedTrainingInterfaceProps> = ({
     if (!showVRTraining) return null;
 
     return (
+      <ModalPortal>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -867,7 +871,7 @@ const EnhancedTrainingInterface: React.FC<EnhancedTrainingInterfaceProps> = ({
             </p>
 
             <div className="grid md:grid-cols-2 gap-4 mb-6">
-              <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+              <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
                 <Shield className="w-6 h-6 text-purple-600 mb-2" />
                 <h3 className="font-semibold text-gray-900 mb-1">
                   Safety Scenarios
@@ -876,7 +880,7 @@ const EnhancedTrainingInterface: React.FC<EnhancedTrainingInterfaceProps> = ({
                   Practice emergency responses in safe VR environment
                 </p>
               </div>
-              <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+              <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
                 <Target className="w-6 h-6 text-blue-600 mb-2" />
                 <h3 className="font-semibold text-gray-900 mb-1">
                   Skill Training
@@ -929,6 +933,7 @@ const EnhancedTrainingInterface: React.FC<EnhancedTrainingInterfaceProps> = ({
           </div>
         </motion.div>
       </motion.div>
+      </ModalPortal>
     );
   };
 
@@ -1061,7 +1066,7 @@ const EnhancedTrainingInterface: React.FC<EnhancedTrainingInterfaceProps> = ({
             >
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-purple-700 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-r from-black to-neutral-900 rounded-full flex items-center justify-center">
                     <Bot className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -1082,7 +1087,7 @@ const EnhancedTrainingInterface: React.FC<EnhancedTrainingInterfaceProps> = ({
               </div>
 
               <div className="space-y-4 mb-6">
-                <div className="p-4 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg border border-purple-200">
+                <div className="p-4 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg border border-gray-200">
                   <p className="text-gray-700 mb-3">
                     Hi! I'm Agnes, your AI learning coach. I can provide
                     personalized guidance, practice sessions, and real-time
@@ -1109,14 +1114,14 @@ const EnhancedTrainingInterface: React.FC<EnhancedTrainingInterfaceProps> = ({
                     </div>
                   </button>
 
-                  <button className="p-3 bg-gray-50 hover:bg-purple-50 rounded-lg text-left transition-colors duration-200 border border-transparent hover:border-purple-200">
+                  <button className="p-3 bg-gray-50 hover:bg-gray-50 rounded-lg text-left transition-colors duration-200 border border-transparent hover:border-gray-200">
                     <Target className="w-5 h-5 text-purple-600 mb-2" />
                     <div className="text-sm font-medium text-gray-900">
                       Skill Assessment
                     </div>
                   </button>
 
-                  <button className="p-3 bg-gray-50 hover:bg-blue-50 rounded-lg text-left transition-colors duration-200 border border-transparent hover:border-blue-200">
+                  <button className="p-3 bg-gray-50 hover:bg-gray-50 rounded-lg text-left transition-colors duration-200 border border-transparent hover:border-gray-200">
                     <MessageSquare className="w-5 h-5 text-blue-600 mb-2" />
                     <div className="text-sm font-medium text-gray-900">
                       Ask Questions
@@ -1138,7 +1143,7 @@ const EnhancedTrainingInterface: React.FC<EnhancedTrainingInterfaceProps> = ({
                     }}
                     className={`p-3 rounded-lg text-left transition-colors duration-200 border border-transparent ${
                       vrSupported
-                        ? 'bg-gradient-to-r from-purple-50 to-blue-50 hover:from-purple-100 hover:to-blue-100 border-purple-200'
+                        ? 'bg-gradient-to-r from-purple-50 to-blue-50 hover:from-purple-100 hover:to-blue-100 border-gray-200'
                         : 'bg-gray-50 hover:bg-gray-100 border-gray-200'
                     }`}
                   >
@@ -1156,7 +1161,7 @@ const EnhancedTrainingInterface: React.FC<EnhancedTrainingInterfaceProps> = ({
 
               <button
                 onClick={() => setShowAICoach(false)}
-                className="w-full py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-purple-800 transition-all duration-200"
+                className="w-full py-3 bg-gradient-to-r from-black to-neutral-900 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-purple-800 transition-all duration-200"
               >
                 Start AI Session
               </button>

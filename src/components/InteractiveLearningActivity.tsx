@@ -17,7 +17,11 @@ import {
   Pause,
   Volume2,
   VolumeX,
+  Sparkles,
+  Shuffle,
 } from 'lucide-react';
+import MultipleChoiceScenariosActivity from './MultipleChoiceScenariosActivity';
+import ScenarioResponseActivity from './ScenarioResponseActivity';
 
 // ========================================
 // TYPES & INTERFACES
@@ -38,7 +42,11 @@ export interface BaseActivity {
     | 'branching-scenario'
     | 'timed-challenge'
     | 'calculator'
-    | 'simulation';
+    | 'simulation'
+    | 'matching'
+    | 'scenario-response'
+    | 'drag-drop-sequence'
+    | 'multiple-choice-scenarios';
   points: number;
   agnesTip?: string;
 }
@@ -207,6 +215,53 @@ export interface SimulationActivity extends BaseActivity {
   };
 }
 
+export interface MatchingActivity extends BaseActivity {
+  type: 'matching';
+  data: {
+    pairs: Array<{
+      id: string;
+      left: string;
+      right: string;
+    }>;
+    shuffleOptions?: boolean; // Default true
+    showHints?: boolean; // Show hints after wrong attempts
+    hintsAfterAttempts?: number; // Default 2
+  };
+}
+
+// New activity types
+export interface ScenarioResponseActivity extends BaseActivity {
+  type: 'scenario-response';
+  data: {
+    scenario: string;
+    correctPoints?: string[];
+    correctApproach?: string[];
+    sampleResponse?: string;
+  };
+}
+
+export interface DragDropSequenceActivity extends BaseActivity {
+  type: 'drag-drop-sequence';
+  data: {
+    items: Array<{ id: string; text: string; category?: string }>;
+    correctOrder: string[];
+  };
+}
+
+export interface MultipleChoiceScenariosActivityType extends BaseActivity {
+  type: 'multiple-choice-scenarios';
+  data: {
+    scenarios: Array<{
+      situation?: string;
+      question?: string;
+      prompt?: string;
+      options: string[];
+      correctAnswer: number | string;
+      explanation?: string;
+    }>;
+  };
+}
+
 export type Activity =
   | DragDropActivity
   | MultipleChoiceActivity
@@ -218,7 +273,11 @@ export type Activity =
   | BranchingScenarioActivity
   | TimedChallengeActivity
   | CalculatorActivity
-  | SimulationActivity;
+  | SimulationActivity
+  | MatchingActivity
+  | ScenarioResponseActivity
+  | DragDropSequenceActivity
+  | MultipleChoiceScenariosActivityType;
 
 interface InteractiveLearningActivityProps {
   activity: Activity;
@@ -247,10 +306,25 @@ const InteractiveLearningActivity: React.FC<
             onComplete={handleComplete}
           />
         );
+      case 'drag-drop-sequence':
+        // Reuse drag-drop component for sequence ordering
+        return (
+          <DragDropActivityComponent
+            activity={activity as unknown as DragDropActivity}
+            onComplete={handleComplete}
+          />
+        );
       case 'multiple-choice':
         return (
           <MultipleChoiceActivityComponent
             activity={activity}
+            onComplete={handleComplete}
+          />
+        );
+      case 'multiple-choice-scenarios':
+        return (
+          <MultipleChoiceScenariosActivity
+            activity={activity as unknown as any}
             onComplete={handleComplete}
           />
         );
@@ -317,6 +391,20 @@ const InteractiveLearningActivity: React.FC<
             onComplete={handleComplete}
           />
         );
+      case 'matching':
+        return (
+          <MatchingGameActivityComponent
+            activity={activity}
+            onComplete={handleComplete}
+          />
+        );
+      case 'scenario-response':
+        return (
+          <ScenarioResponseActivity
+            activity={activity as unknown as any}
+            onComplete={handleComplete}
+          />
+        );
       default:
         return <div>Unknown activity type</div>;
     }
@@ -340,11 +428,11 @@ const InteractiveLearningActivity: React.FC<
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden">
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-600 to-indigo-600 p-6 text-white">
+      <div className="bg-gradient-to-r from-black to-neutral-900 p-6 text-white">
         <div className="flex items-center justify-between">
           <div>
             <h3 className="text-2xl font-bold mb-2">{activity.title}</h3>
-            <p className="text-purple-100">{activity.description}</p>
+            <p className="text-gray-300">{activity.description}</p>
           </div>
           <div className="flex items-center space-x-2 bg-white bg-opacity-20 rounded-lg px-4 py-2">
             <Trophy className="w-5 h-5" />
@@ -378,7 +466,7 @@ const InteractiveLearningActivity: React.FC<
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[110] p-4"
             onClick={() => setShowFeedback(false)}
           >
             <motion.div
@@ -408,7 +496,7 @@ const InteractiveLearningActivity: React.FC<
 
                 <p className="text-gray-600 mb-4">
                   You earned{' '}
-                  <span className="font-bold text-purple-600">{score}</span> out
+                  <span className="font-bold text-roofRed">{score}</span> out
                   of <span className="font-bold">{activity.points}</span> points
                 </p>
 
@@ -441,7 +529,7 @@ const InteractiveLearningActivity: React.FC<
                       setShowFeedback(false);
                       handleRetry();
                     }}
-                    className="flex-1 bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors flex items-center justify-center space-x-2"
+                    className="flex-1 bg-roofRed text-white py-3 rounded-lg font-semibold hover:bg-roofRed-dark transition-colors flex items-center justify-center space-x-2"
                   >
                     <RotateCcw className="w-4 h-4" />
                     <span>Try Again</span>
@@ -530,7 +618,7 @@ const DragDropActivityComponent: React.FC<{
 
   return (
     <div className="space-y-6">
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+      <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
         <p className="text-sm text-blue-800 font-medium">
           Drag and drop the items to arrange them in the correct order. The
           sequence matters!
@@ -578,7 +666,7 @@ const DragDropActivityComponent: React.FC<{
       {!submitted && (
         <button
           onClick={checkAnswer}
-          className="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors flex items-center justify-center space-x-2"
+          className="w-full bg-roofRed text-white py-3 rounded-lg font-semibold hover:bg-roofRed-dark transition-colors flex items-center justify-center space-x-2"
         >
           <CheckCircle className="w-5 h-5" />
           <span>Submit Answer</span>
@@ -684,7 +772,7 @@ const MultipleChoiceActivityComponent: React.FC<{
 
   return (
     <div className="space-y-6">
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+      <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
         <p className="text-lg font-semibold text-gray-900 mb-2">
           {activity.data.question}
         </p>
@@ -720,7 +808,7 @@ const MultipleChoiceActivityComponent: React.FC<{
                     <div
                       className={`w-5 h-5 rounded-full border-2 ${
                         isSelected
-                          ? 'bg-purple-600 border-purple-600'
+                          ? 'bg-roofRed border-purple-600'
                           : 'border-gray-400'
                       } flex items-center justify-center`}
                     >
@@ -752,7 +840,7 @@ const MultipleChoiceActivityComponent: React.FC<{
         <button
           onClick={checkAnswer}
           disabled={selectedOptions.length === 0}
-          className="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+          className="w-full bg-roofRed text-white py-3 rounded-lg font-semibold hover:bg-roofRed-dark transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
         >
           <CheckCircle className="w-5 h-5" />
           <span>Submit Answer</span>
@@ -806,7 +894,7 @@ const FillBlankActivityComponent: React.FC<{
 
   return (
     <div className="space-y-6">
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+      <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
         <p className="text-sm text-blue-800 font-medium">
           Fill in the blanks to complete the text. Type your answers carefully!
         </p>
@@ -865,7 +953,7 @@ const FillBlankActivityComponent: React.FC<{
         <button
           onClick={checkAnswer}
           disabled={Object.keys(answers).length < blanks.length}
-          className="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+          className="w-full bg-roofRed text-white py-3 rounded-lg font-semibold hover:bg-roofRed-dark transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
         >
           <CheckCircle className="w-5 h-5" />
           <span>Submit Answers</span>
@@ -930,9 +1018,9 @@ const ScenarioTreeActivityComponent: React.FC<{
 
   return (
     <div className="space-y-6">
-      <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-purple-200 rounded-lg p-6">
+      <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-roofRed/30 rounded-lg p-6">
         <div className="flex items-start space-x-3">
-          <MessageSquare className="w-6 h-6 text-purple-600 flex-shrink-0 mt-1" />
+          <MessageSquare className="w-6 h-6 text-roofRed flex-shrink-0 mt-1" />
           <div>
             <p className="text-gray-900 text-lg leading-relaxed whitespace-pre-wrap">
               {currentNode.text}
@@ -1004,7 +1092,7 @@ const ScenarioTreeActivityComponent: React.FC<{
 
           <button
             onClick={restartScenario}
-            className="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors flex items-center justify-center space-x-2 mt-4"
+            className="w-full bg-roofRed text-white py-3 rounded-lg font-semibold hover:bg-roofRed-dark transition-colors flex items-center justify-center space-x-2 mt-4"
           >
             <RotateCcw className="w-4 h-4" />
             <span>Try Different Choices</span>
@@ -1046,7 +1134,7 @@ const CalculationActivityComponent: React.FC<{
 
   return (
     <div className="space-y-6">
-      <div className="bg-gradient-to-r from-blue-50 to-cyan-50 border-2 border-blue-200 rounded-lg p-6">
+      <div className="bg-gradient-to-r from-gray-50 to-gray-100 border-2 border-gray-200 rounded-lg p-6">
         <div className="flex items-start space-x-3">
           <Calculator className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
           <div className="flex-1">
@@ -1078,7 +1166,7 @@ const CalculationActivityComponent: React.FC<{
       </div>
 
       {/* Formula */}
-      <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-4">
+      <div className="bg-purple-50 border-2 border-roofRed/30 rounded-lg p-4">
         <h4 className="font-semibold text-gray-900 mb-2">Formula:</h4>
         <code className="text-purple-800 font-mono text-sm bg-white px-3 py-2 rounded block">
           {activity.data.formula}
@@ -1134,7 +1222,7 @@ const CalculationActivityComponent: React.FC<{
             <div className="mt-4">
               <button
                 onClick={() => setShowSteps(!showSteps)}
-                className="text-purple-600 hover:text-purple-700 font-semibold text-sm flex items-center space-x-2"
+                className="text-roofRed hover:text-purple-700 font-semibold text-sm flex items-center space-x-2"
               >
                 <Lightbulb className="w-4 h-4" />
                 <span>{showSteps ? 'Hide' : 'Show'} Step-by-Step Solution</span>
@@ -1160,7 +1248,7 @@ const CalculationActivityComponent: React.FC<{
         <button
           onClick={checkAnswer}
           disabled={!userAnswer}
-          className="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+          className="w-full bg-roofRed text-white py-3 rounded-lg font-semibold hover:bg-roofRed-dark transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
         >
           <CheckCircle className="w-5 h-5" />
           <span>Check Answer</span>
@@ -1250,7 +1338,7 @@ const RoleplayActivityComponent: React.FC<{
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-gradient-to-r from-purple-50 to-pink-50 border-2 border-purple-200 rounded-lg p-6"
+          className="bg-gradient-to-r from-purple-50 to-pink-50 border-2 border-roofRed/30 rounded-lg p-6"
         >
           <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
             <Target className="w-5 h-5 mr-2" />
@@ -1354,7 +1442,7 @@ const RoleplayActivityComponent: React.FC<{
               <button
                 onClick={handleSubmitResponse}
                 disabled={!userResponse.trim()}
-                className="flex-1 bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                className="flex-1 bg-roofRed text-white py-3 rounded-lg font-semibold hover:bg-roofRed-dark transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
               >
                 <ChevronRight className="w-5 h-5" />
                 <span>Continue</span>
@@ -1530,7 +1618,7 @@ const ImageQuizActivityComponent: React.FC<{
               <button
                 onClick={handleSubmit}
                 disabled={!selected}
-                className="px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-300 text-white rounded-lg font-semibold"
+                className="px-4 py-2 bg-roofRed hover:bg-roofRed-dark disabled:bg-gray-300 text-white rounded-lg font-semibold"
               >
                 Submit
               </button>
@@ -1590,7 +1678,7 @@ const BranchingScenarioActivityComponent: React.FC<{
 
   return (
     <div className="space-y-4">
-      <div className="bg-blue-50 border-blue-200 border rounded-lg p-4">
+      <div className="bg-gray-50 border-gray-200 border rounded-lg p-4">
         <p className="text-sm text-blue-800">
           Stage {index + 1} of {activity.data.stages.length}:{' '}
           <strong>{stage.stage}</strong>
@@ -1622,7 +1710,7 @@ const BranchingScenarioActivityComponent: React.FC<{
         <button
           onClick={submit}
           disabled={selected == null}
-          className="px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-300 text-white rounded-lg font-semibold"
+          className="px-4 py-2 bg-roofRed hover:bg-roofRed-dark disabled:bg-gray-300 text-white rounded-lg font-semibold"
         >
           {index < activity.data.stages.length - 1 ? 'Next' : 'Finish'}
         </button>
@@ -1831,7 +1919,7 @@ const CalculatorActivityComponent: React.FC<{
 
       {hasCommissionModel ? (
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="bg-purple-50 border-2 border-purple-200 rounded-xl p-4">
+          <div className="bg-purple-50 border-2 border-roofRed/30 rounded-xl p-4">
             <p className="text-sm text-purple-800">Commission Tier</p>
             <p className="text-2xl font-bold text-purple-900">
               {Math.round(tier * 100)}%
@@ -1843,7 +1931,7 @@ const CalculatorActivityComponent: React.FC<{
               ${downpayment.toLocaleString()}
             </p>
           </div>
-          <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-4">
+          <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-4">
             <p className="text-sm text-blue-800">Completion Commissions</p>
             <p className="text-2xl font-bold text-blue-900">
               ${Math.round(completionCommissions).toLocaleString()}
@@ -1858,7 +1946,7 @@ const CalculatorActivityComponent: React.FC<{
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="bg-purple-50 border-2 border-purple-200 rounded-xl p-4">
+          <div className="bg-purple-50 border-2 border-roofRed/30 rounded-xl p-4">
             <p className="text-sm text-purple-800">RCV</p>
             <p className="text-2xl font-bold text-purple-900">
               ${Math.round(rcv).toLocaleString()}
@@ -1870,7 +1958,7 @@ const CalculatorActivityComponent: React.FC<{
               ${Math.round(depreciation).toLocaleString()}
             </p>
           </div>
-          <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-4">
+          <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-4">
             <p className="text-sm text-blue-800">ACV (Initial Payment)</p>
             <p className="text-2xl font-bold text-blue-900">
               ${Math.round(acv).toLocaleString()}
@@ -1986,6 +2074,378 @@ const SimulationActivityComponent: React.FC<{
           {index < activity.data.scenarios.length - 1 ? 'Next' : 'Finish'}
         </button>
       </div>
+    </div>
+  );
+};
+
+// ========================================
+// MATCHING GAME COMPONENT
+// ========================================
+
+const MatchingGameActivityComponent: React.FC<{
+  activity: MatchingActivity;
+  onComplete: (score: number, total: number) => void;
+}> = ({ activity, onComplete }) => {
+  // Shuffle array utility
+  const shuffleArray = <T,>(array: T[]): T[] => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  };
+
+  // Initialize shuffled options
+  const [leftItems] = useState(
+    activity.data.pairs.map(pair => ({ id: pair.id, text: pair.left }))
+  );
+
+  const [rightItems] = useState(() => {
+    const items = activity.data.pairs.map(pair => ({ id: pair.id, text: pair.right }));
+    return activity.data.shuffleOptions !== false ? shuffleArray(items) : items;
+  });
+
+  const [matches, setMatches] = useState<{ [key: string]: string }>({});
+  const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
+  const [submitted, setSubmitted] = useState(false);
+  const [wrongAttempts, setWrongAttempts] = useState(0);
+  const [matchAnimations, setMatchAnimations] = useState<{ [key: string]: 'correct' | 'incorrect' | null }>({});
+  const [showCelebration, setShowCelebration] = useState(false);
+
+  // Handle selection
+  const handleLeftClick = (leftId: string) => {
+    if (submitted || matches[leftId]) return;
+    setSelectedLeft(leftId);
+  };
+
+  const handleRightClick = (rightId: string) => {
+    if (submitted || !selectedLeft) return;
+
+    const isCorrect = selectedLeft === rightId;
+
+    if (isCorrect) {
+      // Correct match!
+      setMatches(prev => ({ ...prev, [selectedLeft]: rightId }));
+      setMatchAnimations(prev => ({ ...prev, [selectedLeft]: 'correct' }));
+
+      // Check if all matched
+      if (Object.keys(matches).length + 1 === activity.data.pairs.length) {
+        setShowCelebration(true);
+        setTimeout(() => setShowCelebration(false), 3000);
+      }
+
+      setTimeout(() => {
+        setMatchAnimations(prev => ({ ...prev, [selectedLeft]: null }));
+      }, 600);
+    } else {
+      // Incorrect match
+      setMatchAnimations(prev => ({ ...prev, [selectedLeft]: 'incorrect' }));
+      setWrongAttempts(prev => prev + 1);
+
+      setTimeout(() => {
+        setMatchAnimations(prev => ({ ...prev, [selectedLeft]: null }));
+      }, 600);
+    }
+
+    setSelectedLeft(null);
+  };
+
+  const checkAnswer = () => {
+    const correctMatches = Object.entries(matches).filter(
+      ([leftId, rightId]) => leftId === rightId
+    ).length;
+
+    const totalPairs = activity.data.pairs.length;
+    const score = Math.round((correctMatches / totalPairs) * activity.points);
+
+    setSubmitted(true);
+    onComplete(score, activity.points);
+  };
+
+  const isLeftMatched = (leftId: string) => !!matches[leftId];
+  const isRightMatched = (rightId: string) => Object.values(matches).includes(rightId);
+
+  const shouldShowHints =
+    activity.data.showHints &&
+    wrongAttempts >= (activity.data.hintsAfterAttempts || 2);
+
+  const allMatched = Object.keys(matches).length === activity.data.pairs.length;
+
+  return (
+    <div className="space-y-6">
+      {/* Instructions */}
+      <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-roofRed/30 rounded-lg p-4">
+        <div className="flex items-start space-x-3">
+          <Sparkles className="w-5 h-5 text-roofRed flex-shrink-0 mt-0.5" />
+          <div>
+            <p className="text-sm font-semibold text-gray-900 mb-1">How to Play:</p>
+            <p className="text-sm text-gray-700">
+              Click on an item from the left column, then click on its matching pair from the right column.
+              Find all correct matches!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Progress Indicator */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center space-x-2">
+          <Target className="w-4 h-4 text-gray-500" />
+          <span className="text-sm text-gray-600">
+            Matched: {Object.keys(matches).length} / {activity.data.pairs.length}
+          </span>
+        </div>
+        {wrongAttempts > 0 && (
+          <span className="text-sm text-red-600">
+            {wrongAttempts} incorrect attempt{wrongAttempts > 1 ? 's' : ''}
+          </span>
+        )}
+      </div>
+
+      {/* Progress Bar */}
+      <div className="w-full bg-gray-200 rounded-full h-2">
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: `${(Object.keys(matches).length / activity.data.pairs.length) * 100}%` }}
+          className="h-2 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500"
+          transition={{ duration: 0.3 }}
+        />
+      </div>
+
+      {/* Matching Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Left Column */}
+        <div className="space-y-3">
+          <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Items</h4>
+          {leftItems.map((item) => {
+            const isMatched = isLeftMatched(item.id);
+            const isSelected = selectedLeft === item.id;
+            const animation = matchAnimations[item.id];
+
+            return (
+              <motion.div
+                key={item.id}
+                onClick={() => handleLeftClick(item.id)}
+                className={`
+                  relative rounded-lg p-4 cursor-pointer transition-all duration-200 border-2
+                  ${isMatched
+                    ? 'bg-green-50 border-green-500 cursor-default'
+                    : isSelected
+                      ? 'bg-purple-100 border-purple-500 shadow-lg'
+                      : 'bg-white border-gray-300 hover:border-purple-400 hover:shadow-md'
+                  }
+                `}
+                whileHover={!isMatched && !submitted ? { scale: 1.02, x: 5 } : {}}
+                whileTap={!isMatched && !submitted ? { scale: 0.98 } : {}}
+                animate={{
+                  x: animation === 'correct' ? [0, 10, -10, 10, 0] : animation === 'incorrect' ? [0, -10, 10, -10, 0] : 0,
+                  backgroundColor: animation === 'correct'
+                    ? ['#ffffff', '#10b981', '#ffffff']
+                    : animation === 'incorrect'
+                      ? ['#ffffff', '#ef4444', '#ffffff']
+                      : undefined
+                }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="flex items-center space-x-3">
+                  <div className="flex-shrink-0">
+                    {isMatched ? (
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                      >
+                        <CheckCircle className="w-6 h-6 text-green-600" />
+                      </motion.div>
+                    ) : isSelected ? (
+                      <motion.div
+                        animate={{ scale: [1, 1.2, 1] }}
+                        transition={{ repeat: Infinity, duration: 1 }}
+                      >
+                        <div className="w-6 h-6 rounded-full bg-purple-500 flex items-center justify-center">
+                          <Sparkles className="w-4 h-4 text-white" />
+                        </div>
+                      </motion.div>
+                    ) : (
+                      <div className="w-6 h-6 rounded-full border-2 border-gray-400 flex items-center justify-center">
+                        <span className="text-xs text-gray-500">{leftItems.indexOf(item) + 1}</span>
+                      </div>
+                    )}
+                  </div>
+                  <p className={`flex-1 font-medium ${isMatched ? 'text-green-900' : 'text-gray-900'}`}>
+                    {item.text}
+                  </p>
+                </div>
+
+                {/* Hint indicator */}
+                {shouldShowHints && !isMatched && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="absolute top-1 right-1"
+                  >
+                    <Lightbulb className="w-4 h-4 text-yellow-500" />
+                  </motion.div>
+                )}
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Right Column */}
+        <div className="space-y-3">
+          <h4 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">Matches</h4>
+          {rightItems.map((item) => {
+            const isMatched = isRightMatched(item.id);
+            const canSelect = !isMatched && selectedLeft !== null;
+
+            return (
+              <motion.div
+                key={item.id}
+                onClick={() => handleRightClick(item.id)}
+                className={`
+                  rounded-lg p-4 transition-all duration-200 border-2
+                  ${isMatched
+                    ? 'bg-green-50 border-green-500 cursor-default'
+                    : canSelect
+                      ? 'bg-purple-50 border-purple-300 hover:border-purple-500 hover:shadow-md cursor-pointer'
+                      : 'bg-gray-50 border-gray-300 cursor-not-allowed opacity-60'
+                  }
+                `}
+                whileHover={canSelect && !submitted ? { scale: 1.02, x: -5 } : {}}
+                whileTap={canSelect && !submitted ? { scale: 0.98 } : {}}
+              >
+                <div className="flex items-center space-x-3">
+                  <div className="flex-shrink-0">
+                    {isMatched ? (
+                      <motion.div
+                        initial={{ scale: 0, rotate: -180 }}
+                        animate={{ scale: 1, rotate: 0 }}
+                        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                      >
+                        <CheckCircle className="w-6 h-6 text-green-600" />
+                      </motion.div>
+                    ) : (
+                      <div className="w-6 h-6 rounded-full border-2 border-gray-400" />
+                    )}
+                  </div>
+                  <p className={`flex-1 font-medium ${isMatched ? 'text-green-900' : 'text-gray-900'}`}>
+                    {item.text}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Hints section */}
+      {shouldShowHints && !allMatched && !submitted && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-4"
+        >
+          <div className="flex items-start space-x-3">
+            <Lightbulb className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+            <div>
+              <p className="font-semibold text-gray-900 mb-2">Need a hint?</p>
+              <p className="text-sm text-gray-700">
+                Look carefully at the meaning and context of each item. Take your time to think about the connections!
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      )}
+
+      {/* Celebration Animation */}
+      <AnimatePresence>
+        {showCelebration && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            className="fixed inset-0 flex items-center justify-center pointer-events-none z-50"
+          >
+            <motion.div
+              animate={{
+                scale: [1, 1.2, 1],
+                rotate: [0, 10, -10, 0],
+              }}
+              transition={{ duration: 0.6 }}
+              className="bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full p-8 shadow-2xl"
+            >
+              <Trophy className="w-20 h-20 text-white" />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Submit Button */}
+      {allMatched && !submitted && (
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          onClick={checkAnswer}
+          className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-4 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-all duration-200 flex items-center justify-center space-x-3 shadow-lg"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          <Trophy className="w-6 h-6" />
+          <span className="text-lg">Complete and Submit!</span>
+          <Sparkles className="w-6 h-6" />
+        </motion.button>
+      )}
+
+      {/* Shuffle Button (only if not all matched) */}
+      {!allMatched && !submitted && Object.keys(matches).length === 0 && (
+        <button
+          onClick={() => window.location.reload()}
+          className="w-full bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors flex items-center justify-center space-x-2"
+        >
+          <Shuffle className="w-5 h-5" />
+          <span>Restart Game</span>
+        </button>
+      )}
+
+      {/* Results Summary */}
+      {submitted && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-indigo-300 rounded-lg p-6"
+        >
+          <h4 className="font-semibold text-gray-900 mb-4 flex items-center">
+            <CheckCircle className="w-5 h-5 mr-2 text-indigo-600" />
+            Your Results
+          </h4>
+          <div className="space-y-2">
+            {activity.data.pairs.map(pair => {
+              const userMatched = matches[pair.id] === pair.id;
+              return (
+                <div
+                  key={pair.id}
+                  className={`flex items-center justify-between p-3 rounded-lg ${
+                    userMatched ? 'bg-green-100' : 'bg-red-100'
+                  }`}
+                >
+                  <div className="flex items-center space-x-3">
+                    {userMatched ? (
+                      <CheckCircle className="w-5 h-5 text-green-600" />
+                    ) : (
+                      <XCircle className="w-5 h-5 text-red-600" />
+                    )}
+                    <span className="font-medium text-gray-900">{pair.left}</span>
+                  </div>
+                  <span className="text-gray-700">=</span>
+                  <span className="font-medium text-gray-900">{pair.right}</span>
+                </div>
+              );
+            })}
+          </div>
+        </motion.div>
+      )}
     </div>
   );
 };

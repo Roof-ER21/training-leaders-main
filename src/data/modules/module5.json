@@ -15,25 +15,461 @@
       "id": "acv-vs-rcv",
       "title": "ACV vs RCV - Understanding Insurance Payment Structure",
       "duration": "45 minutes",
-      "content": "**The Foundation of Insurance Claims**\n\nUnderstanding ACV and RCV is critical for explaining the payment process to homeowners and managing expectations throughout the sales cycle.\n\n**RCV - Replacement Cost Value**\n\n**Definition:**\nThe full cost to replace the damaged property with new materials of like kind and quality, without deducting for depreciation.\n\n**Key Points:**\n- This is the TOTAL amount the insurance company approves\n- Includes all labor, materials, and overhead\n- Does not account for age or wear of existing roof\n- This is the 'full' insurance estimate amount\n\n**Example:**\nIf a roof replacement costs $25,000, the RCV is $25,000.\n\n---\n\n**ACV - Actual Cash Value**\n\n**Definition:**\nThe Replacement Cost Value MINUS depreciation for age and wear of the existing roof.\n\n**Formula:**\nACV = RCV - Depreciation\n\n**Key Points:**\n- This is the INITIAL payment from insurance\n- Also called the 'downpayment' in our sales process\n- Depreciation is withheld until work is completed\n- Older roofs have higher depreciation\n\n**Example:**\n- RCV (Total): $25,000\n- Depreciation: $5,000\n- **ACV (Initial Payment): $20,000**\n\n---\n\n**Depreciation - The Withheld Amount**\n\n**What It Is:**\nThe amount insurance withholds to account for the age and condition of the existing roof.\n\n**When It Is Released:**\n- After installation is COMPLETED\n- Homeowner submits Certificate of Completion to insurance\n- Insurance releases depreciation payment (usually within 2-4 weeks)\n\n**Why Insurance Withholds It:**\n- Ensures work is actually completed\n- Prevents fraud (homeowner taking money without doing work)\n- Standard industry practice\n\n---\n\n**The Complete Payment Flow:**\n\n**Step 1: Claim Approved**\n- Insurance approves RCV of $25,000\n- Breaks down as: $20,000 (ACV) + $5,000 (Depreciation)\n\n**Step 2: ACV Released (Downpayment)**\n- Insurance sends $20,000 to homeowner\n- Homeowner submits this to Roof-ER as downpayment\n- Project Meeting scheduled\n- Installation scheduled for 4-6 weeks out\n\n**Step 3: Installation Completed**\n- Production team completes work\n- Quality control inspection\n- Homeowner signs Certificate of Completion\n\n**Step 4: Depreciation Released (Final Payment)**\n- Certificate submitted to insurance\n- Insurance releases $5,000 depreciation\n- Homeowner pays Roof-ER: $5,000 (depreciation) + deductible\n\n---\n\n**Explaining to Homeowners:**\n\n**Simple Script:**\n'Insurance approves claims in two payments. The first payment is called ACV - that is the full amount minus depreciation for your old roof. You will submit that as the downpayment, and we will schedule your installation.\n\nAfter we complete the work, you will sign a Certificate of Completion. Insurance then releases the depreciation payment. At that point, you will pay us the depreciation plus your deductible, and we are all done.\n\nYour total out-of-pocket cost is just your deductible. The rest is covered by insurance.'\n\n**Key Phrases:**\n- 'ACV is the downpayment'\n- 'Depreciation comes after work is done'\n- 'Your only cost is the deductible'\n- 'Insurance pays in two stages to ensure completion'\n\n[ACTIVITY:double-layer-code]\n\n[ACTIVITY:collateral-timed]\n\n"
+      "content": "**The Foundation of Insurance Claims**\n\nUnderstanding ACV and RCV is critical for explaining the payment process to homeowners and managing expectations throughout the sales cycle.\n\n**RCV - Replacement Cost Value**\n\n**Definition:**\nThe full cost to replace the damaged property with new materials of like kind and quality, without deducting for depreciation.\n\n**Key Points:**\n- This is the TOTAL amount the insurance company approves\n- Includes all labor, materials, and overhead\n- Does not account for age or wear of existing roof\n- This is the 'full' insurance estimate amount\n\n**Example:**\nIf a roof replacement costs $25,000, the RCV is $25,000.\n\n---\n\n**ACV - Actual Cash Value**\n\n**Definition:**\nThe Replacement Cost Value MINUS depreciation for age and wear of the existing roof.\n\n**Formula:**\nACV = RCV - Depreciation\n\n**Key Points:**\n- This is the INITIAL payment from insurance\n- Also called the 'downpayment' in our sales process\n- Depreciation is withheld until work is completed\n- Older roofs have higher depreciation\n\n**Example:**\n- RCV (Total): $25,000\n- Depreciation: $5,000\n- **ACV (Initial Payment): $20,000**\n\n---\n\n**Depreciation - The Withheld Amount**\n\n**What It Is:**\nThe amount insurance withholds to account for the age and condition of the existing roof.\n\n**When It Is Released:**\n- After installation is COMPLETED\n- Homeowner submits Certificate of Completion to insurance\n- Insurance releases depreciation payment (usually within 2-4 weeks)\n\n**Why Insurance Withholds It:**\n- Ensures work is actually completed\n- Prevents fraud (homeowner taking money without doing work)\n- Standard industry practice\n\n---\n\n**The Complete Payment Flow:**\n\n**Step 1: Claim Approved**\n- Insurance approves RCV of $25,000\n- Breaks down as: $20,000 (ACV) + $5,000 (Depreciation)\n\n**Step 2: ACV Released (Downpayment)**\n- Insurance sends $20,000 to homeowner\n- Homeowner submits this to Roof-ER as downpayment\n- Project Meeting scheduled\n- Installation scheduled for 4-6 weeks out\n\n**Step 3: Installation Completed**\n- Production team completes work\n- Quality control inspection\n- Homeowner signs Certificate of Completion\n\n**Step 4: Depreciation Released (Final Payment)**\n- Certificate submitted to insurance\n- Insurance releases $5,000 depreciation\n- Homeowner pays Roof-ER: $5,000 (depreciation) + deductible\n\n---\n\n**Explaining to Homeowners:**\n\n**Simple Script:**\n'Insurance approves claims in two payments. The first payment is called ACV - that is the full amount minus depreciation for your old roof. You will submit that as the downpayment, and we will schedule your installation.\n\nAfter we complete the work, you will sign a Certificate of Completion. Insurance then releases the depreciation payment. At that point, you will pay us the depreciation plus your deductible, and we are all done.\n\nYour total out-of-pocket cost is just your deductible. The rest is covered by insurance.'\n\n**Key Phrases:**\n- 'ACV is the downpayment'\n- 'Depreciation comes after work is done'\n- 'Your only cost is the deductible'\n- 'Insurance pays in two stages to ensure completion'\n\n[ACTIVITY:double-layer-code]\n\n[ACTIVITY:collateral-timed]\n\n",
+      "activities": [
+        {
+          "id": "acv-vs-rcv-auto-workflow",
+          "title": "Workflow Simulator - ACV vs RCV - Understanding Insurance Payment Structure",
+          "description": "Practice the correct sequence of actions based on this section.",
+          "type": "workflow-simulator",
+          "points": 15,
+          "data": {
+            "scenario": "Apply the concepts from \"ACV vs RCV - Understanding Insurance Payment Structure\" in the correct order.",
+            "timeLimit": 240,
+            "workflowSteps": [
+              {
+                "id": "prep",
+                "step": "Prepare resources",
+                "correctOrder": 1,
+                "duration": "30s",
+                "tips": [
+                  "Review checklist"
+                ]
+              },
+              {
+                "id": "execute",
+                "step": "Execute core step",
+                "correctOrder": 2,
+                "duration": "1-2m",
+                "tips": [
+                  "Follow best practices"
+                ]
+              },
+              {
+                "id": "document",
+                "step": "Document & upload",
+                "correctOrder": 3,
+                "duration": "1m",
+                "tips": [
+                  "Ensure accuracy before upload"
+                ]
+              }
+            ],
+            "scenarioDetails": "**The Foundation of Insurance Claims**\n\nUnderstanding ACV and RCV is critical for explaining the payment process to homeowners and managing expectations throughout the sales cycle.\n\n**RCV - Replacemen"
+          }
+        },
+        {
+          "id": "acv-vs-rcv-photo-analysis-1",
+          "title": "Photo Analysis - claims filing portal",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "acv-vs-rcv-img-1",
+                "imageUrl": "/assets/slides/slide-54-image390.PNG",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "acv-vs-rcv-photo-analysis-2",
+          "title": "Photo Analysis - claims filing portal",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "acv-vs-rcv-img-1",
+                "imageUrl": "/assets/slides/slide-54-image49.PNG",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "double-layer-code",
+          "title": "Placeholder: double-layer-code",
+          "description": "Auto-inserted activity stub for unresolved placeholder.",
+          "type": "multiple-choice",
+          "data": {
+            "question": "This is a placeholder for activity 'double-layer-code'.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ok, got it",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Skip",
+                "isCorrect": false
+              }
+            ],
+            "allowMultiple": false
+          },
+          "points": 5,
+          "agnesTip": "Replace this stub with the intended activity."
+        },
+        {
+          "id": "collateral-timed",
+          "title": "Placeholder: collateral-timed",
+          "description": "Auto-inserted activity stub for unresolved placeholder.",
+          "type": "multiple-choice",
+          "data": {
+            "question": "This is a placeholder for activity 'collateral-timed'.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ok, got it",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Skip",
+                "isCorrect": false
+              }
+            ],
+            "allowMultiple": false
+          },
+          "points": 5,
+          "agnesTip": "Replace this stub with the intended activity."
+        }
+      ]
     },
     {
       "id": "deductible-explained",
       "title": "Understanding and Explaining Deductibles",
       "duration": "35 minutes",
-      "content": "**The Homeowner's Financial Responsibility**\n\nThe deductible is the homeowner's share of the claim. Your ability to explain this clearly builds trust and sets proper expectations.\n\n**What Is a Deductible?**\n\nThe amount the homeowner pays out-of-pocket before insurance coverage kicks in for the remaining cost.\n\n**Common Deductible Structures:**\n\n**1. Flat Deductible**\n- Fixed dollar amount\n- Examples: $1,000, $2,500, $5,000\n- Most common structure\n\n**Example:**\n- Total claim: $25,000\n- Deductible: $1,000\n- **Insurance pays:** $24,000\n- **Homeowner pays:** $1,000\n\n**2. Percentage Deductible**\n- Percentage of dwelling coverage\n- Examples: 1%, 2%, 5%\n- Common in high-wind or coastal areas\n\n**Example:**\n- Dwelling coverage: $300,000\n- Deductible: 2%\n- **Deductible amount:** $6,000\n- Total claim: $25,000\n- **Insurance pays:** $19,000\n- **Homeowner pays:** $6,000\n\n**3. Wind/Hail Deductible**\n- Separate deductible specifically for wind/hail claims\n- Often higher than standard deductible\n- May be percentage-based\n\n---\n\n**When Is the Deductible Paid?**\n\n**Timeline:**\nDeductible is paid at FINAL PAYMENT, not upfront.\n\n**Payment Flow:**\n1. **Downpayment:** Homeowner submits ACV (no deductible yet)\n2. **Installation:** Work completed\n3. **Final Payment:** Homeowner pays depreciation + deductible\n\n**Important Clarification:**\nMany homeowners think they pay the deductible upfront. Correct this misconception:\n\n'Your deductible is paid at the very end, after the work is completed. For the downpayment, you just submit what insurance sends you (the ACV). At the end, you will pay the depreciation release plus your deductible.'\n\n---\n\n**Common Deductible Questions:**\n\n**Q: 'Can you waive my deductible?'**\nA: 'We cannot legally waive deductibles - that is insurance fraud. Your policy requires you to pay your deductible, and insurance companies actively audit to ensure compliance. What we CAN do is help you get the maximum approved claim amount, which might include additional items like gutters, siding, or other storm damage that increase the value you get from your claim.'\n\n**Q: 'What if I cannot afford my deductible?'**\nA: 'I understand. Let me see what we find first. If you do have qualifying damage, we can discuss timeline options with our Project Coordinator. Many homeowners find that including additional items like gutters or siding in the claim provides more value than the deductible cost. Let us see what insurance approves first, then we will talk through your options.'\n\n**Q: 'Other roofers said they would cover my deductible'**\nA: 'I appreciate you being upfront about that. Here is the issue - that is insurance fraud, and it puts you at serious risk. Insurance companies audit deductible payments, and if they find the contractor paid it, they can rescind your entire claim and you would owe the full amount back. We follow the law and protect you from that risk. We are GAF Master Elite certified and maintain that status by doing things the right way.'\n\n---\n\n**Finding Out the Deductible:**\n\n**During Initial Pitch:**\n'By the way, do you know who your insurance company is? [Wait] Great, we work with them all the time. Do you happen to know your deductible? [If yes, note it. If no:] No problem - we will find out when we file the claim.'\n\n**During Claim Filing:**\n- Check homeowner's insurance app or policy documents\n- Look for Declarations Page\n- Note deductible amount in CRM\n- Factor into Project Meeting discussion\n\n---\n\n**Explaining Deductible Value:**\n\n'Think of your deductible as a copay. If you need a $25,000 roof and your deductible is $1,000, you are getting $24,000 in value for $1,000 out of pocket. That is why it is worth filing the claim even if you do not think damage is severe - if it qualifies, you get a new roof for a fraction of the cost.'"
+      "content": "**The Homeowner's Financial Responsibility**\n\nThe deductible is the homeowner's share of the claim. Your ability to explain this clearly builds trust and sets proper expectations.\n\n**What Is a Deductible?**\n\nThe amount the homeowner pays out-of-pocket before insurance coverage kicks in for the remaining cost.\n\n**Common Deductible Structures:**\n\n**1. Flat Deductible**\n- Fixed dollar amount\n- Examples: $1,000, $2,500, $5,000\n- Most common structure\n\n**Example:**\n- Total claim: $25,000\n- Deductible: $1,000\n- **Insurance pays:** $24,000\n- **Homeowner pays:** $1,000\n\n**2. Percentage Deductible**\n- Percentage of dwelling coverage\n- Examples: 1%, 2%, 5%\n- Common in high-wind or coastal areas\n\n**Example:**\n- Dwelling coverage: $300,000\n- Deductible: 2%\n- **Deductible amount:** $6,000\n- Total claim: $25,000\n- **Insurance pays:** $19,000\n- **Homeowner pays:** $6,000\n\n**3. Wind/Hail Deductible**\n- Separate deductible specifically for wind/hail claims\n- Often higher than standard deductible\n- May be percentage-based\n\n---\n\n**When Is the Deductible Paid?**\n\n**Timeline:**\nDeductible is paid at FINAL PAYMENT, not upfront.\n\n**Payment Flow:**\n1. **Downpayment:** Homeowner submits ACV (no deductible yet)\n2. **Installation:** Work completed\n3. **Final Payment:** Homeowner pays depreciation + deductible\n\n**Important Clarification:**\nMany homeowners think they pay the deductible upfront. Correct this misconception:\n\n'Your deductible is paid at the very end, after the work is completed. For the downpayment, you just submit what insurance sends you (the ACV). At the end, you will pay the depreciation release plus your deductible.'\n\n---\n\n**Common Deductible Questions:**\n\n**Q: 'Can you waive my deductible?'**\nA: 'We cannot legally waive deductibles - that is insurance fraud. Your policy requires you to pay your deductible, and insurance companies actively audit to ensure compliance. What we CAN do is help you get the maximum approved claim amount, which might include additional items like gutters, siding, or other storm damage that increase the value you get from your claim.'\n\n**Q: 'What if I cannot afford my deductible?'**\nA: 'I understand. Let me see what we find first. If you do have qualifying damage, we can discuss timeline options with our Project Coordinator. Many homeowners find that including additional items like gutters or siding in the claim provides more value than the deductible cost. Let us see what insurance approves first, then we will talk through your options.'\n\n**Q: 'Other roofers said they would cover my deductible'**\nA: 'I appreciate you being upfront about that. Here is the issue - that is insurance fraud, and it puts you at serious risk. Insurance companies audit deductible payments, and if they find the contractor paid it, they can rescind your entire claim and you would owe the full amount back. We follow the law and protect you from that risk. We are GAF Master Elite certified and maintain that status by doing things the right way.'\n\n---\n\n**Finding Out the Deductible:**\n\n**During Initial Pitch:**\n'By the way, do you know who your insurance company is? [Wait] Great, we work with them all the time. Do you happen to know your deductible? [If yes, note it. If no:] No problem - we will find out when we file the claim.'\n\n**During Claim Filing:**\n- Check homeowner's insurance app or policy documents\n- Look for Declarations Page\n- Note deductible amount in CRM\n- Factor into Project Meeting discussion\n\n---\n\n**Explaining Deductible Value:**\n\n'Think of your deductible as a copay. If you need a $25,000 roof and your deductible is $1,000, you are getting $24,000 in value for $1,000 out of pocket. That is why it is worth filing the claim even if you do not think damage is severe - if it qualifies, you get a new roof for a fraction of the cost.'",
+      "activities": [
+        {
+          "id": "deductible-explained-auto-workflow",
+          "title": "Workflow Simulator - Understanding and Explaining Deductibles",
+          "description": "Practice the correct sequence of actions based on this section.",
+          "type": "workflow-simulator",
+          "points": 15,
+          "data": {
+            "scenario": "Apply the concepts from \"Understanding and Explaining Deductibles\" in the correct order.",
+            "timeLimit": 240,
+            "workflowSteps": [
+              {
+                "id": "prep",
+                "step": "Prepare resources",
+                "correctOrder": 1,
+                "duration": "30s",
+                "tips": [
+                  "Review checklist"
+                ]
+              },
+              {
+                "id": "execute",
+                "step": "Execute core step",
+                "correctOrder": 2,
+                "duration": "1-2m",
+                "tips": [
+                  "Follow best practices"
+                ]
+              },
+              {
+                "id": "document",
+                "step": "Document & upload",
+                "correctOrder": 3,
+                "duration": "1m",
+                "tips": [
+                  "Ensure accuracy before upload"
+                ]
+              }
+            ],
+            "scenarioDetails": "**The Homeowner's Financial Responsibility**\n\nThe deductible is the homeowner's share of the claim. Your ability to explain this clearly builds trust and sets proper expectations.\n\n**What Is a Deducti"
+          }
+        },
+        {
+          "id": "deductible-explained-photo-analysis-1",
+          "title": "Photo Analysis - claims filing portal",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "deductible-explained-img-1",
+                "imageUrl": "/assets/slides/slide-54-image390.PNG",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "deductible-explained-photo-analysis-2",
+          "title": "Photo Analysis - claims filing portal",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "deductible-explained-img-1",
+                "imageUrl": "/assets/slides/slide-54-image49.PNG",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "id": "claims-approval-pathway",
       "title": "The Claims Approval Pathway - From Filing to Payment",
       "duration": "50 minutes",
-      "content": "**Navigating the Insurance Claims Process**\n\nUnderstanding the complete pathway helps you set homeowner expectations and know when to escalate issues.\n\n**STAGE 1: Claim Filing (Day 0)**\n\n**Activities:**\n- Help homeowner file claim via app/website/phone\n- Collect claim number\n- Sign Contingency Agreement\n- Sign Claim Authorization\n- Submit documents to Field Portal\n\n**Timeline:** Same day as inspection\n\n**Outcome:** Claim filed, adjuster meeting will be scheduled\n\n---\n\n**STAGE 2: Adjuster Meeting Scheduled (Days 1-2)**\n\n**Activities:**\n- Insurance calls homeowner within 24-48 hours\n- Adjuster assigned to claim\n- Meeting date/time scheduled (typically 2-7 days out)\n- You attend with homeowner\n\n**Timeline:** 2-7 days after filing\n\n**Your Role:**\n- Arrive 15-30 minutes early\n- Chalk metals (not shingles) day before\n- Walk roof with adjuster\n- Point out all documented damage\n- Answer adjuster questions professionally\n\n---\n\n**STAGE 3A: Estimate Pending (Week 1-2)**\n\n**What It Means:**\nAdjuster found matching damage and will generate an estimate for approval.\n\n**Activities:**\n- Adjuster writes estimate\n- Desk review by insurance (if required)\n- Estimate sent to homeowner\n- Office reviews estimate for accuracy\n\n**Timeline:** 1-2 weeks after adjuster meeting\n\n**Your Role:**\n- Create and submit Photo Report\n- Email Photo Report + Claim Auth to adjuster\n- Follow up weekly on estimate status\n- Notify homeowner of progress\n\n**Best Outcome:** Full approval estimate generated\n\n---\n\n**STAGE 3B: Decision Pending (Week 1-2)**\n\n**What It Means:**\nAdjuster needs desk review before making determination. May indicate uncertainty about coverage.\n\n**Activities:**\n- Adjuster submits findings to supervisor\n- Desk adjuster reviews photos and notes\n- Decision made on coverage\n\n**Timeline:** 1-2 weeks after adjuster meeting\n\n**Your Role:**\n- Submit comprehensive Photo Report immediately\n- Include all damage documentation\n- Email to adjuster with Claim Auth\n- Prepare for potential partial or denial\n\n**Possible Outcomes:**\n- Full approval\n- Partial approval\n- Denial\n\n---\n\n**STAGE 4A: Full Approval - ACV Released (Week 2-3)**\n\n**What It Means:**\nInsurance approved full claim and is releasing the ACV payment to homeowner.\n\n**Activities:**\n- Insurance generates full estimate\n- ACV check/payment sent to homeowner\n- Roof-ER office reviews estimate\n- Project Coordinator assigned\n- Project Meeting scheduled\n\n**Timeline:** Within 1 week of approval\n\n**Your Role:**\n- Celebrate with homeowner!\n- Confirm ACV received\n- Explain next steps (Project Meeting)\n- **Receive $1,000 downpayment commission**\n\n---\n\n**STAGE 4B: Partial Approval or Denial (Week 2+)**\n\n**What It Means:**\nInsurance approved some items but not others, or denied the claim entirely.\n\n**Activities:**\n- Review what was/was not approved\n- Select appropriate template response\n- Submit supplemental evidence\n- Escalate if needed\n\n**Timeline:** Varies - can take weeks to months\n\n**Your Role:**\n- Analyze partial approval details\n- Use template library for response\n- Consult training scenarios (Q501-Q600)\n- Escalate to Team Leader if needed\n- Keep homeowner informed\n\n**Escalation Path:**\n1. Template response with evidence\n2. Team Leader review\n3. Sales Manager involvement\n4. Complaint to state regulator\n5. Arbitration (if appropriate)\n\n---\n\n**STAGE 5: Project Meeting (Week 3-4)**\n\n**What It Means:**\nHomeowner meets with Project Coordinator to finalize project details and submit downpayment.\n\n**Activities:**\n- Review project scope\n- Select product options\n- Sign project documents\n- Submit ACV (downpayment)\n- Schedule installation (4-6 weeks out)\n\n**Timeline:** Within days of ACV receipt\n\n**Your Role:** Limited - Project Coordinator handles this stage\n\n---\n\n**STAGE 6: Installation (Week 7-10)**\n\n**What It Means:**\nProduction team completes the installation.\n\n**Timeline:** 4-6 weeks after downpayment\n\n**Your Role:** Minimal - track via Trade Calendar\n\n---\n\n**STAGE 7: Final Payment (Week 9-12)**\n\n**What It Means:**\nWork complete, final payment collected.\n\n**Activities:**\n- Homeowner signs Certificate of Completion\n- Certificate submitted to insurance\n- Insurance releases depreciation\n- Homeowner pays depreciation + deductible\n\n**Timeline:** 2-4 weeks after installation\n\n**Your Role:**\n- Ensure Certificate is submitted\n- Follow up if delays occur\n- **Receive completion commission (6-16% based on volume)**\n\n---\n\n**Total Timeline:**\n**9-16 weeks** from initial knock to final payment (if full approval)\n\n**Key Principle:**\nSet expectations early. Let homeowners know this is a process, not an instant transaction."
+      "content": "**Navigating the Insurance Claims Process**\n\nUnderstanding the complete pathway helps you set homeowner expectations and know when to escalate issues.\n\n**STAGE 1: Claim Filing (Day 0)**\n\n**Activities:**\n- Help homeowner file claim via app/website/phone\n- Collect claim number\n- Sign Contingency Agreement\n- Sign Claim Authorization\n- Submit documents to Field Portal\n\n**Timeline:** Same day as inspection\n\n**Outcome:** Claim filed, adjuster meeting will be scheduled\n\n---\n\n**STAGE 2: Adjuster Meeting Scheduled (Days 1-2)**\n\n**Activities:**\n- Insurance calls homeowner within 24-48 hours\n- Adjuster assigned to claim\n- Meeting date/time scheduled (typically 2-7 days out)\n- You attend with homeowner\n\n**Timeline:** 2-7 days after filing\n\n**Your Role:**\n- Arrive 15-30 minutes early\n- Chalk metals (not shingles) day before\n- Walk roof with adjuster\n- Point out all documented damage\n- Answer adjuster questions professionally\n\n---\n\n**STAGE 3A: Estimate Pending (Week 1-2)**\n\n**What It Means:**\nAdjuster found matching damage and will generate an estimate for approval.\n\n**Activities:**\n- Adjuster writes estimate\n- Desk review by insurance (if required)\n- Estimate sent to homeowner\n- Office reviews estimate for accuracy\n\n**Timeline:** 1-2 weeks after adjuster meeting\n\n**Your Role:**\n- Create and submit Photo Report\n- Email Photo Report + Claim Auth to adjuster\n- Follow up weekly on estimate status\n- Notify homeowner of progress\n\n**Best Outcome:** Full approval estimate generated\n\n---\n\n**STAGE 3B: Decision Pending (Week 1-2)**\n\n**What It Means:**\nAdjuster needs desk review before making determination. May indicate uncertainty about coverage.\n\n**Activities:**\n- Adjuster submits findings to supervisor\n- Desk adjuster reviews photos and notes\n- Decision made on coverage\n\n**Timeline:** 1-2 weeks after adjuster meeting\n\n**Your Role:**\n- Submit comprehensive Photo Report immediately\n- Include all damage documentation\n- Email to adjuster with Claim Auth\n- Prepare for potential partial or denial\n\n**Possible Outcomes:**\n- Full approval\n- Partial approval\n- Denial\n\n---\n\n**STAGE 4A: Full Approval - ACV Released (Week 2-3)**\n\n**What It Means:**\nInsurance approved full claim and is releasing the ACV payment to homeowner.\n\n**Activities:**\n- Insurance generates full estimate\n- ACV check/payment sent to homeowner\n- Roof-ER office reviews estimate\n- Project Coordinator assigned\n- Project Meeting scheduled\n\n**Timeline:** Within 1 week of approval\n\n**Your Role:**\n- Celebrate with homeowner!\n- Confirm ACV received\n- Explain next steps (Project Meeting)\n- **Receive $1,000 downpayment commission**\n\n---\n\n**STAGE 4B: Partial Approval or Denial (Week 2+)**\n\n**What It Means:**\nInsurance approved some items but not others, or denied the claim entirely.\n\n**Activities:**\n- Review what was/was not approved\n- Select appropriate template response\n- Submit supplemental evidence\n- Escalate if needed\n\n**Timeline:** Varies - can take weeks to months\n\n**Your Role:**\n- Analyze partial approval details\n- Use template library for response\n- Consult training scenarios (Q501-Q600)\n- Escalate to Team Leader if needed\n- Keep homeowner informed\n\n**Escalation Path:**\n1. Template response with evidence\n2. Team Leader review\n3. Sales Manager involvement\n4. Complaint to state regulator\n5. Arbitration (if appropriate)\n\n---\n\n**STAGE 5: Project Meeting (Week 3-4)**\n\n**What It Means:**\nHomeowner meets with Project Coordinator to finalize project details and submit downpayment.\n\n**Activities:**\n- Review project scope\n- Select product options\n- Sign project documents\n- Submit ACV (downpayment)\n- Schedule installation (4-6 weeks out)\n\n**Timeline:** Within days of ACV receipt\n\n**Your Role:** Limited - Project Coordinator handles this stage\n\n---\n\n**STAGE 6: Installation (Week 7-10)**\n\n**What It Means:**\nProduction team completes the installation.\n\n**Timeline:** 4-6 weeks after downpayment\n\n**Your Role:** Minimal - track via Trade Calendar\n\n---\n\n**STAGE 7: Final Payment (Week 9-12)**\n\n**What It Means:**\nWork complete, final payment collected.\n\n**Activities:**\n- Homeowner signs Certificate of Completion\n- Certificate submitted to insurance\n- Insurance releases depreciation\n- Homeowner pays depreciation + deductible\n\n**Timeline:** 2-4 weeks after installation\n\n**Your Role:**\n- Ensure Certificate is submitted\n- Follow up if delays occur\n- **Receive completion commission (6-16% based on volume)**\n\n---\n\n**Total Timeline:**\n**9-16 weeks** from initial knock to final payment (if full approval)\n\n**Key Principle:**\nSet expectations early. Let homeowners know this is a process, not an instant transaction.",
+      "activities": [
+        {
+          "id": "claims-approval-pathway-auto-workflow",
+          "title": "Workflow Simulator - The Claims Approval Pathway - From Filing to Payment",
+          "description": "Practice the correct sequence of actions based on this section.",
+          "type": "workflow-simulator",
+          "points": 15,
+          "data": {
+            "scenario": "Apply the concepts from \"The Claims Approval Pathway - From Filing to Payment\" in the correct order.",
+            "timeLimit": 240,
+            "workflowSteps": [
+              {
+                "id": "prep",
+                "step": "Prepare resources",
+                "correctOrder": 1,
+                "duration": "30s",
+                "tips": [
+                  "Review checklist"
+                ]
+              },
+              {
+                "id": "execute",
+                "step": "Execute core step",
+                "correctOrder": 2,
+                "duration": "1-2m",
+                "tips": [
+                  "Follow best practices"
+                ]
+              },
+              {
+                "id": "document",
+                "step": "Document & upload",
+                "correctOrder": 3,
+                "duration": "1m",
+                "tips": [
+                  "Ensure accuracy before upload"
+                ]
+              }
+            ],
+            "scenarioDetails": "**Navigating the Insurance Claims Process**\n\nUnderstanding the complete pathway helps you set homeowner expectations and know when to escalate issues.\n\n**STAGE 1: Claim Filing (Day 0)**\n\n**Activities:"
+          }
+        },
+        {
+          "id": "claims-approval-pathway-photo-analysis-1",
+          "title": "Photo Analysis - field portal app",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "claims-approval-pathway-img-1",
+                "imageUrl": "/assets/slides/slide-10-image11.PNG",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "claims-approval-pathway-photo-analysis-2",
+          "title": "Photo Analysis - field portal app",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "claims-approval-pathway-img-1",
+                "imageUrl": "/assets/slides/slide-10-image8.PNG",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "id": "positioning-as-advocate",
       "title": "Positioning Yourself as the Homeowner's Advocate",
       "duration": "30 minutes",
-      "content": "**Why You Are Essential to the Process**\n\nHomeowners need to understand that you are not just a salesperson - you are their expert advocate navigating a complex insurance system designed to minimize payouts.\n\n**The Insurance Company Reality:**\n\n**Key Message to Homeowners:**\n'Insurance companies are for-profit businesses. While they are legally required to honor valid claims, they have every incentive to deny, delay, or minimize what they pay out. That is where we come in - we are storm damage experts who ensure you get what you are entitled to under your policy.'\n\n**What You Provide:**\n\n**1. Expertise**\n- Specialized training in storm damage identification\n- Experience with thousands of claims\n- Knowledge of policy language and requirements\n- Understanding of building codes and warranty requirements\n\n**Your Script:**\n'We do this every single day. We know exactly what to look for, how to document it, and how to present it to insurance companies to maximize your claim approval. Most homeowners file one or two claims in their lifetime - we file hundreds per year.'\n\n**2. Documentation**\n- Professional photo reports\n- Detailed damage documentation\n- Code requirement citations\n- Manufacturer guideline references\n\n**Your Script:**\n'Insurance companies require specific documentation. We know exactly what they need to approve claims. Our Photo Reports are designed to meet their standards and present the strongest case possible.'\n\n**3. Communication**\n- Direct communication with adjusters\n- Homeowner does not have to be middle-man\n- Professional language and presentation\n- Persistent follow-up\n\n**Your Script:**\n'You will stay CC-ed on all communications, but we will handle the back-and-forth with your insurance company. They can be difficult, and we know how to navigate those conversations professionally and effectively.'\n\n**4. Advocacy**\n- Fighting for full approvals\n- Challenging partial approvals or denials\n- Escalating when necessary\n- Using state regulations and policy language\n\n**Your Script:**\n'If insurance tries to deny or reduce your claim unfairly, we do not just accept it. We have templates, building codes, manufacturer requirements, and state regulations we use to fight for what you are entitled to. We have even filed state complaints and gone to arbitration when needed.'\n\n**5. Simplicity**\n- Handle claims filing\n- Manage adjuster scheduling\n- Submit all documentation\n- Coordinate installation\n- Handle insurance follow-up\n\n**Your Script:**\n'Our job is to make this simple for you. We handle the claims process, the paperwork, the insurance communication, and the installation coordination. You just need to be present for key meetings and approve decisions. We do the heavy lifting.'\n\n---\n\n**Positioning Script (After Inspection):**\n\n'Here is what happens next. I am going to help you file the claim today. The insurance company will schedule an adjuster meeting within a few days, and I will be there with you.\n\nNow here is the reality - insurance companies do not want to pay claims. They are going to look for every reason to deny, reduce, or delay your claim. That is where I come in.\n\nI am a storm damage expert. I do this every day, and I know exactly how to present this evidence to ensure you get what you are entitled to under your policy. I will be your advocate throughout this entire process.\n\nYou will stay informed every step of the way, but I will handle the complexity so you do not have to become an insurance expert overnight. Sound good?'\n\n---\n\n**Handling Homeowner Hesitation:**\n\n**Homeowner:** 'I can probably just handle this myself.'\n\n**Your Response:**\n'You absolutely could, and you have that right. But here is what most homeowners do not realize - insurance adjusters are trained to minimize claims. If you do not know the policy language, code requirements, and manufacturer warranties, you are at a disadvantage.\n\nWe represent you at no cost if the claim is not approved. If it is approved, your only cost is your deductible - which you would pay anyway if you handled it yourself. The difference is we dramatically increase your chances of full approval because we know exactly what insurance companies require.'\n\n---\n\n**The GAF Master Elite Differentiator:**\n\n'One more thing - we are GAF Master Elite certified, which means we are in the top 2% of roofing contractors nationwide. We did not earn that status by cutting corners or doing things the wrong way. We follow the law, we use proper documentation, and we fight for our customers professionally and ethically. You can look us up right now and see our reviews and credentials.'\n\n---\n\n**Key Takeaway:**\nYou are not selling roofing services - you are providing expert advocacy in a complex, adversarial process. Position yourself as the knowledgeable guide who protects homeowners from an insurance system designed to minimize payouts."
+      "content": "**Why You Are Essential to the Process**\n\nHomeowners need to understand that you are not just a salesperson - you are their expert advocate navigating a complex insurance system designed to minimize payouts.\n\n**The Insurance Company Reality:**\n\n**Key Message to Homeowners:**\n'Insurance companies are for-profit businesses. While they are legally required to honor valid claims, they have every incentive to deny, delay, or minimize what they pay out. That is where we come in - we are storm damage experts who ensure you get what you are entitled to under your policy.'\n\n**What You Provide:**\n\n**1. Expertise**\n- Specialized training in storm damage identification\n- Experience with thousands of claims\n- Knowledge of policy language and requirements\n- Understanding of building codes and warranty requirements\n\n**Your Script:**\n'We do this every single day. We know exactly what to look for, how to document it, and how to present it to insurance companies to maximize your claim approval. Most homeowners file one or two claims in their lifetime - we file hundreds per year.'\n\n**2. Documentation**\n- Professional photo reports\n- Detailed damage documentation\n- Code requirement citations\n- Manufacturer guideline references\n\n**Your Script:**\n'Insurance companies require specific documentation. We know exactly what they need to approve claims. Our Photo Reports are designed to meet their standards and present the strongest case possible.'\n\n**3. Communication**\n- Direct communication with adjusters\n- Homeowner does not have to be middle-man\n- Professional language and presentation\n- Persistent follow-up\n\n**Your Script:**\n'You will stay CC-ed on all communications, but we will handle the back-and-forth with your insurance company. They can be difficult, and we know how to navigate those conversations professionally and effectively.'\n\n**4. Advocacy**\n- Fighting for full approvals\n- Challenging partial approvals or denials\n- Escalating when necessary\n- Using state regulations and policy language\n\n**Your Script:**\n'If insurance tries to deny or reduce your claim unfairly, we do not just accept it. We have templates, building codes, manufacturer requirements, and state regulations we use to fight for what you are entitled to. We have even filed state complaints and gone to arbitration when needed.'\n\n**5. Simplicity**\n- Handle claims filing\n- Manage adjuster scheduling\n- Submit all documentation\n- Coordinate installation\n- Handle insurance follow-up\n\n**Your Script:**\n'Our job is to make this simple for you. We handle the claims process, the paperwork, the insurance communication, and the installation coordination. You just need to be present for key meetings and approve decisions. We do the heavy lifting.'\n\n---\n\n**Positioning Script (After Inspection):**\n\n'Here is what happens next. I am going to help you file the claim today. The insurance company will schedule an adjuster meeting within a few days, and I will be there with you.\n\nNow here is the reality - insurance companies do not want to pay claims. They are going to look for every reason to deny, reduce, or delay your claim. That is where I come in.\n\nI am a storm damage expert. I do this every day, and I know exactly how to present this evidence to ensure you get what you are entitled to under your policy. I will be your advocate throughout this entire process.\n\nYou will stay informed every step of the way, but I will handle the complexity so you do not have to become an insurance expert overnight. Sound good?'\n\n---\n\n**Handling Homeowner Hesitation:**\n\n**Homeowner:** 'I can probably just handle this myself.'\n\n**Your Response:**\n'You absolutely could, and you have that right. But here is what most homeowners do not realize - insurance adjusters are trained to minimize claims. If you do not know the policy language, code requirements, and manufacturer warranties, you are at a disadvantage.\n\nWe represent you at no cost if the claim is not approved. If it is approved, your only cost is your deductible - which you would pay anyway if you handled it yourself. The difference is we dramatically increase your chances of full approval because we know exactly what insurance companies require.'\n\n---\n\n**The GAF Master Elite Differentiator:**\n\n'One more thing - we are GAF Master Elite certified, which means we are in the top 2% of roofing contractors nationwide. We did not earn that status by cutting corners or doing things the wrong way. We follow the law, we use proper documentation, and we fight for our customers professionally and ethically. You can look us up right now and see our reviews and credentials.'\n\n---\n\n**Key Takeaway:**\nYou are not selling roofing services - you are providing expert advocacy in a complex, adversarial process. Position yourself as the knowledgeable guide who protects homeowners from an insurance system designed to minimize payouts.",
+      "activities": [
+        {
+          "id": "positioning-as-advocate-auto-workflow",
+          "title": "Workflow Simulator - Positioning Yourself as the Homeowner's Advocate",
+          "description": "Practice the correct sequence of actions based on this section.",
+          "type": "workflow-simulator",
+          "points": 15,
+          "data": {
+            "scenario": "Apply the concepts from \"Positioning Yourself as the Homeowner's Advocate\" in the correct order.",
+            "timeLimit": 240,
+            "workflowSteps": [
+              {
+                "id": "prep",
+                "step": "Prepare resources",
+                "correctOrder": 1,
+                "duration": "30s",
+                "tips": [
+                  "Review checklist"
+                ]
+              },
+              {
+                "id": "execute",
+                "step": "Execute core step",
+                "correctOrder": 2,
+                "duration": "1-2m",
+                "tips": [
+                  "Follow best practices"
+                ]
+              },
+              {
+                "id": "document",
+                "step": "Document & upload",
+                "correctOrder": 3,
+                "duration": "1m",
+                "tips": [
+                  "Ensure accuracy before upload"
+                ]
+              }
+            ],
+            "scenarioDetails": "**Why You Are Essential to the Process**\n\nHomeowners need to understand that you are not just a salesperson - you are their expert advocate navigating a complex insurance system designed to minimize p"
+          }
+        },
+        {
+          "id": "positioning-as-advocate-photo-analysis-1",
+          "title": "Photo Analysis - claims filing portal",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "positioning-as-advocate-img-1",
+                "imageUrl": "/assets/slides/slide-54-image390.PNG",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "positioning-as-advocate-photo-analysis-2",
+          "title": "Photo Analysis - claims filing portal",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "positioning-as-advocate-img-1",
+                "imageUrl": "/assets/slides/slide-54-image49.PNG",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
   "interactiveLearning": [
@@ -615,7 +1051,7 @@
       "activities": [
         {
           "id": "double-layer-code",
-          "title": "Double Layer \u2013 Recover or Tear-off?",
+          "title": "Double Layer – Recover or Tear-off?",
           "description": "Local code and manufacturer guidance when a double layer exists.",
           "type": "multiple-choice",
           "points": 5,
@@ -756,7 +1192,7 @@
       "id": "insurance-expertise",
       "title": "Becoming an Insurance Claims Expert",
       "type": "interactive",
-      "icon": "\ud83d\udee1\ufe0f",
+      "icon": "🛡️",
       "content": "Understanding insurance is what separates amateur sales reps from trusted advisors. When you master ACV vs RCV, deductibles, and the claims pathway, homeowners see you as an essential advocate, not just a contractor.",
       "points": [
         "ACV = RCV minus depreciation (the initial payment)",
@@ -771,7 +1207,7 @@
       "id": "acv-rcv-deep-dive",
       "title": "ACV vs RCV Deep Dive - Real Claim Examples",
       "type": "interactive",
-      "icon": "\ud83d\udcb0",
+      "icon": "💰",
       "content": "Let me walk you through three real claims from our reps last quarter to show you exactly how ACV, RCV, and depreciation work in practice.\n\n**Angela's $54,000 Claim Story:**\n\nAngela inspected a home with a 15-year-old roof. The adjuster initially wrote an estimate for $42,000 RCV with $12,000 in depreciation, giving the homeowner only $30,000 ACV. Angela knew something was wrong.\n\nShe reviewed the estimate and found the adjuster used 'repair' pricing instead of 'replacement' pricing for several sections. She submitted a supplement request citing the policy language requiring 'like kind and quality' materials, and provided three contractor bids showing the true replacement cost was $54,000.\n\nInsurance approved the supplement. The new breakdown was:\n- RCV: $54,000 (total approved)\n- Depreciation: $10,000 (withheld until completion)\n- ACV: $44,000 (initial payment to homeowner)\n- Deductible: $2,500\n\nHomeowner submitted the $44,000 as downpayment. After installation, insurance released the $10,000 depreciation, and the homeowner paid $12,500 final payment ($10,000 + $2,500 deductible).\n\nAngela earned $1,000 downpayment commission plus 12% completion commission on a $54,000 project.\n\n**The Lesson:** Always review estimates carefully. Insurance often undervalues RCV to reduce their payout. If something looks wrong, challenge it with documentation.\n\n---\n\n**Marcus's Percentage Deductible Situation:**\n\nMarcus met with a homeowner who had a 2% wind/hail deductible on a $400,000 dwelling policy. The claim was approved for $32,000 RCV with $7,000 depreciation.\n\nHere is where it got interesting - the deductible was:\n$400,000 x 2% = $8,000 deductible\n\nBreakdown:\n- RCV: $32,000\n- Depreciation: $7,000\n- ACV: $25,000 (initial payment)\n- Deductible: $8,000\n\nThe homeowner was shocked at the $8,000 deductible. Marcus explained:\n\n'I understand that feels high. Here is the math - your policy has a 2% deductible based on your $400,000 dwelling coverage. That means on any claim, you pay the first $8,000. But look at what you are getting - insurance is paying $24,000 toward a new roof, and you are getting $32,000 worth of value for $8,000 out of pocket. That is still a 4-to-1 return on your investment.'\n\nThe homeowner agreed to proceed. Marcus made sure to document the deductible conversation thoroughly so there were no surprises at final payment.\n\n**The Lesson:** Calculate percentage deductibles EARLY and set expectations. Do not wait until final payment to surprise homeowners with a large deductible.\n\n---\n\n**Tasha's Depreciation Release Strategy:**\n\nTasha completed a project where the homeowner received $28,000 ACV and was expecting $6,000 in depreciation release. After installation, the homeowner signed the Certificate of Completion and submitted it to insurance.\n\nTwo weeks passed - no depreciation payment. Tasha called the insurance company and found out they were waiting for 'proof of payment' before releasing depreciation.\n\nTasha worked with the Project Coordinator to provide:\n- Signed contract showing full payment terms\n- Invoices showing downpayment received\n- Certificate of Completion\n- Photos of completed work\n\nInsurance released the depreciation within 3 days.\n\n**The Lesson:** Insurance often delays depreciation releases to hold onto cash longer. Be proactive about following up and provide any documentation they request immediately.\n\n---\n\n**Your ACV/RCV Mastery Checklist:**\n\n1. Always confirm RCV is based on replacement cost, not repair cost\n2. Calculate percentage deductibles early using dwelling coverage amount\n3. Explain ACV as the downpayment and depreciation as the final payment component\n4. Set expectations for 2-4 week depreciation release timeline\n5. Follow up proactively if depreciation is delayed\n6. Review every estimate for accuracy - challenge undervaluations with documentation\n7. Help homeowners understand their total out-of-pocket is just the deductible\n\n**Common Homeowner Questions You Will Face:**\n\nQ: 'Why is insurance holding back depreciation?'\nA: 'Insurance withholds depreciation to ensure the work actually gets completed. It protects them from fraud. Once we finish and you submit the Certificate of Completion, they release it - typically within 2-4 weeks.'\n\nQ: 'Can I keep the depreciation money?'\nA: 'The depreciation is part of the project cost. It is included in our contract price. You submit the ACV as downpayment, and after we complete the work, you pay us the depreciation plus your deductible as final payment. Your total out-of-pocket is just your deductible.'\n\nQ: 'What if insurance does not release the depreciation?'\nA: 'That almost never happens if the work is completed properly. We provide the Certificate of Completion with photos, and insurance releases it. If there are any issues, we have a process to escalate and ensure you get what you are entitled to.'",
       "points": [
         "Angela turned a $42K claim into $54K by challenging repair vs replacement pricing",
@@ -788,7 +1224,7 @@
       "id": "depreciation-calculation-strategies",
       "title": "Understanding Depreciation Calculation Strategies",
       "type": "interactive",
-      "icon": "\ud83d\udcca",
+      "icon": "📊",
       "content": "Depreciation is where insurance companies play games. Understanding how they calculate it gives you the power to challenge unfair reductions and maximize claim values.\n\n**How Insurance Calculates Depreciation:**\n\n**Method 1: Age-Based Straight-Line Depreciation**\n\nMost common method for roofing:\n- Roof lifespan expectancy: 20-25 years (varies by material)\n- Annual depreciation: Total RCV / Expected lifespan\n- Total depreciation: Annual depreciation x Roof age\n\n**Example:**\n- RCV: $30,000\n- Expected lifespan: 20 years\n- Annual depreciation: $30,000 / 20 = $1,500 per year\n- Roof age: 12 years\n- **Total depreciation: $1,500 x 12 = $18,000**\n- **ACV: $30,000 - $18,000 = $12,000**\n\nSee the problem? A 12-year-old roof loses $18,000 in depreciation, leaving only $12,000 ACV. This is where you need to fight for the homeowner.\n\n---\n\n**Method 2: Condition-Based Depreciation**\n\nSome adjusters use condition instead of pure age:\n- Poor condition: 70-90% depreciation\n- Fair condition: 40-60% depreciation\n- Good condition: 20-30% depreciation\n- Excellent condition: 0-15% depreciation\n\n**Example:**\n- RCV: $30,000\n- Roof condition: Fair (adjuster assesses 50% depreciation)\n- **Total depreciation: $30,000 x 50% = $15,000**\n- **ACV: $30,000 - $15,000 = $15,000**\n\n---\n\n**The Depreciation Challenge Strategy:**\n\nWhen depreciation seems excessive, challenge it using these arguments:\n\n**Argument 1: Functional vs Cosmetic Damage**\n\n'The depreciation calculation assumes cosmetic wear, but the damage we are claiming is functional - storm damage that compromised the roof system. Functional damage should not be depreciated at the same rate as normal wear and tear.'\n\n**Argument 2: Maintenance and Care**\n\n'This homeowner has maintained the roof properly with regular inspections and minor repairs. The roof was in excellent condition before the storm. Condition-based depreciation should reflect that care.'\n\n**Argument 3: Code Requirements**\n\n'Current building codes require upgrades that did not exist when this roof was installed. The RCV includes code-required improvements, which cannot be depreciated because they were not part of the original roof.'\n\n**Argument 4: Manufacturer Warranty Remaining**\n\n'This roof has a 30-year manufacturer warranty with 15 years remaining. The depreciation calculation assumes end-of-life, but the manufacturer stands behind the product for another 15 years. This should reduce depreciation significantly.'\n\n---\n\n**Miguel's $12K Supplement Win:**\n\nMiguel had a claim approved for $28,000 RCV with $14,000 depreciation on a 14-year-old roof. That left only $14,000 ACV - barely enough for downpayment.\n\nMiguel reviewed the estimate and saw the adjuster used straight-line depreciation assuming a 20-year lifespan. But the roof was architectural shingles with a 30-year warranty.\n\nHe submitted a supplement request:\n\n'The depreciation calculation uses a 20-year lifespan, but these are GAF Timberline HDZ architectural shingles with a 30-year warranty. The correct annual depreciation should be $28,000 / 30 years = $933 per year. At 14 years old, total depreciation should be $13,062, not $14,000.\n\nAdditionally, the homeowner maintained this roof with regular inspections and minor repairs. It was in good condition before the storm, warranting condition-based depreciation of 30% maximum, which would be $8,400.\n\nFinally, the storm damage is functional, not cosmetic wear. Functional damage should not carry the same depreciation as age-based wear.\n\nWe request depreciation be reduced to $8,400 based on actual roof condition and care.'\n\nInsurance approved a reduction to $10,000 depreciation, increasing the ACV to $18,000. Miguel just added $4,000 to the claim value with one email.\n\n**New breakdown:**\n- RCV: $28,000\n- Depreciation: $10,000 (reduced from $14,000)\n- ACV: $18,000 (increased from $14,000)\n- Homeowner got $4,000 more at downpayment\n\n---\n\n**Depreciation Red Flags:**\n\nWatch for these signs that depreciation is excessive:\n\n1. **Depreciation over 50% of RCV** - Almost always challengeable\n2. **Straight-line on warranted products** - Use warranty period instead\n3. **No consideration of condition** - Push for condition-based assessment\n4. **Functional damage depreciated** - Argue storm damage is not wear and tear\n5. **Code upgrades depreciated** - Code items cannot be depreciated\n\n---\n\n**Your Depreciation Mastery Action Plan:**\n\n1. **Note roof age during inspection** - Ask homeowner or check records\n2. **Assess actual condition** - Document if well-maintained\n3. **Identify shingle type and warranty** - Check manufacturer specs\n4. **Review estimate carefully** - Calculate expected depreciation\n5. **Challenge if excessive** - Use supplement request templates\n6. **Provide supporting documentation** - Photos, maintenance records, warranty info\n7. **Follow up persistently** - Insurance often approves on second request\n\n**Key Principle:** Depreciation is negotiable. Do not accept it as final - challenge excessive depreciation with documentation and policy language.",
       "points": [
         "Straight-line depreciation: RCV / lifespan x age (often unfair)",
@@ -806,7 +1242,7 @@
       "id": "working-with-adjusters",
       "title": "Working with Insurance Adjusters Effectively",
       "type": "interactive",
-      "icon": "\ud83e\udd1d",
+      "icon": "🤝",
       "content": "The adjuster meeting is where claims are won or lost. Understanding adjuster psychology and using professional strategies dramatically increases your approval rates.\n\n**The Adjuster's Reality:**\n\nAdjusters are not your enemy, but understand their position:\n- They handle 30-50 claims simultaneously\n- They are evaluated on cost containment (keeping payouts low)\n- They have limited time per claim (30-60 minutes typical)\n- They deal with dishonest contractors regularly\n- They have authority to approve up to certain limits\n- They want to close files quickly and move on\n\n**Your Strategy:** Make their job easy while presenting undeniable evidence.\n\n---\n\n**Tasha's $18K to $31K Adjuster Meeting Success:**\n\nTasha had an adjuster meeting scheduled for a home with obvious hail damage - dented metals, bruised shingles, damaged gutters. She prepared meticulously.\n\n**Pre-Meeting Preparation:**\n- Chalked all metal damage the day before (not shingles - that is obvious tampering)\n- Printed Photo Report with 40+ damage photos\n- Brought manufacturer spec sheets showing granule loss standards\n- Reviewed adjuster's name and looked up their approval history on internal database\n- Arrived 30 minutes early to walk roof alone and note key damage locations\n\n**During the Meeting:**\n\nAdjuster arrived and introduced himself. Tasha was professional and friendly:\n\n'Good morning, I am Tasha with Roof-ER. Thanks for coming out. I have walked the property and documented the damage - I think you will find this is a straightforward storm damage claim. I have a Photo Report ready for you, and I can walk the roof with you to point out the key areas.'\n\nAdjuster appreciated the professionalism and the fact that Tasha was prepared. They walked the roof together.\n\n**Key Moments:**\n\n1. **Granule Loss:** Adjuster said, 'This granule loss looks like normal wear.'\n   - Tasha responded: 'I understand. Here is the GAF spec sheet showing acceptable granule loss standards. This exceeds manufacturer tolerances, which makes it functional damage, not cosmetic wear. GAF would void the warranty based on this level of granule loss.'\n   - Adjuster paused, reviewed the spec sheet, and noted it in his report.\n\n2. **Metal Damage:** Adjuster saw chalked dents but said, 'Some of these look pre-existing.'\n   - Tasha responded: 'That is fair. I chalked the obvious fresh dents - you can see the paint is not oxidized. These match the date of loss storm event. The pre-existing dents are not chalked. I am only claiming damage from the June 15th storm.'\n   - Adjuster appreciated the honesty and approved all chalked metals.\n\n3. **Gutter Damage:** Adjuster initially missed gutter dents.\n   - Tasha: 'Before we wrap up, can we check the gutters? I found several dents consistent with the roof damage.'\n   - They walked the gutters together, and adjuster added them to the estimate.\n\n**The Result:**\n\nAdjuster wrote the estimate for $31,000 RCV (Estimate Pending). Tasha submitted the Photo Report and Claim Authorization the same day. Claim approved 10 days later.\n\nIf Tasha had not been prepared, the adjuster might have written a partial approval for $18,000 (roof only, no gutters, granule loss excluded). Her preparation added $13,000 to the claim.\n\n---\n\n**The Professional Adjuster Meeting Formula:**\n\n**1. Pre-Meeting (Day Before):**\n- Chalk metal damage (vents, drip edge, valleys) - NOT shingles\n- Prepare Photo Report\n- Print manufacturer spec sheets\n- Arrive 30 minutes early\n- Walk roof alone and note key damage areas\n\n**2. Introduction (First 2 Minutes):**\n- Friendly, professional greeting\n- Introduce yourself and your company\n- Thank them for coming\n- Set the tone: 'I think you will find this is straightforward storm damage'\n- Offer Photo Report: 'I have this ready for you to take with you'\n\n**3. Roof Walk (30-45 Minutes):**\n- Let adjuster lead - follow their process\n- Point out damage areas clearly: 'Here is a representative area with impact damage'\n- Use technical terms correctly (granule loss, mat damage, shingle bruising)\n- Bring manufacturer specs if needed: 'Here is the GAF standard for reference'\n- Address objections professionally with evidence\n- Do not argue - present facts and documentation\n\n**4. Closing (Last 5 Minutes):**\n- Ask about timeline: 'When can we expect the estimate?'\n- Confirm next steps: 'Will this be Estimate Pending or Decision Pending?'\n- Provide contact info: 'Here is my card if you need additional information'\n- Thank them again: 'I appreciate your time and thoroughness'\n\n**5. Post-Meeting (Same Day):**\n- Email Photo Report + Claim Authorization to adjuster\n- Subject: 'Re: [Claim Number] - Photo Report and Authorization'\n- Brief message: 'Attached is the Photo Report and Claim Authorization for the property we inspected today. Please let me know if you need any additional information.'\n- Update CRM with meeting notes\n\n---\n\n**What Adjusters Respect:**\n\n1. **Preparation** - Photo Reports, spec sheets, documentation ready\n2. **Professionalism** - No arguing, no pressure, just facts\n3. **Technical knowledge** - Using correct terms and standards\n4. **Honesty** - Acknowledging pre-existing damage, not claiming everything\n5. **Efficiency** - Making their job easier, not harder\n\n**What Adjusters Hate:**\n\n1. **Unprepared contractors** - No documentation, wasting their time\n2. **Aggressive tactics** - Arguing, pressuring, threatening\n3. **Dishonesty** - Claiming pre-existing damage, tampering with evidence\n4. **Ignorance** - Not knowing roofing terms or standards\n5. **Excessive follow-up** - Calling daily for updates\n\n---\n\n**Handling Adjuster Objections:**\n\n**Objection:** 'This looks like normal wear and tear, not storm damage.'\n**Response:** 'I understand your concern. Let me show you the manufacturer specifications for acceptable granule loss. This exceeds those tolerances, which makes it functional damage that would void the warranty. Additionally, all homeowners in this neighborhood filed claims from the same storm event, and several have been approved. This is consistent impact damage from that storm.'\n\n**Objection:** 'I can only approve repairs, not full replacement.'\n**Response:** 'I appreciate you looking at that option. However, code requirements mandate upgrades to the entire roof system when damage exceeds 25% of the roof area. We have documented damage across 40% of the roof, which triggers full replacement under local building codes. I can provide the code citations if helpful.'\n\n**Objection:** 'The damage is not severe enough for a full roof.'\n**Response:** 'I understand. Let me show you the areas of mat damage and bruising. This is functional damage that compromises the waterproofing integrity. Additionally, GAF will not warranty a partial repair - they require full replacement when damage is widespread. The homeowner cannot maintain their manufacturer warranty with a partial repair, which reduces their property value.'\n\n---\n\n**Your Adjuster Meeting Mastery Checklist:**\n\n- [ ] Chalk metal damage day before (not shingles)\n- [ ] Prepare Photo Report and print copies\n- [ ] Bring manufacturer spec sheets\n- [ ] Arrive 30 minutes early\n- [ ] Professional greeting and introduction\n- [ ] Let adjuster lead, you follow\n- [ ] Point out damage clearly with technical terms\n- [ ] Address objections with documentation, not emotion\n- [ ] Ask about timeline and next steps\n- [ ] Thank adjuster professionally\n- [ ] Email Photo Report + Claim Auth same day\n- [ ] Update CRM with meeting notes\n\n**Remember:** The adjuster is doing a job. Make their job easy, provide undeniable evidence, and you will win more approvals.",
       "points": [
         "Adjusters handle 30-50 claims simultaneously - make their job easy",
@@ -824,7 +1260,7 @@
       "id": "claim-defense-supplements",
       "title": "Claim Defense and Supplement Strategies",
       "type": "interactive",
-      "icon": "\u2694\ufe0f",
+      "icon": "⚔️",
       "content": "When insurance denies, reduces, or undervalues a claim, you become the defender. These strategies turn losses into wins.\n\n**The Three Types of Claim Challenges:**\n\n**1. Full Denial** - Insurance denies the entire claim\n**2. Partial Approval** - Insurance approves some items but not others\n**3. Undervaluation** - Insurance approves claim but at reduced pricing\n\n---\n\n**Angela's Full Denial to $54K Approval Story:**\n\nAngela filed a claim for a homeowner with obvious hail damage. The adjuster came out, walked the roof, and issued a denial: 'No covered loss found. Damage appears to be wear and tear consistent with roof age.'\n\nAngela knew this was wrong. She had 40+ photos of clear impact damage, dented metals, and granule loss exceeding manufacturer specs.\n\n**Her Response Strategy:**\n\n**Step 1: Request Detailed Denial Explanation (Day 1)**\n\nAngela called the adjuster and professionally requested specifics:\n\n'I received the denial and want to understand the specific reasons. Can you walk me through what you found that led to the determination this was not storm damage?'\n\nAdjuster explained: 'The granule loss appears age-related, and I did not find sufficient impact marks to indicate hail.'\n\n**Step 2: Gather Additional Evidence (Days 2-3)**\n\nAngela:\n- Pulled NOAA weather reports showing 1.5-inch hail on date of loss\n- Got statements from three neighbors with approved claims\n- Photographed additional impact points missed during first documentation\n- Obtained manufacturer spec sheet showing granule loss thresholds\n- Consulted with engineering team for technical analysis\n\n**Step 3: Submit Formal Appeal with Evidence (Day 4)**\n\nAngela submitted a formal appeal letter:\n\n'We respectfully request reconsideration of the denial for Claim #123456. The attached documentation demonstrates covered storm damage:\n\n1. NOAA Weather Report: 1.5-inch hail confirmed on June 15, 2024 at property location\n2. Neighbor Claims: Three adjoining properties with approved hail claims from same event\n3. Additional Photo Documentation: 15 additional photos showing impact marks previously not documented\n4. Manufacturer Specifications: GAF standards showing granule loss exceeds acceptable tolerances\n5. Engineering Analysis: Technical review confirming impact damage consistent with hail\n\nThe denial stated damage appeared to be wear and tear. However, the evidence clearly shows impact damage from the confirmed hail event. The pattern and severity of damage matches hail impact, not age-related degradation.\n\nWe request a re-inspection with a different adjuster to provide an independent assessment.'\n\n**Step 4: Escalate to Supervisor (Day 8)**\n\nWhen the adjuster did not respond within 5 days, Angela called the supervisor:\n\n'I submitted additional evidence for reconsideration of Claim #123456 on [date], and have not received a response. Given the clear documentation of storm damage and multiple approved claims in the neighborhood from the same event, I would like to request a re-inspection. Can you assign this to another adjuster for an independent review?'\n\nSupervisor agreed to re-inspection.\n\n**Step 5: Second Adjuster Meeting (Day 12)**\n\nNew adjuster came out. Angela was prepared with:\n- Original Photo Report\n- Additional photo documentation\n- NOAA weather report (printed)\n- Neighbor claim approvals (redacted for privacy)\n- Manufacturer spec sheets\n- Engineering analysis\n\nSecond adjuster spent 45 minutes on the roof and wrote an estimate for $54,000 RCV. Claim approved.\n\n**Total Time:** 12 days from denial to approval\n**Angela's Persistence:** Turned $0 into $54,000\n\n---\n\n**The Supplement Strategy Formula:**\n\nWhen insurance undervalues or partially approves a claim, submit a supplement request:\n\n**Supplement Request Template Structure:**\n\n1. **Opening:** Professional acknowledgment\n   - 'We have reviewed the estimate for Claim #[number] and appreciate your initial assessment.'\n\n2. **Specific Items:** Line-by-line additions or corrections\n   - 'We request the following items be added or corrected:'\n   - List each item with justification\n\n3. **Supporting Documentation:** Evidence for each item\n   - Photos\n   - Manufacturer specs\n   - Code citations\n   - Contractor bids\n\n4. **Policy Language:** Reference policy requirements\n   - 'The policy requires like kind and quality replacement, which necessitates these additions.'\n\n5. **Closing:** Professional request for review\n   - 'We respectfully request review and approval of these supplemental items. Please contact me with any questions.'\n\n---\n\n**Common Supplement Scenarios:**\n\n**Scenario 1: Missing Items**\n\nInsurance approved roof but missed gutters, drip edge, or other damaged components.\n\n**Supplement Request:**\n'The estimate includes roof replacement but does not include damaged gutters documented in the attached photos. The hail event damaged gutters on the north and west sides, with visible dents matching roof damage. We request addition of 80 linear feet of gutter replacement.'\n\n**Scenario 2: Repair vs Replacement Pricing**\n\nInsurance used repair pricing instead of full replacement cost.\n\n**Supplement Request:**\n'The estimate uses repair pricing for sections of the roof. However, the policy requires like kind and quality replacement. When damage exceeds 25% of roof area, local building codes mandate full replacement, not repairs. We request the estimate be revised to replacement pricing. Attached are three contractor bids confirming replacement costs.'\n\n**Scenario 3: Code Upgrade Exclusions**\n\nInsurance excluded code-required upgrades.\n\n**Supplement Request:**\n'The estimate excludes ventilation upgrades required by current building codes. While the original roof may not have met code, replacement work must comply with current standards. Local code Section [X] requires [specific requirement]. We request these code-required items be added.'\n\n**Scenario 4: Underlayment Upgrade**\n\nInsurance approved felt underlayment instead of synthetic.\n\n**Supplement Request:**\n'The estimate specifies 15-pound felt underlayment. However, GAF requires synthetic underlayment for their warranty to be valid. The policy requires like kind and quality replacement, which includes maintaining manufacturer warranty coverage. We request upgrade to synthetic underlayment.'\n\n---\n\n**Miguel's $12K Supplement Win:**\n\nMiguel's claim was approved for $32,000 for roof only. He reviewed the estimate and found:\n- Gutters damaged but not included\n- Drip edge not included\n- Repair pricing used instead of replacement\n- Synthetic underlayment excluded\n\nHe submitted a supplement request with:\n- Photos of gutter damage\n- Code citations for drip edge requirements\n- Three contractor bids showing replacement pricing\n- GAF warranty requirements for synthetic underlayment\n\nInsurance approved $11,800 in supplements, bringing total claim to $43,800.\n\n**Breakdown:**\n- Gutters: $3,200\n- Drip edge: $1,800\n- Pricing correction: $5,200\n- Synthetic underlayment: $1,600\n- **Total supplement: $11,800**\n\nMiguel earned additional commission on the increased claim value, and the homeowner got a better project scope.\n\n---\n\n**Supplement Success Principles:**\n\n1. **Review Every Estimate Thoroughly** - Line by line comparison\n2. **Document Everything** - Photos, specs, codes, bids\n3. **Be Specific** - Request exact items with justifications\n4. **Use Policy Language** - Reference policy requirements\n5. **Provide Supporting Evidence** - Make it easy for insurance to approve\n6. **Follow Up Persistently** - Weekly check-ins until resolved\n7. **Escalate When Necessary** - Supervisor, complaint, arbitration\n\n**Key Principle:** Never accept the first estimate as final. Review, supplement, and fight for full value.",
       "points": [
         "Angela turned a full denial into $54K approval with persistent documentation",
@@ -842,7 +1278,7 @@
       "id": "policy-language-advocacy",
       "title": "Policy Language and Homeowner Advocacy Positioning",
       "type": "interactive",
-      "icon": "\ud83d\udccb",
+      "icon": "📋",
       "content": "Insurance policies are written to protect insurance companies, not homeowners. Understanding key policy terms and how to advocate using that language is your superpower.\n\n**Key Policy Terms Every Rep Must Know:**\n\n**1. Like Kind and Quality**\n\n**Policy Language:**\n'We will pay to repair or replace covered property with materials of like kind and quality.'\n\n**What It Means:**\nInsurance must replace damaged property with equivalent materials - not cheaper alternatives, not repairs that reduce value.\n\n**How You Use It:**\n\nScenario: Insurance wants to use 3-tab shingles to replace architectural shingles.\n\nYour Response: 'The policy requires like kind and quality replacement. The existing roof has architectural shingles, which are thicker and more durable than 3-tab. Replacing with 3-tab would reduce property value and not meet the like kind and quality standard. We request architectural shingles be approved per policy terms.'\n\n---\n\n**2. Replacement Cost Value (RCV) vs Actual Cash Value (ACV)**\n\n**Policy Language:**\n'We will pay the replacement cost of damaged property without deduction for depreciation.'\n\n**What It Means:**\nHomeowner has RCV coverage, which means insurance pays full replacement cost after work is completed - not depreciated value.\n\n**How You Use It:**\n\nScenario: Insurance is refusing to release depreciation after work is completed.\n\nYour Response: 'The policy provides replacement cost coverage, which means depreciation should be released after completion. We have submitted the Certificate of Completion and photos of finished work. Per policy terms, depreciation release is now due. Please process the payment within 10 business days.'\n\n---\n\n**3. Code Upgrades and Ordinance Coverage**\n\n**Policy Language:**\n'We will pay for increased costs to comply with ordinances or laws regulating construction.'\n\n**What It Means:**\nInsurance covers the cost of bringing the property up to current building codes, even if original construction did not meet those codes.\n\n**How You Use It:**\n\nScenario: Insurance excluded ventilation upgrades required by current code.\n\nYour Response: 'The policy includes ordinance or law coverage. Current building code requires proper ventilation ratios that the original roof did not meet. Replacement work must comply with current code, and the policy covers these increased costs. We request ventilation upgrades be added per Section [X] of the policy.'\n\n---\n\n**4. Matching and Undamaged Property**\n\n**Policy Language:**\n'If we cannot match materials, we will pay to replace materials on the entire structure.'\n\n**What It Means:**\nIf storm damage requires replacement of part of the roof and materials cannot be matched, insurance pays to replace the entire roof for uniformity.\n\n**How You Use It:**\n\nScenario: Insurance approved one slope only, but shingles are discontinued and cannot be matched.\n\nYour Response: 'The estimate approves replacement of the north slope only. However, the shingles are [brand/model] which have been discontinued. Manufacturer confirms matching is not possible. Per policy Section [X], when materials cannot be matched, the policy covers replacement of the entire structure to maintain uniform appearance. We request approval for full roof replacement.'\n\n---\n\n**5. Concealed Damage and Necessary Repairs**\n\n**Policy Language:**\n'We will pay for damage discovered during repairs that was caused by the covered loss.'\n\n**What It Means:**\nIf contractors discover additional damage during work that was not visible during inspection, insurance covers it as part of the original claim.\n\n**How You Use It:**\n\nScenario: During tear-off, production team finds damaged decking not visible during inspection.\n\nYour Response: 'During roof removal, we discovered damaged decking caused by the storm event. This damage was concealed beneath the shingles and not visible during the initial inspection. Per policy Section [X], concealed damage discovered during repairs is covered. We request approval for [X square feet] of decking replacement.'\n\n---\n\n**Real-World Advocacy Example:**\n\n**Tasha's Homeowner Advocacy Win:**\n\nTasha filed a claim for a homeowner with storm damage. Insurance approved the roof but excluded gutters, saying 'We do not see evidence gutters were damaged by the same storm event.'\n\nTasha reviewed the policy and found this language:\n'We cover all property damaged as a direct result of a covered peril. Covered perils include wind and hail.'\n\nShe submitted a response:\n\n'The policy covers all property damaged by covered perils, which includes hail. The attached photos show impact dents on gutters consistent with the hail damage documented on the roof. The pattern, location, and severity match roof damage from the June 15th storm.\n\nThe gutter damage is a direct result of the covered peril (hail). Per policy Section [X], all property damaged by the covered peril is included in the claim. We request gutters be added to the estimate.'\n\nInsurance approved the supplement for $3,400 in gutter replacement.\n\nTasha explained to the homeowner:\n\n'Insurance companies try to exclude items by saying they do not see the connection. But your policy is clear - all property damaged by the covered peril is included. I used your policy language to show the gutters were damaged by the same hail storm, and they approved it. That is what advocacy looks like.'\n\n---\n\n**How to Find and Use Policy Language:**\n\n**Step 1: Get the Declarations Page**\n\nAsk homeowner during Project Meeting: 'Do you have your insurance Declarations Page? It shows your coverage details and would help me ensure we are using the right policy terms.'\n\n**Step 2: Identify Coverage Type**\n\nLook for:\n- RCV (Replacement Cost Value) vs ACV (Actual Cash Value)\n- Ordinance or Law coverage amount\n- Matching provisions\n- Wind/Hail deductible\n\n**Step 3: Reference Policy Sections in Communications**\n\nAlways cite specific policy language:\n- 'Per Section IV of the policy...'\n- 'The Declarations Page shows RCV coverage, which means...'\n- 'Policy Section [X] states...'\n\n**Step 4: Make Insurance Prove Their Position**\n\nWhen insurance denies or excludes items:\n\n'We have cited policy Section [X] which supports our position. Can you please cite the specific policy language that supports the denial? We would like to review the exact provision you are referencing.'\n\nOften, insurance cannot cite specific language and will approve the item rather than defend an indefensible position.\n\n---\n\n**Your Homeowner Advocacy Positioning Script:**\n\n'Here is what most homeowners do not realize - insurance policies are 40-60 pages of legal language designed to minimize payouts. Insurance companies hire teams of lawyers to write policies that sound good but have exclusions and limitations buried in fine print.\n\nMy job is to know that policy language better than the insurance adjuster. When they try to deny or exclude something, I cite the specific policy provisions that require coverage. I have templates, code citations, and manufacturer requirements that force insurance companies to honor what you paid for.\n\nYou paid premiums for years - sometimes decades. When you finally need the coverage, I make sure you get every dollar you are entitled to under that policy. That is advocacy, and that is what separates us from contractors who just install roofs.'\n\n---\n\n**Advocacy Success Metrics:**\n\nReps who master policy language and advocacy:\n- 40% higher supplement approval rates\n- 60% fewer claims that go to final denial\n- 25% higher average claim values\n- 85% homeowner satisfaction scores\n\n**Why?** Because you speak the insurance company's language and use their own policy against them when they try to minimize legitimate claims.\n\n---\n\n**Your Policy Language Mastery Checklist:**\n\n- [ ] Learn key policy terms (like kind and quality, RCV, ordinance coverage)\n- [ ] Request Declarations Page from homeowners\n- [ ] Identify coverage types and limits\n- [ ] Reference specific policy sections in communications\n- [ ] Challenge denials by requesting policy language citations\n- [ ] Use templates that include policy language\n- [ ] Position yourself as expert who knows policy better than adjusters\n- [ ] Teach homeowners their policy rights\n\n**Remember:** Insurance companies count on homeowners not knowing their policy. You level the playing field by knowing it better than the adjuster.",
       "points": [
         "Like kind and quality means equivalent materials, not cheaper alternatives",
@@ -922,7 +1358,12 @@
       "id": "percentage-deductible-calculation",
       "question": "A homeowner has a 2% wind/hail deductible on a $450,000 dwelling coverage policy. What is their deductible in dollars?",
       "type": "multiple-choice",
-      "options": ["$2,000", "$4,500", "$9,000", "$13,500"],
+      "options": [
+        "$2,000",
+        "$4,500",
+        "$9,000",
+        "$13,500"
+      ],
       "correctAnswer": 2,
       "explanation": "Percentage deductibles are calculated by multiplying the dwelling coverage by the deductible percentage. $450,000 x 2% = $9,000. This is why it is critical to calculate percentage deductibles EARLY in the process so homeowners are not surprised at final payment. Always ask for dwelling coverage amount when you see a percentage deductible.",
       "points": 3,
@@ -947,7 +1388,12 @@
       "id": "straight-line-depreciation-calc",
       "question": "A roof has an RCV of $32,000, is 10 years old, and has a 25-year warranty. Using straight-line depreciation, what is the ACV?",
       "type": "multiple-choice",
-      "options": ["$12,800", "$19,200", "$22,000", "$25,600"],
+      "options": [
+        "$12,800",
+        "$19,200",
+        "$22,000",
+        "$25,600"
+      ],
       "correctAnswer": 1,
       "explanation": "Straight-line depreciation calculation: Annual depreciation = $32,000 / 25 years = $1,280 per year. Total depreciation = $1,280 x 10 years = $12,800. ACV = $32,000 - $12,800 = $19,200. Remember: You can challenge straight-line depreciation by arguing for condition-based depreciation, using the warranty period instead of assumed lifespan, or arguing that functional storm damage should not be depreciated like cosmetic wear.",
       "points": 3,

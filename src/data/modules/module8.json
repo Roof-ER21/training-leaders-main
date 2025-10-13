@@ -65,25 +65,437 @@
       "id": "shingle-identification",
       "title": "Shingle Types, Brands, and Identification",
       "duration": "50 minutes",
-      "content": "**Becoming a Shingle Expert**\n\nYour ability to identify shingle types and brands establishes immediate credibility with homeowners and adjusters. This knowledge also helps you identify discontinued products that trigger matching law arguments.\n\n**SHINGLE CATEGORIES:**\n\n**1. Architectural Shingles (Dimensional/Laminated)**\n\n**Characteristics:**\n- Multiple layers creating dimensional appearance\n- Thicker and heavier than 3-tab\n- Random pattern for aesthetic appeal\n- 25-50 year warranty typical\n- Most common on residential homes (70%+ of market)\n\n**Visual Identification:**\n- Textured, multi-dimensional look\n- Varied shadow lines\n- Thickness visible from ground\n- Premium appearance\n\n**Common Brands/Lines:**\n- **GAF:** Timberline HD, Timberline HDZ, Grand Sequoia, Camelot\n- **CertainTeed:** Landmark, Presidential, Grand Manor\n- **Owens Corning:** Duration, Oakridge, Berkshire\n- **IKO:** Cambridge, Dynasty, Armourshake\n\n---\n\n**2. 3-Tab Shingles (Strip Shingles)**\n\n**Characteristics:**\n- Single layer, flat appearance\n- Three distinct tabs per shingle\n- Uniform, repeating pattern\n- Thinner and lighter weight\n- 20-25 year warranty typical\n- Less common on newer homes (being phased out)\n\n**Visual Identification:**\n- Flat, uniform look\n- Clear tab divisions visible\n- Straight horizontal lines\n- Budget-friendly appearance\n\n**Common Brands/Lines:**\n- **GAF:** Royal Sovereign (discontinued), Marquis WeatherMax\n- **CertainTeed:** XT 25 (discontinued on many colors)\n- **Owens Corning:** Supreme (discontinued many lines)\n\n**Important Note:**\nMany 3-tab lines are discontinued or being phased out. This often triggers matching law and iTel template usage.\n\n---\n\n**3. Designer/Premium Shingles**\n\n**Characteristics:**\n- High-end aesthetic (slate look, wood shake look)\n- Thick, multi-layered construction\n- Premium pricing\n- 40-50+ year warranties\n- Rare on standard residential homes\n\n**Examples:**\n- **GAF:** Grand Sequoia, Camelot II, Glenwood\n- **CertainTeed:** Grand Manor, Carriage House\n- **Owens Corning:** Berkshire Collection\n\n---\n\n**DISCONTINUED SHINGLE IDENTIFICATION:**\n\n**Why It Matters:**\nDiscontinued shingles cannot be matched. This triggers matching law arguments requiring full roof replacement instead of partial repairs.\n\n**Common Discontinued Lines:**\n- **GAF Royal Sovereign** (3-tab) - Many colors discontinued\n- **CertainTeed XT 25** (3-tab) - Many colors discontinued\n- **Owens Corning Supreme** (3-tab) - Phased out\n- Older architectural lines (15+ years) - Often discontinued\n\n**How to Verify Discontinuation:**\n\n**Step 1: Identify Brand and Model**\n- Look for markings on shingle backs\n- Check homeowner's original documentation\n- Compare visual appearance to manufacturer catalogs\n\n**Step 2: Research Manufacturer Website**\n- Visit GAF, CertainTeed, Owens Corning, etc.\n- Search current product lines\n- If not listed = likely discontinued\n\n**Step 3: Generate iTel Report**\n- Use iTel system to verify discontinuation\n- Provides formal documentation\n- Proves unavailability for matching\n\n**Step 4: Use iTel Template**\n- Submit to insurance with iTel report\n- Cite matching law (state-specific)\n- Argue full replacement required\n\n---\n\n**MATCHING CHALLENGES:**\n\n**Perfect Match Requirements:**\n- Same brand\n- Same product line\n- Same color\n- Similar age/weathering\n\n**Why Matching Often Fails:**\n- Product discontinued (most common)\n- Color discontinued within active line\n- Weathering creates visible difference\n- Batch variations in manufacturing\n\n**The Matching Law Argument:**\n\n'Your policy requires restoration to like kind and quality. The existing shingles are [Brand/Model/Color], which are discontinued. There are no matching shingles available in the market, as documented by the iTel report. Attempting to patch with different shingles violates the like kind and quality requirement and creates an aesthetic mismatch. The only way to comply with your policy terms is full roof replacement.'\n\n---\n\n**SHINGLE AGE ESTIMATION:**\n\n**Visual Cues:**\n- **5-10 years:** Minimal granule loss, still vibrant color\n- **10-15 years:** Moderate granule loss, some fading\n- **15-20 years:** Significant granule loss, noticeable fading\n- **20+ years:** Severe granule loss, curling edges, brittle\n\n**Why Age Matters:**\n- Older shingles = higher likelihood of discontinuation\n- Older shingles = higher depreciation in claim\n- Age affects matching argument strength\n- Age impacts warranty eligibility\n\n---\n\n**SPEAKING THE LANGUAGE:**\n\n**To Homeowner:**\n'You have GAF Timberline HD architectural shingles. These are a quality product with a 30-year warranty. The good news is they are still manufactured, so if we need to replace a section, matching should not be an issue. However, I will verify availability to be sure.'\n\n**To Adjuster:**\n'The existing shingles are CertainTeed XT 25 in Weathered Wood, which are discontinued per the iTel report. Matching is not possible, and per Maryland matching law, full roof replacement is required to restore to like kind and quality.'\n\n**Key Phrases:**\n- 'Architectural shingles' (not just 'shingles')\n- 'Discontinued product line'\n- 'Like kind and quality requirement'\n- 'Matching law compliance'\n- 'iTel verification'\n\n[ACTIVITY:photo-id-quick]\n\n"
+      "content": "**Becoming a Shingle Expert**\n\nYour ability to identify shingle types and brands establishes immediate credibility with homeowners and adjusters. This knowledge also helps you identify discontinued products that trigger matching law arguments.\n\n**SHINGLE CATEGORIES:**\n\n**1. Architectural Shingles (Dimensional/Laminated)**\n\n**Characteristics:**\n- Multiple layers creating dimensional appearance\n- Thicker and heavier than 3-tab\n- Random pattern for aesthetic appeal\n- 25-50 year warranty typical\n- Most common on residential homes (70%+ of market)\n\n**Visual Identification:**\n- Textured, multi-dimensional look\n- Varied shadow lines\n- Thickness visible from ground\n- Premium appearance\n\n**Common Brands/Lines:**\n- **GAF:** Timberline HD, Timberline HDZ, Grand Sequoia, Camelot\n- **CertainTeed:** Landmark, Presidential, Grand Manor\n- **Owens Corning:** Duration, Oakridge, Berkshire\n- **IKO:** Cambridge, Dynasty, Armourshake\n\n---\n\n**2. 3-Tab Shingles (Strip Shingles)**\n\n**Characteristics:**\n- Single layer, flat appearance\n- Three distinct tabs per shingle\n- Uniform, repeating pattern\n- Thinner and lighter weight\n- 20-25 year warranty typical\n- Less common on newer homes (being phased out)\n\n**Visual Identification:**\n- Flat, uniform look\n- Clear tab divisions visible\n- Straight horizontal lines\n- Budget-friendly appearance\n\n**Common Brands/Lines:**\n- **GAF:** Royal Sovereign (discontinued), Marquis WeatherMax\n- **CertainTeed:** XT 25 (discontinued on many colors)\n- **Owens Corning:** Supreme (discontinued many lines)\n\n**Important Note:**\nMany 3-tab lines are discontinued or being phased out. This often triggers matching law and iTel template usage.\n\n---\n\n**3. Designer/Premium Shingles**\n\n**Characteristics:**\n- High-end aesthetic (slate look, wood shake look)\n- Thick, multi-layered construction\n- Premium pricing\n- 40-50+ year warranties\n- Rare on standard residential homes\n\n**Examples:**\n- **GAF:** Grand Sequoia, Camelot II, Glenwood\n- **CertainTeed:** Grand Manor, Carriage House\n- **Owens Corning:** Berkshire Collection\n\n---\n\n**DISCONTINUED SHINGLE IDENTIFICATION:**\n\n**Why It Matters:**\nDiscontinued shingles cannot be matched. This triggers matching law arguments requiring full roof replacement instead of partial repairs.\n\n**Common Discontinued Lines:**\n- **GAF Royal Sovereign** (3-tab) - Many colors discontinued\n- **CertainTeed XT 25** (3-tab) - Many colors discontinued\n- **Owens Corning Supreme** (3-tab) - Phased out\n- Older architectural lines (15+ years) - Often discontinued\n\n**How to Verify Discontinuation:**\n\n**Step 1: Identify Brand and Model**\n- Look for markings on shingle backs\n- Check homeowner's original documentation\n- Compare visual appearance to manufacturer catalogs\n\n**Step 2: Research Manufacturer Website**\n- Visit GAF, CertainTeed, Owens Corning, etc.\n- Search current product lines\n- If not listed = likely discontinued\n\n**Step 3: Generate iTel Report**\n- Use iTel system to verify discontinuation\n- Provides formal documentation\n- Proves unavailability for matching\n\n**Step 4: Use iTel Template**\n- Submit to insurance with iTel report\n- Cite matching law (state-specific)\n- Argue full replacement required\n\n---\n\n**MATCHING CHALLENGES:**\n\n**Perfect Match Requirements:**\n- Same brand\n- Same product line\n- Same color\n- Similar age/weathering\n\n**Why Matching Often Fails:**\n- Product discontinued (most common)\n- Color discontinued within active line\n- Weathering creates visible difference\n- Batch variations in manufacturing\n\n**The Matching Law Argument:**\n\n'Your policy requires restoration to like kind and quality. The existing shingles are [Brand/Model/Color], which are discontinued. There are no matching shingles available in the market, as documented by the iTel report. Attempting to patch with different shingles violates the like kind and quality requirement and creates an aesthetic mismatch. The only way to comply with your policy terms is full roof replacement.'\n\n---\n\n**SHINGLE AGE ESTIMATION:**\n\n**Visual Cues:**\n- **5-10 years:** Minimal granule loss, still vibrant color\n- **10-15 years:** Moderate granule loss, some fading\n- **15-20 years:** Significant granule loss, noticeable fading\n- **20+ years:** Severe granule loss, curling edges, brittle\n\n**Why Age Matters:**\n- Older shingles = higher likelihood of discontinuation\n- Older shingles = higher depreciation in claim\n- Age affects matching argument strength\n- Age impacts warranty eligibility\n\n---\n\n**SPEAKING THE LANGUAGE:**\n\n**To Homeowner:**\n'You have GAF Timberline HD architectural shingles. These are a quality product with a 30-year warranty. The good news is they are still manufactured, so if we need to replace a section, matching should not be an issue. However, I will verify availability to be sure.'\n\n**To Adjuster:**\n'The existing shingles are CertainTeed XT 25 in Weathered Wood, which are discontinued per the iTel report. Matching is not possible, and per Maryland matching law, full roof replacement is required to restore to like kind and quality.'\n\n**Key Phrases:**\n- 'Architectural shingles' (not just 'shingles')\n- 'Discontinued product line'\n- 'Like kind and quality requirement'\n- 'Matching law compliance'\n- 'iTel verification'\n\n[ACTIVITY:photo-id-quick]\n\n",
+      "activities": [
+        {
+          "id": "shingle-identification-auto-workflow",
+          "title": "Workflow Simulator - Shingle Types, Brands, and Identification",
+          "description": "Practice the correct sequence of actions based on this section.",
+          "type": "workflow-simulator",
+          "points": 15,
+          "data": {
+            "scenario": "Apply the concepts from \"Shingle Types, Brands, and Identification\" in the correct order.",
+            "timeLimit": 240,
+            "workflowSteps": [
+              {
+                "id": "prep",
+                "step": "Prepare resources",
+                "correctOrder": 1,
+                "duration": "30s",
+                "tips": [
+                  "Review checklist"
+                ]
+              },
+              {
+                "id": "execute",
+                "step": "Execute core step",
+                "correctOrder": 2,
+                "duration": "1-2m",
+                "tips": [
+                  "Follow best practices"
+                ]
+              },
+              {
+                "id": "document",
+                "step": "Document & upload",
+                "correctOrder": 3,
+                "duration": "1m",
+                "tips": [
+                  "Ensure accuracy before upload"
+                ]
+              }
+            ],
+            "scenarioDetails": "**Becoming a Shingle Expert**\n\nYour ability to identify shingle types and brands establishes immediate credibility with homeowners and adjusters. This knowledge also helps you identify discontinued pr"
+          }
+        },
+        {
+          "id": "shingle-identification-photo-analysis-1",
+          "title": "Photo Analysis - discontinued shingles",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "shingle-identification-img-1",
+                "imageUrl": "/assets/slides/slide-16-image22.jpeg",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "shingle-identification-photo-analysis-2",
+          "title": "Photo Analysis - discontinued shingles",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "shingle-identification-img-1",
+                "imageUrl": "/assets/slides/slide-16-image21.jpeg",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "photo-id-quick",
+          "title": "Placeholder: photo-id-quick",
+          "description": "Auto-inserted activity stub for unresolved placeholder.",
+          "type": "multiple-choice",
+          "data": {
+            "question": "This is a placeholder for activity 'photo-id-quick'.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ok, got it",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Skip",
+                "isCorrect": false
+              }
+            ],
+            "allowMultiple": false
+          },
+          "points": 5,
+          "agnesTip": "Replace this stub with the intended activity."
+        }
+      ]
     },
     {
       "id": "building-codes",
       "title": "State Building Codes - VA, MD, PA Requirements",
       "duration": "45 minutes",
-      "content": "**Building Code Mastery for Claims Success**\n\nBuilding codes are your strongest argument against insurance denials. Codes are LAW, not preferences. Master these requirements to win disputed claims.\n\n**WHY CODES MATTER:**\n\n**1. Codes Override Insurance Preferences**\nInsurance companies cannot require non-code-compliant repairs. When codes mandate something, it must be included in the claim.\n\n**2. Codes Are State-Specific**\nVirginia, Maryland, and Pennsylvania have different requirements. Know which state applies to each job.\n\n**3. Codes Support Full Replacement Arguments**\nMany code requirements (flashing, underlayment, ventilation) can only be met with full replacement, not repairs.\n\n---\n\n**FLASHING CODE REQUIREMENTS:**\n\n**Step Flashing (Wall Intersections)**\n\n**What It Is:**\nL-shaped metal pieces woven between shingles and siding where roof meets vertical wall\n\n**Location:**\n- Dormers\n- Chimney sides\n- Where roof slope meets siding\n\n**Code Requirement:**\n**ALL THREE STATES (VA, MD, PA):**\nStep flashing MUST be replaced when roof is replaced. Cannot be reused.\n\n**Why:**\n- Integrated into shingle installation\n- Removing shingles damages flashing\n- Reusing compromises waterproofing\n- Manufacturer warranties require new flashing\n\n**Your Argument:**\n'Building code in [state] requires step flashing replacement when the roof is replaced. The existing flashing cannot be reused without compromising the waterproofing integrity and voiding the manufacturer warranty. This is not optional - it is code-mandated.'\n\n**Template:** Flashing Codes.docx\n\n---\n\n**Counter Flashing (Chimney Top)**\n\n**What It Is:**\nMetal flashing attached to chimney masonry, overlapping step flashing\n\n**Location:**\n- Top of chimney where it meets roof\n- Usually embedded in mortar joints\n\n**Code Requirement:**\nMust create proper water shedding and integrate with step flashing per code\n\n**Your Argument:**\n'Counter flashing must be properly integrated with new step flashing to meet code. Reusing old counter flashing with new step flashing creates improper water shedding and code violations.'\n\n---\n\n**Apron Flashing (Chimney Front)**\n\n**What It Is:**\nFlat metal piece at front of chimney, under shingles\n\n**Location:**\n- Upslope side of chimney\n- Under shingles, over chimney\n\n**Code Requirement:**\nMust be replaced with roof replacement for proper integration\n\n---\n\n**UNDERLAYMENT & ICE/WATER SHIELD:**\n\n**Underlayment (Felt Paper/Synthetic)**\n\n**What It Is:**\nWater-resistant barrier installed over roof deck, under shingles\n\n**Code Requirement:**\n**ALL THREE STATES:**\nUnderlayment required on all roof replacements\n\n**Standard:**\n- 15 lb felt or synthetic equivalent\n- Must cover entire roof deck\n- Cannot reuse existing underlayment\n\n**Your Argument:**\n'Building code requires complete underlayment replacement when roof is replaced. Existing underlayment is integrated with existing shingles and cannot be reused. This is a non-negotiable code requirement.'\n\n---\n\n**Ice and Water Shield (IWS)**\n\n**What It Is:**\nRubberized, self-sealing underlayment for high-risk areas\n\n**Code Requirement by State:**\n\n**VIRGINIA:**\n- Required in valleys\n- Required at eaves (2-3 feet up from edge)\n- Required around penetrations\n\n**MARYLAND:**\n- Required in valleys\n- Required at eaves (extending 24 inches inside wall line)\n- Required around penetrations\n\n**PENNSYLVANIA:**\n- Required in valleys\n- Required at eaves (extending 24 inches beyond interior wall)\n- Required around chimneys and other penetrations\n\n**Your Argument:**\n'[State] building code section [X] requires ice and water shield at eaves and valleys. This is a code upgrade required for all roof replacements and must be included in the insurance claim under code compliance requirements.'\n\n---\n\n**VENTILATION REQUIREMENTS:**\n\n**Ridge Vent**\n\n**What It Is:**\nVentilation at peak of roof allowing hot air to escape attic\n\n**Code Requirement:**\nProper attic ventilation required (usually 1:150 or 1:300 ratio)\n\n**Common Insurance Argument:**\n'Existing home did not have ridge vent, so we will not pay for it'\n\n**Your Counter-Argument:**\n'Current building code requires proper ventilation ratios. When replacing the roof, the installation must meet current code, not replicate the existing non-compliant system. Code compliance is mandatory.'\n\n**Template:** Building code citations for ventilation\n\n---\n\n**SIDING CODES:**\n\n**Exterior Wrap (House Wrap)**\n\n**What It Is:**\nWeather-resistant barrier behind siding\n\n**Code Requirement:**\n**MARYLAND R703:**\nWhen siding is replaced, exterior wrap must be replaced to meet current code\n\n**Your Argument:**\n'Maryland code R703 requires exterior wrap when siding is replaced. The existing wrap is integrated with the existing siding and cannot be properly reused. This is a code-mandated expense that must be included in the siding claim.'\n\n**Template:** Maryland Exterior Wrap Code R703.docx\n\n---\n\n**CODE UPGRADE vs CODE COMPLIANCE:**\n\n**Understanding the Difference:**\n\n**Code Compliance:**\nBringing existing non-code elements up to current code when work is being done\n\n**Example:**\nRoof did not have ice/water shield. When replacing roof, must add ice/water shield per current code.\n\n**Code Upgrade:**\nImproving beyond minimum code requirements\n\n**Example:**\nUpgrading from code-minimum 15 lb felt to premium synthetic underlayment.\n\n**Insurance Typically Covers:**\n\u2705 Code compliance (bringing to minimum code)\n\u274c Code upgrades (exceeding minimum code)\n\n**Your Strategy:**\nFocus arguments on CODE COMPLIANCE, not upgrades.\n\n**Script:**\n'This is not an upgrade - this is code compliance. Current code requires [X], and when the roof is replaced, it must meet current code. This is legally mandated, not optional.'\n\n---\n\n**STATE-SPECIFIC MATCHING LAWS:**\n\n**MARYLAND:**\n- Strong matching law\n- Like kind and quality required\n- Discontinuation triggers full replacement\n- State insurance administration enforces\n\n**VIRGINIA:**\n- Like kind and quality in policy language\n- Matching law case precedent\n- Aesthetic matching required\n\n**PENNSYLVANIA:**\n- Policy language determines\n- Like kind and quality standard\n- Matching law arguments supported\n\n**Your Argument:**\n'[State] law requires restoration to like kind and quality. When shingles are discontinued and matching is not possible, full replacement is the only way to comply with [state] matching requirements and policy terms.'\n\n---\n\n**USING CODES IN NEGOTIATIONS:**\n\n**Step 1: Identify Applicable Codes**\n- Determine state (VA, MD, PA)\n- Identify relevant code sections\n- Gather code documentation\n\n**Step 2: Present as Non-Negotiable**\n'This is not a preference or recommendation - this is building code. The law requires [X], and the installation must comply.'\n\n**Step 3: Reference Permit Inspections**\n'When we pull the permit for this work, the building inspector will verify code compliance. If [X] is not included, the inspection will fail and the work will not pass. Insurance must cover code-compliant work.'\n\n**Step 4: Cite Manufacturer Warranties**\n'GAF manufacturer warranty requires [X]. If we install without meeting these requirements, the warranty is void. Your policy requires restoration to like kind and quality, which includes a warranted installation.'\n\n**Step 5: Use Templates**\nFlashing Codes.docx, GAF Guidelines.docx, Maryland R703.docx, etc.\n\n---\n\n**CODE DOCUMENTATION TO KEEP HANDY:**\n\n- Virginia Building Codes.docx\n- Maryland Exterior Wrap Code R703.docx\n- Flashing Codes.docx (all states)\n- GAF Storm Damage Guidelines.docx\n- GAF Requirement - Slope Replacement.docx\n- Low Roof/Flat Roof Code.docx\n\n**Keep Digital Copies:**\n- On phone for field access\n- In email for quick sending\n- In Field Portal for adjuster meeting reference"
+      "content": "**Building Code Mastery for Claims Success**\n\nBuilding codes are your strongest argument against insurance denials. Codes are LAW, not preferences. Master these requirements to win disputed claims.\n\n**WHY CODES MATTER:**\n\n**1. Codes Override Insurance Preferences**\nInsurance companies cannot require non-code-compliant repairs. When codes mandate something, it must be included in the claim.\n\n**2. Codes Are State-Specific**\nVirginia, Maryland, and Pennsylvania have different requirements. Know which state applies to each job.\n\n**3. Codes Support Full Replacement Arguments**\nMany code requirements (flashing, underlayment, ventilation) can only be met with full replacement, not repairs.\n\n---\n\n**FLASHING CODE REQUIREMENTS:**\n\n**Step Flashing (Wall Intersections)**\n\n**What It Is:**\nL-shaped metal pieces woven between shingles and siding where roof meets vertical wall\n\n**Location:**\n- Dormers\n- Chimney sides\n- Where roof slope meets siding\n\n**Code Requirement:**\n**ALL THREE STATES (VA, MD, PA):**\nStep flashing MUST be replaced when roof is replaced. Cannot be reused.\n\n**Why:**\n- Integrated into shingle installation\n- Removing shingles damages flashing\n- Reusing compromises waterproofing\n- Manufacturer warranties require new flashing\n\n**Your Argument:**\n'Building code in [state] requires step flashing replacement when the roof is replaced. The existing flashing cannot be reused without compromising the waterproofing integrity and voiding the manufacturer warranty. This is not optional - it is code-mandated.'\n\n**Template:** Flashing Codes.docx\n\n---\n\n**Counter Flashing (Chimney Top)**\n\n**What It Is:**\nMetal flashing attached to chimney masonry, overlapping step flashing\n\n**Location:**\n- Top of chimney where it meets roof\n- Usually embedded in mortar joints\n\n**Code Requirement:**\nMust create proper water shedding and integrate with step flashing per code\n\n**Your Argument:**\n'Counter flashing must be properly integrated with new step flashing to meet code. Reusing old counter flashing with new step flashing creates improper water shedding and code violations.'\n\n---\n\n**Apron Flashing (Chimney Front)**\n\n**What It Is:**\nFlat metal piece at front of chimney, under shingles\n\n**Location:**\n- Upslope side of chimney\n- Under shingles, over chimney\n\n**Code Requirement:**\nMust be replaced with roof replacement for proper integration\n\n---\n\n**UNDERLAYMENT & ICE/WATER SHIELD:**\n\n**Underlayment (Felt Paper/Synthetic)**\n\n**What It Is:**\nWater-resistant barrier installed over roof deck, under shingles\n\n**Code Requirement:**\n**ALL THREE STATES:**\nUnderlayment required on all roof replacements\n\n**Standard:**\n- 15 lb felt or synthetic equivalent\n- Must cover entire roof deck\n- Cannot reuse existing underlayment\n\n**Your Argument:**\n'Building code requires complete underlayment replacement when roof is replaced. Existing underlayment is integrated with existing shingles and cannot be reused. This is a non-negotiable code requirement.'\n\n---\n\n**Ice and Water Shield (IWS)**\n\n**What It Is:**\nRubberized, self-sealing underlayment for high-risk areas\n\n**Code Requirement by State:**\n\n**VIRGINIA:**\n- Required in valleys\n- Required at eaves (2-3 feet up from edge)\n- Required around penetrations\n\n**MARYLAND:**\n- Required in valleys\n- Required at eaves (extending 24 inches inside wall line)\n- Required around penetrations\n\n**PENNSYLVANIA:**\n- Required in valleys\n- Required at eaves (extending 24 inches beyond interior wall)\n- Required around chimneys and other penetrations\n\n**Your Argument:**\n'[State] building code section [X] requires ice and water shield at eaves and valleys. This is a code upgrade required for all roof replacements and must be included in the insurance claim under code compliance requirements.'\n\n---\n\n**VENTILATION REQUIREMENTS:**\n\n**Ridge Vent**\n\n**What It Is:**\nVentilation at peak of roof allowing hot air to escape attic\n\n**Code Requirement:**\nProper attic ventilation required (usually 1:150 or 1:300 ratio)\n\n**Common Insurance Argument:**\n'Existing home did not have ridge vent, so we will not pay for it'\n\n**Your Counter-Argument:**\n'Current building code requires proper ventilation ratios. When replacing the roof, the installation must meet current code, not replicate the existing non-compliant system. Code compliance is mandatory.'\n\n**Template:** Building code citations for ventilation\n\n---\n\n**SIDING CODES:**\n\n**Exterior Wrap (House Wrap)**\n\n**What It Is:**\nWeather-resistant barrier behind siding\n\n**Code Requirement:**\n**MARYLAND R703:**\nWhen siding is replaced, exterior wrap must be replaced to meet current code\n\n**Your Argument:**\n'Maryland code R703 requires exterior wrap when siding is replaced. The existing wrap is integrated with the existing siding and cannot be properly reused. This is a code-mandated expense that must be included in the siding claim.'\n\n**Template:** Maryland Exterior Wrap Code R703.docx\n\n---\n\n**CODE UPGRADE vs CODE COMPLIANCE:**\n\n**Understanding the Difference:**\n\n**Code Compliance:**\nBringing existing non-code elements up to current code when work is being done\n\n**Example:**\nRoof did not have ice/water shield. When replacing roof, must add ice/water shield per current code.\n\n**Code Upgrade:**\nImproving beyond minimum code requirements\n\n**Example:**\nUpgrading from code-minimum 15 lb felt to premium synthetic underlayment.\n\n**Insurance Typically Covers:**\n✅ Code compliance (bringing to minimum code)\n❌ Code upgrades (exceeding minimum code)\n\n**Your Strategy:**\nFocus arguments on CODE COMPLIANCE, not upgrades.\n\n**Script:**\n'This is not an upgrade - this is code compliance. Current code requires [X], and when the roof is replaced, it must meet current code. This is legally mandated, not optional.'\n\n---\n\n**STATE-SPECIFIC MATCHING LAWS:**\n\n**MARYLAND:**\n- Strong matching law\n- Like kind and quality required\n- Discontinuation triggers full replacement\n- State insurance administration enforces\n\n**VIRGINIA:**\n- Like kind and quality in policy language\n- Matching law case precedent\n- Aesthetic matching required\n\n**PENNSYLVANIA:**\n- Policy language determines\n- Like kind and quality standard\n- Matching law arguments supported\n\n**Your Argument:**\n'[State] law requires restoration to like kind and quality. When shingles are discontinued and matching is not possible, full replacement is the only way to comply with [state] matching requirements and policy terms.'\n\n---\n\n**USING CODES IN NEGOTIATIONS:**\n\n**Step 1: Identify Applicable Codes**\n- Determine state (VA, MD, PA)\n- Identify relevant code sections\n- Gather code documentation\n\n**Step 2: Present as Non-Negotiable**\n'This is not a preference or recommendation - this is building code. The law requires [X], and the installation must comply.'\n\n**Step 3: Reference Permit Inspections**\n'When we pull the permit for this work, the building inspector will verify code compliance. If [X] is not included, the inspection will fail and the work will not pass. Insurance must cover code-compliant work.'\n\n**Step 4: Cite Manufacturer Warranties**\n'GAF manufacturer warranty requires [X]. If we install without meeting these requirements, the warranty is void. Your policy requires restoration to like kind and quality, which includes a warranted installation.'\n\n**Step 5: Use Templates**\nFlashing Codes.docx, GAF Guidelines.docx, Maryland R703.docx, etc.\n\n---\n\n**CODE DOCUMENTATION TO KEEP HANDY:**\n\n- Virginia Building Codes.docx\n- Maryland Exterior Wrap Code R703.docx\n- Flashing Codes.docx (all states)\n- GAF Storm Damage Guidelines.docx\n- GAF Requirement - Slope Replacement.docx\n- Low Roof/Flat Roof Code.docx\n\n**Keep Digital Copies:**\n- On phone for field access\n- In email for quick sending\n- In Field Portal for adjuster meeting reference",
+      "activities": [
+        {
+          "id": "building-codes-auto-workflow",
+          "title": "Workflow Simulator - State Building Codes - VA, MD, PA Requirements",
+          "description": "Practice the correct sequence of actions based on this section.",
+          "type": "workflow-simulator",
+          "points": 15,
+          "data": {
+            "scenario": "Apply the concepts from \"State Building Codes - VA, MD, PA Requirements\" in the correct order.",
+            "timeLimit": 240,
+            "workflowSteps": [
+              {
+                "id": "prep",
+                "step": "Prepare resources",
+                "correctOrder": 1,
+                "duration": "30s",
+                "tips": [
+                  "Review checklist"
+                ]
+              },
+              {
+                "id": "execute",
+                "step": "Execute core step",
+                "correctOrder": 2,
+                "duration": "1-2m",
+                "tips": [
+                  "Follow best practices"
+                ]
+              },
+              {
+                "id": "document",
+                "step": "Document & upload",
+                "correctOrder": 3,
+                "duration": "1m",
+                "tips": [
+                  "Ensure accuracy before upload"
+                ]
+              }
+            ],
+            "scenarioDetails": "**Building Code Mastery for Claims Success**\n\nBuilding codes are your strongest argument against insurance denials. Codes are LAW, not preferences. Master these requirements to win disputed claims.\n\n*"
+          }
+        },
+        {
+          "id": "building-codes-photo-analysis-1",
+          "title": "Photo Analysis - field portal app",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "building-codes-img-1",
+                "imageUrl": "/assets/slides/slide-10-image11.PNG",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "building-codes-photo-analysis-2",
+          "title": "Photo Analysis - field portal app",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "building-codes-img-1",
+                "imageUrl": "/assets/slides/slide-10-image8.PNG",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "id": "gaf-guidelines",
       "title": "GAF Master Elite Standards and Guidelines",
       "duration": "40 minutes",
-      "content": "**The GAF Master Elite Advantage**\n\nGAF Master Elite certification is one of your most powerful differentiators. Understanding and leveraging GAF guidelines gives you credibility and strong arguments against insurance pushback.\n\n**WHAT IS GAF MASTER ELITE?**\n\n**Certification Requirements:**\n- Top 2% of roofing contractors nationwide\n- Proven track record of quality\n- Proper licensing and insurance\n- Commitment to ongoing training\n- Consumer protection standards\n- Financial stability\n\n**Why It Matters to Homeowners:**\n- Confidence in contractor quality\n- Access to premium warranties\n- Manufacturer backing\n- Verified credentials\n\n**Why It Matters to Insurance:**\n- Legitimate, established contractor\n- Proper installation standards followed\n- Manufacturer warranty compliance\n- Industry best practices\n\n**Your Script:**\n'We are GAF Master Elite certified, which means we are in the top 2% of roofing contractors nationwide. GAF does not give this certification to just anyone - we had to prove our track record, maintain proper licensing and insurance, and commit to their installation standards. You can verify this on GAF's website.'\n\n---\n\n**GAF STORM DAMAGE GUIDELINES:**\n\n**Purpose:**\nGAF provides guidelines for identifying and documenting storm damage. These guidelines support your damage claims.\n\n**Key Guidelines:**\n\n**1. Hail Damage Identification**\n- Circular divots with granule loss\n- Bruising (dark spots from impact)\n- Exposure of fiberglass mat\n- Soft spots (compromised shingle integrity)\n\n**GAF Position:**\n'Hail damage compromises the protective granule layer and shortens roof lifespan. Even if not immediately leaking, the damage is functional, not just cosmetic.'\n\n**Your Usage:**\n'Per GAF storm damage guidelines, the circular divots and granule loss documented in the photos constitute functional hail damage. This is not cosmetic - it compromises the shingle integrity and protective capabilities.'\n\n**2. Wind Damage Identification**\n- Creased shingles\n- Lifted tabs\n- Blown-off sections\n- Torn shingles\n\n**GAF Position:**\nWind damage that compromises seal integrity requires replacement, not repair.\n\n---\n\n**GAF SLOPE REPLACEMENT REQUIREMENT:**\n\n**The Rule:**\nWhen storm damage on a slope exceeds a certain threshold, GAF requires full slope replacement to maintain warranty coverage.\n\n**Threshold Varies by Situation:**\n- Typically 8-10 damaged shingles per square (100 sq ft)\n- Scattered damage across slope\n- Damage pattern indicates widespread impact\n\n**Why It Matters:**\n\n**Insurance Often Says:**\n'We will just replace the 12 damaged shingles, not the whole slope'\n\n**Your Response:**\n'GAF manufacturer guidelines require full slope replacement when damage exceeds the threshold, which it does in this case. Patching violates GAF warranty requirements. Your policy requires restoration to like kind and quality, which includes a fully warranted roof. Patching voids the warranty, so it does not meet the policy standard.'\n\n**Template:** GAF Requirement - Slope Replacement.docx\n\n---\n\n**GAF INSTALLATION STANDARDS:**\n\n**Proper Nailing:**\n- 4 nails per shingle minimum (6 in high-wind areas)\n- Proper placement in nail zone\n- Correct depth (flush, not over-driven)\n\n**Starter Strip:**\n- Required at eaves and rakes\n- Provides proper seal for first course\n- Prevents wind uplift\n\n**Hip and Ridge Cap:**\n- Specialized hip/ridge cap shingles required\n- Cannot use cut-up field shingles\n- Proper nailing pattern\n\n**Underlayment:**\n- Complete coverage required\n- Proper overlap\n- Ice/water shield in required areas\n\n**Flashing:**\n- New flashing required\n- Proper integration with underlayment\n- Step, counter, apron, valley flashing per specs\n\n**Why These Standards Matter:**\n\n**To Homeowner:**\n'As a GAF Master Elite contractor, we follow GAF installation standards exactly. This ensures your warranty remains valid and your roof performs as designed.'\n\n**To Insurance:**\n'GAF installation standards require [X]. We cannot deviate from these standards without voiding the warranty. Your policy requires a warranted installation, so these standards must be met.'\n\n---\n\n**GAF WARRANTIES:**\n\n**Standard Limited Warranty:**\n- Covers manufacturing defects\n- Typically 25-50 years depending on product\n- Does not cover installation issues\n\n**System Plus Warranty (GAF Master Elite Exclusive):**\n- 10-year coverage on materials AND labor\n- Requires GAF accessories (underlayment, starter, ridge)\n- Only available through Master Elite contractors\n\n**Golden Pledge Warranty (GAF Master Elite Exclusive):**\n- 25-50 year coverage on materials\n- 25-50 year coverage on labor\n- Non-prorated for first 20-50 years (product dependent)\n- Transferable to new homeowner\n- Premium offering\n\n**Your Sales Advantage:**\n'Because we are GAF Master Elite, we can offer you the Golden Pledge warranty - 50 years of coverage on materials AND labor. This is only available through top 2% contractors like us. Most roofers cannot offer this level of protection.'\n\n---\n\n**USING GAF CREDENTIALS IN OBJECTION HANDLING:**\n\n**'Roofers knock 5 times a week':**\n'I totally get it. That is exactly why we are different - we are GAF Master Elite certified, top 2% nationwide. Go to GAF's website right now and verify our certification. Those other roofers cannot say that.'\n\n**'How do I know you are legitimate?':**\n'Great question! We are GAF Master Elite certified. Go to gaf.com, click Find a Contractor, enter your zip code, and you will see us listed. GAF does not certify just anyone - you have to prove your track record and maintain high standards. That is how you know we are legitimate.'\n\n**'Will you stand behind the work?':**\n'Absolutely. We offer GAF's Golden Pledge warranty - 50 years on materials AND labor. That is backed by GAF, the largest roofing manufacturer in North America. You have our workmanship warranty AND GAF's manufacturer warranty.'\n\n---\n\n**GAF GUIDELINES IN INSURANCE NEGOTIATIONS:**\n\n**When Insurance Wants Repairs Instead of Replacement:**\n\n'GAF manufacturer guidelines, which we must follow as a Master Elite contractor, require full slope replacement when damage exceeds threshold. Patching violates these guidelines and voids the warranty. Since your policy requires restoration to like kind and quality, which includes a warranted roof, full slope replacement is necessary.'\n\n**Template:** GAF Guidelines.docx, GAF Storm Damage Guidelines.docx, GAF Requirement - Slope Replacement.docx\n\n**When Insurance Questions Damage Severity:**\n\n'Per GAF storm damage identification guidelines, the circular divots and granule loss documented constitute functional damage, not just cosmetic. GAF defines this type of impact damage as compromising shingle integrity and protective capabilities.'\n\n**When Insurance Wants to Reuse Materials:**\n\n'GAF installation standards require new [flashing/underlayment/starter strip/etc.]. Reusing existing materials violates manufacturer standards and voids the warranty. We cannot install a non-warranted roof - that does not meet the policy requirement for restoration to like kind and quality.'\n\n---\n\n**GAF RESOURCES TO KEEP ACCESSIBLE:**\n\n**Digital Documents:**\n- GAF Storm Damage Guidelines.docx\n- GAF Requirement - Slope Replacement.docx\n- GAF Guidelines Template.docx\n- GAF Master Elite Certificate (2025).pdf\n- GAF Standard Warranty.pdf\n- Golden Pledge Limited Warranty.pdf\n- Master Elite Reference Letter for Customers.docx\n\n**Website Resources:**\n- gaf.com - Contractor locator (proves your certification)\n- GAF installation guides\n- Warranty comparison charts\n- Product specifications\n\n**Business Cards/Fliers:**\nShould prominently display GAF Master Elite logo\n\n---\n\n**SPEAKING WITH AUTHORITY:**\n\n**Weak:**\n'We are a good roofing company'\n\n**Strong:**\n'We are GAF Master Elite certified - top 2% of roofing contractors nationwide. You can verify that on GAF's website right now.'\n\n**Weak:**\n'We do quality work'\n\n**Strong:**\n'We follow GAF Master Elite installation standards, which are the highest in the industry. This ensures your warranty remains valid and your roof performs as designed.'\n\n**Weak:**\n'We stand behind our work'\n\n**Strong:**\n'We offer GAF's Golden Pledge warranty - 50 years on materials AND labor, backed by GAF, the largest roofing manufacturer in North America. This level of protection is only available through top 2% contractors like us.'\n\n**Key Principle:**\nAlways tie your credibility to GAF Master Elite certification. It is verifiable, prestigious, and differentiating."
+      "content": "**The GAF Master Elite Advantage**\n\nGAF Master Elite certification is one of your most powerful differentiators. Understanding and leveraging GAF guidelines gives you credibility and strong arguments against insurance pushback.\n\n**WHAT IS GAF MASTER ELITE?**\n\n**Certification Requirements:**\n- Top 2% of roofing contractors nationwide\n- Proven track record of quality\n- Proper licensing and insurance\n- Commitment to ongoing training\n- Consumer protection standards\n- Financial stability\n\n**Why It Matters to Homeowners:**\n- Confidence in contractor quality\n- Access to premium warranties\n- Manufacturer backing\n- Verified credentials\n\n**Why It Matters to Insurance:**\n- Legitimate, established contractor\n- Proper installation standards followed\n- Manufacturer warranty compliance\n- Industry best practices\n\n**Your Script:**\n'We are GAF Master Elite certified, which means we are in the top 2% of roofing contractors nationwide. GAF does not give this certification to just anyone - we had to prove our track record, maintain proper licensing and insurance, and commit to their installation standards. You can verify this on GAF's website.'\n\n---\n\n**GAF STORM DAMAGE GUIDELINES:**\n\n**Purpose:**\nGAF provides guidelines for identifying and documenting storm damage. These guidelines support your damage claims.\n\n**Key Guidelines:**\n\n**1. Hail Damage Identification**\n- Circular divots with granule loss\n- Bruising (dark spots from impact)\n- Exposure of fiberglass mat\n- Soft spots (compromised shingle integrity)\n\n**GAF Position:**\n'Hail damage compromises the protective granule layer and shortens roof lifespan. Even if not immediately leaking, the damage is functional, not just cosmetic.'\n\n**Your Usage:**\n'Per GAF storm damage guidelines, the circular divots and granule loss documented in the photos constitute functional hail damage. This is not cosmetic - it compromises the shingle integrity and protective capabilities.'\n\n**2. Wind Damage Identification**\n- Creased shingles\n- Lifted tabs\n- Blown-off sections\n- Torn shingles\n\n**GAF Position:**\nWind damage that compromises seal integrity requires replacement, not repair.\n\n---\n\n**GAF SLOPE REPLACEMENT REQUIREMENT:**\n\n**The Rule:**\nWhen storm damage on a slope exceeds a certain threshold, GAF requires full slope replacement to maintain warranty coverage.\n\n**Threshold Varies by Situation:**\n- Typically 8-10 damaged shingles per square (100 sq ft)\n- Scattered damage across slope\n- Damage pattern indicates widespread impact\n\n**Why It Matters:**\n\n**Insurance Often Says:**\n'We will just replace the 12 damaged shingles, not the whole slope'\n\n**Your Response:**\n'GAF manufacturer guidelines require full slope replacement when damage exceeds the threshold, which it does in this case. Patching violates GAF warranty requirements. Your policy requires restoration to like kind and quality, which includes a fully warranted roof. Patching voids the warranty, so it does not meet the policy standard.'\n\n**Template:** GAF Requirement - Slope Replacement.docx\n\n---\n\n**GAF INSTALLATION STANDARDS:**\n\n**Proper Nailing:**\n- 4 nails per shingle minimum (6 in high-wind areas)\n- Proper placement in nail zone\n- Correct depth (flush, not over-driven)\n\n**Starter Strip:**\n- Required at eaves and rakes\n- Provides proper seal for first course\n- Prevents wind uplift\n\n**Hip and Ridge Cap:**\n- Specialized hip/ridge cap shingles required\n- Cannot use cut-up field shingles\n- Proper nailing pattern\n\n**Underlayment:**\n- Complete coverage required\n- Proper overlap\n- Ice/water shield in required areas\n\n**Flashing:**\n- New flashing required\n- Proper integration with underlayment\n- Step, counter, apron, valley flashing per specs\n\n**Why These Standards Matter:**\n\n**To Homeowner:**\n'As a GAF Master Elite contractor, we follow GAF installation standards exactly. This ensures your warranty remains valid and your roof performs as designed.'\n\n**To Insurance:**\n'GAF installation standards require [X]. We cannot deviate from these standards without voiding the warranty. Your policy requires a warranted installation, so these standards must be met.'\n\n---\n\n**GAF WARRANTIES:**\n\n**Standard Limited Warranty:**\n- Covers manufacturing defects\n- Typically 25-50 years depending on product\n- Does not cover installation issues\n\n**System Plus Warranty (GAF Master Elite Exclusive):**\n- 10-year coverage on materials AND labor\n- Requires GAF accessories (underlayment, starter, ridge)\n- Only available through Master Elite contractors\n\n**Golden Pledge Warranty (GAF Master Elite Exclusive):**\n- 25-50 year coverage on materials\n- 25-50 year coverage on labor\n- Non-prorated for first 20-50 years (product dependent)\n- Transferable to new homeowner\n- Premium offering\n\n**Your Sales Advantage:**\n'Because we are GAF Master Elite, we can offer you the Golden Pledge warranty - 50 years of coverage on materials AND labor. This is only available through top 2% contractors like us. Most roofers cannot offer this level of protection.'\n\n---\n\n**USING GAF CREDENTIALS IN OBJECTION HANDLING:**\n\n**'Roofers knock 5 times a week':**\n'I totally get it. That is exactly why we are different - we are GAF Master Elite certified, top 2% nationwide. Go to GAF's website right now and verify our certification. Those other roofers cannot say that.'\n\n**'How do I know you are legitimate?':**\n'Great question! We are GAF Master Elite certified. Go to gaf.com, click Find a Contractor, enter your zip code, and you will see us listed. GAF does not certify just anyone - you have to prove your track record and maintain high standards. That is how you know we are legitimate.'\n\n**'Will you stand behind the work?':**\n'Absolutely. We offer GAF's Golden Pledge warranty - 50 years on materials AND labor. That is backed by GAF, the largest roofing manufacturer in North America. You have our workmanship warranty AND GAF's manufacturer warranty.'\n\n---\n\n**GAF GUIDELINES IN INSURANCE NEGOTIATIONS:**\n\n**When Insurance Wants Repairs Instead of Replacement:**\n\n'GAF manufacturer guidelines, which we must follow as a Master Elite contractor, require full slope replacement when damage exceeds threshold. Patching violates these guidelines and voids the warranty. Since your policy requires restoration to like kind and quality, which includes a warranted roof, full slope replacement is necessary.'\n\n**Template:** GAF Guidelines.docx, GAF Storm Damage Guidelines.docx, GAF Requirement - Slope Replacement.docx\n\n**When Insurance Questions Damage Severity:**\n\n'Per GAF storm damage identification guidelines, the circular divots and granule loss documented constitute functional damage, not just cosmetic. GAF defines this type of impact damage as compromising shingle integrity and protective capabilities.'\n\n**When Insurance Wants to Reuse Materials:**\n\n'GAF installation standards require new [flashing/underlayment/starter strip/etc.]. Reusing existing materials violates manufacturer standards and voids the warranty. We cannot install a non-warranted roof - that does not meet the policy requirement for restoration to like kind and quality.'\n\n---\n\n**GAF RESOURCES TO KEEP ACCESSIBLE:**\n\n**Digital Documents:**\n- GAF Storm Damage Guidelines.docx\n- GAF Requirement - Slope Replacement.docx\n- GAF Guidelines Template.docx\n- GAF Master Elite Certificate (2025).pdf\n- GAF Standard Warranty.pdf\n- Golden Pledge Limited Warranty.pdf\n- Master Elite Reference Letter for Customers.docx\n\n**Website Resources:**\n- gaf.com - Contractor locator (proves your certification)\n- GAF installation guides\n- Warranty comparison charts\n- Product specifications\n\n**Business Cards/Fliers:**\nShould prominently display GAF Master Elite logo\n\n---\n\n**SPEAKING WITH AUTHORITY:**\n\n**Weak:**\n'We are a good roofing company'\n\n**Strong:**\n'We are GAF Master Elite certified - top 2% of roofing contractors nationwide. You can verify that on GAF's website right now.'\n\n**Weak:**\n'We do quality work'\n\n**Strong:**\n'We follow GAF Master Elite installation standards, which are the highest in the industry. This ensures your warranty remains valid and your roof performs as designed.'\n\n**Weak:**\n'We stand behind our work'\n\n**Strong:**\n'We offer GAF's Golden Pledge warranty - 50 years on materials AND labor, backed by GAF, the largest roofing manufacturer in North America. This level of protection is only available through top 2% contractors like us.'\n\n**Key Principle:**\nAlways tie your credibility to GAF Master Elite certification. It is verifiable, prestigious, and differentiating.",
+      "activities": [
+        {
+          "id": "gaf-guidelines-auto-workflow",
+          "title": "Workflow Simulator - GAF Master Elite Standards and Guidelines",
+          "description": "Practice the correct sequence of actions based on this section.",
+          "type": "workflow-simulator",
+          "points": 15,
+          "data": {
+            "scenario": "Apply the concepts from \"GAF Master Elite Standards and Guidelines\" in the correct order.",
+            "timeLimit": 240,
+            "workflowSteps": [
+              {
+                "id": "prep",
+                "step": "Prepare resources",
+                "correctOrder": 1,
+                "duration": "30s",
+                "tips": [
+                  "Review checklist"
+                ]
+              },
+              {
+                "id": "execute",
+                "step": "Execute core step",
+                "correctOrder": 2,
+                "duration": "1-2m",
+                "tips": [
+                  "Follow best practices"
+                ]
+              },
+              {
+                "id": "document",
+                "step": "Document & upload",
+                "correctOrder": 3,
+                "duration": "1m",
+                "tips": [
+                  "Ensure accuracy before upload"
+                ]
+              }
+            ],
+            "scenarioDetails": "**The GAF Master Elite Advantage**\n\nGAF Master Elite certification is one of your most powerful differentiators. Understanding and leveraging GAF guidelines gives you credibility and strong arguments "
+          }
+        },
+        {
+          "id": "gaf-guidelines-photo-analysis-1",
+          "title": "Photo Analysis - claims filing portal",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "gaf-guidelines-img-1",
+                "imageUrl": "/assets/slides/slide-54-image390.PNG",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "gaf-guidelines-photo-analysis-2",
+          "title": "Photo Analysis - claims filing portal",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "gaf-guidelines-img-1",
+                "imageUrl": "/assets/slides/slide-54-image49.PNG",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "id": "technical-credibility",
       "title": "Building Technical Credibility Through Knowledge",
       "duration": "30 minutes",
-      "content": "**Why Technical Knowledge Matters**\n\nYou do not need to be a master installer, but you must speak confidently about technical aspects of roofing. This builds trust with homeowners and establishes authority with insurance adjusters.\n\n**WHAT HOMEOWNERS CARE ABOUT:**\n\n**1. Will This Roof Protect My Home?**\n\n**What They Want to Hear:**\n'Your new roof will have GAF Timberline HDZ architectural shingles with a 30-year warranty. We will install ice and water shield at the eaves and valleys per code, new step flashing where the roof meets the walls, and proper ventilation. Everything will meet manufacturer standards and building code requirements.'\n\n**Why It Works:**\n- Specific product names (not just 'shingles')\n- Code compliance mentioned\n- Warranty referenced\n- Professional terminology\n\n---\n\n**2. Is This Going to Look Good?**\n\n**What They Want to Hear:**\n'Architectural shingles create a dimensional, premium look that increases curb appeal. The [color] will complement your siding beautifully. These are the same shingles we installed on your neighbor's home three houses down - you can see how they look.'\n\n**Why It Works:**\n- Aesthetic language (dimensional, premium, curb appeal)\n- Color coordination mentioned\n- Social proof (neighbor reference)\n\n---\n\n**3. How Long Will This Last?**\n\n**What They Want to Hear:**\n'GAF Timberline HDZ shingles have a 30-year limited warranty on materials. As a Master Elite contractor, we also provide the System Plus warranty covering 10 years of materials AND labor. With proper maintenance, this roof will protect your home for decades.'\n\n**Why It Works:**\n- Specific warranty terms\n- Differentiation (System Plus from Master Elite)\n- Realistic expectations (not over-promising)\n\n---\n\n**WHAT ADJUSTERS CARE ABOUT:**\n\n**1. Is This Contractor Legitimate?**\n\n**What They Want to Hear:**\n'I am with Roof-ER, a GAF Master Elite contractor - top 2% nationwide. We have all proper licensing in [VA/MD/PA], workers comp insurance, and we follow all manufacturer installation standards. Here is our license number and certificate of insurance.'\n\n**Why It Works:**\n- Credentials stated upfront\n- Licensing and insurance mentioned\n- Professional, no-nonsense approach\n\n---\n\n**2. Is This Contractor Inflating the Claim?**\n\n**What They Want to Hear:**\n'Everything I am claiming is documented in the Photo Report with specific locations noted. The flashing replacement is required by building code. The ice and water shield is a code requirement. The slope replacement follows GAF guidelines for damage threshold. Nothing here is inflated - it is all code, manufacturer, and policy-driven.'\n\n**Why It Works:**\n- Ties every item to requirement (code, guideline, policy)\n- Documentation referenced\n- Professional, fact-based approach\n\n---\n\n**3. Is This Damage Really Storm-Related?**\n\n**What They Want to Hear:**\n'The circular divots with granule loss are classic hail damage characteristics per GAF storm damage guidelines. The pattern is consistent across all slopes, indicating widespread impact event. The collateral damage on gutters and downspouts confirms the same storm event. This is clearly storm damage, not age-related deterioration.'\n\n**Why It Works:**\n- Technical damage description\n- Pattern analysis\n- Corroborating evidence (collateral damage)\n- Differentiates storm from age\n\n---\n\n**TECHNICAL TERMINOLOGY TO MASTER:**\n\n**Shingle Types:**\n- Architectural (not 'dimensional' to homeowners)\n- 3-tab (not 'flat' or 'cheap')\n- Designer/Premium\n\n**Damage Types:**\n- Hail: 'Circular divots with granule loss'\n- Wind: 'Creased shingles and lifted tabs'\n- Collateral: 'Damage to gutters, screens, and other exterior elements'\n\n**Installation Components:**\n- Underlayment (not 'felt paper' alone)\n- Ice and water shield (not 'IWS' to homeowners)\n- Step flashing (not just 'flashing')\n- Ridge vent (not 'venting')\n- Starter strip (specific term)\n\n**Code References:**\n- 'Building code requires...'\n- 'Per [state] code section [X]...'\n- 'Code compliance mandates...'\n\n**Manufacturer References:**\n- 'GAF installation standards require...'\n- 'Per manufacturer warranty requirements...'\n- 'Following GAF Master Elite guidelines...'\n\n---\n\n**WHEN YOU DO NOT KNOW THE ANSWER:**\n\n**Wrong Approach:**\nGuess or make something up\n\n**Right Approach:**\n'That is a great technical question. Let me verify with our installation team and get you the exact answer. I want to make sure I give you accurate information.'\n\n**Why It Works:**\n- Honesty builds trust\n- Shows you care about accuracy\n- Demonstrates you have expert resources\n- Better than wrong information\n\n---\n\n**BUILDING TECHNICAL CREDIBILITY OVER TIME:**\n\n**Week 1-4:**\n- Master basic shingle identification\n- Memorize GAF Master Elite talking points\n- Practice code reference phrases\n- Learn to identify discontinued shingles\n\n**Month 2-3:**\n- Study state-specific building codes\n- Understand GAF slope replacement guidelines\n- Learn flashing types and locations\n- Practice technical explanations to peers\n\n**Month 4-6:**\n- Deep dive into manufacturer warranties\n- Master technical objection responses\n- Study insurance policy language\n- Become go-to resource for teammates\n\n**Month 6+:**\n- Teach technical concepts to new reps\n- Handle complex technical disputes with adjusters\n- Provide technical training input\n- Recognized as technical expert\n\n---\n\n**RESOURCES FOR ONGOING LEARNING:**\n\n**Documents to Study:**\n- GAF Storm Damage Guidelines.docx\n- GAF Requirement - Slope Replacement.docx\n- Virginia Building Codes.docx\n- Maryland Exterior Wrap Code R703.docx\n- Flashing Codes.docx\n- Low Roof/Flat Roof Code.docx\n\n**Websites to Explore:**\n- gaf.com (product specs, installation guides)\n- certainteed.com (product lines, discontinuations)\n- owenscorning.com (shingle identification)\n- State building code websites\n\n**Field Learning:**\n- Attend production installs (see process firsthand)\n- Shadow experienced reps on technical inspections\n- Photograph different shingle types for reference library\n- Document discontinued shingle examples\n\n**Team Resources:**\n- Ask production manager technical questions\n- Consult with field trainers on complex issues\n- Review past iTel reports for discontinuation examples\n- Learn from teammates who handle technical disputes well\n\n---\n\n**THE BOTTOM LINE:**\n\nYou do not need to be able to install a roof, but you DO need to:\n- Identify shingle types and brands\n- Recognize discontinued products\n- Cite building code requirements confidently\n- Explain GAF Master Elite standards\n- Speak about installation components accurately\n- Use technical terminology appropriately\n\n**When you sound like an expert, you are treated like an expert.**\n\nHomeowners trust you. Adjusters respect you. Claims get approved.\n\nTechnical credibility = Sales credibility."
+      "content": "**Why Technical Knowledge Matters**\n\nYou do not need to be a master installer, but you must speak confidently about technical aspects of roofing. This builds trust with homeowners and establishes authority with insurance adjusters.\n\n**WHAT HOMEOWNERS CARE ABOUT:**\n\n**1. Will This Roof Protect My Home?**\n\n**What They Want to Hear:**\n'Your new roof will have GAF Timberline HDZ architectural shingles with a 30-year warranty. We will install ice and water shield at the eaves and valleys per code, new step flashing where the roof meets the walls, and proper ventilation. Everything will meet manufacturer standards and building code requirements.'\n\n**Why It Works:**\n- Specific product names (not just 'shingles')\n- Code compliance mentioned\n- Warranty referenced\n- Professional terminology\n\n---\n\n**2. Is This Going to Look Good?**\n\n**What They Want to Hear:**\n'Architectural shingles create a dimensional, premium look that increases curb appeal. The [color] will complement your siding beautifully. These are the same shingles we installed on your neighbor's home three houses down - you can see how they look.'\n\n**Why It Works:**\n- Aesthetic language (dimensional, premium, curb appeal)\n- Color coordination mentioned\n- Social proof (neighbor reference)\n\n---\n\n**3. How Long Will This Last?**\n\n**What They Want to Hear:**\n'GAF Timberline HDZ shingles have a 30-year limited warranty on materials. As a Master Elite contractor, we also provide the System Plus warranty covering 10 years of materials AND labor. With proper maintenance, this roof will protect your home for decades.'\n\n**Why It Works:**\n- Specific warranty terms\n- Differentiation (System Plus from Master Elite)\n- Realistic expectations (not over-promising)\n\n---\n\n**WHAT ADJUSTERS CARE ABOUT:**\n\n**1. Is This Contractor Legitimate?**\n\n**What They Want to Hear:**\n'I am with Roof-ER, a GAF Master Elite contractor - top 2% nationwide. We have all proper licensing in [VA/MD/PA], workers comp insurance, and we follow all manufacturer installation standards. Here is our license number and certificate of insurance.'\n\n**Why It Works:**\n- Credentials stated upfront\n- Licensing and insurance mentioned\n- Professional, no-nonsense approach\n\n---\n\n**2. Is This Contractor Inflating the Claim?**\n\n**What They Want to Hear:**\n'Everything I am claiming is documented in the Photo Report with specific locations noted. The flashing replacement is required by building code. The ice and water shield is a code requirement. The slope replacement follows GAF guidelines for damage threshold. Nothing here is inflated - it is all code, manufacturer, and policy-driven.'\n\n**Why It Works:**\n- Ties every item to requirement (code, guideline, policy)\n- Documentation referenced\n- Professional, fact-based approach\n\n---\n\n**3. Is This Damage Really Storm-Related?**\n\n**What They Want to Hear:**\n'The circular divots with granule loss are classic hail damage characteristics per GAF storm damage guidelines. The pattern is consistent across all slopes, indicating widespread impact event. The collateral damage on gutters and downspouts confirms the same storm event. This is clearly storm damage, not age-related deterioration.'\n\n**Why It Works:**\n- Technical damage description\n- Pattern analysis\n- Corroborating evidence (collateral damage)\n- Differentiates storm from age\n\n---\n\n**TECHNICAL TERMINOLOGY TO MASTER:**\n\n**Shingle Types:**\n- Architectural (not 'dimensional' to homeowners)\n- 3-tab (not 'flat' or 'cheap')\n- Designer/Premium\n\n**Damage Types:**\n- Hail: 'Circular divots with granule loss'\n- Wind: 'Creased shingles and lifted tabs'\n- Collateral: 'Damage to gutters, screens, and other exterior elements'\n\n**Installation Components:**\n- Underlayment (not 'felt paper' alone)\n- Ice and water shield (not 'IWS' to homeowners)\n- Step flashing (not just 'flashing')\n- Ridge vent (not 'venting')\n- Starter strip (specific term)\n\n**Code References:**\n- 'Building code requires...'\n- 'Per [state] code section [X]...'\n- 'Code compliance mandates...'\n\n**Manufacturer References:**\n- 'GAF installation standards require...'\n- 'Per manufacturer warranty requirements...'\n- 'Following GAF Master Elite guidelines...'\n\n---\n\n**WHEN YOU DO NOT KNOW THE ANSWER:**\n\n**Wrong Approach:**\nGuess or make something up\n\n**Right Approach:**\n'That is a great technical question. Let me verify with our installation team and get you the exact answer. I want to make sure I give you accurate information.'\n\n**Why It Works:**\n- Honesty builds trust\n- Shows you care about accuracy\n- Demonstrates you have expert resources\n- Better than wrong information\n\n---\n\n**BUILDING TECHNICAL CREDIBILITY OVER TIME:**\n\n**Week 1-4:**\n- Master basic shingle identification\n- Memorize GAF Master Elite talking points\n- Practice code reference phrases\n- Learn to identify discontinued shingles\n\n**Month 2-3:**\n- Study state-specific building codes\n- Understand GAF slope replacement guidelines\n- Learn flashing types and locations\n- Practice technical explanations to peers\n\n**Month 4-6:**\n- Deep dive into manufacturer warranties\n- Master technical objection responses\n- Study insurance policy language\n- Become go-to resource for teammates\n\n**Month 6+:**\n- Teach technical concepts to new reps\n- Handle complex technical disputes with adjusters\n- Provide technical training input\n- Recognized as technical expert\n\n---\n\n**RESOURCES FOR ONGOING LEARNING:**\n\n**Documents to Study:**\n- GAF Storm Damage Guidelines.docx\n- GAF Requirement - Slope Replacement.docx\n- Virginia Building Codes.docx\n- Maryland Exterior Wrap Code R703.docx\n- Flashing Codes.docx\n- Low Roof/Flat Roof Code.docx\n\n**Websites to Explore:**\n- gaf.com (product specs, installation guides)\n- certainteed.com (product lines, discontinuations)\n- owenscorning.com (shingle identification)\n- State building code websites\n\n**Field Learning:**\n- Attend production installs (see process firsthand)\n- Shadow experienced reps on technical inspections\n- Photograph different shingle types for reference library\n- Document discontinued shingle examples\n\n**Team Resources:**\n- Ask production manager technical questions\n- Consult with field trainers on complex issues\n- Review past iTel reports for discontinuation examples\n- Learn from teammates who handle technical disputes well\n\n---\n\n**THE BOTTOM LINE:**\n\nYou do not need to be able to install a roof, but you DO need to:\n- Identify shingle types and brands\n- Recognize discontinued products\n- Cite building code requirements confidently\n- Explain GAF Master Elite standards\n- Speak about installation components accurately\n- Use technical terminology appropriately\n\n**When you sound like an expert, you are treated like an expert.**\n\nHomeowners trust you. Adjusters respect you. Claims get approved.\n\nTechnical credibility = Sales credibility.",
+      "activities": [
+        {
+          "id": "technical-credibility-auto-workflow",
+          "title": "Workflow Simulator - Building Technical Credibility Through Knowledge",
+          "description": "Practice the correct sequence of actions based on this section.",
+          "type": "workflow-simulator",
+          "points": 15,
+          "data": {
+            "scenario": "Apply the concepts from \"Building Technical Credibility Through Knowledge\" in the correct order.",
+            "timeLimit": 240,
+            "workflowSteps": [
+              {
+                "id": "prep",
+                "step": "Prepare resources",
+                "correctOrder": 1,
+                "duration": "30s",
+                "tips": [
+                  "Review checklist"
+                ]
+              },
+              {
+                "id": "execute",
+                "step": "Execute core step",
+                "correctOrder": 2,
+                "duration": "1-2m",
+                "tips": [
+                  "Follow best practices"
+                ]
+              },
+              {
+                "id": "document",
+                "step": "Document & upload",
+                "correctOrder": 3,
+                "duration": "1m",
+                "tips": [
+                  "Ensure accuracy before upload"
+                ]
+              }
+            ],
+            "scenarioDetails": "**Why Technical Knowledge Matters**\n\nYou do not need to be a master installer, but you must speak confidently about technical aspects of roofing. This builds trust with homeowners and establishes auth"
+          }
+        },
+        {
+          "id": "technical-credibility-photo-analysis-1",
+          "title": "Photo Analysis - discontinued shingles",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "technical-credibility-img-1",
+                "imageUrl": "/assets/slides/slide-16-image22.jpeg",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "technical-credibility-photo-analysis-2",
+          "title": "Photo Analysis - discontinued shingles",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "technical-credibility-img-1",
+                "imageUrl": "/assets/slides/slide-16-image21.jpeg",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
   "interactiveLearning": [
@@ -481,18 +893,18 @@
                 "objection": "I only see wear and tear.",
                 "correctResponse": "I appreciate the assessment. May I show you test squares where we documented discrete impact points consistent with the storm date?",
                 "incorrectResponses": [
-                  "It\u2019s not wear and tear.",
-                  "You\u2019re wrong.",
-                  "We\u2019ll argue this later."
+                  "It’s not wear and tear.",
+                  "You’re wrong.",
+                  "We’ll argue this later."
                 ]
               },
               {
                 "objection": "We can approve spot repairs.",
-                "correctResponse": "Under local code Section 1511.2, when damage exceeds threshold, full replacement is required. We\u2019ve documented >25%. Can we review?",
+                "correctResponse": "Under local code Section 1511.2, when damage exceeds threshold, full replacement is required. We’ve documented >25%. Can we review?",
                 "incorrectResponses": [
-                  "Repairs won\u2019t work.",
+                  "Repairs won’t work.",
                   "Just approve full replacement.",
-                  "We\u2019ll escalate."
+                  "We’ll escalate."
                 ]
               }
             ]
@@ -574,12 +986,12 @@
       "id": "shingle-knowledge-mastery",
       "title": "Shingle Knowledge Mastery: Your Foundation of Technical Credibility",
       "type": "interactive",
-      "icon": "\ud83c\udfd7\ufe0f",
+      "icon": "🏗️",
       "content": "Shingle identification is where technical credibility begins. When you can look at a roof and confidently say 'Those are GAF Timberline HD architectural shingles, approximately 12 years old based on granule loss, and I need to verify if that color is still available' - you sound like an expert. When you say 'uh, those are regular shingles I think' - you sound like every other door knocker.\n\nThe difference is not talent. It is study. Spend one hour on GAF's website learning their product lines. Spend another hour on CertainTeed's site. Memorize the most commonly discontinued 3-tab lines: GAF Royal Sovereign, CertainTeed XT 25, Owens Corning Supreme variations. When you see older 3-tab shingles, your first thought should be 'discontinued?' - because that question can transform a repair into a replacement and 5x your commission.\n\nLook at Sophia's story. She identified CertainTeed XT 25, researched discontinuation, generated an iTel report, and turned an $8,200 repair into a $42,000 replacement. That is $33,800 in additional revenue from 20 minutes of technical investigation. Every rep had access to the same information - Sophia was the only one who knew to look for it.\n\nStart building your mental shingle library today. Take photos of every roof you inspect with notes on brand, type, and age. Create a reference folder on your phone. Within three months, you will recognize common shingle lines instantly. That instant recognition is credibility, and credibility is revenue.",
       "points": [
         "Architectural vs 3-tab identification: Multi-layered, textured look = architectural. Flat, uniform, visible tabs = 3-tab.",
         "Discontinued shingle recognition: Older 3-tab lines (15+ years) have highest discontinuation likelihood. Always investigate.",
-        "iTel process mastery: Identify brand/model \u2192 Research manufacturer website \u2192 Generate iTel report \u2192 Use iTel template \u2192 Argue matching law.",
+        "iTel process mastery: Identify brand/model → Research manufacturer website → Generate iTel report → Use iTel template → Argue matching law.",
         "Age estimation through visual cues: Granule loss, fading, curling edges, brittleness indicate age and discontinuation probability.",
         "Credibility through specificity: Say 'GAF Timberline HDZ architectural shingles' not 'good shingles.' Specificity = expertise."
       ],
@@ -590,7 +1002,7 @@
       "id": "gaf-guidelines-certification",
       "title": "GAF Master Elite & Guidelines: Your Credibility Superweapon",
       "type": "interactive",
-      "icon": "\ud83c\udfc6",
+      "icon": "🏆",
       "content": "GAF Master Elite certification is sitting in your arsenal right now, but most reps do not deploy it effectively. They mention it in passing: 'Oh yeah, we are GAF certified.' That is wasted potential. Isabella transformed her close rate by 15% - from 45% to 60% - by weaponizing the certification strategically.\n\nHere is how she did it: She made Master Elite the CENTERPIECE of her credibility positioning. First words out of her mouth: 'We are GAF Master Elite certified - top 2% of roofing contractors nationwide.' Then she proved it in real-time: 'Pull out your phone right now, go to gaf.com, click Find a Contractor, enter your zip code, and you will see us listed.' Homeowners would literally verify it while she was talking. Trust skyrocketed.\n\nThen she connected it to exclusive value: 'Because we are Master Elite, we can offer Golden Pledge warranty - 50 years on materials AND labor. Most roofers cannot offer this because they are not certified. Ask your other estimates if they can provide Golden Pledge. If they say no, it is because they are not in the top 2%.'\n\nThis is not arrogance - it is strategic differentiation. Every competitor says 'we do quality work.' Only you can prove you are verified top 2% and offer exclusive warranties. Use it.\n\nBeyond sales, GAF guidelines are your insurance negotiation weapons. When adjusters want repairs instead of slope replacement, you cite GAF slope replacement guidelines. When they want to reuse materials, you cite GAF installation standards requiring new components for warranty validity. 'We cannot install a non-warranted roof - that does not meet the policy requirement for like kind and quality.'\n\nMaster Elite is not just a logo on your business card. It is verifiable proof of elite status, exclusive warranty access, and installation standard authority. Deploy it like Isabella did, and watch your close rate climb.",
       "points": [
         "Top 2% verification strategy: Have homeowners verify on gaf.com in real-time during pitch. Instant credibility.",
@@ -606,7 +1018,7 @@
       "id": "building-code-compliance-authority",
       "title": "Building Code Mastery: Your Non-Negotiable Insurance Weapon",
       "type": "interactive",
-      "icon": "\u2696\ufe0f",
+      "icon": "⚖️",
       "content": "Building codes are LAW. Insurance companies cannot require you to violate the law. This is your most powerful argument against claim denials, but only if you know the codes and cite them confidently.\n\nEthan's story demonstrates the integrity side of code knowledge - he caught a missing ice/water shield requirement, stopped the project, fought the adjuster, and got it approved. That integrity generated four referrals worth $67,000+ because homeowners trust contractors who prioritize doing it right over doing it fast.\n\nBut code knowledge is also your offensive weapon in negotiations. When adjusters approve estimates without step flashing, you respond: 'Building code in [VA/MD/PA] requires step flashing replacement when roof is replaced. This is not optional - it is legally mandated. When we pull the permit, the inspector will verify code compliance. If step flashing is not installed, inspection fails. Your company must cover code-compliant work.'\n\nWhen they exclude ice/water shield: '[State] building code section [X] requires ice and water shield at eaves and valleys. This is not replicating existing conditions - this is bringing the installation up to current code. Work must meet current code, not grandfather old non-compliant standards. This is code compliance, not an upgrade.'\n\nThe word 'code' is magic because it shifts the conversation from 'should we cover this?' to 'we must cover this because it is law.' Adjusters know they cannot require code violations.\n\nYour job: Memorize the key requirements for VA, MD, and PA. Step flashing must be replaced in all three states. Ice/water shield required at eaves and valleys in all three states (specific measurements vary). Underlayment required. Exterior wrap in Maryland for siding (R703). Keep templates on your phone for instant reference.\n\nWhen you cite code sections confidently, adjusters respect you. When you fumble or seem unsure, they push back. Confidence comes from knowledge. Knowledge comes from study. Invest one hour studying building code documents, and you will win thousands in previously denied claims.",
       "points": [
         "Step flashing code (VA/MD/PA): Must be replaced when roof replaced, cannot reuse. Integrated with shingles, damaged during removal.",
@@ -622,14 +1034,14 @@
       "id": "technical-credibility-building",
       "title": "Building Technical Credibility: Speaking the Language of Expertise",
       "type": "interactive",
-      "icon": "\ud83c\udf93",
+      "icon": "🎓",
       "content": "Technical credibility is not about knowing how to install a roof - it is about speaking confidently about roofing in a way that demonstrates deep understanding. Marcus won a $156,000 commercial contract not because he could swing a hammer, but because he could explain the difference between Timberline HD and HDZ, discuss LayerLock technology, cite Maryland code sections, and detail warranty structures. The developer said: 'You are the only one who could answer my technical questions without calling someone.'\n\nThat is the standard. When homeowners ask technical questions, you answer immediately with specific, detailed information. When adjusters challenge your claims, you cite codes, guidelines, and standards without hesitation. When you do not know something, you say: 'Great technical question - let me verify with our installation team to ensure I give you accurate information.' Honesty about gaps builds more trust than guessing.\n\nYour technical language toolkit:\n\n**To Homeowners:** Use accessible but specific language. Not 'shingles' - 'GAF Timberline HDZ architectural shingles.' Not 'flashing' - 'step flashing where the roof meets your walls.' Not 'we do quality work' - 'we follow GAF Master Elite installation standards ensuring your warranty remains valid.'\n\n**To Adjusters:** Use precise, standards-based language. Not 'this needs to be replaced' - 'Building code in [state] requires [X], and GAF installation standards mandate [Y] for warranted installation. Policy requires code-compliant, warranted work.' Every claim tied to a requirement.\n\nThe progression is predictable:\n\n**Weeks 1-4:** Master shingle identification basics, memorize GAF Master Elite talking points, learn discontinued shingle lines.\n\n**Months 2-3:** Study state building codes, understand GAF guidelines, practice technical explanations.\n\n**Months 4-6:** Deep dive warranties, master technical objection responses, become team resource.\n\n**Months 6+:** Teach others, handle complex technical disputes, recognized as expert.\n\nEvery top rep follows this path. The difference between average and elite is willingness to study technical content that feels boring at first but generates tens of thousands in additional revenue. Marcus studied GAF product specs and building codes. That study directly generated $156,000. What is one hour of studying worth if it produces that return?",
       "points": [
         "Specific product terminology: 'GAF Timberline HDZ architectural shingles' not 'good shingles.' Specificity signals expertise.",
         "Component naming precision: Step flashing (wall intersections), counter flashing (chimney top), apron flashing (chimney front), ice/water shield (not IWS to homeowners).",
         "Requirement-based language: Tie every claim item to code, guideline, or manufacturer standard. 'Required by [X]' not 'I recommend [X].'",
         "Honesty about knowledge gaps: 'Let me verify that technical detail and get you the accurate answer' builds more trust than guessing wrong.",
-        "Progressive learning path: Basic shingle ID \u2192 Building codes \u2192 GAF guidelines \u2192 Warranties \u2192 Advanced technical disputes. Each level builds on the last."
+        "Progressive learning path: Basic shingle ID → Building codes → GAF guidelines → Warranties → Advanced technical disputes. Each level builds on the last."
       ],
       "duration": "20 minutes",
       "practiceExercise": "Record yourself explaining these three things: (1) The difference between architectural and 3-tab shingles, (2) Why step flashing must be replaced per code, (3) What GAF Master Elite certification means. Listen back. Do you sound confident and specific, or vague and uncertain? Refine your explanations until they sound expert-level. Practice until you can deliver each in under 60 seconds with zero hesitation."
@@ -638,7 +1050,7 @@
       "id": "materials-installation-expertise",
       "title": "Materials & Installation Component Expertise: The Details That Win Claims",
       "type": "interactive",
-      "icon": "\ud83d\udd27",
+      "icon": "🔧",
       "content": "Insurance adjusters often approve estimates missing critical components, hoping contractors will not notice or will install anyway to avoid conflict. When you know installation components deeply - what they are, why they are required, and how to argue for them - you catch these omissions and add thousands to claims.\n\nThe five components most often missing from adjuster estimates:\n\n**1. Ice and Water Shield at Eaves:** Adjusters often approve valley ice/water shield but exclude eaves. Your response: '[State] building code requires ice/water shield at eaves extending [24 inches/2-3 feet] beyond interior wall. This is code compliance. Not included in current estimate. Must be added.'\n\n**2. Step Flashing Replacement:** Adjusters frequently approve roof replacement but exclude step flashing, claiming 'existing can be reused.' Your response: 'Building code in [state] requires step flashing replacement. Existing step flashing is integrated with existing shingles and is damaged during removal. Cannot be reused per code and manufacturer warranty requirements. Non-negotiable.'\n\n**3. Starter Strip:** Often omitted entirely. Your response: 'GAF installation standards require starter strip at eaves and rakes for warranted installation. Policy requires warranted roof. Starter strip is specified component in GAF system requirements.'\n\n**4. Ridge Cap Shingles:** Adjusters sometimes approve 'ridge cap' without specifying specialized shingles. Your response: 'GAF prohibits use of cut field shingles for ridge cap. Specialized ridge cap shingles required per manufacturer specs for warranted installation.'\n\n**5. Complete Underlayment:** Estimates may say 'underlayment' without specifying complete coverage. Your response: 'Building code requires complete underlayment replacement covering entire roof deck. Existing underlayment cannot be reused. Code-mandated component.'\n\nYour competitive advantage: Most reps do not catch these omissions. They accept the adjuster's estimate as-is and move forward with incomplete scope. You review every estimate line-by-line, identify missing code-required and manufacturer-required components, and fight to add them. The difference between accepting a $32,000 estimate and fighting for a $38,000 estimate is $6,000 - and often that entire $6,000 is profit margin on materials the adjuster tried to exclude.\n\nLearn each component's purpose, code requirement, and manufacturer specification. When homeowners ask why each is needed, explain in protective terms: 'Ice/water shield prevents leaks in vulnerable areas like eaves where ice dams form.' When adjusters question inclusion, cite requirements: 'Code section [X] requires, manufacturer standard [Y] mandates.'\n\nThe reps who master installation component knowledge are the ones submitting $40K+ estimates while competitors submit $28K estimates on the same house. The house is the same. The damage is the same. The difference is technical knowledge that identifies what MUST be included per code and standards.",
       "points": [
         "Ice/water shield: Required at eaves AND valleys per state codes. Adjuster often approves valleys only. Catch and correct.",
@@ -672,7 +1084,12 @@
       "question": "What percentage of roofing contractors nationwide are GAF Master Elite certified?",
       "type": "multiple-choice",
       "difficulty": "easy",
-      "options": ["Top 10%", "Top 5%", "Top 2%", "Top 1%"],
+      "options": [
+        "Top 10%",
+        "Top 5%",
+        "Top 2%",
+        "Top 1%"
+      ],
       "correctAnswer": 2,
       "explanation": "GAF Master Elite contractors represent the top 2% of roofing contractors nationwide. This is a critical differentiator and should be mentioned in every pitch with the specific '2%' statistic for impact. The certification requires proven track record, proper licensing and insurance, ongoing training commitment, and consumer protection standards. When you say 'top 2%' to homeowners, it immediately positions you above 98% of competitors. Always encourage homeowners to verify this on gaf.com to build trust.",
       "points": 2
@@ -818,10 +1235,10 @@
       "type": "multiple-choice",
       "difficulty": "hard",
       "options": [
-        "Generate iTel report \u2192 Submit to insurance \u2192 Identify shingle brand \u2192 Research manufacturer website",
-        "Submit to insurance \u2192 Generate iTel report \u2192 Research manufacturer website \u2192 Identify shingle brand",
-        "Identify shingle brand/model \u2192 Research manufacturer website to verify current availability \u2192 Generate iTel report documenting discontinuation \u2192 Submit iTel template to insurance with supporting documentation",
-        "Research manufacturer website \u2192 Submit to insurance \u2192 Identify shingle brand \u2192 Generate iTel report"
+        "Generate iTel report → Submit to insurance → Identify shingle brand → Research manufacturer website",
+        "Submit to insurance → Generate iTel report → Research manufacturer website → Identify shingle brand",
+        "Identify shingle brand/model → Research manufacturer website to verify current availability → Generate iTel report documenting discontinuation → Submit iTel template to insurance with supporting documentation",
+        "Research manufacturer website → Submit to insurance → Identify shingle brand → Generate iTel report"
       ],
       "correctAnswer": 2,
       "explanation": "The correct iTel process sequence is: (1) IDENTIFY shingle brand and model - examine shingle backs for markings, check homeowner documentation, photograph clearly. (2) RESEARCH manufacturer website - visit gaf.com, certainteed.com, etc., search current product lines to verify if product/color is still available. If not listed in current catalog, likely discontinued. (3) GENERATE iTel report - use iTel system to create formal discontinuation verification report providing documentation that product is unavailable for matching. (4) SUBMIT iTel template to insurance - use company iTel template, attach iTel report, include photos of existing shingles, manufacturer website screenshots, cite matching law, argue for full replacement. This sequence ensures you have verified discontinuation before making formal arguments and have comprehensive documentation supporting your claim. Sophia followed this process and transformed an $8,200 repair into a $42,000 replacement. The sequence matters - identify first, verify second, document third, argue fourth. Skipping steps weakens your case.",

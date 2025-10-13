@@ -17,6 +17,7 @@
     "@types/react-dom": "^19.1.9",
     "aos": "^2.3.4",
     "axios": "^1.12.2",
+    "firebase": "^12.4.0",
     "framer-motion": "^12.23.22",
     "lottie-react": "^2.4.1",
     "lucide-react": "^0.544.0",

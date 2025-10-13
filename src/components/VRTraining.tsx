@@ -34,6 +34,7 @@ import {
   Brain,
   BookOpen,
 } from 'lucide-react';
+import ModalPortal from './ModalPortal';
 
 interface VRTrainingProps {
   isOpen: boolean;
@@ -476,11 +477,12 @@ const VRTraining: React.FC<VRTrainingProps> = ({
   if (!isOpen) return null;
 
   return (
+    <ModalPortal>
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className={`fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4 ${className}`}
+      className={`fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 ${className || ''}`}
       onClick={() => !sessionState.isActive && onClose()}
     >
       <motion.div
@@ -982,6 +984,7 @@ const VRTraining: React.FC<VRTrainingProps> = ({
         )}
       </motion.div>
     </motion.div>
+    </ModalPortal>
   );
 };
 

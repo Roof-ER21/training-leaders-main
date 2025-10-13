@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import ModalPortal from './ModalPortal';
 import { Mic, Send, X, Star, Award, TrendingUp } from 'lucide-react';
 import mentorPack1 from '../data/agnes/scenarios.module1';
 import mentorPack2 from '../data/agnes/scenarios.module2';
@@ -496,6 +497,7 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
     const stats = calculateSessionStats();
 
     return (
+      <ModalPortal>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -519,13 +521,13 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
             </p>
 
             <div className="grid grid-cols-3 gap-4 mb-8">
-              <div className="bg-blue-50 rounded-xl p-4">
+              <div className="bg-gray-50 rounded-xl p-4">
                 <div className="text-3xl font-bold text-blue-600 mb-1">
                   {stats.avgScore}
                 </div>
                 <div className="text-sm text-gray-600">Average Score</div>
               </div>
-              <div className="bg-purple-50 rounded-xl p-4">
+              <div className="bg-gray-50 rounded-xl p-4">
                 <div className="text-3xl font-bold text-purple-600 mb-1">
                   {stats.topScore}
                 </div>
@@ -616,7 +618,7 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
                 </h4>
                 {mentorPack.practiceSequences &&
                 mentorPack.practiceSequences.length > 0 ? (
-                  <div className="border border-indigo-200 rounded-lg p-3">
+                  <div className="border border-gray-200 rounded-lg p-3">
                     <div className="font-semibold text-indigo-900">
                       {mentorPack.practiceSequences[0].title}
                     </div>
@@ -635,18 +637,20 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
 
             <button
               onClick={onClose}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors"
+              className="w-full bg-roofRed hover:bg-roofRed-dark text-white font-semibold py-3 px-6 rounded-xl transition-colors"
             >
               Complete Training
             </button>
           </div>
         </motion.div>
       </motion.div>
+      </ModalPortal>
     );
   }
 
   if (!selectedRole) {
     return (
+      <ModalPortal>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -679,7 +683,7 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => handleRoleSelection('homeowner')}
-              className="bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-2xl p-6 text-left hover:shadow-xl transition-all"
+              className="bg-gradient-to-br from-black to-neutral-900 text-white rounded-2xl p-6 text-left hover:shadow-xl transition-all"
             >
               <div className="w-12 h-12 bg-white bg-opacity-20 rounded-xl flex items-center justify-center mb-4">
                 <span className="text-2xl">🏠</span>
@@ -699,17 +703,17 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => handleRoleSelection('rep')}
-              className="bg-gradient-to-br from-purple-500 to-purple-600 text-white rounded-2xl p-6 text-left hover:shadow-xl transition-all"
+              className="bg-gradient-to-br from-black to-neutral-900 text-white rounded-2xl p-6 text-left hover:shadow-xl transition-all"
             >
               <div className="w-12 h-12 bg-white bg-opacity-20 rounded-xl flex items-center justify-center mb-4">
                 <span className="text-2xl">💼</span>
               </div>
               <h3 className="text-xl font-bold mb-2">Sales Rep</h3>
-              <p className="text-purple-100 text-sm mb-4">
+              <p className="text-gray-300 text-sm mb-4">
                 Agnes plays a fellow rep. Practice team collaboration, knowledge
                 sharing, and coaching.
               </p>
-              <div className="text-xs text-purple-200">
+              <div className="text-xs text-gray-400">
                 {availableScenarios.filter(s => s.role === 'rep').length}{' '}
                 scenarios available
               </div>
@@ -764,10 +768,12 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
           </div>
         </motion.div>
       </motion.div>
+      </ModalPortal>
     );
   }
 
   return (
+    <ModalPortal>
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -779,7 +785,7 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
         className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full my-8"
       >
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 rounded-t-2xl">
+        <div className="bg-gradient-to-r from-black to-neutral-900 text-white p-6 rounded-t-2xl">
           <div className="flex justify-between items-start mb-4">
             <div>
               <div className="text-sm text-blue-100 mb-1">
@@ -844,7 +850,7 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
                   ))}
                 </ul>
               </div>
-              <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-4">
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
                 <h4 className="font-semibold text-indigo-900 mb-2">
                   Suggested Practice Sequences
                 </h4>
@@ -852,7 +858,7 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
                   {mentorPack.practiceSequences.map(seq => (
                     <li
                       key={seq.id}
-                      className="border border-indigo-200 rounded-lg p-3"
+                      className="border border-gray-200 rounded-lg p-3"
                     >
                       <div className="font-semibold text-indigo-900">
                         {seq.title}
@@ -879,11 +885,11 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
               {/* Agnes Line */}
               <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-6 mb-6 border-l-4 border-purple-500">
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 bg-gray-500 rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-white font-bold text-sm">A21</span>
                   </div>
                   <div className="flex-1">
-                    <div className="text-sm font-semibold text-purple-700 mb-1">
+                    <div className="text-sm font-semibold text-roofRed mb-1">
                       Agnes says:
                     </div>
                     <p className="text-gray-800 text-lg">
@@ -899,7 +905,7 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
                   onClick={() => setInputMode('text')}
                   className={`flex-1 py-2 px-4 rounded-lg font-medium transition-colors ${
                     inputMode === 'text'
-                      ? 'bg-blue-600 text-white'
+                      ? 'bg-roofRed text-white'
                       : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                   }`}
                 >
@@ -909,7 +915,7 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
                   onClick={() => setInputMode('voice')}
                   className={`flex-1 py-2 px-4 rounded-lg font-medium transition-colors ${
                     inputMode === 'voice'
-                      ? 'bg-blue-600 text-white'
+                      ? 'bg-roofRed text-white'
                       : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                   }`}
                 >
@@ -961,7 +967,7 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
                         </>
                       ) : (
                         <>
-                          <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                          <div className="w-16 h-16 bg-gray-500 rounded-full flex items-center justify-center mx-auto mb-4">
                             <Mic className="w-8 h-8 text-white" />
                           </div>
                           <p className="text-gray-700 font-semibold mb-2">
@@ -974,7 +980,7 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
                           </p>
                           <button
                             onClick={startRecording}
-                            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors"
+                            className="bg-roofRed hover:bg-roofRed-dark text-white px-6 py-2 rounded-lg font-medium transition-colors"
                           >
                             Start Recording
                           </button>
@@ -989,7 +995,7 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
               <button
                 onClick={handleSubmitResponse}
                 disabled={!userInput.trim() && !transcript.trim()}
-                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-semibold py-4 px-6 rounded-xl transition-colors flex items-center justify-center gap-2"
+                className="w-full bg-roofRed hover:bg-roofRed-dark disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-semibold py-4 px-6 rounded-xl transition-colors flex items-center justify-center gap-2"
               >
                 <Send className="w-5 h-5" />
                 Submit Response
@@ -1011,7 +1017,7 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
                       currentFeedback!.score >= 85
                         ? 'bg-green-100'
                         : currentFeedback!.score >= 70
-                          ? 'bg-blue-100'
+                          ? 'bg-gray-100'
                           : currentFeedback!.score >= 55
                             ? 'bg-yellow-100'
                             : 'bg-orange-100'
@@ -1061,8 +1067,8 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
               {/* Key Points */}
               <div className="grid md:grid-cols-2 gap-4">
                 {currentFeedback!.matchedKeyPoints.length > 0 && (
-                  <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
-                    <h4 className="font-semibold text-blue-900 mb-2">
+                  <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
+                    <h4 className="font-semibold text-gray-900 mb-2">
                       ✓ Points Covered
                     </h4>
                     <ul className="space-y-1">
@@ -1093,8 +1099,8 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
 
               {/* Improvements */}
               {currentFeedback!.improvements.length > 0 && (
-                <div className="bg-purple-50 border border-purple-200 rounded-xl p-4">
-                  <h4 className="font-semibold text-purple-900 mb-2 flex items-center gap-2">
+                <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
+                  <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
                     <span className="text-xl">🎯</span>
                     Growth Opportunities
                   </h4>
@@ -1111,7 +1117,7 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
               {/* Next Button */}
               <button
                 onClick={handleNextScenario}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-xl transition-colors"
+                className="w-full bg-roofRed hover:bg-roofRed-dark text-white font-semibold py-4 px-6 rounded-xl transition-colors"
               >
                 {scenarioIndex + 1 <
                 availableScenarios.filter(s => s.role === selectedRole).length
@@ -1123,6 +1129,7 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
         </div>
       </motion.div>
     </motion.div>
+    </ModalPortal>
   );
 };
 
