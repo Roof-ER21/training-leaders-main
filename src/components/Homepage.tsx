@@ -15,8 +15,8 @@ import {
   BookOpen,
   Target,
   Shield,
-  Zap,
-  Globe,
+  
+  
   ChevronDown,
   GraduationCap,
   CheckCircle,

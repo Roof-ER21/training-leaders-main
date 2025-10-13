@@ -132,51 +132,81 @@
         },
         {
           "id": "double-layer-code",
-          "title": "Placeholder: double-layer-code",
-          "description": "Auto-inserted activity stub for unresolved placeholder.",
+          "agnesTip": "Most specs require full tear-off.",
           "type": "multiple-choice",
+          "title": "Double-Layer Roofing — Code Compliance",
+          "description": "Decide the proper action when an existing roof has multiple layers.",
+          "points": 10,
           "data": {
-            "question": "This is a placeholder for activity 'double-layer-code'.",
+            "question": "You discover the roof has two existing layers of shingles. What is the correct action under most building codes and manufacturer specs?",
             "options": [
               {
                 "id": "a",
-                "text": "Ok, got it",
-                "isCorrect": true
+                "text": "Install the third layer if decking is sound",
+                "isCorrect": false,
+                "explanation": "A third layer is typically prohibited and voids warranty."
               },
               {
                 "id": "b",
-                "text": "Skip",
-                "isCorrect": false
+                "text": "Remove all layers to decking before installing new roof",
+                "isCorrect": true,
+                "explanation": "Tear-off to decking is the standard requirement for code/manufacturer compliance."
+              },
+              {
+                "id": "c",
+                "text": "Overlay only the damaged slopes",
+                "isCorrect": false,
+                "explanation": "Partial overlays violate code/manufacturer requirements and lead to failures."
+              },
+              {
+                "id": "d",
+                "text": "Patch visible issues and leave existing layers",
+                "isCorrect": false,
+                "explanation": "Patching over multiple layers is non-compliant and unsafe."
               }
             ],
             "allowMultiple": false
-          },
-          "points": 5,
-          "agnesTip": "Replace this stub with the intended activity."
+          }
         },
         {
           "id": "collateral-timed",
-          "title": "Placeholder: collateral-timed",
-          "description": "Auto-inserted activity stub for unresolved placeholder.",
-          "type": "multiple-choice",
+          "agnesTip": "Collateral strengthens coverage decisions.",
+          "type": "timed-challenge",
+          "title": "Collateral Documentation — Timed Drill",
+          "description": "Choose the best response under time pressure for common collateral situations.",
+          "points": 12,
           "data": {
-            "question": "This is a placeholder for activity 'collateral-timed'.",
-            "options": [
+            "timeLimit": 25,
+            "scenarios": [
               {
-                "id": "a",
-                "text": "Ok, got it",
-                "isCorrect": true
+                "objection": "You see dents on the downspouts and soft metal.\nWhat should you do?",
+                "correctResponse": "Photograph close-ups with a coin for scale and label as collateral evidence",
+                "incorrectResponses": [
+                  "Skip collateral and focus only on roof surface",
+                  "Ask homeowner to describe dents later",
+                  "Only video record; no still photos"
+                ]
               },
               {
-                "id": "b",
-                "text": "Skip",
-                "isCorrect": false
+                "objection": "Window screens show tears and pitting. Best documentation?",
+                "correctResponse": "Take macro photos, capture serial/brand if present, and include in report",
+                "incorrectResponses": [
+                  "Note verbally in the estimate only",
+                  "Ignore screens unless homeowner requests replacement",
+                  "Only take a single distant photo"
+                ]
+              },
+              {
+                "objection": "Garage door has impact marks consistent with hail.",
+                "correctResponse": "Capture angled lighting photos to show dimples; include multiple elevations",
+                "incorrectResponses": [
+                  "Use flash only and take one photo",
+                  "Report as cosmetic and move on",
+                  "Wait for adjuster to document"
+                ]
               }
-            ],
-            "allowMultiple": false
-          },
-          "points": 5,
-          "agnesTip": "Replace this stub with the intended activity."
+            ]
+          }
         }
       ]
     },

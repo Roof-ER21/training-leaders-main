@@ -13,7 +13,6 @@ import {
   Download,
   RefreshCw,
   Search,
-  UserPlus,
   Shield,
   Activity,
   AlertCircle,
@@ -31,7 +30,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigateHome }) => {
   const [usersProgress, setUsersProgress] = useState<UserProgress[]>([]);
   const [allUsers, setAllUsers] = useState<User[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedUser, setSelectedUser] = useState<string | null>(null);
+  // Removed unused selectedUser state
   const [autoRefresh, setAutoRefresh] = useState(false);
 
   useEffect(() => {
@@ -187,7 +186,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigateHome }) => {
             className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm"
           >
             <div className="flex items-center justify-between mb-4">
-              <Users className="w-8 h-8 text-blue-600" />
+              <Users className="w-8 h-8 text-roofRed" />
               <span className="text-sm text-gray-500">Total Users</span>
             </div>
             <div className="text-3xl font-bold text-gray-900 mb-1">
@@ -203,7 +202,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigateHome }) => {
             className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm"
           >
             <div className="flex items-center justify-between mb-4">
-              <TrendingUp className="w-8 h-8 text-green-600" />
+              <TrendingUp className="w-8 h-8 text-roofRed" />
               <span className="text-sm text-gray-500">Avg Completion</span>
             </div>
             <div className="text-3xl font-bold text-gray-900 mb-1">
@@ -219,7 +218,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigateHome }) => {
             className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm"
           >
             <div className="flex items-center justify-between mb-4">
-              <Clock className="w-8 h-8 text-purple-600" />
+              <Clock className="w-8 h-8 text-gray-700" />
               <span className="text-sm text-gray-500">Total Hours</span>
             </div>
             <div className="text-3xl font-bold text-gray-900 mb-1">
@@ -235,7 +234,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigateHome }) => {
             className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm"
           >
             <div className="flex items-center justify-between mb-4">
-              <Award className="w-8 h-8 text-yellow-600" />
+              <Award className="w-8 h-8 text-gray-700" />
               <span className="text-sm text-gray-500">Avg Score</span>
             </div>
             <div className="text-3xl font-bold text-gray-900 mb-1">
@@ -394,9 +393,9 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigateHome }) => {
                           <span
                             className={`font-medium ${
                               user.averageScore >= 80
-                                ? 'text-green-600'
+                                ? 'text-roofRed'
                                 : user.averageScore >= 60
-                                ? 'text-yellow-600'
+                                ? 'text-gray-700'
                                 : 'text-red-600'
                             }`}
                           >

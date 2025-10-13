@@ -8,7 +8,6 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-  User as FirebaseUser,
   updateProfile,
 } from 'firebase/auth';
 import {
@@ -123,11 +122,13 @@ class AuthService {
   async signIn(email: string, password: string): Promise<User> {
     if (!isFirebaseConfigured || !auth || !db) {
       // Mock sign in
+      // Derive display name from email for mock users
+      const isAdmin = /^admin/i.test(email);
       const mockUser: User = {
         uid: `mock_${Date.now()}`,
         email,
-        displayName: email.split('@')[0],
-        role: 'user',
+        displayName: (/^scooby/i.test(email) ? 'Scooby' : email.split('@')[0]),
+        role: isAdmin ? 'admin' : 'user',
         createdAt: Date.now(),
         lastActive: Date.now(),
       };

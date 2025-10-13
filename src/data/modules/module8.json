@@ -164,27 +164,30 @@
         },
         {
           "id": "photo-id-quick",
-          "title": "Placeholder: photo-id-quick",
-          "description": "Auto-inserted activity stub for unresolved placeholder.",
-          "type": "multiple-choice",
+          "agnesTip": "Speed ID photos—use angled light where helpful.",
+          "type": "image-quiz",
+          "title": "Photo ID — Quick Check",
+          "description": "Identify the damage type or best action from each photo.",
+          "points": 10,
           "data": {
-            "question": "This is a placeholder for activity 'photo-id-quick'.",
-            "options": [
+            "images": [
               {
-                "id": "a",
-                "text": "Ok, got it",
-                "isCorrect": true
+                "id": "hail-1",
+                "imageUrl": "/assets/photo-reports/roof_photo_10.jpg",
+                "correctAnswer": "Hail impact"
               },
               {
-                "id": "b",
-                "text": "Skip",
-                "isCorrect": false
+                "id": "nodmg-1",
+                "imageUrl": "/assets/photo-reports/roof_photo_19.jpg",
+                "correctAnswer": "No"
+              },
+              {
+                "id": "collateral-1",
+                "imageUrl": "/assets/photo-reports/roof_photo_09.jpg",
+                "correctAnswer": "Gutter dents and downspout damage"
               }
-            ],
-            "allowMultiple": false
-          },
-          "points": 5,
-          "agnesTip": "Replace this stub with the intended activity."
+            ]
+          }
         }
       ]
     },

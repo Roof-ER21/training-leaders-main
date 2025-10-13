@@ -574,7 +574,6 @@ class VRService {
     }
 
     // Initialize metrics tracking
-    const startTime = Date.now();
 
     const metrics: VRMetrics = {
       sessionDuration: 0,

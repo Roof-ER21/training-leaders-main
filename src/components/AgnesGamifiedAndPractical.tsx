@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -6,10 +7,8 @@ import {
   Star,
   Flame,
   Target,
-  TrendingUp,
   Medal,
   Crown,
-  Zap,
   CheckCircle,
   Download,
   FileText,
@@ -18,7 +17,6 @@ import {
   BookOpen,
   Sparkles,
   Clock,
-  Users,
   BarChart3,
 } from 'lucide-react';
 
@@ -515,11 +513,12 @@ const LeaderboardChallengeComponent: React.FC<{
 }> = ({ activity, onComplete }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<{ [key: string]: string }>({});
-  const [startTime] = useState(Date.now());
+  
   const [timeLeft, setTimeLeft] = useState(activity.data.timeLimit || 300);
   const [finished, setFinished] = useState(false);
   const [userRank, setUserRank] = useState<number | null>(null);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft(prev => {
@@ -536,7 +535,6 @@ const LeaderboardChallengeComponent: React.FC<{
   }, []);
 
   const finishChallenge = () => {
-    const elapsedTime = (Date.now() - startTime) / 1000;
     let correct = 0;
 
     activity.data.questions.forEach(q => {

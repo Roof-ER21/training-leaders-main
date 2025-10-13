@@ -117,8 +117,8 @@ const AgnesDemo: React.FC = () => {
 
         {/* Features Overview */}
         <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-2xl p-6 shadow-lg border border-purple-200">
-            <Zap className="w-10 h-10 text-purple-600 mb-4" />
+          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
+            <Zap className="w-10 h-10 text-roofRed mb-4" />
             <h3 className="text-lg font-bold text-gray-900 mb-2">
               Scroll Triggers
             </h3>
@@ -127,8 +127,8 @@ const AgnesDemo: React.FC = () => {
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl p-6 shadow-lg border border-blue-200">
-            <Target className="w-10 h-10 text-blue-600 mb-4" />
+          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
+            <Target className="w-10 h-10 text-roofRed mb-4" />
             <h3 className="text-lg font-bold text-gray-900 mb-2">
               Idle Detection
             </h3>
@@ -137,8 +137,8 @@ const AgnesDemo: React.FC = () => {
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl p-6 shadow-lg border border-green-200">
-            <CheckCircle className="w-10 h-10 text-green-600 mb-4" />
+          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
+            <CheckCircle className="w-10 h-10 text-roofRed mb-4" />
             <h3 className="text-lg font-bold text-gray-900 mb-2">
               Smart Guidance
             </h3>
@@ -164,7 +164,7 @@ const AgnesDemo: React.FC = () => {
             className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 mb-8"
           >
             <div className="flex items-center space-x-3 mb-4">
-              <BookOpen className="w-8 h-8 text-purple-600" />
+              <BookOpen className="w-8 h-8 text-roofRed" />
               <h2 className="text-2xl font-bold text-gray-900">
                 Section 1: Introduction to Roofing Safety
               </h2>
@@ -190,8 +190,8 @@ const AgnesDemo: React.FC = () => {
             Essential Safety Equipment
           </h3>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
-              <Shield className="w-6 h-6 text-blue-600 mb-2" />
+            <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
+              <Shield className="w-6 h-6 text-roofRed mb-2" />
               <h4 className="font-semibold text-gray-900 mb-2">
                 Fall Protection
               </h4>
@@ -200,8 +200,8 @@ const AgnesDemo: React.FC = () => {
                 for work above 6 feet.
               </p>
             </div>
-            <div className="p-4 bg-green-50 rounded-lg border border-green-200">
-              <CheckCircle className="w-6 h-6 text-green-600 mb-2" />
+            <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
+              <CheckCircle className="w-6 h-6 text-roofRed mb-2" />
               <h4 className="font-semibold text-gray-900 mb-2">
                 Personal Protective Equipment
               </h4>
@@ -298,10 +298,10 @@ const AgnesDemo: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 shadow-lg border border-green-300 mb-8"
+            className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-8 shadow-lg border border-green-300 mb-8"
           >
             <div className="text-center">
-              <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
+              <CheckCircle className="w-16 h-16 text-roofRed mx-auto mb-4" />
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Demo Section Complete!
               </h3>
@@ -329,7 +329,7 @@ const AgnesDemo: React.FC = () => {
         </AgnesTriggerPoint>
 
         {/* Feature Explanation */}
-        <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl p-8 border border-purple-200">
+        <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-8 border border-gray-200">
           <h3 className="text-xl font-bold text-gray-900 mb-4">
             How Agnes Works
           </h3>

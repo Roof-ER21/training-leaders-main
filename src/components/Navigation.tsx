@@ -1,17 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Menu,
-  X,
-  ChevronDown,
-  Eye,
-  User,
-  LogOut,
-  Settings,
-  BookOpen,
-  Trophy,
-  BarChart3,
-} from 'lucide-react';
+import { Menu, X, ChevronDown, User, LogOut, Settings, BookOpen, Trophy, BarChart3 } from 'lucide-react';
 
 interface NavigationProps {
   currentView: string;
@@ -84,6 +73,7 @@ const Navigation: React.FC<NavigationProps> = ({
         { label: 'Sales Resources', key: 'docs', icon: BookOpen },
         { label: 'Success Stories', key: 'cases', icon: BarChart3 },
         { label: 'Industry Insights', key: 'news', icon: BookOpen },
+        { label: 'Style Guide', key: 'styleguide', icon: BookOpen },
       ],
     },
     {
@@ -117,6 +107,7 @@ const Navigation: React.FC<NavigationProps> = ({
             e.currentTarget.style.display = 'none';
             const fallback = document.createElement('div');
             fallback.className = 'flex items-baseline gap-1';
+            // eslint-disable-next-line no-useless-escape
             fallback.innerHTML = '<span class=\"text-gray-900 font-black text-xl\">ROOF</span><span class=\"text-roofRed font-black text-xl\">ER</span>';
             container.prepend(fallback);
           }

@@ -78,9 +78,9 @@ const TeamInvitationPanel: React.FC<TeamInvitationPanelProps> = ({
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'pending':
-        return 'text-yellow-600 bg-yellow-100';
+        return 'text-gray-700 bg-gray-100';
       case 'accepted':
-        return 'text-green-600 bg-green-100';
+        return 'text-roofRed bg-gray-100';
       case 'expired':
         return 'text-red-600 bg-red-100';
       default:
@@ -106,8 +106,8 @@ const TeamInvitationPanel: React.FC<TeamInvitationPanelProps> = ({
       {/* Invitation Form */}
       <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
         <div className="flex items-center space-x-3 mb-4">
-          <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-            <Mail className="w-5 h-5 text-blue-600" />
+          <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+            <Mail className="w-5 h-5 text-roofRed" />
           </div>
           <div>
             <h3 className="text-lg font-semibold text-gray-900">
@@ -141,7 +141,7 @@ const TeamInvitationPanel: React.FC<TeamInvitationPanelProps> = ({
           <button
             type="submit"
             disabled={loading}
-            className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+            className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-roofRed text-white rounded-lg hover:bg-roofRed-dark transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
           >
             {loading ? (
               <>
@@ -161,8 +161,8 @@ const TeamInvitationPanel: React.FC<TeamInvitationPanelProps> = ({
       {/* Pending Invitations */}
       <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
         <div className="flex items-center space-x-3 mb-4">
-          <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-            <Users className="w-5 h-5 text-purple-600" />
+          <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+            <Users className="w-5 h-5 text-roofRed" />
           </div>
           <div>
             <h3 className="text-lg font-semibold text-gray-900">
@@ -229,14 +229,14 @@ const TeamInvitationPanel: React.FC<TeamInvitationPanelProps> = ({
                       title="Copy code"
                     >
                       {copiedCode === invite.inviteCode ? (
-                        <CheckCircle className="w-4 h-4 text-green-600" />
+                        <CheckCircle className="w-4 h-4 text-roofRed" />
                       ) : (
                         <Copy className="w-4 h-4" />
                       )}
                     </button>
                     <button
                       onClick={() => handleCopyLink(invite.inviteCode)}
-                      className="flex items-center space-x-1 px-3 py-2 bg-blue-100 hover:bg-blue-200 text-blue-700 rounded-lg transition-colors"
+                      className="flex items-center space-x-1 px-3 py-2 bg-gray-100 hover:bg-blue-200 text-gray-700 rounded-lg transition-colors"
                       title="Copy link"
                     >
                       <LinkIcon className="w-4 h-4" />

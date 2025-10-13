@@ -837,7 +837,7 @@ export class IndustryDataAnalyzer {
   }
 }
 
-export default {
+const industryData = {
   materialCosts,
   buildingCodes,
   weatherPatterns,
@@ -846,3 +846,5 @@ export default {
   marketTrends,
   IndustryDataAnalyzer,
 };
+
+export default industryData;

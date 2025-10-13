@@ -78,9 +78,9 @@ const MatchingGameDemo: React.FC = () => {
                   className={`
                     p-4 rounded-lg border-2 text-left transition-all duration-200
                     ${isActive
-                      ? 'bg-purple-50 border-purple-500 shadow-md'
+                      ? 'bg-gray-50 border-gray-300 shadow-md'
                       : isCompleted
-                        ? 'bg-green-50 border-green-300 hover:border-green-500'
+                        ? 'bg-gray-50 border-green-300 hover:border-green-500'
                         : 'bg-white border-gray-200 hover:border-purple-300'
                     }
                   `}
@@ -88,7 +88,7 @@ const MatchingGameDemo: React.FC = () => {
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <h3 className={`font-semibold mb-1 ${
-                        isActive ? 'text-purple-900' : isCompleted ? 'text-green-900' : 'text-gray-900'
+                        isActive ? 'text-gray-900' : isCompleted ? 'text-green-900' : 'text-gray-900'
                       }`}>
                         {activity.title}
                       </h3>
@@ -97,7 +97,7 @@ const MatchingGameDemo: React.FC = () => {
                       </p>
                     </div>
                     {isCompleted && (
-                      <div className="ml-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                      <div className="ml-2 w-6 h-6 bg-gray-500 rounded-full flex items-center justify-center">
                         <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
@@ -152,8 +152,8 @@ const MatchingGameDemo: React.FC = () => {
         </div>
 
         {/* Info Panel */}
-        <div className="mt-6 bg-blue-50 border-2 border-blue-200 rounded-xl p-6">
-          <h3 className="text-lg font-semibold text-blue-900 mb-3">How to Play</h3>
+        <div className="mt-6 bg-gray-50 border-2 border-gray-200 rounded-xl p-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">How to Play</h3>
           <ol className="list-decimal list-inside space-y-2 text-gray-700">
             <li>Click on an item from the left column to select it</li>
             <li>Then click on its matching pair from the right column</li>
@@ -162,8 +162,8 @@ const MatchingGameDemo: React.FC = () => {
             <li>Complete all matches to submit your score!</li>
           </ol>
 
-          <div className="mt-4 pt-4 border-t border-blue-200">
-            <h4 className="font-semibold text-blue-900 mb-2">Features</h4>
+          <div className="mt-4 pt-4 border-t border-gray-200">
+            <h4 className="font-semibold text-gray-900 mb-2">Features</h4>
             <ul className="list-disc list-inside space-y-1 text-sm text-gray-700">
               <li>Automatic shuffling of right column for variety</li>
               <li>Smart hints after multiple incorrect attempts</li>

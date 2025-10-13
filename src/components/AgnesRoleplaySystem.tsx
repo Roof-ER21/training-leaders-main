@@ -62,7 +62,7 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
   const [inputMode, setInputMode] = useState<'text' | 'voice'>('text');
 
   const recognitionRef = useRef<any>(null);
-  const [isListening, setIsListening] = useState(false);
+  const [, setIsListening] = useState(false);
 
   // Default scenarios for each module if not provided
   const defaultScenarios: { [key: number]: RoleplayScenario[] } = {

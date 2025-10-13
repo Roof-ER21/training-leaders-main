@@ -2,16 +2,11 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   CheckCircle,
-  AlertCircle,
   Calculator,
   Camera,
   Clipboard,
   DollarSign,
-  Ruler,
   Target,
-  TrendingUp,
-  Award,
-  Image as ImageIcon,
   FileText,
   Lightbulb,
 } from 'lucide-react';
@@ -445,7 +440,7 @@ const DamageAssessmentComponent: React.FC<{
 }> = ({ activity, onComplete }) => {
   const [assessments, setAssessments] = useState<{ [key: string]: string }>({});
   const [submitted, setSubmitted] = useState(false);
-  const [score, setScore] = useState(0);
+  // Remove unused local score state; compute finalScore and pass to onComplete
 
   const handleSubmit = () => {
     let correct = 0;
@@ -460,7 +455,6 @@ const DamageAssessmentComponent: React.FC<{
     const finalScore = Math.round(
       (correct / activity.data.assessmentCriteria.length) * activity.points
     );
-    setScore(finalScore);
     setSubmitted(true);
     onComplete(finalScore, activity.points);
   };

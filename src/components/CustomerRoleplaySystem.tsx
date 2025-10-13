@@ -1,33 +1,19 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Play,
-  Pause,
-  RotateCcw,
-  MessageCircle,
   User,
-  Phone,
   Home,
   CheckCircle,
-  XCircle,
-  Star,
   ArrowRight,
-  Volume2,
-  VolumeX,
   Clock,
   Target,
-  Award,
-  BookOpen,
   Lightbulb,
-  AlertTriangle,
-  ThumbsUp,
-  ThumbsDown,
-  Mic,
-  MicOff,
-  Brain,
-  Zap,
-  Users,
+  
   TrendingUp,
+  Users,
+  Award,
 } from 'lucide-react';
 
 interface RoleplayScenario {
@@ -82,7 +68,7 @@ const CustomerRoleplaySystem: React.FC<CustomerRoleplaySystemProps> = ({
   const [roleplayState, setRoleplayState] = useState<
     'setup' | 'active' | 'paused' | 'completed'
   >('setup');
-  const [currentPhase, setCurrentPhase] = useState<
+  const [, setCurrentPhase] = useState<
     'introduction' | 'pitch' | 'objections' | 'closing'
   >('introduction');
 
@@ -98,8 +84,7 @@ const CustomerRoleplaySystem: React.FC<CustomerRoleplaySystemProps> = ({
   const [currentObjective, setCurrentObjective] = useState(0);
 
   // Audio/Recording state
-  const [isRecording, setIsRecording] = useState(false);
-  const [audioEnabled, setAudioEnabled] = useState(true);
+  
 
   // Progress tracking
   const [startTime, setStartTime] = useState<Date | null>(null);
@@ -467,7 +452,7 @@ const CustomerRoleplaySystem: React.FC<CustomerRoleplaySystemProps> = ({
         resetRoleplay();
       }
     }
-  }, [selectedScenario, isOpen]);
+  }, [selectedScenario, isOpen, scenarios]);
 
   // Auto-scroll to bottom of conversation
   useEffect(() => {

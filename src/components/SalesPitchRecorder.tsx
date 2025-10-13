@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -60,6 +61,7 @@ const SalesPitchRecorder: React.FC<SalesPitchRecorderProps> = ({
   const videoPreviewRef = useRef<HTMLVideoElement | null>(null);
 
   // Initialize media stream when mode changes
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (isOpen && recordingState === 'idle') {
       initializeStream();
@@ -71,6 +73,7 @@ const SalesPitchRecorder: React.FC<SalesPitchRecorderProps> = ({
   }, [isOpen, recordingMode]);
 
   // Timer effect
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (recordingState === 'recording') {
       timerRef.current = setInterval(() => {

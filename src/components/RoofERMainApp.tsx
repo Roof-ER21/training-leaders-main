@@ -10,9 +10,10 @@ import AdminDashboard from './AdminDashboard';
 import ProtectedRoute from './ProtectedRoute';
 import analytics from '../utils/analytics';
 import authService from '../services/authService';
-import trainingService from '../services/trainingService';
+/* eslint-disable no-duplicate-case */
 import 'aos/dist/aos.css';
 import AOS from 'aos';
+import BrandStyleGuide from '../pages/BrandStyleGuide';
 
 type ViewType =
   | 'homepage'
@@ -40,7 +41,8 @@ type ViewType =
   | 'forums'
   | 'qa'
   | 'stories'
-  | 'events';
+  | 'events'
+  | 'styleguide';
 
 interface UserProgress {
   overall: number;
@@ -276,6 +278,20 @@ const RoofERMainApp: React.FC = () => {
           </motion.div>
         );
 
+      case 'styleguide':
+        return (
+          <motion.div
+            key="styleguide"
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+          >
+            <BrandStyleGuide />
+          </motion.div>
+        );
+
+
       case 'admin':
         return (
           <motion.div
@@ -495,13 +511,44 @@ const RoofERMainApp: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => {
-                      setIsLoggedIn(true);
-                      handleNavigate('dashboard');
+                      import('../services/authService').then(({ default: authService }) => {
+                        authService.signIn('scooby@roof-er.local','test');
+                        setIsLoggedIn(true);
+                        handleNavigate('dashboard');
+                      });
                     }}
                     className="w-full py-3 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-lg hover:from-red-700 hover:to-red-800 transition-all duration-300"
                   >
                     Sign In
                   </button>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        import('../services/authService').then(({ default: authService }) => {
+                          authService.signIn('admin@roof-er.local','test');
+                          setIsLoggedIn(true);
+                          handleNavigate('admin');
+                        });
+                      }}
+                      className="w-full py-2 bg-black text-white font-semibold rounded-lg hover:bg-neutral-900 transition-all duration-300"
+                    >
+                      Quick Login: Admin
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        import('../services/authService').then(({ default: authService }) => {
+                          authService.signIn('scooby@roof-er.local','test');
+                          setIsLoggedIn(true);
+                          handleNavigate('dashboard');
+                        });
+                      }}
+                      className="w-full py-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-900 transition-all duration-300"
+                    >
+                      Quick Login: Scooby (Rep)
+                    </button>
+                  </div>
                 </form>
                 <div className="text-center mt-6">
                   <p className="text-gray-600">

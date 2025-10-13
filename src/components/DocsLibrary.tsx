@@ -5,6 +5,7 @@ import slideImages from '../data/media/slideImages.json';
 
 const DocsLibrary: React.FC = () => {
   const photos = (photoManifest as any)?.photos || [];
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const slidesMap = (slideImages as any)?.slides || {} as Record<string, string[]>;
   const slides = useMemo(() => {
     const out: Array<{ slide: string; url: string }> = [];

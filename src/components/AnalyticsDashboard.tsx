@@ -46,7 +46,6 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
   );
 
   // Parse user progress from localStorage
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const moduleProgress = useMemo<ModuleProgress[]>(() => {
     const progress: ModuleProgress[] = [];
     const modules = [
@@ -77,10 +76,9 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
     });
 
     return progress;
-  }, [userProgress]);
+  }, []);
 
   // Calculate activity metrics
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const activityMetrics = useMemo<ActivityMetrics[]>(() => {
     const metrics: Record<string, ActivityMetrics> = {};
     const activityTypes = [
@@ -114,7 +112,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
     });
 
     return Object.values(metrics).filter((m) => m.totalAttempts > 0);
-  }, [userProgress]);
+  }, []);
 
   // Calculate overall stats
   const overallStats = useMemo(() => {
@@ -170,7 +168,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
                 </div>
                 <div>
                   <h2 className="text-3xl font-bold">Your Learning Analytics</h2>
-                  <p className="text-blue-100 mt-1">
+                  <p className="text-gray-300 mt-1">
                     Track your progress and celebrate your achievements
                   </p>
                 </div>
@@ -198,7 +196,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
                     onClick={() => setActiveTab(tab.key as any)}
                     className={`px-6 py-3 rounded-xl font-semibold flex items-center gap-2 transition-all ${
                       activeTab === tab.key
-                        ? 'bg-white text-blue-600 shadow-lg'
+                        ? 'bg-white text-roofRed shadow-lg'
                         : 'bg-white/10 text-white hover:bg-white/20'
                     }`}
                   >
@@ -247,9 +245,9 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
                 </div>
 
                 {/* Recent Achievements */}
-                <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-6 border-2 border-yellow-200">
+                <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-6 border-2 border-gray-200">
                   <div className="flex items-center gap-3 mb-4">
-                    <Trophy className="w-6 h-6 text-yellow-600" />
+                    <Trophy className="w-6 h-6 text-gray-700" />
                     <h3 className="text-xl font-bold text-gray-800">Recent Achievements</h3>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -284,14 +282,14 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
                 {moduleProgress.map((module) => (
                   <div
                     key={module.moduleId}
-                    className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-6 border-2 border-gray-200"
+                    className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 border-2 border-gray-200"
                   >
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-3">
                         <div
                           className={`w-10 h-10 rounded-xl flex items-center justify-center ${
                             module.completed
-                              ? 'bg-green-500 text-white'
+                              ? 'bg-gray-500 text-white'
                               : 'bg-gray-300 text-gray-600'
                           }`}
                         >
@@ -356,7 +354,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
                           </div>
                           <div className="flex justify-between text-sm">
                             <span className="text-gray-600">Best Score:</span>
-                            <span className="font-semibold text-green-600">
+                            <span className="font-semibold text-roofRed">
                               {metric.bestScore}%
                             </span>
                           </div>
@@ -378,8 +376,8 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
             {activeTab === 'streak' && (
               <div className="space-y-6">
                 <div className="text-center">
-                  <div className="inline-block bg-gradient-to-br from-orange-100 to-red-100 rounded-3xl p-8 border-2 border-orange-300">
-                    <Zap className="w-20 h-20 text-orange-600 mx-auto mb-4" />
+                  <div className="inline-block bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl p-8 border-2 border-gray-300">
+                    <Zap className="w-20 h-20 text-roofRed mx-auto mb-4" />
                     <h3 className="text-6xl font-bold text-gray-800 mb-2">
                       {overallStats.streak}
                     </h3>
@@ -389,7 +387,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
 
                 <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 border-2 border-gray-200">
                   <div className="flex items-center gap-3 mb-4">
-                    <Calendar className="w-6 h-6 text-blue-600" />
+                    <Calendar className="w-6 h-6 text-roofRed" />
                     <h3 className="text-xl font-bold text-gray-800">Keep Your Streak Alive!</h3>
                   </div>
                   <div className="space-y-3">
@@ -426,13 +424,13 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({
                       key={milestone.days}
                       className={`text-center p-4 rounded-xl border-2 ${
                         milestone.unlocked
-                          ? 'bg-gradient-to-br from-yellow-100 to-orange-100 border-yellow-400'
+                          ? 'bg-gradient-to-br from-gray-100 to-gray-200 border-yellow-400'
                           : 'bg-gray-100 border-gray-300'
                       }`}
                     >
                       <Trophy
                         className={`w-8 h-8 mx-auto mb-2 ${
-                          milestone.unlocked ? 'text-yellow-600' : 'text-gray-400'
+                          milestone.unlocked ? 'text-gray-700' : 'text-gray-400'
                         }`}
                       />
                       <p className="font-bold text-gray-800">{milestone.label}</p>

@@ -114,27 +114,30 @@
         },
         {
           "id": "photo-id-quick",
-          "title": "Placeholder: photo-id-quick",
-          "description": "Auto-inserted activity stub for unresolved placeholder.",
-          "type": "multiple-choice",
+          "agnesTip": "Speed ID photos—use angled light where helpful.",
+          "type": "image-quiz",
+          "title": "Photo ID — Quick Check",
+          "description": "Identify the damage type or best action from each photo.",
+          "points": 10,
           "data": {
-            "question": "This is a placeholder for activity 'photo-id-quick'.",
-            "options": [
+            "images": [
               {
-                "id": "a",
-                "text": "Ok, got it",
-                "isCorrect": true
+                "id": "hail-1",
+                "imageUrl": "/assets/photo-reports/roof_photo_10.jpg",
+                "correctAnswer": "Hail impact"
               },
               {
-                "id": "b",
-                "text": "Skip",
-                "isCorrect": false
+                "id": "nodmg-1",
+                "imageUrl": "/assets/photo-reports/roof_photo_19.jpg",
+                "correctAnswer": "No"
+              },
+              {
+                "id": "collateral-1",
+                "imageUrl": "/assets/photo-reports/roof_photo_09.jpg",
+                "correctAnswer": "Gutter dents and downspout damage"
               }
-            ],
-            "allowMultiple": false
-          },
-          "points": 5,
-          "agnesTip": "Replace this stub with the intended activity."
+            ]
+          }
         }
       ]
     },
@@ -399,6 +402,366 @@
               "Davis (on schedule - prepare for inspection)"
             ]
           }
+        },
+        {
+          "id": "pdf-quiz-1760383011965",
+          "title": "Photo Quiz — EXAMPLE_PHOTOS",
+          "description": "Identify what you see and choose the best answer.",
+          "type": "image-quiz",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "p0",
+                "imageUrl": "/generated/photos/EXAMPLE_PHOTOS/EXAMPLE_PHOTOS-1.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p1",
+                "imageUrl": "/generated/photos/EXAMPLE_PHOTOS/EXAMPLE_PHOTOS-2.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p2",
+                "imageUrl": "/generated/photos/EXAMPLE_PHOTOS/EXAMPLE_PHOTOS-3.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p3",
+                "imageUrl": "/generated/photos/EXAMPLE_PHOTOS/EXAMPLE_PHOTOS-4.png",
+                "correctAnswer": "Document damage"
+              }
+            ]
+          },
+          "agnesTip": "Use angled light, scale objects, and clear labels to make evidence undeniable."
+        },
+        {
+          "id": "pdf-quiz-1760383013977",
+          "title": "Photo Quiz — Sample_Photo_Report_1",
+          "description": "Identify what you see and choose the best answer.",
+          "type": "image-quiz",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "p0",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_1/Sample_Photo_Report_1-01.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p1",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_1/Sample_Photo_Report_1-02.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p2",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_1/Sample_Photo_Report_1-03.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p3",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_1/Sample_Photo_Report_1-04.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p4",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_1/Sample_Photo_Report_1-05.png",
+                "correctAnswer": "Document damage"
+              }
+            ]
+          },
+          "agnesTip": "Use angled light, scale objects, and clear labels to make evidence undeniable."
+        },
+        {
+          "id": "pdf-quiz-1760383015697",
+          "title": "Photo Quiz — Sample_Photo_Report_2",
+          "description": "Identify what you see and choose the best answer.",
+          "type": "image-quiz",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "p0",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_2/Sample_Photo_Report_2-01.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p1",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_2/Sample_Photo_Report_2-02.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p2",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_2/Sample_Photo_Report_2-03.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p3",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_2/Sample_Photo_Report_2-04.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p4",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_2/Sample_Photo_Report_2-05.png",
+                "correctAnswer": "Document damage"
+              }
+            ]
+          },
+          "agnesTip": "Use angled light, scale objects, and clear labels to make evidence undeniable."
+        },
+        {
+          "id": "pdf-quiz-1760383017440",
+          "title": "Photo Quiz — Sample_Photo_Report_3",
+          "description": "Identify what you see and choose the best answer.",
+          "type": "image-quiz",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "p0",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_3/Sample_Photo_Report_3-01.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p1",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_3/Sample_Photo_Report_3-02.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p2",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_3/Sample_Photo_Report_3-03.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p3",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_3/Sample_Photo_Report_3-04.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p4",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_3/Sample_Photo_Report_3-05.png",
+                "correctAnswer": "Document damage"
+              }
+            ]
+          },
+          "agnesTip": "Use angled light, scale objects, and clear labels to make evidence undeniable."
+        },
+        {
+          "id": "pdf-quiz-1760383019358",
+          "title": "Photo Quiz — Sample_Photo_Report_4",
+          "description": "Identify what you see and choose the best answer.",
+          "type": "image-quiz",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "p0",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_4/Sample_Photo_Report_4-01.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p1",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_4/Sample_Photo_Report_4-02.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p2",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_4/Sample_Photo_Report_4-03.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p3",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_4/Sample_Photo_Report_4-04.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p4",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_4/Sample_Photo_Report_4-05.png",
+                "correctAnswer": "Document damage"
+              }
+            ]
+          },
+          "agnesTip": "Use angled light, scale objects, and clear labels to make evidence undeniable."
+        },
+        {
+          "id": "pdf-quiz-1760383591042",
+          "title": "Photo Quiz — EXAMPLE_PHOTOS",
+          "description": "Identify what you see and choose the best answer.",
+          "type": "image-quiz",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "p0",
+                "imageUrl": "/generated/photos/EXAMPLE_PHOTOS/EXAMPLE_PHOTOS-1.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p1",
+                "imageUrl": "/generated/photos/EXAMPLE_PHOTOS/EXAMPLE_PHOTOS-2.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p2",
+                "imageUrl": "/generated/photos/EXAMPLE_PHOTOS/EXAMPLE_PHOTOS-3.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p3",
+                "imageUrl": "/generated/photos/EXAMPLE_PHOTOS/EXAMPLE_PHOTOS-4.png",
+                "correctAnswer": "Document damage"
+              }
+            ]
+          },
+          "agnesTip": "Use angled light, scale objects, and clear labels to make evidence undeniable."
+        },
+        {
+          "id": "pdf-quiz-1760383593022",
+          "title": "Photo Quiz — Sample_Photo_Report_1",
+          "description": "Identify what you see and choose the best answer.",
+          "type": "image-quiz",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "p0",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_1/Sample_Photo_Report_1-01.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p1",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_1/Sample_Photo_Report_1-02.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p2",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_1/Sample_Photo_Report_1-03.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p3",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_1/Sample_Photo_Report_1-04.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p4",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_1/Sample_Photo_Report_1-05.png",
+                "correctAnswer": "Document damage"
+              }
+            ]
+          },
+          "agnesTip": "Use angled light, scale objects, and clear labels to make evidence undeniable."
+        },
+        {
+          "id": "pdf-quiz-1760383594735",
+          "title": "Photo Quiz — Sample_Photo_Report_2",
+          "description": "Identify what you see and choose the best answer.",
+          "type": "image-quiz",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "p0",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_2/Sample_Photo_Report_2-01.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p1",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_2/Sample_Photo_Report_2-02.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p2",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_2/Sample_Photo_Report_2-03.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p3",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_2/Sample_Photo_Report_2-04.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p4",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_2/Sample_Photo_Report_2-05.png",
+                "correctAnswer": "Document damage"
+              }
+            ]
+          },
+          "agnesTip": "Use angled light, scale objects, and clear labels to make evidence undeniable."
+        },
+        {
+          "id": "pdf-quiz-1760383596449",
+          "title": "Photo Quiz — Sample_Photo_Report_3",
+          "description": "Identify what you see and choose the best answer.",
+          "type": "image-quiz",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "p0",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_3/Sample_Photo_Report_3-01.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p1",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_3/Sample_Photo_Report_3-02.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p2",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_3/Sample_Photo_Report_3-03.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p3",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_3/Sample_Photo_Report_3-04.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p4",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_3/Sample_Photo_Report_3-05.png",
+                "correctAnswer": "Document damage"
+              }
+            ]
+          },
+          "agnesTip": "Use angled light, scale objects, and clear labels to make evidence undeniable."
+        },
+        {
+          "id": "pdf-quiz-1760383598352",
+          "title": "Photo Quiz — Sample_Photo_Report_4",
+          "description": "Identify what you see and choose the best answer.",
+          "type": "image-quiz",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "p0",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_4/Sample_Photo_Report_4-01.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p1",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_4/Sample_Photo_Report_4-02.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p2",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_4/Sample_Photo_Report_4-03.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p3",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_4/Sample_Photo_Report_4-04.png",
+                "correctAnswer": "Document damage"
+              },
+              {
+                "id": "p4",
+                "imageUrl": "/generated/photos/Sample_Photo_Report_4/Sample_Photo_Report_4-05.png",
+                "correctAnswer": "Document damage"
+              }
+            ]
+          },
+          "agnesTip": "Use angled light, scale objects, and clear labels to make evidence undeniable."
         }
       ]
     },

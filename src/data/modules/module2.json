@@ -19,27 +19,30 @@
       "activities": [
         {
           "id": "photo-id-quick",
-          "title": "Placeholder: photo-id-quick",
-          "description": "Auto-inserted activity stub for unresolved placeholder.",
-          "type": "multiple-choice",
+          "agnesTip": "Speed ID photos—use angled light where helpful.",
+          "type": "image-quiz",
+          "title": "Photo ID — Quick Check",
+          "description": "Identify the damage type or best action from each photo.",
+          "points": 10,
           "data": {
-            "question": "This is a placeholder for activity 'photo-id-quick'.",
-            "options": [
+            "images": [
               {
-                "id": "a",
-                "text": "Ok, got it",
-                "isCorrect": true
+                "id": "hail-1",
+                "imageUrl": "/assets/photo-reports/roof_photo_10.jpg",
+                "correctAnswer": "Hail impact"
               },
               {
-                "id": "b",
-                "text": "Skip",
-                "isCorrect": false
+                "id": "nodmg-1",
+                "imageUrl": "/assets/photo-reports/roof_photo_19.jpg",
+                "correctAnswer": "No"
+              },
+              {
+                "id": "collateral-1",
+                "imageUrl": "/assets/photo-reports/roof_photo_09.jpg",
+                "correctAnswer": "Gutter dents and downspout damage"
               }
-            ],
-            "allowMultiple": false
-          },
-          "points": 5,
-          "agnesTip": "Replace this stub with the intended activity."
+            ]
+          }
         }
       ]
     },
@@ -51,27 +54,72 @@
       "activities": [
         {
           "id": "photo-sequence",
-          "title": "Placeholder: photo-sequence",
-          "description": "Auto-inserted activity stub for unresolved placeholder.",
-          "type": "multiple-choice",
+          "agnesTip": "Consistency reduces adjuster friction.",
+          "type": "drag-drop-sequence",
+          "title": "Inspection Photo Sequence",
+          "description": "Arrange the standard inspection photo flow in order.",
+          "points": 10,
           "data": {
-            "question": "This is a placeholder for activity 'photo-sequence'.",
-            "options": [
+            "items": [
               {
-                "id": "a",
-                "text": "Ok, got it",
-                "isCorrect": true
+                "id": "mailbox",
+                "text": "Mailbox/House Number"
               },
               {
-                "id": "b",
-                "text": "Skip",
-                "isCorrect": false
+                "id": "house-overview",
+                "text": "Overview of House from Street"
+              },
+              {
+                "id": "front-collateral",
+                "text": "Front Elevation Collateral"
+              },
+              {
+                "id": "right-collateral",
+                "text": "Right Elevation Collateral"
+              },
+              {
+                "id": "rear-collateral",
+                "text": "Rear Elevation Collateral"
+              },
+              {
+                "id": "left-collateral",
+                "text": "Left Elevation Collateral"
+              },
+              {
+                "id": "roof-collateral",
+                "text": "Roof Overview Collateral"
+              },
+              {
+                "id": "hail-closeups",
+                "text": "Circle Hail Hits (Close-ups)"
+              },
+              {
+                "id": "wind-closeups",
+                "text": "Slash Wind Damage (if applicable)"
+              },
+              {
+                "id": "chalked-overview",
+                "text": "Overview of Chalked Damage"
+              },
+              {
+                "id": "granules",
+                "text": "Granules in Gutters/Downspouts"
               }
             ],
-            "allowMultiple": false
-          },
-          "points": 5,
-          "agnesTip": "Replace this stub with the intended activity."
+            "correctOrder": [
+              "mailbox",
+              "house-overview",
+              "front-collateral",
+              "right-collateral",
+              "rear-collateral",
+              "left-collateral",
+              "roof-collateral",
+              "hail-closeups",
+              "wind-closeups",
+              "chalked-overview",
+              "granules"
+            ]
+          }
         }
       ]
     },

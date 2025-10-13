@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { OrbitControls, Text, Box, Plane, useTexture } from '@react-three/drei';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { OrbitControls, Text, Box, Plane } from '@react-three/drei';
+import { motion } from 'framer-motion';
 import VRService, {
   VRCapabilities,
   TrainingScenario,
@@ -9,31 +9,7 @@ import VRService, {
   VRMetrics,
 } from '../services/vrService';
 import * as THREE from 'three';
-import {
-  Glasses as VrHeadset,
-  Play,
-  Pause,
-  RotateCcw,
-  Settings,
-  CheckCircle,
-  AlertTriangle,
-  Target,
-  Clock,
-  Award,
-  Shield,
-  Gamepad2,
-  Monitor,
-  X,
-  ArrowLeft,
-  ArrowRight,
-  Volume2,
-  VolumeX,
-  Maximize,
-  Minimize,
-  Headphones,
-  Brain,
-  BookOpen,
-} from 'lucide-react';
+import { Glasses as VrHeadset, CheckCircle, AlertTriangle, Target, Clock, Award, Shield, Gamepad2, Monitor, X, ArrowLeft, Maximize, Minimize, Brain, BookOpen } from 'lucide-react';
 import ModalPortal from './ModalPortal';
 
 interface VRTrainingProps {
@@ -309,16 +285,13 @@ const VRTraining: React.FC<VRTrainingProps> = ({
     useState<TrainingScenario | null>(null);
   const [is3DView, setIs3DView] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [showInstructions, setShowInstructions] = useState(true);
-  const [volume, setVolume] = useState(0.7);
-  const [showSettings, setShowSettings] = useState(false);
+  const [, setShowInstructions] = useState(true);
 
   // Training state
   const [trainingScenarios, setTrainingScenarios] = useState<
     TrainingScenario[]
   >([]);
-  const [currentStep, setCurrentStep] = useState(0);
-  const [completedSteps, setCompletedSteps] = useState<Set<number>>(new Set());
+  
 
   // Initialize VR service and capabilities
   useEffect(() => {

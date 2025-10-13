@@ -71,9 +71,9 @@ const AnalyticsDashboard = ({ analytics, userProgress, onClose }) => {
   };
 
   const getScoreColor = score => {
-    if (score >= 90) return 'text-green-600';
-    if (score >= 80) return 'text-blue-600';
-    if (score >= 70) return 'text-yellow-600';
+    if (score >= 90) return 'text-roofRed';
+    if (score >= 80) return 'text-roofRed';
+    if (score >= 70) return 'text-gray-700';
     return 'text-red-600';
   };
 
@@ -145,13 +145,13 @@ const AnalyticsDashboard = ({ analytics, userProgress, onClose }) => {
         <div className="bg-gray-50 border-b p-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="text-center">
-              <div className="text-2xl font-bold text-green-600">
+              <div className="text-2xl font-bold text-roofRed">
                 {dashboardData.realTime.sessionDuration}s
               </div>
               <div className="text-sm text-gray-600">Active Session</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-blue-600">
+              <div className="text-2xl font-bold text-roofRed">
                 {dashboardData.quickStats.totalModulesCompleted}
               </div>
               <div className="text-sm text-gray-600">Modules Completed</div>
@@ -165,7 +165,7 @@ const AnalyticsDashboard = ({ analytics, userProgress, onClose }) => {
               <div className="text-sm text-gray-600">Average Score</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-purple-600">
+              <div className="text-2xl font-bold text-roofRed">
                 {dashboardData.quickStats.totalAgnesInteractions}
               </div>
               <div className="text-sm text-gray-600">Agnes Interactions</div>
@@ -202,40 +202,40 @@ const AnalyticsDashboard = ({ analytics, userProgress, onClose }) => {
             <div className="space-y-6">
               {/* System Health */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-green-50 rounded-lg p-4 border border-green-200">
+                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                   <div className="flex items-center space-x-3">
-                    <CheckCircle className="w-8 h-8 text-green-600" />
+                    <CheckCircle className="w-8 h-8 text-roofRed" />
                     <div>
-                      <div className="text-2xl font-bold text-green-600">
+                      <div className="text-2xl font-bold text-roofRed">
                         {dashboardData.quickStats.systemHealth}%
                       </div>
-                      <div className="text-sm text-green-700">
+                      <div className="text-sm text-gray-700">
                         System Health
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                   <div className="flex items-center space-x-3">
-                    <Activity className="w-8 h-8 text-blue-600" />
+                    <Activity className="w-8 h-8 text-roofRed" />
                     <div>
-                      <div className="text-2xl font-bold text-blue-600">
+                      <div className="text-2xl font-bold text-roofRed">
                         {dashboardData.reports.engagement.eventsPerMinute}
                       </div>
-                      <div className="text-sm text-blue-700">Events/Min</div>
+                      <div className="text-sm text-gray-700">Events/Min</div>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-purple-50 rounded-lg p-4 border border-purple-200">
+                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                   <div className="flex items-center space-x-3">
-                    <Eye className="w-8 h-8 text-purple-600" />
+                    <Eye className="w-8 h-8 text-roofRed" />
                     <div>
-                      <div className="text-2xl font-bold text-purple-600">
+                      <div className="text-2xl font-bold text-roofRed">
                         {dashboardData.reports.engagement.activeTimePercentage}%
                       </div>
-                      <div className="text-sm text-purple-700">Active Time</div>
+                      <div className="text-sm text-roofRed">Active Time</div>
                     </div>
                   </div>
                 </div>
@@ -341,7 +341,7 @@ const AnalyticsDashboard = ({ analytics, userProgress, onClose }) => {
 
               {/* Strongest & Improvement Areas */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-green-50 rounded-lg border border-green-200 p-6">
+                <div className="bg-gray-50 rounded-lg border border-gray-200 p-6">
                   <h3 className="text-lg font-semibold mb-4 text-green-800">
                     Strongest Areas
                   </h3>
@@ -353,10 +353,10 @@ const AnalyticsDashboard = ({ analytics, userProgress, onClose }) => {
                           key={index}
                           className="flex justify-between items-center"
                         >
-                          <span className="text-green-700">
+                          <span className="text-gray-700">
                             Module {area.moduleId}
                           </span>
-                          <span className="font-semibold text-green-600">
+                          <span className="font-semibold text-roofRed">
                             {area.averageScore.toFixed(1)}%
                           </span>
                         </div>
@@ -364,7 +364,7 @@ const AnalyticsDashboard = ({ analytics, userProgress, onClose }) => {
                   </div>
                 </div>
 
-                <div className="bg-yellow-50 rounded-lg border border-yellow-200 p-6">
+                <div className="bg-gray-50 rounded-lg border border-gray-200 p-6">
                   <h3 className="text-lg font-semibold mb-4 text-yellow-800">
                     Improvement Areas
                   </h3>
@@ -376,10 +376,10 @@ const AnalyticsDashboard = ({ analytics, userProgress, onClose }) => {
                           key={index}
                           className="flex justify-between items-center"
                         >
-                          <span className="text-yellow-700">
+                          <span className="text-gray-700">
                             Module {area.moduleId}
                           </span>
-                          <span className="font-semibold text-yellow-600">
+                          <span className="font-semibold text-gray-700">
                             {area.averageScore.toFixed(1)}%
                           </span>
                         </div>
@@ -466,7 +466,7 @@ const AnalyticsDashboard = ({ analytics, userProgress, onClose }) => {
               {/* Performance Recommendations */}
               {dashboardData.reports.performance.recommendations?.length >
                 0 && (
-                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
                   <h3 className="text-lg font-semibold mb-4 flex items-center space-x-2 text-yellow-800">
                     <AlertTriangle className="w-5 h-5" />
                     <span>Performance Recommendations</span>
@@ -480,15 +480,15 @@ const AnalyticsDashboard = ({ analytics, userProgress, onClose }) => {
                               rec.priority === 'high'
                                 ? 'bg-red-500'
                                 : rec.priority === 'medium'
-                                  ? 'bg-yellow-500'
-                                  : 'bg-green-500'
+                                  ? 'bg-gray-500'
+                                  : 'bg-gray-500'
                             }`}
                           ></div>
                           <div>
                             <div className="font-medium text-yellow-800">
                               {rec.type}
                             </div>
-                            <div className="text-yellow-700 text-sm">
+                            <div className="text-gray-700 text-sm">
                               {rec.message}
                             </div>
                           </div>
@@ -544,10 +544,10 @@ const AnalyticsDashboard = ({ analytics, userProgress, onClose }) => {
                         className={`h-4 rounded-full ${
                           dashboardData.reports.performance
                             .userExperienceScore >= 80
-                            ? 'bg-green-500'
+                            ? 'bg-gray-500'
                             : dashboardData.reports.performance
                                   .userExperienceScore >= 60
-                              ? 'bg-yellow-500'
+                              ? 'bg-gray-500'
                               : 'bg-red-500'
                         }`}
                         style={{

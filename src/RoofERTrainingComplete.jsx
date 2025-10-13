@@ -692,7 +692,7 @@ const QuizComponent = ({ module, onComplete, onClose }) => {
         <div className="bg-white rounded-xl p-8 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
           <div className="text-center mb-6">
             <div
-              className={`text-6xl font-bold mb-4 ${score >= 80 ? 'text-green-600' : 'text-red-600'}`}
+              className={`text-6xl font-bold mb-4 ${score >= 80 ? 'text-roofRed' : 'text-red-600'}`}
             >
               {score}%
             </div>
@@ -712,17 +712,17 @@ const QuizComponent = ({ module, onComplete, onClose }) => {
               return (
                 <div
                   key={index}
-                  className={`p-4 rounded-lg border ${isCorrect ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}
+                  className={`p-4 rounded-lg border ${isCorrect ? 'bg-gray-50 border-gray-200' : 'bg-red-50 border-red-200'}`}
                 >
                   <div className="font-medium mb-2">{question.question}</div>
                   <div
-                    className={`text-sm ${isCorrect ? 'text-green-700' : 'text-red-700'}`}
+                    className={`text-sm ${isCorrect ? 'text-gray-700' : 'text-red-700'}`}
                   >
                     Your answer:{' '}
                     {question.options[answers[index]] || 'No answer'}
                   </div>
                   {!isCorrect && (
-                    <div className="text-sm text-green-700 mt-1">
+                    <div className="text-sm text-gray-700 mt-1">
                       Correct: {question.options[question.correct]}
                     </div>
                   )}
@@ -1145,8 +1145,8 @@ ${scenarios[index].agnesPrompt}`,
               >
                 {message.type === 'agnes' && (
                   <div className="flex items-center space-x-2 mb-2">
-                    <Bot className="w-4 h-4 text-purple-600" />
-                    <span className="font-medium text-purple-600">Agnes</span>
+                    <Bot className="w-4 h-4 text-roofRed" />
+                    <span className="font-medium text-roofRed">Agnes</span>
                   </div>
                 )}
                 <div className="whitespace-pre-wrap">{message.content}</div>
@@ -1163,8 +1163,8 @@ ${scenarios[index].agnesPrompt}`,
             <div className="flex justify-start">
               <div className="bg-gray-100 text-gray-800 mr-12 p-4 rounded-lg">
                 <div className="flex items-center space-x-2">
-                  <Bot className="w-4 h-4 text-purple-600" />
-                  <span className="font-medium text-purple-600">Agnes</span>
+                  <Bot className="w-4 h-4 text-roofRed" />
+                  <span className="font-medium text-roofRed">Agnes</span>
                 </div>
                 <div className="flex items-center space-x-1 mt-2">
                   <div className="w-2 h-2 bg-purple-600 rounded-full animate-bounce"></div>
@@ -1318,7 +1318,7 @@ const VRTrainingModal = ({ isOpen, onClose, currentModule, modules }) => {
                     onClick={() => setVrMode(mode)}
                     className={`p-4 rounded-lg border text-center transition-colors ${
                       vrMode === mode
-                        ? 'bg-blue-50 border-blue-600 text-blue-700'
+                        ? 'bg-gray-50 border-blue-600 text-gray-700'
                         : 'bg-gray-50 border-gray-200 hover:bg-gray-100'
                     }`}
                   >
@@ -1339,7 +1339,7 @@ const VRTrainingModal = ({ isOpen, onClose, currentModule, modules }) => {
                     key={index}
                     className={`p-6 rounded-lg border cursor-pointer transition-all ${
                       currentVRLesson === index
-                        ? 'bg-blue-50 border-blue-600 shadow-lg'
+                        ? 'bg-gray-50 border-blue-600 shadow-lg'
                         : 'bg-white border-gray-200 hover:shadow-md'
                     }`}
                     onClick={() => setCurrentVRLesson(index)}
@@ -1351,9 +1351,9 @@ const VRTrainingModal = ({ isOpen, onClose, currentModule, modules }) => {
                       <span
                         className={`px-2 py-1 rounded text-xs font-medium ${
                           lesson.difficulty === 'Beginner'
-                            ? 'bg-green-100 text-green-700'
+                            ? 'bg-gray-100 text-gray-700'
                             : lesson.difficulty === 'Intermediate'
-                              ? 'bg-yellow-100 text-yellow-700'
+                              ? 'bg-gray-100 text-gray-700'
                               : 'bg-red-100 text-red-700'
                         }`}
                       >
@@ -1435,12 +1435,12 @@ const VRTrainingModal = ({ isOpen, onClose, currentModule, modules }) => {
               </div>
 
               {vrProgress === 100 && (
-                <div className="bg-green-50 border border-green-200 rounded-lg p-6 max-w-md mx-auto">
-                  <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-4" />
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 max-w-md mx-auto">
+                  <CheckCircle className="w-12 h-12 text-roofRed mx-auto mb-4" />
                   <h5 className="font-bold text-green-800 mb-2">
                     Session Complete!
                   </h5>
-                  <p className="text-green-700 text-sm">
+                  <p className="text-gray-700 text-sm">
                     Great job completing the VR training session.
                   </p>
                 </div>
@@ -1976,7 +1976,7 @@ const RoofErAdvancedTrainingSystem = () => {
         title: 'Customer Communication & Relationship Management',
         icon: <Users className="w-6 h-6" />,
         color: 'bg-gradient-to-r from-teal-600 to-teal-700',
-        borderColor: 'border-teal-600',
+        borderColor: 'border-roofRed',
         content: {
           communicationPrinciples: {
             clarity:
@@ -2219,9 +2219,9 @@ const RoofErAdvancedTrainingSystem = () => {
           return (
             <div className="space-y-8">
               {/* Hero Overview Card */}
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-8 border border-blue-200">
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-8 border border-gray-200">
                 <div className="flex items-start space-x-6">
-                  <div className="w-20 h-20 bg-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-20 h-20 bg-roofRed rounded-2xl flex items-center justify-center flex-shrink-0">
                     <FileText className="w-10 h-10 text-white" />
                   </div>
                   <div className="flex-1">
@@ -2288,7 +2288,7 @@ const RoofErAdvancedTrainingSystem = () => {
                       <CheckCircle className="w-6 h-6 mr-3" />
                       The 5 Non-Negotiables
                     </h4>
-                    <p className="text-green-100 mt-2">
+                    <p className="text-gray-300 mt-2">
                       Essential elements for every interaction
                     </p>
                   </div>
@@ -2297,7 +2297,7 @@ const RoofErAdvancedTrainingSystem = () => {
                       {module.content.fiveNonNegotiables.map((item, index) => (
                         <div
                           key={index}
-                          className="group flex items-start space-x-4 p-4 rounded-xl bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 hover:shadow-md transition-all duration-300"
+                          className="group flex items-start space-x-4 p-4 rounded-xl bg-gradient-to-r from-gray-50 to-gray-100 border border-gray-200 hover:shadow-md transition-all duration-300"
                         >
                           <div className="w-12 h-12 bg-gradient-to-br from-green-600 to-green-700 text-white rounded-xl flex items-center justify-center text-lg font-bold flex-shrink-0 group-hover:scale-110 transition-transform">
                             {index + 1}
@@ -2314,16 +2314,16 @@ const RoofErAdvancedTrainingSystem = () => {
 
               {/* Additional Module Content */}
               {module.content.elite2Percent && (
-                <div className="bg-gradient-to-br from-yellow-50 to-orange-100 rounded-2xl p-8 border border-yellow-200">
+                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 border border-gray-200">
                   <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-16 h-16 bg-yellow-500 rounded-2xl flex items-center justify-center">
+                    <div className="w-16 h-16 bg-gray-500 rounded-2xl flex items-center justify-center">
                       <Trophy className="w-8 h-8 text-white" />
                     </div>
                     <div>
                       <h4 className="text-2xl font-bold text-gray-800">
                         Elite 2% Standard
                       </h4>
-                      <p className="text-yellow-700">What sets us apart</p>
+                      <p className="text-gray-700">What sets us apart</p>
                     </div>
                   </div>
                   <p className="text-gray-700 text-lg leading-relaxed">
@@ -2338,7 +2338,7 @@ const RoofErAdvancedTrainingSystem = () => {
           return (
             <div className="space-y-6">
               <div className="flex items-center space-x-4 mb-8">
-                <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center">
+                <div className="w-16 h-16 bg-roofRed rounded-2xl flex items-center justify-center">
                   <Play className="w-8 h-8 text-white" />
                 </div>
                 <div>
@@ -2361,7 +2361,7 @@ const RoofErAdvancedTrainingSystem = () => {
                         isActive
                           ? 'border-red-500 shadow-lg transform scale-102'
                           : isCompleted
-                            ? 'border-green-300 bg-green-50'
+                            ? 'border-green-300 bg-gray-50'
                             : 'border-gray-200 hover:border-blue-300'
                       }`}
                       onClick={() => setCurrentLesson(index)}
@@ -2375,7 +2375,7 @@ const RoofErAdvancedTrainingSystem = () => {
                                   ? 'bg-red-600 text-white'
                                   : isCompleted
                                     ? 'bg-green-600 text-white'
-                                    : 'bg-gray-100 text-gray-600 group-hover:bg-blue-100 group-hover:text-blue-600'
+                                    : 'bg-gray-100 text-gray-600 group-hover:bg-gray-100 group-hover:text-roofRed'
                               } transition-all duration-300`}
                             >
                               {isCompleted ? (
@@ -2396,7 +2396,7 @@ const RoofErAdvancedTrainingSystem = () => {
 
                           <div className="flex items-center space-x-3">
                             {isCompleted && (
-                              <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+                              <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
                                 Completed
                               </span>
                             )}
@@ -2418,7 +2418,7 @@ const RoofErAdvancedTrainingSystem = () => {
                           <div
                             className={`h-2 rounded-full transition-all duration-500 ${
                               isCompleted
-                                ? 'bg-green-500'
+                                ? 'bg-gray-500'
                                 : isActive
                                   ? 'bg-red-500'
                                   : 'bg-gray-300'
@@ -2531,19 +2531,19 @@ const RoofErAdvancedTrainingSystem = () => {
                   </p>
                   <div className="flex justify-center space-x-4">
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-blue-600">
+                      <div className="text-2xl font-bold text-roofRed">
                         {module.skills.length}
                       </div>
                       <div className="text-sm text-gray-600">Skills</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-green-600">
+                      <div className="text-2xl font-bold text-roofRed">
                         {module.points}
                       </div>
                       <div className="text-sm text-gray-600">Points</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-purple-600">
+                      <div className="text-2xl font-bold text-roofRed">
                         {module.lessons?.length || 4}
                       </div>
                       <div className="text-sm text-gray-600">Lessons</div>
@@ -2668,7 +2668,7 @@ const RoofErAdvancedTrainingSystem = () => {
             <div className="flex items-center space-x-6">
               <div className="relative">
                 <RoofErLogo size="w-16 h-16" />
-                <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-gray-500 rounded-full flex items-center justify-center">
                   <CheckCircle className="w-4 h-4 text-white" />
                 </div>
               </div>
@@ -2680,11 +2680,11 @@ const RoofErAdvancedTrainingSystem = () => {
                   Elite Training • AI-Powered Learning • Professional Excellence
                 </p>
                 <div className="flex items-center space-x-4 mt-2">
-                  <div className="flex items-center space-x-1 text-sm text-green-600">
+                  <div className="flex items-center space-x-1 text-sm text-roofRed">
                     <Shield className="w-4 h-4" />
                     <span>Certified Training</span>
                   </div>
-                  <div className="flex items-center space-x-1 text-sm text-blue-600">
+                  <div className="flex items-center space-x-1 text-sm text-roofRed">
                     <Bot className="w-4 h-4" />
                     <span>AI-Enhanced</span>
                   </div>
@@ -2800,33 +2800,33 @@ const RoofErAdvancedTrainingSystem = () => {
 
           {/* Progress Overview Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 border border-blue-200">
-              <div className="flex items-center justify-center w-16 h-16 bg-blue-600 rounded-xl mx-auto mb-4">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 border border-gray-200">
+              <div className="flex items-center justify-center w-16 h-16 bg-roofRed rounded-xl mx-auto mb-4">
                 <TrendingUp className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-2">
                 Your Progress
               </h3>
-              <div className="text-3xl font-bold text-blue-600 mb-1">
+              <div className="text-3xl font-bold text-roofRed mb-1">
                 {Math.round((completedModules.size / 10) * 100)}%
               </div>
               <p className="text-gray-600">Training Completed</p>
               <div className="w-full bg-blue-200 rounded-full h-3 mt-3">
                 <div
-                  className="bg-blue-600 h-3 rounded-full transition-all duration-500"
+                  className="bg-roofRed h-3 rounded-full transition-all duration-500"
                   style={{ width: `${(completedModules.size / 10) * 100}%` }}
                 />
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 border border-green-200">
+            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 border border-gray-200">
               <div className="flex items-center justify-center w-16 h-16 bg-green-600 rounded-xl mx-auto mb-4">
                 <Award className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-2">
                 Achievements
               </h3>
-              <div className="text-3xl font-bold text-green-600 mb-1">
+              <div className="text-3xl font-bold text-roofRed mb-1">
                 {achievements.size}
               </div>
               <p className="text-gray-600">Badges Earned</p>
@@ -2842,14 +2842,14 @@ const RoofErAdvancedTrainingSystem = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-6 border border-purple-200">
+            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-6 border border-gray-200">
               <div className="flex items-center justify-center w-16 h-16 bg-purple-600 rounded-xl mx-auto mb-4">
                 <Clock className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-2">
                 Learning Streak
               </h3>
-              <div className="text-3xl font-bold text-purple-600 mb-1">
+              <div className="text-3xl font-bold text-roofRed mb-1">
                 {userProgress.streak}
               </div>
               <p className="text-gray-600">Days Active</p>
@@ -2901,7 +2901,7 @@ const RoofErAdvancedTrainingSystem = () => {
                     isCurrent
                       ? 'ring-2 ring-red-500 shadow-xl transform scale-105'
                       : isCompleted
-                        ? 'border-green-200 hover:border-green-300'
+                        ? 'border-gray-200 hover:border-green-300'
                         : isLocked
                           ? 'border-gray-200 opacity-60 cursor-not-allowed'
                           : 'border-gray-200 hover:border-red-300'
@@ -2920,7 +2920,7 @@ const RoofErAdvancedTrainingSystem = () => {
                   {/* Status Badge */}
                   <div className="absolute -top-2 -right-2 z-10">
                     {isCompleted && (
-                      <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
+                      <div className="w-8 h-8 bg-gray-500 rounded-full flex items-center justify-center shadow-lg">
                         <CheckCircle className="w-5 h-5 text-white" />
                       </div>
                     )}
@@ -2942,23 +2942,23 @@ const RoofErAdvancedTrainingSystem = () => {
                     <div
                       className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 ${
                         isCompleted
-                          ? 'bg-green-100'
+                          ? 'bg-gray-100'
                           : isCurrent
                             ? 'bg-red-100'
                             : isLocked
                               ? 'bg-gray-100'
-                              : 'bg-blue-100 group-hover:bg-blue-200'
+                              : 'bg-gray-100 group-hover:bg-blue-200'
                       } transition-colors duration-300`}
                     >
                       <div
                         className={`${
                           isCompleted
-                            ? 'text-green-600'
+                            ? 'text-roofRed'
                             : isCurrent
                               ? 'text-red-600'
                               : isLocked
                                 ? 'text-gray-400'
-                                : 'text-blue-600'
+                                : 'text-roofRed'
                         }`}
                       >
                         {module.icon}
@@ -3015,7 +3015,7 @@ const RoofErAdvancedTrainingSystem = () => {
                       <div
                         className={`h-2 rounded-full transition-all duration-500 ${
                           isCompleted
-                            ? 'bg-green-500'
+                            ? 'bg-gray-500'
                             : isCurrent
                               ? 'bg-red-500'
                               : 'bg-gray-300'
@@ -3036,10 +3036,10 @@ const RoofErAdvancedTrainingSystem = () => {
                         isLocked
                           ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
                           : isCompleted
-                            ? 'bg-green-100 text-green-700 hover:bg-green-200'
+                            ? 'bg-gray-100 text-gray-700 hover:bg-green-200'
                             : isCurrent
                               ? 'bg-red-100 text-red-700 hover:bg-red-200'
-                              : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
+                              : 'bg-gray-100 text-gray-700 hover:bg-blue-200'
                       }`}
                       disabled={isLocked}
                     >
