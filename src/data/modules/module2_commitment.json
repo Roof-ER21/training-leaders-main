@@ -1,0 +1,17 @@
+{
+  "overview": "Your Commitment: standards for ethics, professionalism, and trust. Acknowledge and digitally sign your commitment to proceed.",
+  "learningObjectives": [
+    "Acknowledge Roof‑ER’s standards and expectations",
+    "Commit to professional conduct and communication",
+    "Understand zero‑tolerance for dishonest practices"
+  ],
+  "sections": [
+    {"id":"standards","title":"Standards & Promise","duration":"6 minutes","content":"Commitments include: aligning with mission and values; following the sales process; integrity at all times; openness to feedback; no gossip; disciplined work ethic; pride in work."}
+  ],
+  "interactiveLearning": [
+    {"id":"sign","title":"Digital Acknowledgment","type":"interactive-exercise","estimatedTime":"3 minutes","activities":[{"id":"ack","title":"Type Your Full Name","description":"Type your full name to acknowledge your commitment.","type":"short-answer","points":5,"data":{"text":"Type your full name to proceed.","blanks":[{"id":"name","correctAnswers":["ACKNOWLEDGE"],"hint":"Enter your full name"}]}}]}
+  ],
+  "quiz": [],
+  "documents": []
+}
+
