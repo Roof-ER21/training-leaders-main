@@ -28,5 +28,17 @@
     {"id":"itel-tpl","title":"iTel Argument Template","type":"template","description":"Email template to justify full replacement due to discontinued shingles.","downloadUrl":"/assets/templates/itel_argument_template.txt"},
     {"id":"siding-tpl","title":"Siding Argument Template","type":"template","description":"Email template for discontinued siding (full elevation replacement).","downloadUrl":"/assets/templates/siding_argument_template.txt"},
     {"id":"repair-tpl","title":"Repair Attempt Template","type":"template","description":"Form for documenting failed repair attempts (brittle/non-bonding).","downloadUrl":"/assets/templates/repair_attempt_template.txt"}
+    ,
+    {"id":"md-match-1","title":"Maryland Matching Requirement #1","type":"pdf","description":"Maryland Insurance Administration: Matching requirement bulletin (part 1).","downloadUrl":"/assets/docs/maryland_insurance_administration_matching_requirement_1.pdf"},
+    {"id":"md-match-2","title":"Maryland Matching Requirement #2","type":"pdf","description":"Maryland Insurance Administration: Matching requirement bulletin (part 2).","downloadUrl":"/assets/docs/maryland_insurance_administration_matching_requirement_2.pdf"},
+    {"id":"md-match-3","title":"Maryland Matching Requirement #3","type":"pdf","description":"Maryland Insurance Administration: Matching requirement bulletin (part 3).","downloadUrl":"/assets/docs/maryland_insurance_administration_matching_requirement_3.pdf"},
+    {"id":"gaf-guidelines","title":"GAF Storm Damage Guidelines","type":"pdf","description":"GAF guidelines for storm damage assessment and documentation.","downloadUrl":"/assets/docs/gaf_storm_damage_guidelines_.pdf"},
+    {"id":"gaf-slope","title":"GAF Slope Replacement Requirement","type":"pdf","description":"GAF requirement on slope replacement when repair is not feasible.","downloadUrl":"/assets/docs/gaf_requirement_-_slope_replacement.pdf"},
+    {"id":"discontinued-list","title":"Discontinued Shingle List","type":"pdf","description":"Reference list of discontinued shingles for matching arguments.","downloadUrl":"/assets/docs/discontinued-shingle-list.pdf"},
+    {"id":"va-reroof","title":"Virginia Re‑Roofing Chapters","type":"document","description":"Virginia building codes — re‑roofing chapters for code citations.","downloadUrl":"/assets/docs/virginia_building_codes_re-roofing_chapters.docx"},
+    {"id":"md-wrap","title":"Maryland Exterior Wrap Code R703","type":"document","description":"Maryland IRC R703.2 — Water‑resistive barrier behind siding.","downloadUrl":"/assets/docs/maryland_exterior_wrap_code_r703.docx"},
+    {"id":"low-slope","title":"Low Roof / Flat Roof Code","type":"document","description":"Code guidance for low/flat roof scenarios.","downloadUrl":"/assets/docs/low_roof_flat_roof_code.docx"},
+    {"id":"flashing-codes","title":"Flashing Codes","type":"document","description":"Flashing code references for supplement arguments.","downloadUrl":"/assets/docs/flashing_codes.docx"},
+    {"id":"complaints","title":"Complaint Forms","type":"document","description":"Regulatory complaint forms — escalation references.","downloadUrl":"/assets/docs/complaint_forms.docx"}
   ]
 }
