@@ -2399,10 +2399,21 @@ The professional mastery capstone represents the culmination of comprehensive tr
                           </div>
                         )}
 
-                        <button className="w-full bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2">
-                          <Download className="w-4 h-4" />
-                          Download
-                        </button>
+                        {doc.downloadUrl ? (
+                          <a
+                            href={doc.downloadUrl}
+                            download
+                            className="w-full bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
+                          >
+                            <Download className="w-4 h-4" />
+                            Download
+                          </a>
+                        ) : (
+                          <button className="w-full bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2">
+                            <Download className="w-4 h-4" />
+                            Download
+                          </button>
+                        )}
                       </div>
                     ))}
                   </div>

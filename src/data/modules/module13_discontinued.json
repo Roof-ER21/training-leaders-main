@@ -24,6 +24,9 @@
     {"id":"q3","question":"What does MD IRC R703.2 require behind siding?","type":"multiple-choice","options":["Vapor barrier","Insulation","Water‑resistive barrier","Air barrier"],"correctAnswer":"Water‑resistive barrier","explanation":"WRB requirement."},
     {"id":"q4","question":"VA R905.2.2 prohibits asphalt shingles on…","type":"multiple-choice","options":["Any hip roof","Slopes below 2:12","Slopes above 8:12","Interior roofs"],"correctAnswer":"Slopes below 2:12","explanation":"Low slope restriction."}
   ],
-  "documents": []
+  "documents": [
+    {"id":"itel-tpl","title":"iTel Argument Template","type":"template","description":"Email template to justify full replacement due to discontinued shingles.","downloadUrl":"/assets/templates/itel_argument_template.txt"},
+    {"id":"siding-tpl","title":"Siding Argument Template","type":"template","description":"Email template for discontinued siding (full elevation replacement).","downloadUrl":"/assets/templates/siding_argument_template.txt"},
+    {"id":"repair-tpl","title":"Repair Attempt Template","type":"template","description":"Form for documenting failed repair attempts (brittle/non-bonding).","downloadUrl":"/assets/templates/repair_attempt_template.txt"}
+  ]
 }
-
