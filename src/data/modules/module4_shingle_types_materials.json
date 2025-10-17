@@ -1,0 +1,106 @@
+{
+  "overview": "Recognize shingle types and materials quickly. Compare Architectural vs. 3‑Tab, understand discontinued considerations, and practice manufacturer identification tips.
+  ",
+  "learningObjectives": [
+    "Distinguish Architectural vs. 3‑Tab shingles",
+    "Explain English vs. Metric dimensions and exposure",
+    "Identify discontinued risk indicators",
+    "Apply manufacturer identification tips"
+  ],
+  "sections": [
+    {
+      "id": "arch-3tab",
+      "title": "Architectural vs. 3‑Tab",
+      "duration": "8 minutes",
+      "content": "Architectural (dimensional/laminated): multi‑layer, textured appearance, varied shadow lines, better longevity. 3‑Tab (strip): single layer, uniform tabs, straight lines, shorter lifespan. Many 3‑Tab lines are discontinued or phasing out, which often triggers matching arguments."
+    },
+    {
+      "id": "english-metric",
+      "title": "English vs. Metric Dimensions",
+      "duration": "6 minutes",
+      "content": "English and Metric shingles have different exposure sizes. Mixing causes misalignment and prevents proper sealing. Repairs with incompatible dimensions result in visual mismatch — a common basis for full replacement."
+    },
+    {
+      "id": "discontinued",
+      "title": "Discontinued Signals",
+      "duration": "6 minutes",
+      "content": "Older 3‑Tab lines (e.g., Royal Sovereign, XT 25, Supreme) and architectural lines 15+ years old are frequently discontinued. Verify via manufacturer sites and iTel. Use Module 13 for templates and code support."
+    },
+    {
+      "id": "id-tips",
+      "title": "Manufacturer Identification Tips",
+      "duration": "6 minutes",
+      "content": "Check shingle backs for stamps, compare granule tone and cut pattern, review homeowner documentation, and reference photo guides. Practice until you can ID common lines at a glance."
+    }
+  ],
+  "interactiveLearning": [
+    {
+      "id": "matching",
+      "title": "Type & Definition Matching",
+      "type": "interactive-exercise",
+      "estimatedTime": "8 minutes",
+      "activities": [
+        {
+          "id": "pairs-shingles",
+          "title": "Match Types",
+          "description": "Match shingle terms to definitions.",
+          "type": "matching",
+          "points": 10,
+          "data": {
+            "pairs": [
+              { "id": "arch", "left": "Architectural", "right": "Dimensional multi‑layer textured appearance" },
+              { "id": "3tab", "left": "3‑Tab", "right": "Single layer, uniform tabs, straight lines" },
+              { "id": "english", "left": "English Dimension", "right": "Legacy exposure size; incompatible with metric" },
+              { "id": "metric", "left": "Metric Dimension", "right": "Current standard exposure sizing" }
+            ],
+            "showHints": true,
+            "hintsAfterAttempts": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "mcq-id",
+      "title": "Quick Identification",
+      "type": "interactive-exercise",
+      "estimatedTime": "6 minutes",
+      "activities": [
+        {
+          "id": "mcq-arch-3tab-spot",
+          "title": "Spot the Type",
+          "description": "Identify the shingle category.",
+          "type": "multiple-choice",
+          "points": 6,
+          "data": {
+            "question": "A textured shingle with varied shadow lines is…",
+            "options": [
+              { "id": "a", "text": "3‑Tab", "isCorrect": false },
+              { "id": "b", "text": "Architectural", "isCorrect": true },
+              { "id": "c", "text": "Metal", "isCorrect": false }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "id": "q1",
+      "type": "multiple-choice",
+      "question": "Why can’t English and Metric shingles be mixed?",
+      "options": ["Color mismatch only", "Different exposure prevents alignment and sealing", "They use different granules"],
+      "correctAnswer": "Different exposure prevents alignment and sealing",
+      "explanation": "Exposure size drives alignment and seal; mixing causes failures."
+    },
+    {
+      "id": "q2",
+      "type": "multiple-choice",
+      "question": "Which is more likely to be discontinued?",
+      "options": ["Recent architectural line", "Older 3‑Tab line", "New designer line"],
+      "correctAnswer": "Older 3‑Tab line",
+      "explanation": "Many 3‑Tab lines are discontinued or phasing out."
+    }
+  ],
+  "documents": []
+}
+
