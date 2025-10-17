@@ -33,13 +33,22 @@ import type { GamifiedOrPracticalActivity } from './AgnesGamifiedAndPractical';
 // Import module content from JSON files
 import module1Content from '../data/modules/module1.json';
 import module2Content from '../data/modules/module2.json';
-import module3Content from '../data/modules/module3.json';
-import module4Content from '../data/modules/module4.json';
-import module5Content from '../data/modules/module5.json';
-import module6Content from '../data/modules/module6.json';
-import module7Content from '../data/modules/module7.json';
+// Replace legacy 3–9 with new content where provided
+import module3RoofingContent from '../data/modules/module3_roofing.json';
+import module4InspectionSafetyContent from '../data/modules/module4_inspection_safety.json';
+import module5PostInspectionPresentation from '../data/modules/module5_post_inspection_presentation.json';
+import module6ClaimFiling from '../data/modules/module6_claim_filing.json';
+import module7AdjusterMeeting from '../data/modules/module7_adjuster_meeting.json';
+// Keep existing module8.json (shingle knowledge) as supplemental for material ID
 import module8Content from '../data/modules/module8.json';
-import module9Content from '../data/modules/module9.json';
+import module9PostInspectionObjections from '../data/modules/module9_post_inspection_objections.json';
+import module10DamageIDNew from '../data/modules/module10_damage_identification_new.json';
+import module11FilingClaimClosing from '../data/modules/module11_filing_claim_closing.json';
+import module12ClosingObjections from '../data/modules/module12_closing_objections.json';
+import module14SalesCycleJobFlow from '../data/modules/module14_sales_cycle_job_flow.json';
+import module15Roleplay from '../data/modules/module15_roleplay.json';
+import module13Discontinued from '../data/modules/module13_discontinued.json';
+import module16FinalExam from '../data/modules/module16_final_exam.json';
 import photoManifest from '../data/media/photoManifest.json';
 import slideImages from '../data/media/slideImages.json';
 import topicPhotos from '../data/media/topicPhotos.json';
@@ -565,19 +574,123 @@ The professional mastery capstone represents the culmination of comprehensive tr
     },
   });
 
+  // Generic builder for modules without dedicated JSON yet
+  const createGenericModule = (
+    title: string,
+    keyPoints: string[] = []
+  ): ModuleContent => ({
+    overview: `${title} — interactive training with Agnes, core takeaways, and a short quiz. Content will be expanded with media and activities.`,
+    learningObjectives: keyPoints.length
+      ? keyPoints
+      : [
+          'Understand core concepts',
+          'Practice with interactive activities',
+          'Apply knowledge to real scenarios',
+        ],
+    sections: [
+      {
+        id: 'intro',
+        title: `${title}: Overview`,
+        duration: '15 minutes',
+        content:
+          `This section introduces ${title}. Review the key ideas, definitions, and why this matters in the Roof‑ER sales process.`,
+        keyPoints: keyPoints.slice(0, 3),
+      },
+      {
+        id: 'practice',
+        title: `${title}: Practice`,
+        duration: '20 minutes',
+        content:
+          'Work through an applied scenario with Agnes tips. Use activities to reinforce the learning objectives.',
+        activities: [
+          {
+            id: 'mcq-1',
+            title: 'Quick Check',
+            description: 'Multiple‑choice warm‑up question',
+            type: 'multiple-choice',
+            data: {
+              question: 'Which statement best aligns with this section?',
+              options: [
+                { id: 'a', text: 'Irrelevant details', isCorrect: false },
+                { id: 'b', text: 'Key principle summarized', isCorrect: true },
+                { id: 'c', text: 'Off-topic item', isCorrect: false },
+              ],
+            },
+            points: 5,
+            agnesTip: 'Focus on the core principle and how you would apply it on the job.',
+          },
+        ],
+      },
+    ],
+    interactiveLearning: [
+      {
+        id: 'coaching',
+        title: 'Agnes Coaching',
+        type: 'interactive-exercise',
+        estimatedTime: '10 minutes',
+        content:
+          'Ask Agnes follow‑ups about this topic. Try a scenario and reflect on how you would respond.',
+      },
+    ],
+    agnesContent: [
+      {
+        id: 'coach',
+        title: 'Agnes Tips',
+        type: 'interactive',
+        icon: '💡',
+        points: [
+          'Keep it simple and customer‑first',
+          'Tie actions to value and next steps',
+          'Use clear, confident language',
+        ],
+        duration: '5 minutes',
+      },
+    ],
+    quiz: [
+      {
+        id: 'q1',
+        question: `What is a key success factor in ${title}?`,
+        type: 'multiple-choice',
+        options: ['Clarity', 'Avoidance', 'Guesswork', 'Overpromising'],
+        correctAnswer: 'Clarity',
+        explanation: 'Clear, concise communication and process are essential.',
+      },
+      {
+        id: 'q2',
+        question: 'After this module, what should you do next?',
+        type: 'multiple-choice',
+        options: [
+          'Skip practice',
+          'Apply one learning in the field',
+          'Ignore feedback',
+          'Avoid reflection',
+        ],
+        correctAnswer: 'Apply one learning in the field',
+        explanation: 'Practice and application drive retention and results.',
+      },
+    ],
+    documents: [],
+  });
+
   // Load module content based on moduleId
   const loadModuleContent = (id: number) => {
     const moduleConfigs: { [key: number]: ModuleContent } = {
       1: module1Content as ModuleContent,
       2: module2Content as ModuleContent,
-      3: module3Content as ModuleContent,
-      4: module4Content as ModuleContent,
-      5: module5Content as ModuleContent,
-      6: module6Content as ModuleContent,
-      7: module7Content as ModuleContent,
-      8: module8Content as ModuleContent,
-      9: module9Content as ModuleContent,
-      10: createAdvancedSalesCycleManagementModule(),
+      3: module3RoofingContent as ModuleContent,
+      4: module4InspectionSafetyContent as ModuleContent,
+      5: module5PostInspectionPresentation as ModuleContent,
+      6: module6ClaimFiling as ModuleContent,
+      7: module7AdjusterMeeting as ModuleContent,
+      8: module5PostInspectionPresentation as ModuleContent,
+      9: module9PostInspectionObjections as ModuleContent,
+      10: module10DamageIDNew as ModuleContent,
+      11: module11FilingClaimClosing as ModuleContent,
+      12: module12ClosingObjections as ModuleContent,
+      13: module13Discontinued as ModuleContent,
+      14: module14SalesCycleJobFlow as ModuleContent,
+      15: module15Roleplay as ModuleContent,
+      16: module16FinalExam as ModuleContent,
     };
 
     let content = moduleConfigs[id];
@@ -762,10 +875,35 @@ The professional mastery capstone represents the culmination of comprehensive tr
     moduleContent.quiz.forEach(question => {
       totalPoints += question.points || 1;
       const userAnswer = selectedAnswers[question.id];
+      const correct = question.correctAnswer as any;
 
-      if (userAnswer === question.correctAnswer) {
-        score += question.points || 1;
+      let isCorrect = false;
+      if (question.type === 'multiple-choice' || question.type === 'true-false') {
+        // userAnswer is index; correct may be index or value
+        if (typeof correct === 'number') {
+          isCorrect = userAnswer === correct;
+        } else if (typeof correct === 'string') {
+          const chosen = question.options?.[userAnswer]?.toString().trim().toLowerCase();
+          isCorrect = chosen === correct.toString().trim().toLowerCase();
+        } else if (Array.isArray(correct)) {
+          const chosen = question.options?.[userAnswer];
+          isCorrect = correct.map((c: any) => c.toString().trim().toLowerCase()).includes(
+            chosen?.toString().trim().toLowerCase()
+          );
+        }
+      } else if (question.type === 'short-answer') {
+        const ans = (userAnswer || '').toString().trim().toLowerCase();
+        if (typeof correct === 'string') {
+          isCorrect = ans === correct.toString().trim().toLowerCase();
+        } else if (Array.isArray(correct)) {
+          // Keyword heuristic: count matches, require 60% of keywords
+          const kws = correct.map(c => c.toString().trim().toLowerCase());
+          const hits = kws.filter(k => ans.includes(k)).length;
+          isCorrect = hits >= Math.ceil(kws.length * 0.6);
+        }
       }
+
+      if (isCorrect) score += question.points || 1;
     });
 
     const percentage = Math.round((score / totalPoints) * 100);
@@ -2068,8 +2206,8 @@ The professional mastery capstone represents the culmination of comprehensive tr
                         </div>
 
                         {/* Answer Options */}
-                        {moduleContent.quiz[currentQuestionIndex].type ===
-                          'multiple-choice' && (
+                        {(moduleContent.quiz[currentQuestionIndex].type === 'multiple-choice' ||
+                          moduleContent.quiz[currentQuestionIndex].type === 'true-false') && (
                           <div className="space-y-3">
                             {moduleContent.quiz[
                               currentQuestionIndex
@@ -2114,6 +2252,27 @@ The professional mastery capstone represents the culmination of comprehensive tr
                                 </div>
                               </button>
                             ))}
+                          </div>
+                        )}
+
+                        {moduleContent.quiz[currentQuestionIndex].type === 'short-answer' && (
+                          <div className="space-y-3">
+                            <input
+                              type="text"
+                              className="w-full p-3 rounded-lg border-2 border-gray-200 focus:border-blue-600 outline-none"
+                              placeholder="Type your answer"
+                              value={
+                                selectedAnswers[
+                                  moduleContent.quiz[currentQuestionIndex].id
+                                ] || ''
+                              }
+                              onChange={e =>
+                                handleAnswerSelect(
+                                  moduleContent.quiz[currentQuestionIndex].id,
+                                  e.target.value
+                                )
+                              }
+                            />
                           </div>
                         )}
                       </div>

@@ -151,244 +151,22 @@ const AgnesIntegratedTraining: React.FC<AgnesIntegratedTrainingProps> = ({
   };
 
   const modules: Module[] = [
-    {
-      id: 1,
-      title: 'Foundation & Initial Pitch Mastery',
-      description:
-        'Master the Initial Pitch with 5 Non-Negotiables, Field Portal App navigation, objection handling, and the complete 9-16 week sales cycle. Day 1 of RoofER training.',
-      duration: '4 hours',
-      difficulty: 'Beginner',
-      type: 'interactive',
-      skills: [
-        'Initial Pitch',
-        '5 Non-Negotiables',
-        'Objection Handling',
-        'Field Portal',
-        'Sales Cycle',
-      ],
-      progress: 100,
-      isCompleted: true,
-      rating: 4.9,
-      studentsEnrolled: 1450,
-      instructor: {
-        name: 'Agnes Wilson',
-        title: 'AI-Powered Sales Instructor',
-        avatar: '/api/placeholder/40/40',
-      },
-    },
-    {
-      id: 2,
-      title: 'Inspection & Post-Inspection Mastery',
-      description:
-        'Learn to identify storm damage (hail & wind), execute the 15-20 minute inspection protocol, document with proper photo sequence, and file insurance claims same-day.',
-      duration: '4 hours',
-      difficulty: 'Beginner',
-      type: 'interactive',
-      skills: [
-        'Storm Damage ID',
-        'Inspection Protocol',
-        'Photo Documentation',
-        'Claim Filing',
-      ],
-      progress: 100,
-      isCompleted: true,
-      rating: 4.8,
-      studentsEnrolled: 1380,
-      instructor: {
-        name: 'Agnes Wilson',
-        title: 'AI-Powered Sales Instructor',
-        avatar: '/api/placeholder/40/40',
-      },
-    },
-    {
-      id: 3,
-      title: 'Inspection Close: Securing the Agreement',
-      description:
-        'Master the art of closing for inspections with proven techniques that turn conversations into concrete appointments and agreements.',
-      duration: '5 hours',
-      difficulty: 'Intermediate',
-      type: 'practice',
-      skills: [
-        'Closing Techniques',
-        'Inspection Scheduling',
-        'Agreement Building',
-        'Professional Persistence',
-      ],
-      progress: 60,
-      rating: 4.7,
-      studentsEnrolled: 1250,
-      instructor: {
-        name: 'Agnes Wilson',
-        title: 'AI-Powered Sales Instructor',
-        avatar: '/api/placeholder/40/40',
-      },
-    },
-    {
-      id: 4,
-      title: 'LEARN Framework: Advanced Objection Handling',
-      description:
-        'Implement the comprehensive LEARN framework for handling any objection with Listen, Empathize, Acknowledge, Respond, and Next steps.',
-      duration: '6 hours',
-      difficulty: 'Intermediate',
-      type: 'interactive',
-      skills: [
-        'LEARN Framework',
-        'Objection Handling',
-        'Active Listening',
-        'Empathy Training',
-      ],
-      progress: 0,
-      rating: 4.6,
-      studentsEnrolled: 1150,
-      instructor: {
-        name: 'Agnes Wilson',
-        title: 'AI-Powered Sales Instructor',
-        avatar: '/api/placeholder/40/40',
-      },
-    },
-    {
-      id: 5,
-      title: 'Insurance & Claims: Navigating the Process',
-      description:
-        'Master insurance claim processes, understand ACV vs RCV, deductibles, and how to maximize customer satisfaction while ensuring profitable deals.',
-      duration: '7 hours',
-      difficulty: 'Intermediate',
-      type: 'interactive',
-      skills: [
-        'Insurance Knowledge',
-        'Claims Processing',
-        'ACV Calculations',
-        'Customer Advocacy',
-      ],
-      progress: 0,
-      rating: 4.8,
-      studentsEnrolled: 1080,
-      instructor: {
-        name: 'Agnes Wilson',
-        title: 'AI-Powered Sales Instructor',
-        avatar: '/api/placeholder/40/40',
-      },
-    },
-    {
-      id: 6,
-      title: 'Customer Service: Building Lasting Relationships',
-      description:
-        'Transform one-time customers into lifetime advocates through exceptional service, follow-up systems, and referral generation strategies.',
-      duration: '4 hours',
-      difficulty: 'Intermediate',
-      type: 'practice',
-      skills: [
-        'Customer Service',
-        'Relationship Building',
-        'Referral Systems',
-        'Follow-up Strategies',
-      ],
-      progress: 0,
-      isLocked: false,
-      rating: 4.9,
-      studentsEnrolled: 980,
-      instructor: {
-        name: 'Agnes Wilson',
-        title: 'AI-Powered Sales Instructor',
-        avatar: '/api/placeholder/40/40',
-      },
-    },
-    {
-      id: 7,
-      title: 'Sales Techniques: Advanced Closing & Negotiation',
-      description:
-        'Master advanced sales techniques including multiple closing strategies, negotiation tactics, and overcoming final resistance.',
-      duration: '6 hours',
-      difficulty: 'Advanced',
-      type: 'practice',
-      skills: [
-        'Advanced Closing',
-        'Negotiation',
-        'Resistance Handling',
-        'Deal Structuring',
-      ],
-      progress: 0,
-      isLocked: false,
-      rating: 4.7,
-      studentsEnrolled: 920,
-      instructor: {
-        name: 'Agnes Wilson',
-        title: 'AI-Powered Sales Instructor',
-        avatar: '/api/placeholder/40/40',
-      },
-    },
-    {
-      id: 8,
-      title: 'Installation Basics: Technical Knowledge for Credibility',
-      description:
-        'Build technical credibility with essential roofing knowledge, installation processes, and material expertise that supports your sales conversations.',
-      duration: '5 hours',
-      difficulty: 'Advanced',
-      type: 'practice',
-      skills: [
-        'Technical Knowledge',
-        'Installation Processes',
-        'Material Expertise',
-        'Credibility Building',
-      ],
-      progress: 0,
-      isLocked: false,
-      rating: 4.8,
-      studentsEnrolled: 850,
-      instructor: {
-        name: 'Agnes Wilson',
-        title: 'AI-Powered Sales Instructor',
-        avatar: '/api/placeholder/40/40',
-      },
-    },
-    {
-      id: 9,
-      title: 'Technology Integration: Tools for Sales Success',
-      description:
-        'Leverage cutting-edge technology tools, CRM systems, and digital resources to streamline your sales process and maximize efficiency.',
-      duration: '4 hours',
-      difficulty: 'Advanced',
-      type: 'assessment',
-      skills: [
-        'Technology Tools',
-        'CRM Systems',
-        'Digital Resources',
-        'Process Optimization',
-      ],
-      progress: 0,
-      isLocked: false,
-      rating: 4.9,
-      studentsEnrolled: 750,
-      instructor: {
-        name: 'Agnes Wilson',
-        title: 'AI-Powered Sales Instructor',
-        avatar: '/api/placeholder/40/40',
-      },
-    },
-    {
-      id: 10,
-      title: 'Sales Cycle Management: Complete Pipeline & ACV Mastery',
-      description:
-        'Master the complete sales cycle from lead generation through final payment, including advanced ACV calculations and pipeline management.',
-      duration: '8 hours',
-      difficulty: 'Advanced',
-      type: 'interactive',
-      skills: [
-        'Sales Cycle Management',
-        'Pipeline Development',
-        'ACV Mastery',
-        'Lead Generation',
-      ],
-      progress: 0,
-      isLocked: false,
-      rating: 4.8,
-      studentsEnrolled: 680,
-      instructor: {
-        name: 'Agnes Wilson',
-        title: 'AI-Powered Sales Instructor',
-        avatar: '/api/placeholder/40/40',
-      },
-    },
+    { id: 1, title: 'Welcome & Company Intro', description: 'Roof‑ER overview, mission, values. Leadership profiles and org chart with quick quiz.', duration: '2 hours', difficulty: 'Beginner', type: 'interactive', skills: ['Mission & Values','Company Structure','Leadership','Quiz'], progress: 0, instructor: { name: 'Agnes', title: 'AI Coach', avatar: '/api/placeholder/40/40' } },
+    { id: 2, title: 'Your Commitment', description: 'Roof‑ER Promise and Rep Standards. Ethics, professionalism, and digital signature gate.', duration: '1 hour', difficulty: 'Beginner', type: 'interactive', skills: ['Standards','Ethics','Professionalism','Signature Gate'], progress: 0, instructor: { name: 'Agnes', title: 'AI Coach', avatar: '/api/placeholder/40/40' } },
+    { id: 3, title: 'General Roofing Knowledge & Terminology', description: 'Core terms, components, systems. Identifying Knockable Doors and etiquette. Quick Quiz #2.', duration: '3 hours', difficulty: 'Beginner', type: 'interactive', skills: ['Terminology','Parts of a Roof','Knockable Doors','Etiquette'], progress: 0, instructor: { name: 'Agnes', title: 'AI Coach', avatar: '/api/placeholder/40/40' } },
+    { id: 4, title: 'Shingle Types & Materials', description: 'Compare old vs new shingles, siding overview, discontinued shingles intro, manufacturer ID tips.', duration: '2 hours', difficulty: 'Beginner', type: 'interactive', skills: ['3‑tab vs Arch','Materials','Discontinued','Manufacturer ID'], progress: 0, instructor: { name: 'Agnes', title: 'AI Coach', avatar: '/api/placeholder/40/40' } },
+    { id: 5, title: 'Post‑Inspection Presentation & Engagement', description: 'Run the full post‑inspection presentation. Evidence‑based storytelling, damage education, and smooth transition to next steps.', duration: '45 minutes', difficulty: 'Intermediate', type: 'interactive', skills: ['Presentation','Storytelling','Transition','Objection Handling'], progress: 0, instructor: { name: 'Agnes', title: 'AI Coach', avatar: '/api/placeholder/40/40' } },
+    { id: 6, title: 'Claim Filing & Contingency Agreements', description: 'Guide homeowners through filing, present contingency/authorization, and set expectations for adjuster meetings.', duration: '60–75 minutes', difficulty: 'Intermediate', type: 'interactive', skills: ['Claim Filing','Contingency','Authorization','Expectation Setting'], progress: 0, instructor: { name: 'Agnes', title: 'AI Coach', avatar: '/api/placeholder/40/40' } },
+    { id: 7, title: 'The Inspection Process', description: '15–20 minute inspection walkthrough with video, photo documentation guide, and safety tips.', duration: '3 hours', difficulty: 'Intermediate', type: 'interactive', skills: ['Documentation','Photo Order','Safety','Homeowner Interaction'], progress: 0, instructor: { name: 'Agnes', title: 'AI Coach', avatar: '/api/placeholder/40/40' } },
+    { id: 8, title: 'Post‑Inspection Presentation & Engagement', description: 'Run the full post‑inspection presentation. Evidence‑based storytelling, damage education, and smooth transition to next steps.', duration: '45 minutes', difficulty: 'Intermediate', type: 'interactive', skills: ['Presentation','Storytelling','Transition','Objection Handling'], progress: 0, instructor: { name: 'Agnes', title: 'AI Coach', avatar: '/api/placeholder/40/40' } },
+    { id: 9, title: 'Post‑Inspection Objections', description: 'Handle hesitations after showing photos. Create urgency and maintain momentum.', duration: '45 minutes', difficulty: 'Intermediate', type: 'interactive', skills: ['Acknowledge','Evidence','Urgency','Close'], progress: 0, instructor: { name: 'Agnes', title: 'AI Coach', avatar: '/api/placeholder/40/40' } },
+    { id: 10, title: 'Damage Identification', description: 'Recognize hail, wind, and age damage with field photos and mini quizzes.', duration: '3 hours', difficulty: 'Intermediate', type: 'interactive', skills: ['Hail','Wind','Aging','Collateral'], progress: 0, instructor: { name: 'Agnes', title: 'AI Coach', avatar: '/api/placeholder/40/40' } },
+    { id: 11, title: 'Filing the Claim & Closing', description: 'When and how to file, carrier variations, org chart links, and work‑week overview.', duration: '3 hours', difficulty: 'Advanced', type: 'interactive', skills: ['Carrier Scripts','Org Chart','Scheduling'], progress: 0, instructor: { name: 'Agnes', title: 'AI Coach', avatar: '/api/placeholder/40/40' } },
+    { id: 12, title: 'Closing Objections', description: 'Tie‑in to filing/closing; address “think about it”, DIY insurance, and cost hesitations.', duration: '2 hours', difficulty: 'Advanced', type: 'interactive', skills: ['Close','Cost','DIY Insurance','Timeline'], progress: 0, instructor: { name: 'Agnes', title: 'AI Coach', avatar: '/api/placeholder/40/40' } },
+    { id: 13, title: 'Discontinued Products & Special Scenarios', description: 'Handling discontinued shingles/materials; manufacturer resources and real claim examples.', duration: '2 hours', difficulty: 'Advanced', type: 'interactive', skills: ['Discontinued','Verification','Claims'], progress: 0, instructor: { name: 'Agnes', title: 'AI Coach', avatar: '/api/placeholder/40/40' } },
+    { id: 14, title: 'The Sales Cycle & Job Flow', description: 'Full Roof‑ER job flow start→finish. Interactive game and seasonal scheduling examples.', duration: '3 hours', difficulty: 'Advanced', type: 'interactive', skills: ['Job Flow','Cycle','Scheduling','Game'], progress: 0, instructor: { name: 'Agnes', title: 'AI Coach', avatar: '/api/placeholder/40/40' } },
+    { id: 15, title: 'AI Role‑Play', description: 'Agnes role‑play with personas, homeowner/rep roles, scenarios, hints, and scoring.', duration: '2 hours', difficulty: 'Advanced', type: 'practice', skills: ['Role‑Play','Personas','Scenarios','Coaching'], progress: 0, instructor: { name: 'Agnes', title: 'AI Coach', avatar: '/api/placeholder/40/40' } },
+    { id: 16, title: 'Final Exam / Certification Quiz', description: '50 questions: 35 MCQ, 10 fill‑blank, 5 short answer with rubric and retake.', duration: '2 hours', difficulty: 'Expert', type: 'assessment', skills: ['Assessment','Certification'], progress: 0, instructor: { name: 'Agnes', title: 'AI Coach', avatar: '/api/placeholder/40/40' } },
   ];
 
   const categories = [
@@ -453,8 +231,8 @@ const AgnesIntegratedTraining: React.FC<AgnesIntegratedTrainingProps> = ({
   const handleModuleStart = (module: Module) => {
     setActiveModule(module.id);
 
-    // All modules (1-10) now use the comprehensive InteractiveModuleSystem
-    if (module.id >= 1 && module.id <= 10) {
+    // All modules (1-16) use the comprehensive InteractiveModuleSystem
+    if (module.id >= 1 && module.id <= 16) {
       // Route to comprehensive interactive content
       setSelectedInteractiveModule(module.id);
       setShowInteractiveModule(true);
@@ -494,7 +272,7 @@ const AgnesIntegratedTraining: React.FC<AgnesIntegratedTrainingProps> = ({
 
     // Update module progress if high score
     if (results.score >= 80) {
-      const moduleIndex = modules.findIndex(m => m.id === 12);
+      const moduleIndex = modules.findIndex(m => m.id === 15);
       if (moduleIndex !== -1) {
         modules[moduleIndex].progress = Math.max(
           modules[moduleIndex].progress || 0,
@@ -513,7 +291,7 @@ const AgnesIntegratedTraining: React.FC<AgnesIntegratedTrainingProps> = ({
     }));
 
     // Update module progress
-    const moduleIndex = modules.findIndex(m => m.id === 11);
+    const moduleIndex = modules.findIndex(m => m.id === 14);
     if (moduleIndex !== -1) {
       modules[moduleIndex].progress = Math.max(
         modules[moduleIndex].progress || 0,

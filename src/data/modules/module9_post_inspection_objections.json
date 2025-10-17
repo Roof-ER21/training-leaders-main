@@ -1,0 +1,28 @@
+{
+  "overview": "Handle common objections after presenting damage. Create urgency, use evidence, and maintain momentum toward the contingency and claim filing.",
+  "learningObjectives": [
+    "Respond to frequent post‑inspection objections",
+    "Use evidence and education to reassure",
+    "Create appropriate urgency without pressure",
+    "Leverage contingency protection to move forward"
+  ],
+  "sections": [
+    {"id":"objections","title":"Common Objections","duration":"10 minutes","content":"Rates will go up; Damage doesn’t look bad; Need to think about it; Want a second opinion; Don’t want insurance hassle. Use evidence (photos, granules), education (weather claims), and contingency protections."},
+    {"id":"techniques","title":"Advanced Techniques","duration":"8 minutes","content":"Acknowledge & validate; Provide evidence; Create urgency (storms are time‑sensitive); Offer reassurance and options."}
+  ],
+  "interactiveLearning": [
+    {"id":"rp","title":"Objection Role‑Play",
+     "type":"interactive-exercise",
+     "estimatedTime":"15 minutes",
+     "activities":[{"id":"rp-obj","title":"Objection Drill","description":"Practice responding to 3 objections in a row.","type":"roleplay","points":12,
+       "data":{"scenario":"Post‑inspection objection handling.","characterRole":"Rep/Homeowner","objectivecriteria":["acknowledge","evidence","urgency","close"],
+       "prompts":[{"id":"p1","situation":"Rates concern","expectedResponse":"Educate weather vs. at‑fault; value of policy","keywords":["weather","policy","right"]},{"id":"p2","situation":"Damage looks minor","expectedResponse":"Explain freeze‑thaw + granule loss","keywords":["freeze","granules","divot"]}]}}]}
+  ],
+  "agnesContent": [{"id":"coach","title":"Keep Momentum","type":"interactive","icon":"⚡","points":["Acknowledge, Educate, Evidence, Ask","Offer alternatives and schedule next step","Keep tone confident and empathetic"],"duration":"4 minutes"}],
+  "quiz": [
+    {"id":"q1","question":"How to respond to ‘damage doesn’t look bad’?","type":"short-answer","correctAnswer":"Explain long‑term effects (freeze‑thaw, leaks) and show collateral evidence.","explanation":"Educate and evidence."},
+    {"id":"q2","question":"What evidence supports storm causation?","type":"short-answer","correctAnswer":"Granule accumulation, soft metals dents, screen pitting, directional wind patterns.","explanation":"Collateral matters."}
+  ],
+  "documents": []
+}
+

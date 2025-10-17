@@ -1,0 +1,20 @@
+{
+  "overview": "Practice 100+ scenarios across homeowners, adjusters, insurance reps, and multi‑party situations. Use Agnes coaching to improve responses and outcomes.",
+  "learningObjectives": [
+    "Execute professional interactions across scenarios",
+    "Handle challenging objections and meetings",
+    "Navigate complex insurance conversations",
+    "Apply scripts and techniques in realistic settings"
+  ],
+  "sections": [
+    {"id":"structure","title":"Role‑Play Structure","duration":"5 minutes","content":"Each scenario: setup, roles, key learning points, debrief questions. Rotate roles (Rep, Homeowner, Adjuster, Insurance Rep)."}
+  ],
+  "interactiveLearning": [
+    {"id":"rapid-fire","title":"Rapid‑Fire Role‑Plays","type":"interactive-exercise","estimatedTime":"30 minutes","activities":[{"id":"rp-skeptical","title":"The Skeptical Homeowner","description":"Differentiate from competitors after storms.","type":"roleplay","points":10,"data":{"scenario":"Handle skepticism at the door.","characterRole":"Rep/Homeowner","objectivecriteria":["credibility","clarity","appointment"],"prompts":[{"id":"p1","situation":"Homeowner says ‘storm chasers’","expectedResponse":"Local credibility + professional process","keywords":["local","process","expert"]}]}},
+      {"id":"rp-busy","title":"The Busy Professional","description":"Respect time and secure inspection.","type":"roleplay","points":10,"data":{"scenario":"Secure inspection with limited time.","characterRole":"Rep/Homeowner","objectivecriteria":["brevity","schedule","value"]}}]}
+  ],
+  "agnesContent": [{"id":"coach","title":"Agnes Coaching Tips","type":"interactive","icon":"🤖","points":["Keep answers concise","Acknowledge and steer to next step","Ask for the inspection at the right moment"],"duration":"5 minutes"}],
+  "quiz": [],
+  "documents": []
+}
+
