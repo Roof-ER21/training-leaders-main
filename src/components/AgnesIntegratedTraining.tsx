@@ -80,7 +80,7 @@ const AgnesIntegratedTraining: React.FC<AgnesIntegratedTrainingProps> = ({
   const [showRoleplaySystem, setShowRoleplaySystem] = useState(false);
   const [showSalesModules, setShowSalesModules] = useState(false);
   const [showInteractiveModule, setShowInteractiveModule] = useState(false);
-  const [selectedRoleplayScenario] = useState<string>('');
+  const [selectedRoleplayScenario, setSelectedRoleplayScenario] = useState<string>('');
   const [selectedSalesModule] = useState<string>('');
   const [selectedInteractiveModule, setSelectedInteractiveModule] =
     useState<number>(0);
@@ -112,6 +112,18 @@ const AgnesIntegratedTraining: React.FC<AgnesIntegratedTrainingProps> = ({
   useEffect(() => {
     loadUserData();
     initializeAnalytics();
+  }, []);
+
+  // Global event to open CustomerRoleplaySystem from module content
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent).detail as { id?: string } | undefined;
+      if (!detail?.id) return;
+      setShowRoleplaySystem(true);
+      setSelectedRoleplayScenario(detail.id);
+    };
+    window.addEventListener('openRoleplayScenario', handler as EventListener);
+    return () => window.removeEventListener('openRoleplayScenario', handler as EventListener);
   }, []);
 
   const loadUserData = () => {

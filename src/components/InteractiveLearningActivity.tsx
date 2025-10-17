@@ -144,6 +144,7 @@ export interface RoleplayActivity extends BaseActivity {
       expectedResponse: string;
       keywords: string[]; // Key phrases to look for
     }>;
+    openCustomerRoleplayId?: string; // Launch full CustomerRoleplaySystem scenario by id
   };
 }
 
@@ -1334,6 +1335,14 @@ const RoleplayActivityComponent: React.FC<{
     }
   };
 
+  const openFullRoleplay = () => {
+    if (!activity.data.openCustomerRoleplayId) return;
+    const evt = new CustomEvent('openRoleplayScenario', {
+      detail: { id: activity.data.openCustomerRoleplayId },
+    });
+    window.dispatchEvent(evt);
+  };
+
   return (
     <div className="space-y-6">
       {/* Scenario Setup */}
@@ -1465,6 +1474,16 @@ const RoleplayActivityComponent: React.FC<{
               ))}
             </ul>
           </div>
+
+          {activity.data.openCustomerRoleplayId && (
+            <button
+              onClick={openFullRoleplay}
+              className="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors flex items-center justify-center space-x-2"
+            >
+              <Play className="w-5 h-5" />
+              <span>Open Full Role‑Play (Agnes)</span>
+            </button>
+          )}
         </>
       )}
 
