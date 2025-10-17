@@ -1,0 +1,19 @@
+{
+  "overview": "Deliver the Initial Pitch using the 5 Non‑Negotiables. Set the tone, build credibility, and secure the inspection.",
+  "learningObjectives": [
+    "Execute the 5 Non‑Negotiables",
+    "Use professional body language, tone, and posture",
+    "Ask for the inspection confidently"
+  ],
+  "sections": [
+    {"id":"nonneg","title":"5 Non‑Negotiables","duration":"8 minutes","content":"1) Who you are 2) Who we are (Roof‑ER) 3) Make it relatable 4) What you’re there to do (inspection) 5) Go for the close."}
+  ],
+  "interactiveLearning": [
+    {"id":"rp-pitch","title":"Pitch Practice","type":"interactive-exercise","estimatedTime":"10 minutes","activities":[{"id":"pitch-1","title":"Say It Cleanly","description":"Practice door introduction.","type":"roleplay","points":10,"data":{"scenario":"Introduce yourself and ask for the inspection.","characterRole":"Rep","objectivecriteria":["clarity","confidence","ask"],"prompts":[{"id":"p1","situation":"Homeowner opens door","expectedResponse":"Crisp intro + inspection ask","keywords":["name","Roof‑ER","inspection","today"]}],"openCustomerRoleplayId":"door-to-door-initial"}}]}
+  ],
+  "quiz": [
+    {"id":"q1","question":"The 5 Non‑Negotiables are…","type":"multiple-choice","options":["Name, company, inspection, close, handshake","Who you are, who we are, make it relatable, what you’re there to do, go for the close","Rapport, damage, insurance, paperwork, install"],"correctAnswer":"Who you are, who we are, make it relatable, what you’re there to do, go for the close","explanation":"Standard pitch components."}
+  ],
+  "documents": []
+}
+

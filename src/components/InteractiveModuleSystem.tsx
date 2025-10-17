@@ -31,11 +31,13 @@ import AgnesGamifiedAndPractical from './AgnesGamifiedAndPractical';
 import type { GamifiedOrPracticalActivity } from './AgnesGamifiedAndPractical';
 
 // Import module content from JSON files
-import module1Content from '../data/modules/module1.json';
-import module2Content from '../data/modules/module2.json';
+import module1Welcome from '../data/modules/module1_welcome.json';
+import module2Commitment from '../data/modules/module2_commitment.json';
 // Replace legacy 3–9 with new content where provided
 import module3RoofingContent from '../data/modules/module3_roofing.json';
 import module4InspectionSafetyContent from '../data/modules/module4_inspection_safety.json';
+import module5InitialPitch from '../data/modules/module5_initial_pitch.json';
+import module6InitialPitchObjections from '../data/modules/module6_initial_pitch_objections.json';
 import module5PostInspectionPresentation from '../data/modules/module5_post_inspection_presentation.json';
 import module6ClaimFiling from '../data/modules/module6_claim_filing.json';
 import module7AdjusterMeeting from '../data/modules/module7_adjuster_meeting.json';
@@ -672,16 +674,16 @@ The professional mastery capstone represents the culmination of comprehensive tr
     documents: [],
   });
 
-  // Load module content based on moduleId
+  // Load module content based on moduleId (ordered to client spec)
   const loadModuleContent = (id: number) => {
     const moduleConfigs: { [key: number]: ModuleContent } = {
-      1: module1Content as ModuleContent,
-      2: module2Content as ModuleContent,
+      1: (module1Welcome as unknown) as ModuleContent,
+      2: (module2Commitment as unknown) as ModuleContent,
       3: module3RoofingContent as ModuleContent,
-      4: module4InspectionSafetyContent as ModuleContent,
-      5: module5PostInspectionPresentation as ModuleContent,
-      6: module6ClaimFiling as ModuleContent,
-      7: module7AdjusterMeeting as ModuleContent,
+      4: module8Content as ModuleContent, // Shingle Types & Materials
+      5: (module5InitialPitch as unknown) as ModuleContent,
+      6: (module6InitialPitchObjections as unknown) as ModuleContent,
+      7: module4InspectionSafetyContent as ModuleContent,
       8: module5PostInspectionPresentation as ModuleContent,
       9: module9PostInspectionObjections as ModuleContent,
       10: module10DamageIDNew as ModuleContent,
@@ -693,14 +695,8 @@ The professional mastery capstone represents the culmination of comprehensive tr
       16: module16FinalExam as ModuleContent,
     };
 
-    let content = moduleConfigs[id];
-    if (content) {
-      // For modules 4–9, auto-seed sparse sections to ensure at least 2–3 activities per section
-      if (id >= 4 && id <= 9) {
-        content = augmentSparseSections(content);
-      }
-      setModuleContent(content);
-    }
+    const content = moduleConfigs[id];
+    if (content) setModuleContent(content);
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps

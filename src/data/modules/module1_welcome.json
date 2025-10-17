@@ -1,0 +1,20 @@
+{
+  "overview": "Welcome to Roof‑ER. Learn our mission, values, leadership, and how we operate as a customer‑first, integrity‑driven team.",
+  "learningObjectives": [
+    "Describe Roof‑ER mission and core values",
+    "Identify leadership roles and structure",
+    "Understand expectations for professionalism and communication"
+  ],
+  "sections": [
+    {"id":"mission","title":"Mission & Values","duration":"8 minutes","content":"At Roof‑ER, our mission is to hold a fiduciary responsibility to our customers — plain and simple. Core values: Integrity, Quality, Simplicity."},
+    {"id":"leadership","title":"Leadership Team","duration":"5 minutes","content":"Leadership profiles: Owner & Founder, General Manager, Director of Sales. Review bios and org‑chart in resources."}
+  ],
+  "interactiveLearning": [
+    {"id":"quiz1","title":"Quick Quiz #1","type":"interactive-exercise","estimatedTime":"6 minutes","activities":[{"id":"qq1","title":"Mission & Values","description":"Check your understanding.","type":"multiple-choice","points":6,"data":{"question":"Roof‑ER’s core values are:","options":[{"id":"a","text":"Speed, Secrecy, Sales","isCorrect":false},{"id":"b","text":"Integrity, Quality, Simplicity","isCorrect":true},{"id":"c","text":"Price, Pressure, Volume","isCorrect":false}]}}]}
+  ],
+  "quiz": [
+    {"id":"q1","type":"multiple-choice","question":"Roof‑ER’s mission emphasizes:","options":["Lowest price","Fiduciary responsibility","Fastest installs"],"correctAnswer":"Fiduciary responsibility","explanation":"Customer‑first fiduciary duty."}
+  ],
+  "documents": []
+}
+
