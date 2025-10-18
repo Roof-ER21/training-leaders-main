@@ -21,6 +21,7 @@ import {
   Download,
 } from 'lucide-react';
 import AgnesRoleplaySystem from './AgnesRoleplaySystem';
+import ModalPortal from './ModalPortal';
 import InteractiveLearningActivity from './InteractiveLearningActivity';
 import type { Activity as LearningActivity } from './InteractiveLearningActivity';
 import AgnesKnowledgeActivities from './AgnesKnowledgeActivities';
@@ -2658,61 +2659,63 @@ The professional mastery capstone represents the culmination of comprehensive tr
         <MessageCircle className="w-7 h-7" />
       </motion.button>
 
-      {/* Leadership Bio Split Panel (right slide-over) */}
-      <AnimatePresence>
-        {showBioModal && selectedBio && (
-          <motion.div
-            initial={{ x: 400, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: 400, opacity: 0 }}
-            transition={{ type: 'spring', stiffness: 260, damping: 22 }}
-            className="fixed inset-y-0 right-0 w-full md:w-[460px] bg-white z-[100] shadow-2xl border-l border-gray-200 flex flex-col"
-            aria-modal="true"
-            role="dialog"
-          >
-            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
-              <div>
-                <div className="text-xl font-bold text-gray-900">{selectedBio.name}</div>
-                <div className="text-sm text-gray-600">{selectedBio.title}</div>
+      {/* Leadership Bio Split Panel (right slide-over, via portal to ensure top z-index) */}
+      <ModalPortal>
+        <AnimatePresence>
+          {showBioModal && selectedBio && (
+            <motion.div
+              initial={{ x: 400, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: 400, opacity: 0 }}
+              transition={{ type: 'spring', stiffness: 260, damping: 22 }}
+              className="fixed inset-y-0 right-0 w-full md:w-[460px] bg-white z-[999] shadow-2xl border-l border-gray-200 flex flex-col"
+              aria-modal="true"
+              role="dialog"
+            >
+              <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+                <div>
+                  <div className="text-xl font-bold text-gray-900">{selectedBio.name}</div>
+                  <div className="text-sm text-gray-600">{selectedBio.title}</div>
+                </div>
+                <button
+                  className="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center"
+                  onClick={() => setShowBioModal(false)}
+                  aria-label="Close"
+                  title="Close"
+                >
+                  <X className="w-5 h-5 text-gray-700" />
+                </button>
               </div>
-              <button
-                className="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center"
-                onClick={() => setShowBioModal(false)}
-                aria-label="Close"
-                title="Close"
-              >
-                <X className="w-5 h-5 text-gray-700" />
-              </button>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 overflow-y-auto">
-              <div className="md:col-span-1 bg-gray-50 p-4">
-                <div className="w-full aspect-square rounded-xl overflow-hidden bg-gray-100">
-                  <img
-                    src={selectedBio.photoUrl || '/assets/images/leadership/placeholder.svg'}
-                    alt={selectedBio.name}
-                    className="w-full h-full object-cover"
-                    onError={(e: any) => { e.currentTarget.onerror = null; e.currentTarget.src = '/assets/images/leadership/placeholder.svg'; }}
-                  />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-0 overflow-y-auto">
+                <div className="md:col-span-1 bg-gray-50 p-4">
+                  <div className="w-full aspect-square rounded-xl overflow-hidden bg-gray-100">
+                    <img
+                      src={selectedBio.photoUrl || '/assets/images/leadership/placeholder.svg'}
+                      alt={selectedBio.name}
+                      className="w-full h-full object-cover"
+                      onError={(e: any) => { e.currentTarget.onerror = null; e.currentTarget.src = '/assets/images/leadership/placeholder.svg'; }}
+                    />
+                  </div>
+                </div>
+                <div className="md:col-span-2 p-6">
+                  <p className="text-gray-800 leading-relaxed whitespace-pre-line">
+                    {selectedBio.bio}
+                  </p>
+                  {selectedBio.links && selectedBio.links.length > 0 && (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {selectedBio.links.map((l, i) => (
+                        <a key={i} href={l.url} target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-700 px-3 py-1 bg-blue-50 rounded-full text-sm font-medium">
+                          {l.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
-              <div className="md:col-span-2 p-6">
-                <p className="text-gray-800 leading-relaxed whitespace-pre-line">
-                  {selectedBio.bio}
-                </p>
-                {selectedBio.links && selectedBio.links.length > 0 && (
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {selectedBio.links.map((l, i) => (
-                      <a key={i} href={l.url} target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-700 px-3 py-1 bg-blue-50 rounded-full text-sm font-medium">
-                        {l.label}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </ModalPortal>
     </div>
   );
 };
