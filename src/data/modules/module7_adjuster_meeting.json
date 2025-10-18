@@ -11,7 +11,8 @@
     {"id":"do-donts","title":"DOs and DON’Ts","duration":"8 minutes","content":"DO: build rapport, be confident, be present for homeowner conversations, offer assistance. DON’T: get on roof before adjuster, be confrontational, be a pushover, take photos while adjuster inspects."},
     {"id":"comm","title":"Adjuster Communication Protocol","duration":"8 minutes","content":"Adjusters aren’t salespeople—help explain to homeowners when appropriate. Always join final homeowner conversation to ensure accurate information."},
     {"id":"outcomes","title":"Meeting Outcomes & Scripts","duration":"10 minutes","content":"APPROVED: celebrate, prep supplement and mortgage steps. DENIED (Reinspection Path): request different adjuster; provide photos & detailed estimate. DENIED (Retail Path): frame need; offer existing customer discount ($1,000 roof, $2,000 roof+siding). PENDING: estimate in 5–7 days; follow‑ups and portal uploads."},
-    {"id":"follow","title":"Documentation & Follow‑Up","duration":"7 minutes","content":"Portrait photos, professional quality, collateral documented. Update homeowner regularly; CC on correspondence; follow timelines."}
+    {"id":"follow","title":"Documentation & Follow‑Up","duration":"7 minutes","content":"Portrait photos, professional quality, collateral documented. Update homeowner regularly; CC on correspondence; follow timelines."},
+    {"id":"video","title":"Inspection Demo Video","duration":"6 minutes","content":"Watch a quick roof inspection walkthrough demonstrating safe movement, photo sequence, and communication.\n\n[VIDEO:/assets/videos/inspection_demo.mp4|Inspection Walkthrough]"}
   ],
   "interactiveLearning": [
     {"id":"meeting-sim","title":"Adjuster Meeting Simulation","type":"simulation","estimatedTime":"25 minutes","activities": []},
@@ -30,4 +31,3 @@
   ],
   "documents": []
 }
-

@@ -29,6 +29,7 @@ import AgnesSkillBuilders from './AgnesSkillBuilders';
 import type { SkillBuildingActivity } from './AgnesSkillBuilders';
 import AgnesGamifiedAndPractical from './AgnesGamifiedAndPractical';
 import type { GamifiedOrPracticalActivity } from './AgnesGamifiedAndPractical';
+import VideoPlayer from './gamification/VideoPlayer';
 
 // Import module content from JSON files
 import module1Welcome from '../data/modules/module1_welcome.json';
@@ -1095,6 +1096,24 @@ The professional mastery capstone represents the culmination of comprehensive tr
                   <span className="align-middle">{photo?.notes}</span>
                 </div>
               )}
+            </div>
+          );
+          return;
+        }
+      }
+
+      // Video placeholder: [VIDEO:/assets/videos/inspection.mp4]
+      const videoMatch = line.match(/\[VIDEO:([^\]]+)\]/);
+      if (videoMatch) {
+        const specRaw = videoMatch[1].trim();
+        // Support optional title via pipe: /path/to.mp4|Title Text
+        const [src, rawTitle] = specRaw.split('|').map(s => s.trim());
+        const title = rawTitle || 'Training Video';
+        if (src) {
+          elements.push(
+            <div key={`video-${index}`} className="my-6">
+              <VideoPlayer url={src} title={title} />
+              <div className="text-xs text-gray-500 mt-2">If the video does not play, add the file at <code className="font-mono">public{src.startsWith('/') ? src : `/${src}`}</code>.</div>
             </div>
           );
           return;

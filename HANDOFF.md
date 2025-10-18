@@ -54,7 +54,7 @@ This handoff summarizes what’s live, where the code lives, and what to do next
 1) Fill any remaining content gaps
    - Module 1: leadership bios modals implemented via `[BIOS]` placeholder in section content and `leadershipBios` in JSON. Add real photos to `public/assets/images/leadership` to replace placeholders.
    - Module 4: add brand‑specific ID examples (GAF, CertainTeed, OC) if images available.
-   - Module 7: add demo video embedding (if assets provided), ensure safety flows are comprehensive.
+    - Module 7: inspection demo video placeholder added. Drop your MP4 at `public/assets/videos/inspection_demo.mp4` to activate. Title appears as “Inspection Walkthrough”.
 2) Enrich Module 15 (AI Role‑Play)
    - More activities added with `openCustomerRoleplayId` mappings (door-to-door initial, post-inspection, insurance objections, non-storm intro, storm intro, objection-tree, multi-path, difficult customer).
    - In-module transcript export implemented:
