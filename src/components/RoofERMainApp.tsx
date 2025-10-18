@@ -45,8 +45,6 @@ type ViewType =
   | 'stories'
   | 'events'
   | 'styleguide';
-  | 'admin'
-  | 'login'
 
 interface UserProgress {
   overall: number;
