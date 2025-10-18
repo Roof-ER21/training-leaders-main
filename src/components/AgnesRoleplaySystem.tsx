@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import ModalPortal from './ModalPortal';
-import { Mic, Send, X, Star, Award, TrendingUp } from 'lucide-react';
+import { Mic, Send, X, Star, Award, TrendingUp, FileText } from 'lucide-react';
 import mentorPack1 from '../data/agnes/scenarios.module1';
 import mentorPack2 from '../data/agnes/scenarios.module2';
 import mentorPack3 from '../data/agnes/scenarios.module3';
@@ -308,6 +308,54 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
   }));
   const availableScenarios = [...baseScenarios, ...mentorMapped];
   const [showTrainerTips, setShowTrainerTips] = useState(false);
+
+  // Export session transcript (scenarios + responses + feedback)
+  const exportSession = () => {
+    if (!selectedRole || responses.length === 0) return;
+
+    const pad = (n: number) => (n < 10 ? `0${n}` : `${n}`);
+    const filtered = availableScenarios.filter(s => s.role === selectedRole);
+
+    const header = `# Agnes Role-Play Session Transcript\n\n` +
+      `Module: ${moduleId}\n` +
+      `Role: ${selectedRole}\n` +
+      `Total Scenarios Practiced: ${responses.length}\n`;
+
+    const body = responses
+      .map((r, idx) => {
+        const s = filtered[idx];
+        const title = s ? `${s.id} — ${s.context || ''}` : `Scenario ${idx + 1}`;
+        const kpMatch = r.matchedKeyPoints.map(k => `- ${k}`).join('\n');
+        const kpMiss = r.missedKeyPoints.map(k => `- ${k}`).join('\n');
+        const strengths = r.strengths.map(k => `- ${k}`).join('\n');
+        const improvements = r.improvements.map(k => `- ${k}`).join('\n');
+        return [
+          `\n## Scenario ${idx + 1}\n${title}\n`,
+          s ? `Agnes: ${s.agnesLine}` : '',
+          `\nYour Response:\n${r.userResponse}\n`,
+          `Score: ${r.score}/100`,
+          r.feedback ? `Feedback: ${r.feedback}` : '',
+          kpMatch ? `\nPoints Covered:\n${kpMatch}` : '',
+          kpMiss ? `\nPoints to Add:\n${kpMiss}` : '',
+          strengths ? `\nStrengths:\n${strengths}` : '',
+          improvements ? `\nImprovements:\n${improvements}` : '',
+        ].filter(Boolean).join('\n');
+      })
+      .join('\n');
+
+    const content = `${header}${body}\n`;
+    const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    const ts = new Date();
+    const tsStr = `${ts.getFullYear()}-${pad(ts.getMonth() + 1)}-${pad(ts.getDate())}_${pad(ts.getHours())}${pad(ts.getMinutes())}${pad(ts.getSeconds())}`;
+    a.href = url;
+    a.download = `agnes_session_transcript_m${moduleId}_${selectedRole}_${tsStr}.md`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
 
   const startRecording = () => {
     if (recognitionRef.current) {
@@ -635,12 +683,21 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
               </div>
             </div>
 
-            <button
-              onClick={onClose}
-              className="w-full bg-roofRed hover:bg-roofRed-dark text-white font-semibold py-3 px-6 rounded-xl transition-colors"
-            >
-              Complete Training
-            </button>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <button
+                onClick={exportSession}
+                className="w-full bg-white border border-gray-300 hover:bg-gray-50 text-gray-800 font-semibold py-3 px-6 rounded-xl transition-colors"
+                title="Download session transcript"
+              >
+                Download Transcript
+              </button>
+              <button
+                onClick={onClose}
+                className="w-full bg-roofRed hover:bg-roofRed-dark text-white font-semibold py-3 px-6 rounded-xl transition-colors"
+              >
+                Complete Training
+              </button>
+            </div>
           </div>
         </motion.div>
       </motion.div>
@@ -803,6 +860,15 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
                 className="bg-white/20 hover:bg-white/30 text-white text-sm px-3 py-1 rounded-lg"
               >
                 {showTrainerTips ? 'Hide Tips' : 'Trainer Tips'}
+              </button>
+              <button
+                onClick={exportSession}
+                disabled={responses.length === 0}
+                className={`flex items-center gap-2 text-sm px-3 py-1 rounded-lg ${responses.length === 0 ? 'bg-white/10 text-white/50 cursor-not-allowed' : 'bg-white/20 hover:bg-white/30 text-white'}`}
+                title={responses.length === 0 ? 'No responses yet' : 'Export session transcript'}
+              >
+                <FileText className="w-4 h-4" />
+                Export
               </button>
               <button
                 onClick={onClose}
