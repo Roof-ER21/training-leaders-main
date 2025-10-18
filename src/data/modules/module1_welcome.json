@@ -7,7 +7,7 @@
   ],
   "sections": [
     {"id":"mission","title":"Mission & Values","duration":"8 minutes","content":"At Roof‑ER, our mission is to hold a fiduciary responsibility to our customers — plain and simple. Core values: Integrity, Quality, Simplicity."},
-    {"id":"leadership","title":"Leadership Team","duration":"7 minutes","content":"Meet the leadership team below. Click a photo to view a short bio.\n\n[BIOS]"}
+    {"id":"leadership","title":"Leadership Team","duration":"5 minutes","content":"Leadership profiles: Owner & Founder, General Manager, Director of Sales. Review bios and org‑chart in resources."}
   ],
   "interactiveLearning": [
     {"id":"quiz1","title":"Quick Quiz #1","type":"interactive-exercise","estimatedTime":"6 minutes","activities":[{"id":"qq1","title":"Mission & Values","description":"Check your understanding.","type":"multiple-choice","points":6,"data":{"question":"Roof‑ER’s core values are:","options":[{"id":"a","text":"Speed, Secrecy, Sales","isCorrect":false},{"id":"b","text":"Integrity, Quality, Simplicity","isCorrect":true},{"id":"c","text":"Price, Pressure, Volume","isCorrect":false}]}}]}
@@ -16,25 +16,5 @@
     {"id":"q1","type":"multiple-choice","question":"Roof‑ER’s mission emphasizes:","options":["Lowest price","Fiduciary responsibility","Fastest installs"],"correctAnswer":"Fiduciary responsibility","explanation":"Customer‑first fiduciary duty."}
   ],
   "documents": []
-  ,
-  "leadershipBios": [
-    {
-      "name": "Owner & Founder",
-      "title": "Founder",
-      "photoUrl": "/assets/images/leadership/owner.jpg",
-      "bio": "Built Roof‑ER on fiduciary principles: always act in the customer’s best interest. 15+ years in roofing, operations, and leadership."
-    },
-    {
-      "name": "General Manager",
-      "title": "GM",
-      "photoUrl": "/assets/images/leadership/gm.jpg",
-      "bio": "Runs day‑to‑day operations with a focus on quality and training. Ensures projects meet standards and timelines."
-    },
-    {
-      "name": "Director of Sales",
-      "title": "Sales Director",
-      "photoUrl": "/assets/images/leadership/sales_director.jpg",
-      "bio": "Leads sales enablement, coaching, and ethical selling. Coaches reps on value‑driven conversations and follow‑through."
-    }
-  ]
 }
+

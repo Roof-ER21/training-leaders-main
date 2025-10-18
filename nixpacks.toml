@@ -8,7 +8,7 @@ cmds = ["npm ci"]
 cmds = ["DISABLE_ESLINT_PLUGIN=true npm run build"]
 
 [start]
-cmd = "npm run start:prod"
+cmd = "npx serve -s build -l $PORT"
 
 [variables]
 CI = "false"

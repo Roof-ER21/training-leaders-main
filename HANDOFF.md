@@ -52,23 +52,20 @@ This handoff summarizes what’s live, where the code lives, and what to do next
 ## Next Priorities
 
 1) Fill any remaining content gaps
-   - Module 1: leadership bios modals implemented via `[BIOS]` placeholder in section content and `leadershipBios` in JSON. Add real photos to `public/assets/images/leadership` to replace placeholders.
+   - Module 1: optional bios modals (embed brief bios with images), or link to site.
    - Module 4: add brand‑specific ID examples (GAF, CertainTeed, OC) if images available.
    - Module 7: add demo video embedding (if assets provided), ensure safety flows are comprehensive.
 2) Enrich Module 15 (AI Role‑Play)
-   - More activities added with `openCustomerRoleplayId` mappings (door-to-door initial, post-inspection, insurance objections, non-storm intro, storm intro, objection-tree, multi-path, difficult customer).
-   - In-module transcript export implemented:
-     - CustomerRoleplaySystem: header “Export” button downloads Markdown transcript of the conversation + results.
-     - AgnesRoleplaySystem: header “Export” + session-complete “Download Transcript”.
-   - Deep links supported: pass `?m=15&s=<scenarioId>` (or `#m=15&s=<scenarioId>`) to auto-open Module 15 and launch a specific scenario.
+   - Add more activities with `openCustomerRoleplayId` mapping to `CustomerRoleplaySystem` scenarios (e.g., `difficult-customer`, `multi-path-objection-training`).
+   - Optional: scoring summary + export transcript button in module 15 summary page.
 3) Final Exam (Module 16)
    - Review distribution (40 MCQ, 5 SA, 5 FIB) and tweak weights/pass bar as needed.
-   - “Retake missed only” mode implemented in quiz engine (results screen shows both Retake Missed Only and Retake Full Quiz). Gating unchanged: module completion still requires passing per current threshold.
+   - Add “retake missed only” mode (UI: show Review/Retake options).
 4) Consistency pass
    - Ensure all module durations reflect brief format (15–60m as designed).
    - Remove any legacy references in `AgnesIntegratedTraining.tsx` descriptions.
 5) Assets
-   - Leadership photos: place at `public/assets/images/leadership/{owner.jpg, gm.jpg, sales_director.jpg}` (filenames can be changed; update `photoUrl` fields in `module1_welcome.json`).
+   - If leadership photos needed inside TRD, drop into `public/assets/images` and link from Module 1.
 
 ## How to Run Locally
 
@@ -85,4 +82,4 @@ npm start  # CRA dev server on default port 3000
 
 - Placeholder augmentation for modules 4–9 is disabled intentionally to avoid generic filler. Build content directly in JSONs.
 - Keep Agnes features intact; role‑play deep links rely on scenario IDs in `CustomerRoleplaySystem.tsx`.
-- Quiz engine now supports “Retake Missed Only” for any module with a quiz (including Module 16). Button is visible after submitting; disabled when there are no missed questions.
+

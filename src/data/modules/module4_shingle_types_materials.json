@@ -32,13 +32,6 @@
       "duration": "6 minutes",
       "content": "Check shingle backs for stamps, compare granule tone and cut pattern, review homeowner documentation, and reference photo guides. Practice until you can ID common lines at a glance."
     }
-    ,
-    {
-      "id": "brand-id",
-      "title": "Brand ID Examples (GAF, CertainTeed, OC)",
-      "duration": "8 minutes",
-      "content": "Below are common ID examples for major brands. Use visual clues to recognize popular lines at a glance.\n\n[BRAND-ID]"
-    }
   ],
   "interactiveLearning": [
     {
@@ -110,3 +103,4 @@
   ],
   "documents": []
 }
+

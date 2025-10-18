@@ -14,8 +14,6 @@ import {
   TrendingUp,
   Users,
   Award,
-  Download,
-  FileText,
 } from 'lucide-react';
 
 interface RoleplayScenario {
@@ -96,59 +94,6 @@ const CustomerRoleplaySystem: React.FC<CustomerRoleplaySystemProps> = ({
 
   // Refs
   const conversationEndRef = useRef<HTMLDivElement>(null);
-  
-  // Build and download a transcript of the current session
-  const exportTranscript = () => {
-    if (!currentScenario) return;
-
-    const pad = (n: number) => (n < 10 ? `0${n}` : `${n}`);
-    const fmtTime = (d: Date) => `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
-
-    const header = `# Role-Play Transcript\n\n` +
-      `Scenario: ${currentScenario.title} (${currentScenario.id})\n` +
-      `Difficulty: ${currentScenario.difficulty} | Duration: ${currentScenario.duration}\n` +
-      `Customer Type: ${currentScenario.customerType}\n` +
-      `Category: ${currentScenario.category}\n` +
-      `\n## Context\n${currentScenario.context}\n` +
-      `\n## Objectives\n` +
-      currentScenario.objectives.map(o => `- ${o}`).join('\n') +
-      `\n\n## Key Phrases\n` +
-      currentScenario.keyPhrases.map(k => `- ${k}`).join('\n') + `\n`;
-
-    const convo = `\n## Conversation\n` +
-      (conversationHistory.length === 0
-        ? '(No conversation yet)\n'
-        : conversationHistory
-            .map(m => `- [${fmtTime(m.timestamp)}] ${m.role.toUpperCase()}: ${m.message}`)
-            .join('\n') + '\n');
-
-    const results = `\n## Results\n` +
-      `Score: ${score}\n` +
-      (completedObjectives.length > 0
-        ? `Objectives completed (${completedObjectives.length}/${currentScenario.objectives.length}):\n` +
-          completedObjectives.map(o => `- ${o}`).join('\n') + '\n'
-        : '') +
-      (usedKeyPhrases.length > 0
-        ? `Key phrases used: ${usedKeyPhrases.length}\n` + usedKeyPhrases.map(k => `- ${k}`).join('\n') + '\n'
-        : '') +
-      (startTime
-        ? `Time spent: ${Math.max(0, Math.round(((new Date()).getTime() - startTime.getTime()) / 1000))}s\n`
-        : '');
-
-    const content = `${header}${convo}${results}`;
-
-    const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    const ts = new Date();
-    const tsStr = `${ts.getFullYear()}-${pad(ts.getMonth() + 1)}-${pad(ts.getDate())}_${pad(ts.getHours())}${pad(ts.getMinutes())}${pad(ts.getSeconds())}`;
-    a.href = url;
-    a.download = `roleplay_transcript_${currentScenario.id}_${tsStr}.md`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  };
 
   // Roof-ER Sales Training Scenarios - Based on actual training materials
   const scenarios: RoleplayScenario[] = [
@@ -1184,25 +1129,12 @@ const CustomerRoleplaySystem: React.FC<CustomerRoleplaySystemProps> = ({
                   </div>
                 )}
               </div>
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={exportTranscript}
-                  disabled={conversationHistory.length === 0}
-                  className={`flex items-center gap-2 text-sm px-3 py-2 rounded-lg ${conversationHistory.length === 0 ? 'bg-white/10 text-white/50 cursor-not-allowed' : 'bg-white/20 hover:bg-white/30 text-white'}`}
-                  title={conversationHistory.length === 0 ? 'No conversation yet' : 'Export transcript'}
-                >
-                  <FileText className="w-4 h-4" />
-                  Export
-                </button>
-                <button
-                  onClick={onClose}
-                  className="p-2 hover:bg-purple-800 rounded-lg transition-colors"
-                  aria-label="Close"
-                  title="Close"
-                >
-                  ✕
-                </button>
-              </div>
+              <button
+                onClick={onClose}
+                className="p-2 hover:bg-purple-800 rounded-lg transition-colors"
+              >
+                ✕
+              </button>
             </div>
           </div>
 

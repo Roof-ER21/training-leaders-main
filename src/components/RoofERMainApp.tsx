@@ -53,18 +53,7 @@ interface UserProgress {
 }
 
 const RoofERMainApp: React.FC = () => {
-  const [currentView, setCurrentView] = useState<ViewType>(() => {
-    try {
-      const params = new URLSearchParams(window.location.search);
-      const viewParam = (params.get('view') || '').toLowerCase();
-      if (viewParam === 'agnes') return 'agnes-training';
-      const envDefault = (process.env.REACT_APP_DEFAULT_VIEW || '').toLowerCase();
-      if (envDefault === 'agnes') return 'agnes-training';
-      return 'homepage';
-    } catch {
-      return 'homepage';
-    }
-  });
+  const [currentView, setCurrentView] = useState<ViewType>('homepage');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userProgress] = useState<UserProgress>({
     overall: 35,
@@ -93,22 +82,6 @@ const RoofERMainApp: React.FC = () => {
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, []);
-
-  // Optional deep link to jump into training view
-  useEffect(() => {
-    try {
-      const url = new URL(window.location.href);
-      const qs = url.searchParams;
-      const hashParams = new URLSearchParams((url.hash || '').replace(/^#/, ''));
-      const view = (qs.get('view') || hashParams.get('view') || '').toLowerCase();
-      const agnes = qs.get('agnes') || hashParams.get('agnes');
-      if (view === 'agnes' || agnes === '1') {
-        setCurrentView('agnes-training');
-      }
-    } catch (_) {
-      // ignore
-    }
   }, []);
 
   const handleNavigate = (view: string) => {

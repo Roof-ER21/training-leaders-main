@@ -65,7 +65,6 @@ interface ModuleContent {
   quiz: QuizQuestion[];
   documents: DocumentResource[];
   matchingGame?: MatchingGame;
-  leadershipBios?: PersonBio[];
 }
 
 interface ModuleSection {
@@ -201,15 +200,6 @@ interface MatchingPair {
   };
 }
 
-interface PersonBio {
-  id?: string;
-  name: string;
-  title: string;
-  photoUrl?: string;
-  bio: string;
-  links?: Array<{ label: string; url: string }>;
-}
-
 interface InteractiveModuleSystemProps {
   moduleId: number;
   onClose: () => void;
@@ -253,9 +243,6 @@ const InteractiveModuleSystem: React.FC<InteractiveModuleSystemProps> = ({
     useState<LearningActivity | null>(null);
   const [currentActivitySection, setCurrentActivitySection] =
     useState<InteractiveLearningSection | null>(null);
-  // Leadership Bios modal state
-  const [showBioModal, setShowBioModal] = useState(false);
-  const [selectedBio, setSelectedBio] = useState<PersonBio | null>(null);
 
   // Type checking functions for different activity categories
   const isSupportedLearningActivity = (a: Activity): boolean =>
@@ -377,10 +364,6 @@ const InteractiveModuleSystem: React.FC<InteractiveModuleSystemProps> = ({
   }>({});
   const [showQuizResults, setShowQuizResults] = useState(false);
   const [quizScore, setQuizScore] = useState(0);
-  // Quiz retake support
-  const [retakeMode, setRetakeMode] = useState<'all' | 'missed'>('all');
-  const [currentQuizQuestions, setCurrentQuizQuestions] = useState<QuizQuestion[]>([]);
-  const [lastIncorrectQuestionIds, setLastIncorrectQuestionIds] = useState<string[]>([]);
 
   // Enhanced Module 10: Advanced Sales Cycle Management & Analytics
   const createAdvancedSalesCycleManagementModule = (): ModuleContent => ({
@@ -868,14 +851,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
   };
 
   // Quiz functions
-  const startQuiz = (mode: 'all' | 'missed' = 'all') => {
-    if (!moduleContent) return;
-    const nextQuestions =
-      mode === 'missed' && lastIncorrectQuestionIds.length > 0
-        ? moduleContent.quiz.filter(q => lastIncorrectQuestionIds.includes(q.id))
-        : moduleContent.quiz;
-    setRetakeMode(mode);
-    setCurrentQuizQuestions(nextQuestions);
+  const startQuiz = () => {
     setQuizStarted(true);
     setCurrentQuestionIndex(0);
     setSelectedAnswers({});
@@ -887,21 +863,19 @@ The professional mastery capstone represents the culmination of comprehensive tr
   };
 
   const submitQuiz = () => {
-    // Use the currently active question set
-    const questions = currentQuizQuestions.length > 0 && quizStarted ? currentQuizQuestions : moduleContent?.quiz || [];
-    if (!questions.length) return;
+    if (!moduleContent) return;
 
     let score = 0;
     let totalPoints = 0;
-    const incorrectIds: string[] = [];
 
-    questions.forEach(question => {
+    moduleContent.quiz.forEach(question => {
       totalPoints += question.points || 1;
       const userAnswer = selectedAnswers[question.id];
       const correct = question.correctAnswer as any;
 
       let isCorrect = false;
       if (question.type === 'multiple-choice' || question.type === 'true-false') {
+        // userAnswer is index; correct may be index or value
         if (typeof correct === 'number') {
           isCorrect = userAnswer === correct;
         } else if (typeof correct === 'string') {
@@ -918,22 +892,18 @@ The professional mastery capstone represents the culmination of comprehensive tr
         if (typeof correct === 'string') {
           isCorrect = ans === correct.toString().trim().toLowerCase();
         } else if (Array.isArray(correct)) {
-          const kws = correct.map((c: any) => c.toString().trim().toLowerCase());
-          const hits = kws.filter((k: string) => ans.includes(k)).length;
+          // Keyword heuristic: count matches, require 60% of keywords
+          const kws = correct.map(c => c.toString().trim().toLowerCase());
+          const hits = kws.filter(k => ans.includes(k)).length;
           isCorrect = hits >= Math.ceil(kws.length * 0.6);
         }
       }
 
-      if (isCorrect) {
-        score += question.points || 1;
-      } else {
-        incorrectIds.push(question.id);
-      }
+      if (isCorrect) score += question.points || 1;
     });
 
     const percentage = Math.round((score / totalPoints) * 100);
     setQuizScore(percentage);
-    setLastIncorrectQuestionIds(incorrectIds);
     setShowQuizResults(true);
   };
 
@@ -1134,102 +1104,6 @@ The professional mastery capstone represents the culmination of comprehensive tr
           }
         }
       };
-
-      // Leadership bios placeholder: [BIOS]
-      if (line.trim() === '[BIOS]') {
-        const bios = moduleContent?.leadershipBios || [];
-        if (bios.length === 0) {
-          elements.push(
-            <div key={`bios-empty-${index}`} className="my-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-yellow-800">
-              Leadership bios coming soon. Add photos to <code className="font-mono">public/assets/images/leadership</code> and populate <code className="font-mono">leadershipBios</code> in the module JSON.
-            </div>
-          );
-          return;
-        }
-
-        elements.push(
-          <div key={`bios-grid-${index}`} className="my-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {bios.map((b, i) => (
-              <div key={`bio-${i}`} className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
-                <div className="w-full aspect-square bg-gray-100 overflow-hidden">
-                  <img
-                    src={b.photoUrl || '/api/placeholder/240/240'}
-                    alt={b.name}
-                    className="w-full h-full object-cover"
-                    onError={(e: any) => { e.currentTarget.onerror = null; e.currentTarget.src = '/api/placeholder/240/240'; }}
-                  />
-                </div>
-                <div className="p-4">
-                  <div className="font-semibold text-gray-900">{b.name}</div>
-                  <div className="text-sm text-gray-600 mb-3">{b.title}</div>
-                  <button
-                    onClick={() => { setSelectedBio(b); setShowBioModal(true); }}
-                    className="w-full bg-roofRed hover:bg-roofRed-dark text-white px-4 py-2 rounded-lg font-semibold transition-colors"
-                  >
-                    View Bio
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        );
-        return;
-      }
-
-      // Brand ID examples placeholder: [BRAND-ID]
-      if (line.trim() === '[BRAND-ID]') {
-        const brands = [
-          {
-            key: 'gaf',
-            name: 'GAF Timberline HDZ',
-            src: '/assets/brand-id/gaf/timberline_hdz.jpg',
-            clues: ['Random cut pattern', 'Prominent shadow line', 'Timberline profile'],
-          },
-          {
-            key: 'ct',
-            name: 'CertainTeed Landmark',
-            src: '/assets/brand-id/ct/landmark.jpg',
-            clues: ['Dual-layer laminate', 'Distinct color blend', 'Landmark cut pattern'],
-          },
-          {
-            key: 'oc',
-            name: 'Owens Corning Duration',
-            src: '/assets/brand-id/oc/duration.jpg',
-            clues: ['SureNail strip (if visible)', 'Defined shadowing', 'Duration geometry'],
-          },
-        ];
-
-        elements.push(
-          <div key={`brand-id-${index}`} className="my-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {brands.map(b => (
-                <div key={b.key} className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
-                  <div className="w-full aspect-video bg-gray-100 overflow-hidden">
-                    <img
-                      src={b.src}
-                      alt={b.name}
-                      className="w-full h-full object-cover"
-                      onError={(e: any) => { e.currentTarget.onerror = null; e.currentTarget.src = '/api/placeholder/320/200'; }}
-                    />
-                  </div>
-                  <div className="p-4">
-                    <div className="font-semibold text-gray-900 mb-1">{b.name}</div>
-                    <ul className="text-sm text-gray-700 space-y-1 list-disc list-inside">
-                      {b.clues.map((c, i) => (
-                        <li key={i}>{c}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-3 text-xs text-gray-600 bg-gray-50 border border-gray-200 rounded-lg p-3">
-              Tip: Add real brand images at <code className="font-mono">public/assets/brand-id/&lt;gaf|ct|oc&gt;/</code> to replace placeholders. Suggested filenames: <code className="font-mono">timberline_hdz.jpg</code>, <code className="font-mono">landmark.jpg</code>, <code className="font-mono">duration.jpg</code>.
-            </div>
-          </div>
-        );
-        return;
-      }
 
       // Headers
       if (line.startsWith('### ')) {
@@ -2240,7 +2114,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
                         results
                       </p>
                       <button
-                        onClick={() => startQuiz('all')}
+                        onClick={startQuiz}
                         className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-colors inline-flex items-center gap-2"
                       >
                         <PlayCircle className="w-6 h-6" />
@@ -2287,7 +2161,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
                             ? 'Review the sections and try again to improve your score.'
                             : 'Study the material more carefully and retake the quiz.'}
                       </p>
-                      <div className="flex gap-4 justify-center flex-wrap">
+                      <div className="flex gap-4 justify-center">
                         <button
                           onClick={() => {
                             setQuizStarted(false);
@@ -2298,22 +2172,10 @@ The professional mastery capstone represents the culmination of comprehensive tr
                           Review Material
                         </button>
                         <button
-                          onClick={() => startQuiz('missed')}
-                          disabled={lastIncorrectQuestionIds.length === 0}
-                          className={`px-6 py-3 rounded-lg font-semibold transition-colors ${
-                            lastIncorrectQuestionIds.length === 0
-                              ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                              : 'bg-blue-600 hover:bg-blue-700 text-white'
-                          }`}
-                          title={lastIncorrectQuestionIds.length === 0 ? 'No missed questions from last attempt' : 'Retake only the questions you missed'}
-                        >
-                          Retake Missed Only
-                        </button>
-                        <button
-                          onClick={() => startQuiz('all')}
+                          onClick={startQuiz}
                           className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                         >
-                          Retake Full Quiz
+                          Retake Quiz
                         </button>
                       </div>
                     </div>
@@ -2324,36 +2186,39 @@ The professional mastery capstone represents the culmination of comprehensive tr
                         <div className="flex items-center justify-between mb-4">
                           <span className="text-sm text-gray-600">
                             Question {currentQuestionIndex + 1} of{' '}
-                            {currentQuizQuestions.length}
+                            {moduleContent.quiz.length}
                           </span>
                           <span className="text-sm font-semibold text-blue-600">
-                            {currentQuizQuestions[currentQuestionIndex].points || 1}{' '}
+                            {moduleContent.quiz[currentQuestionIndex].points ||
+                              1}{' '}
                             points
                           </span>
                         </div>
 
                         <div className="bg-gray-50 rounded-xl p-6 mb-6">
                           <p className="text-lg font-semibold text-gray-800">
-                            {currentQuizQuestions[currentQuestionIndex].question}
+                            {moduleContent.quiz[currentQuestionIndex].question}
                           </p>
                         </div>
 
                         {/* Answer Options */}
-                        {(currentQuizQuestions[currentQuestionIndex].type === 'multiple-choice' ||
-                          currentQuizQuestions[currentQuestionIndex].type === 'true-false') && (
+                        {(moduleContent.quiz[currentQuestionIndex].type === 'multiple-choice' ||
+                          moduleContent.quiz[currentQuestionIndex].type === 'true-false') && (
                           <div className="space-y-3">
-                            {currentQuizQuestions[currentQuestionIndex].options?.map((option, idx) => (
+                            {moduleContent.quiz[
+                              currentQuestionIndex
+                            ].options?.map((option, idx) => (
                               <button
                                 key={idx}
                                 onClick={() =>
                                   handleAnswerSelect(
-                                    currentQuizQuestions[currentQuestionIndex].id,
+                                    moduleContent.quiz[currentQuestionIndex].id,
                                     idx
                                   )
                                 }
                                 className={`w-full text-left p-4 rounded-lg border-2 transition-all ${
                                   selectedAnswers[
-                                    currentQuizQuestions[currentQuestionIndex].id
+                                    moduleContent.quiz[currentQuestionIndex].id
                                   ] === idx
                                     ? 'border-blue-600 bg-gray-50'
                                     : 'border-gray-200 hover:border-gray-300 bg-white'
@@ -2363,14 +2228,16 @@ The professional mastery capstone represents the culmination of comprehensive tr
                                   <div
                                     className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
                                       selectedAnswers[
-                                        currentQuizQuestions[currentQuestionIndex].id
+                                        moduleContent.quiz[currentQuestionIndex]
+                                          .id
                                       ] === idx
                                         ? 'border-blue-600 bg-blue-600'
                                         : 'border-gray-300'
                                     }`}
                                   >
                                     {selectedAnswers[
-                                      currentQuizQuestions[currentQuestionIndex].id
+                                      moduleContent.quiz[currentQuestionIndex]
+                                        .id
                                     ] === idx && (
                                       <CheckCircle className="w-4 h-4 text-white" />
                                     )}
@@ -2384,7 +2251,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
                           </div>
                         )}
 
-                        {currentQuizQuestions[currentQuestionIndex].type === 'short-answer' && (
+                        {moduleContent.quiz[currentQuestionIndex].type === 'short-answer' && (
                           <div className="space-y-3">
                             <input
                               type="text"
@@ -2392,12 +2259,12 @@ The professional mastery capstone represents the culmination of comprehensive tr
                               placeholder="Type your answer"
                               value={
                                 selectedAnswers[
-                                  currentQuizQuestions[currentQuestionIndex].id
+                                  moduleContent.quiz[currentQuestionIndex].id
                                 ] || ''
                               }
                               onChange={e =>
                                 handleAnswerSelect(
-                                  currentQuizQuestions[currentQuestionIndex].id,
+                                  moduleContent.quiz[currentQuestionIndex].id,
                                   e.target.value
                                 )
                               }
@@ -2421,15 +2288,14 @@ The professional mastery capstone represents the culmination of comprehensive tr
                           Previous
                         </button>
 
-                        {currentQuestionIndex === currentQuizQuestions.length - 1 ? (
+                        {currentQuestionIndex ===
+                        moduleContent.quiz.length - 1 ? (
                           <button
                             onClick={submitQuiz}
-                            disabled={(() => {
-                              // Ensure all current questions are answered
-                              return !currentQuizQuestions.every(q =>
-                                selectedAnswers[q.id] !== undefined && (q.type !== 'short-answer' || (selectedAnswers[q.id] ?? '').toString().trim() !== '')
-                              );
-                            })()}
+                            disabled={
+                              Object.keys(selectedAnswers).length !==
+                              moduleContent.quiz.length
+                            }
                             className="flex items-center gap-2 px-8 py-3 bg-green-600 hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white rounded-lg font-bold transition-colors"
                           >
                             <CheckCircle className="w-5 h-5" />
@@ -2439,7 +2305,10 @@ The professional mastery capstone represents the culmination of comprehensive tr
                           <button
                             onClick={() =>
                               setCurrentQuestionIndex(
-                                Math.min(currentQuizQuestions.length - 1, currentQuestionIndex + 1)
+                                Math.min(
+                                  moduleContent.quiz.length - 1,
+                                  currentQuestionIndex + 1
+                                )
                               )
                             }
                             className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors"
@@ -2453,7 +2322,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
                       {/* Progress */}
                       <div className="mt-6">
                         <div className="flex items-center gap-1 justify-center">
-                          {currentQuizQuestions.map((q, idx) => (
+                          {moduleContent.quiz.map((q, idx) => (
                             <div
                               key={q.id}
                               className={`h-2 rounded-full transition-all ${
@@ -2690,67 +2559,6 @@ The professional mastery capstone represents the culmination of comprehensive tr
       >
         <MessageCircle className="w-7 h-7" />
       </motion.button>
-
-      {/* Leadership Bio Modal */}
-      <AnimatePresence>
-        {showBioModal && selectedBio && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] p-4"
-            onClick={() => setShowBioModal(false)}
-          >
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              onClick={e => e.stopPropagation()}
-              className="bg-white rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl"
-            >
-              <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
-                <div>
-                  <div className="text-xl font-bold text-gray-900">{selectedBio.name}</div>
-                  <div className="text-sm text-gray-600">{selectedBio.title}</div>
-                </div>
-                <button
-                  className="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center"
-                  onClick={() => setShowBioModal(false)}
-                  aria-label="Close"
-                >
-                  <X className="w-5 h-5 text-gray-700" />
-                </button>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-                <div className="md:col-span-1 bg-gray-50 p-4">
-                  <div className="w-full aspect-square rounded-xl overflow-hidden bg-gray-100">
-                    <img
-                      src={selectedBio.photoUrl || '/api/placeholder/240/240'}
-                      alt={selectedBio.name}
-                      className="w-full h-full object-cover"
-                      onError={(e: any) => { e.currentTarget.onerror = null; e.currentTarget.src = '/api/placeholder/240/240'; }}
-                    />
-                  </div>
-                </div>
-                <div className="md:col-span-2 p-6">
-                  <p className="text-gray-800 leading-relaxed whitespace-pre-line">
-                    {selectedBio.bio}
-                  </p>
-                  {selectedBio.links && selectedBio.links.length > 0 && (
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {selectedBio.links.map((l, i) => (
-                        <a key={i} href={l.url} target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-700 px-3 py-1 bg-blue-50 rounded-full text-sm font-medium">
-                          {l.label}
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 };

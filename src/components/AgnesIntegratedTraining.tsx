@@ -126,34 +126,6 @@ const AgnesIntegratedTraining: React.FC<AgnesIntegratedTrainingProps> = ({
     return () => window.removeEventListener('openRoleplayScenario', handler as EventListener);
   }, []);
 
-  // Deep link support: ?m=<1-16>&s=<scenarioId> or #m=<...>&s=<...>
-  useEffect(() => {
-    try {
-      const url = new URL(window.location.href);
-      const qs = url.searchParams;
-      const hashParams = new URLSearchParams((url.hash || '').replace(/^#/, ''));
-      const m = qs.get('m') || hashParams.get('m');
-      const s = qs.get('s') || qs.get('scenario') || hashParams.get('s') || hashParams.get('scenario');
-
-      const mNum = m ? parseInt(m, 10) : NaN;
-      if (!Number.isNaN(mNum) && mNum >= 1 && mNum <= 16) {
-        setActiveModule(mNum);
-        setSelectedInteractiveModule(mNum);
-        setShowInteractiveModule(true);
-
-        if (s) {
-          // Open scenario via global event after overlay is visible
-          setTimeout(() => {
-            const evt = new CustomEvent('openRoleplayScenario', { detail: { id: s } });
-            window.dispatchEvent(evt);
-          }, 300);
-        }
-      }
-    } catch (e) {
-      // noop on parse errors
-    }
-  }, []);
-
   const loadUserData = () => {
     try {
       const savedProgress = localStorage.getItem('agnes_user_progress');
