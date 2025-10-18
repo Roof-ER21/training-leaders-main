@@ -42,7 +42,7 @@ import module5PostInspectionPresentation from '../data/modules/module5_post_insp
 import module6ClaimFiling from '../data/modules/module6_claim_filing.json';
 import module7AdjusterMeeting from '../data/modules/module7_adjuster_meeting.json';
 // Keep existing module8.json (shingle knowledge) as supplemental for material ID
-import module4ShinglesMaterials from '../data/modules/module4_shingle_types_materials.json';
+import module8Content from '../data/modules/module8.json';
 import module9PostInspectionObjections from '../data/modules/module9_post_inspection_objections.json';
 import module10DamageIDNew from '../data/modules/module10_damage_identification_new.json';
 import module11FilingClaimClosing from '../data/modules/module11_filing_claim_closing.json';
@@ -680,7 +680,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
       1: (module1Welcome as unknown) as ModuleContent,
       2: (module2Commitment as unknown) as ModuleContent,
       3: module3RoofingContent as ModuleContent,
-      4: (module4ShinglesMaterials as unknown) as ModuleContent, // Shingle Types & Materials
+      4: module8Content as ModuleContent, // Shingle Types & Materials
       5: (module5InitialPitch as unknown) as ModuleContent,
       6: (module6InitialPitchObjections as unknown) as ModuleContent,
       7: module4InspectionSafetyContent as ModuleContent,
