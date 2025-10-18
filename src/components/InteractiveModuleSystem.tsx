@@ -65,6 +65,7 @@ interface ModuleContent {
   quiz: QuizQuestion[];
   documents: DocumentResource[];
   matchingGame?: MatchingGame;
+  leadershipBios?: PersonBio[];
 }
 
 interface ModuleSection {
@@ -200,6 +201,15 @@ interface MatchingPair {
   };
 }
 
+interface PersonBio {
+  id?: string;
+  name: string;
+  title: string;
+  photoUrl?: string;
+  bio: string;
+  links?: Array<{ label: string; url: string }>;
+}
+
 interface InteractiveModuleSystemProps {
   moduleId: number;
   onClose: () => void;
@@ -243,6 +253,9 @@ const InteractiveModuleSystem: React.FC<InteractiveModuleSystemProps> = ({
     useState<LearningActivity | null>(null);
   const [currentActivitySection, setCurrentActivitySection] =
     useState<InteractiveLearningSection | null>(null);
+  // Leadership Bios modal state
+  const [showBioModal, setShowBioModal] = useState(false);
+  const [selectedBio, setSelectedBio] = useState<PersonBio | null>(null);
 
   // Type checking functions for different activity categories
   const isSupportedLearningActivity = (a: Activity): boolean =>
@@ -1104,6 +1117,47 @@ The professional mastery capstone represents the culmination of comprehensive tr
           }
         }
       };
+
+      // Leadership bios placeholder: [BIOS]
+      if (line.trim() === '[BIOS]') {
+        const bios = moduleContent?.leadershipBios || [];
+        if (bios.length === 0) {
+          elements.push(
+            <div key={`bios-empty-${index}`} className="my-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-yellow-800">
+              Leadership bios coming soon. Add photos to <code className="font-mono">public/assets/images/leadership</code> and populate <code className="font-mono">leadershipBios</code> in the module JSON.
+            </div>
+          );
+          return;
+        }
+
+        elements.push(
+          <div key={`bios-grid-${index}`} className="my-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {bios.map((b, i) => (
+              <div key={`bio-${i}`} className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+                <div className="w-full aspect-square bg-gray-100 overflow-hidden">
+                  <img
+                    src={b.photoUrl || '/assets/images/leadership/placeholder.svg'}
+                    alt={b.name}
+                    className="w-full h-full object-cover"
+                    onError={(e: any) => { e.currentTarget.onerror = null; e.currentTarget.src = '/assets/images/leadership/placeholder.svg'; }}
+                  />
+                </div>
+                <div className="p-4">
+                  <div className="font-semibold text-gray-900">{b.name}</div>
+                  <div className="text-sm text-gray-600 mb-3">{b.title}</div>
+                  <button
+                    onClick={() => { setSelectedBio(b); setShowBioModal(true); }}
+                    className="w-full bg-roofRed hover:bg-roofRed-dark text-white px-4 py-2 rounded-lg font-semibold transition-colors"
+                  >
+                    View Bio
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        );
+        return;
+      }
 
       // Headers
       if (line.startsWith('### ')) {
@@ -2559,6 +2613,67 @@ The professional mastery capstone represents the culmination of comprehensive tr
       >
         <MessageCircle className="w-7 h-7" />
       </motion.button>
+
+      {/* Leadership Bio Modal */}
+      <AnimatePresence>
+        {showBioModal && selectedBio && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] p-4"
+            onClick={() => setShowBioModal(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              onClick={e => e.stopPropagation()}
+              className="bg-white rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl"
+            >
+              <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+                <div>
+                  <div className="text-xl font-bold text-gray-900">{selectedBio.name}</div>
+                  <div className="text-sm text-gray-600">{selectedBio.title}</div>
+                </div>
+                <button
+                  className="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center"
+                  onClick={() => setShowBioModal(false)}
+                  aria-label="Close"
+                >
+                  <X className="w-5 h-5 text-gray-700" />
+                </button>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+                <div className="md:col-span-1 bg-gray-50 p-4">
+                  <div className="w-full aspect-square rounded-xl overflow-hidden bg-gray-100">
+                    <img
+                      src={selectedBio.photoUrl || '/assets/images/leadership/placeholder.svg'}
+                      alt={selectedBio.name}
+                      className="w-full h-full object-cover"
+                      onError={(e: any) => { e.currentTarget.onerror = null; e.currentTarget.src = '/assets/images/leadership/placeholder.svg'; }}
+                    />
+                  </div>
+                </div>
+                <div className="md:col-span-2 p-6">
+                  <p className="text-gray-800 leading-relaxed whitespace-pre-line">
+                    {selectedBio.bio}
+                  </p>
+                  {selectedBio.links && selectedBio.links.length > 0 && (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {selectedBio.links.map((l, i) => (
+                        <a key={i} href={l.url} target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-700 px-3 py-1 bg-blue-50 rounded-full text-sm font-medium">
+                          {l.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

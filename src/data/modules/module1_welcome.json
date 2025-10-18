@@ -7,7 +7,7 @@
   ],
   "sections": [
     {"id":"mission","title":"Mission & Values","duration":"8 minutes","content":"At Roof‑ER, our mission is to hold a fiduciary responsibility to our customers — plain and simple. Core values: Integrity, Quality, Simplicity."},
-    {"id":"leadership","title":"Leadership Team","duration":"5 minutes","content":"Leadership profiles: Owner & Founder, General Manager, Director of Sales. Review bios and org‑chart in resources."}
+    {"id":"leadership","title":"Leadership Team","duration":"7 minutes","content":"Meet the leadership team below. Click a photo to view a short bio.\n\n[BIOS]"}
   ],
   "interactiveLearning": [
     {"id":"quiz1","title":"Quick Quiz #1","type":"interactive-exercise","estimatedTime":"6 minutes","activities":[{"id":"qq1","title":"Mission & Values","description":"Check your understanding.","type":"multiple-choice","points":6,"data":{"question":"Roof‑ER’s core values are:","options":[{"id":"a","text":"Speed, Secrecy, Sales","isCorrect":false},{"id":"b","text":"Integrity, Quality, Simplicity","isCorrect":true},{"id":"c","text":"Price, Pressure, Volume","isCorrect":false}]}}]}
@@ -15,6 +15,34 @@
   "quiz": [
     {"id":"q1","type":"multiple-choice","question":"Roof‑ER’s mission emphasizes:","options":["Lowest price","Fiduciary responsibility","Fastest installs"],"correctAnswer":"Fiduciary responsibility","explanation":"Customer‑first fiduciary duty."}
   ],
-  "documents": []
+  "documents": [],
+  "leadershipBios": [
+    {
+      "name": "Oliver Brown",
+      "title": "Owner & Founder",
+      "photoUrl": "/assets/images/leadership/oliver.svg",
+      "bio": "Founder of Roof‑ER, focused on fiduciary responsibility and customer‑first principles. 15+ years across roofing operations and leadership.",
+      "links": [
+        { "label": "TheRoofDocs", "url": "https://www.theroofdocs.com/" }
+      ]
+    },
+    {
+      "name": "Reese Samala",
+      "title": "General Manager",
+      "photoUrl": "/assets/images/leadership/reese.svg",
+      "bio": "Oversees day‑to‑day operations, training, and quality control. Ensures projects meet standards, timelines, and documentation best practices.",
+      "links": [
+        { "label": "TheRoofDocs", "url": "https://www.theroofdocs.com/" }
+      ]
+    },
+    {
+      "name": "Ford Barsi",
+      "title": "Director of Sales",
+      "photoUrl": "/assets/images/leadership/ford.svg",
+      "bio": "Leads sales enablement and coaching with an ethics‑first approach. Coaches reps on value‑driven conversations and consistent follow‑through.",
+      "links": [
+        { "label": "TheRoofDocs", "url": "https://www.theroofdocs.com/" }
+      ]
+    }
+  ]
 }
-
