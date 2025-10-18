@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
-import { UserCog, LogOut, Download, Upload, Layers, Wrench, Video, Shield } from 'lucide-react';
+import { UserCog, LogOut, Download, Upload, Layers, Wrench, Video, Shield, Loader2 } from 'lucide-react';
+import trainingVideoApi from '../../services/trainingVideo';
 import authService from '../../services/authService';
 import { User } from '../../types/user';
 
@@ -32,6 +33,14 @@ const AdminHub: React.FC<{ onClose?: () => void }> = ({ onClose }) => {
   const [selectedModule, setSelectedModule] = useState<number>(1);
   const [editorText, setEditorText] = useState<string>('');
   const [videoApiBase] = useState<string>(process.env.REACT_APP_TRAINING_VIDEO_API || '');
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [audioFile, setAudioFile] = useState<File | null>(null);
+  const [script, setScript] = useState('');
+  const [ttsLoading, setTtsLoading] = useState(false);
+  const [jobId, setJobId] = useState<string>('');
+  const [jobStatus, setJobStatus] = useState<string>('');
+  const [polling, setPolling] = useState(false);
+  const [resultUrl, setResultUrl] = useState('');
 
   useEffect(() => {
     authService.initialize();
@@ -94,8 +103,75 @@ const AdminHub: React.FC<{ onClose?: () => void }> = ({ onClose }) => {
               <div className="bg-white p-5 rounded-xl border border-gray-200">
                 <div className="flex items-center gap-2 mb-3"><Video className="w-4 h-4"/><div className="font-semibold">Training Video Generator</div></div>
                 <div className="text-xs text-gray-500 mb-3">API: {videoApiBase || 'not configured'}</div>
-                <button className="w-full px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:bg-gray-300" disabled={!videoApiBase}>Open Generator</button>
-                <div className="text-xs text-gray-500 mt-2">Hook to ai-api: create jobs, poll status, and copy video URLs to paste into modules.</div>
+                <div className="space-y-3">
+                  <textarea
+                    placeholder="Paste training script for TTS (optional)"
+                    value={script}
+                    onChange={(e)=> setScript(e.target.value)}
+                    rows={4}
+                    className="w-full text-sm border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-red-500"
+                  />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-sm font-medium mb-1">Upload Image (JPG/PNG)</label>
+                      <input type="file" accept="image/*" onChange={(e)=> setImageFile(e.target.files?.[0] || null)} className="w-full text-sm"/>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-1">Upload Audio (MP3/WAV) or generate below</label>
+                      <input type="file" accept="audio/*" onChange={(e)=> setAudioFile(e.target.files?.[0] || null)} className="w-full text-sm"/>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <button
+                      disabled={!videoApiBase || !script || ttsLoading}
+                      onClick={async ()=>{
+                        try {
+                          setTtsLoading(true);
+                          const blob = await trainingVideoApi.ttsGenerate({ text: script, language: 'en' });
+                          // Convert Blob to File for FormData
+                          const f = new File([blob], 'voice.mp3', { type: 'audio/mpeg' });
+                          setAudioFile(f);
+                        } catch (e) { console.error(e); }
+                        finally { setTtsLoading(false); }
+                      }}
+                      className="px-3 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 disabled:bg-gray-100"
+                    >
+                      {ttsLoading ? <span className="inline-flex items-center gap-1"><Loader2 className="w-4 h-4 animate-spin"/> Generating...</span> : 'Generate Voice'}
+                    </button>
+                    <button
+                      disabled={!videoApiBase || !imageFile || !audioFile}
+                      onClick={async ()=>{
+                        try {
+                          const job = await trainingVideoApi.createTalkingHead(imageFile as File, audioFile as File);
+                          setJobId(job.job_id);
+                          setJobStatus(job.status);
+                          setPolling(true);
+                          // Poll
+                          const int = setInterval(async ()=>{
+                            const st = await trainingVideoApi.getJob(job.job_id);
+                            setJobStatus(st.status);
+                            if (st.status === 'completed') {
+                              const url = trainingVideoApi.resultUrl(job.job_id, st.result_url);
+                              setResultUrl(url);
+                              clearInterval(int);
+                              setPolling(false);
+                            }
+                            if (st.status === 'failed') {
+                              clearInterval(int);
+                              setPolling(false);
+                            }
+                          }, 3000);
+                        } catch (e) { console.error(e); }
+                      }}
+                      className="px-3 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:bg-gray-300"
+                    >Create Talking Head</button>
+                  </div>
+                  <div className="text-xs text-gray-600">
+                    {jobId && (<div>Job: <code>{jobId}</code> — Status: {jobStatus} {polling && <Loader2 className="w-3 h-3 inline-block animate-spin"/>}</div>)}
+                    {resultUrl && (<div className="mt-2">Result: <a href={resultUrl} target="_blank" className="text-blue-600 underline">Open Video</a></div>)}
+                  </div>
+                </div>
+                <div className="text-xs text-gray-500 mt-3">Use ai-api /api endpoints; copy the final MP4 URL into a module via [VIDEO:...] placeholder or agnesContent type 'video'.</div>
               </div>
               <div className="bg-white p-5 rounded-xl border border-gray-200">
                 <div className="flex items-center gap-2 mb-3"><Wrench className="w-4 h-4"/><div className="font-semibold">Module Editor</div></div>
@@ -135,4 +211,3 @@ const AdminHub: React.FC<{ onClose?: () => void }> = ({ onClose }) => {
 };
 
 export default AdminHub;
-
