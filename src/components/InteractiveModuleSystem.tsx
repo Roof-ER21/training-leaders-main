@@ -253,6 +253,8 @@ const InteractiveModuleSystem: React.FC<InteractiveModuleSystemProps> = ({
     useState<LearningActivity | null>(null);
   const [currentActivitySection, setCurrentActivitySection] =
     useState<InteractiveLearningSection | null>(null);
+  // Commitment initials (Module 2 gating)
+  const [commitmentInitials, setCommitmentInitials] = useState<Record<string, string>>({});
   // Leadership Bios modal state
   const [showBioModal, setShowBioModal] = useState(false);
   const [selectedBio, setSelectedBio] = useState<PersonBio | null>(null);
@@ -1352,6 +1354,43 @@ The professional mastery capstone represents the culmination of comprehensive tr
               )}
             </div>
 
+            {/* Module 2 Commitment Initials Gating */}
+            {moduleId === 2 && viewingSection.id === 'standards' && (
+              <div className="mt-8 bg-yellow-50 border border-yellow-200 rounded-xl p-6">
+                <h3 className="text-lg font-bold text-yellow-900 mb-3">Acknowledge Each Commitment (Initial Required)</h3>
+                <p className="text-sm text-yellow-800 mb-4">Please type your initials next to each item to proceed.</p>
+                {(() => {
+                  const commitments = [
+                    'Align with mission and values',
+                    'Follow the sales process',
+                    'Act with integrity at all times',
+                    'Be open to feedback',
+                    'No gossip or negativity',
+                    'Maintain a disciplined work ethic',
+                    'Take pride in workmanship and communication',
+                  ];
+                  return (
+                    <div className="space-y-3">
+                      {commitments.map((c, i) => (
+                        <div key={i} className="flex items-center gap-3 bg-white rounded-lg border border-yellow-200 p-3">
+                          <div className="flex-1 text-gray-900">• {c}</div>
+                          <input
+                            type="text"
+                            maxLength={4}
+                            placeholder="Initials"
+                            value={commitmentInitials[String(i)] || ''}
+                            onChange={e => setCommitmentInitials(prev => ({ ...prev, [String(i)]: e.target.value }))}
+                            className="w-24 px-2 py-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                            aria-label={`Initials for: ${c}`}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  );
+                })()}
+              </div>
+            )}
+
             {/* Key Points */}
             {viewingSection.keyPoints &&
               viewingSection.keyPoints.length > 0 && (
@@ -1408,7 +1447,12 @@ The professional mastery capstone represents the culmination of comprehensive tr
                 {!completedSections.has(viewingSection.id) && (
                   <button
                     onClick={() => markSectionComplete(viewingSection.id)}
-                    className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition-colors"
+                    disabled={moduleId === 2 && viewingSection.id === 'standards' && ![0,1,2,3,4,5,6].every(i => (commitmentInitials[String(i)] || '').trim().length > 0)}
+                    className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-colors ${
+                      moduleId === 2 && viewingSection.id === 'standards' && ![0,1,2,3,4,5,6].every(i => (commitmentInitials[String(i)] || '').trim().length > 0)
+                        ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
+                        : 'bg-green-600 hover:bg-green-700 text-white'
+                    }`}
                   >
                     <CheckCircle className="w-5 h-5" />
                     Mark as Complete
@@ -1729,7 +1773,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
   const progress = calculateProgress();
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-blue-50 to-indigo-100 z-40 overflow-auto">
+    <div className={`fixed inset-0 bg-gradient-to-br from-blue-50 to-indigo-100 z-40 overflow-auto transition-[padding] duration-300 ${showBioModal ? 'md:pr-[460px]' : ''}`}>
       {/* Header */}
       <div className="bg-white shadow-lg border-b border-gray-200 sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-6 py-4">

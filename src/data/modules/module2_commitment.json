@@ -6,7 +6,7 @@
     "Understand zero‑tolerance for dishonest practices"
   ],
   "sections": [
-    {"id":"standards","title":"Standards & Promise","duration":"6 minutes","content":"Commitments include: aligning with mission and values; following the sales process; integrity at all times; openness to feedback; no gossip; disciplined work ethic; pride in work."}
+    {"id":"standards","title":"Standards & Promise","duration":"8 minutes","content":"Please review the commitments below and initial each one to proceed.\n\n- Align with mission and values\n- Follow the sales process\n- Act with integrity at all times\n- Be open to feedback\n- No gossip or negativity\n- Maintain a disciplined work ethic\n- Take pride in workmanship and communication"}
   ],
   "interactiveLearning": [
     {"id":"sign","title":"Digital Acknowledgment","type":"interactive-exercise","estimatedTime":"3 minutes","activities":[{"id":"ack","title":"Type Your Full Name","description":"Type your full name to acknowledge your commitment.","type":"short-answer","points":5,"data":{"text":"Type your full name to proceed.","blanks":[{"id":"name","correctAnswers":["ACKNOWLEDGE"],"hint":"Enter your full name"}]}}]}
@@ -14,4 +14,3 @@
   "quiz": [],
   "documents": []
 }
-
