@@ -8,6 +8,8 @@ import AnalyticsDashboard from './AnalyticsDashboard';
 import DocsLibrary from './DocsLibrary';
 import AdminDashboard from './AdminDashboard';
 import ProtectedRoute from './ProtectedRoute';
+import Login from './Auth/Login';
+import AdminHub from './Admin/AdminHub';
 import analytics from '../utils/analytics';
 import authService from '../services/authService';
 /* eslint-disable no-duplicate-case */
@@ -43,6 +45,8 @@ type ViewType =
   | 'stories'
   | 'events'
   | 'styleguide';
+  | 'admin'
+  | 'login'
 
 interface UserProgress {
   overall: number;
@@ -106,6 +110,14 @@ const RoofERMainApp: React.FC = () => {
     setCurrentView('agnes-training');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  // Deep link to admin/login
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const v = (params.get('view') || '').toLowerCase();
+    if (v === 'admin') setCurrentView('admin');
+    if (v === 'login') setCurrentView('login');
+  }, []);
 
   const handleNavigateHome = () => {
     setCurrentView('homepage');
@@ -174,6 +186,22 @@ const RoofERMainApp: React.FC = () => {
             exit="exit"
           >
             <AgnesIntegratedTraining onNavigateHome={handleNavigateHome} />
+          </motion.div>
+        );
+
+      case 'login':
+        return (
+          <motion.div key="login" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+            <Login onSuccess={() => setCurrentView('admin')} />
+          </motion.div>
+        );
+
+      case 'admin':
+        return (
+          <motion.div key="admin" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+            <ProtectedRoute requireAdmin fallback={<Login onSuccess={()=> setCurrentView('admin')}/> }>
+              <AdminHub onClose={()=> setCurrentView('modules')} />
+            </ProtectedRoute>
           </motion.div>
         );
 

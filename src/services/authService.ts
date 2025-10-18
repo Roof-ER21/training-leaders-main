@@ -122,13 +122,16 @@ class AuthService {
   async signIn(email: string, password: string): Promise<User> {
     if (!isFirebaseConfigured || !auth || !db) {
       // Mock sign in
-      // Derive display name from email for mock users
-      const isAdmin = /^admin/i.test(email);
+      const domain = (email.split('@')[1] || '').toLowerCase();
+      if (domain !== 'theroofdocs.com') {
+        throw new Error('Access restricted to theroofdocs.com accounts');
+      }
+      const isAdmin = email.toLowerCase() === 'ahmed.mahmoud@theroofdocs.com';
       const mockUser: User = {
         uid: `mock_${Date.now()}`,
         email,
-        displayName: (/^scooby/i.test(email) ? 'Scooby' : email.split('@')[0]),
-        role: isAdmin ? 'admin' : 'user',
+        displayName: email.split('@')[0],
+        role: (isAdmin ? 'admin' : 'user') as UserRole,
         createdAt: Date.now(),
         lastActive: Date.now(),
       };
