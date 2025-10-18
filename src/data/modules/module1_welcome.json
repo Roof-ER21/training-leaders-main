@@ -6,7 +6,7 @@
     "Understand expectations for professionalism and communication"
   ],
   "sections": [
-    {"id":"mission","title":"Mission & Values","duration":"8 minutes","content":"At Roof‑ER, our mission is to hold a fiduciary responsibility to our customers — plain and simple. Core values: Integrity, Quality, Simplicity."},
+    {"id":"mission","title":"Mission & Values","duration":"10 minutes","content":"At ROOFER, our mission is to hold a fiduciary responsibility to our customers, plain and simple. By committing to our core values of integrity, quality, and simplicity, we promise to deliver an experience every homeowner wants when remodeling their home: a simple and straightforward quality installation for a fair and honest price.\n\n**Our Values**\n- Integrity — do what’s right, every time\n- Quality — premium workmanship and clear communication\n- Simplicity — make the process straightforward and stress‑free\n\n**Who We Are**\nThe Roof Docs began with a simple but powerful idea: homeowners deserve better. What started as a small, tight‑knit team of experts with a shared vision quickly evolved into one of the most trusted names in Northern Virginia. We inspect, educate, and offer the right solution tailored to each homeowner’s unique situation — no scare tactics, no price gouging, just straight talk and sound advice."},
     {"id":"leadership","title":"Leadership Team","duration":"7 minutes","content":"Meet the leadership team below. Click a photo to view a short bio.\n\n[BIOS]"}
   ],
   "interactiveLearning": [
@@ -20,26 +20,26 @@
     {
       "name": "Oliver Brown",
       "title": "Owner & Founder",
-      "photoUrl": "/assets/images/leadership/oliver.svg",
-      "bio": "Founder of Roof‑ER, focused on fiduciary responsibility and customer‑first principles. 15+ years across roofing operations and leadership.",
-      "links": [
-        { "label": "TheRoofDocs", "url": "https://www.theroofdocs.com/" }
-      ]
-    },
-    {
-      "name": "Reese Samala",
-      "title": "General Manager",
-      "photoUrl": "/assets/images/leadership/reese.svg",
-      "bio": "Oversees day‑to‑day operations, training, and quality control. Ensures projects meet standards, timelines, and documentation best practices.",
+      "photoUrl": "/assets/team/oliver-brown.jpg",
+      "bio": "My Bio",
       "links": [
         { "label": "TheRoofDocs", "url": "https://www.theroofdocs.com/" }
       ]
     },
     {
       "name": "Ford Barsi",
+      "title": "General Manager",
+      "photoUrl": "/assets/team/ford-barsi.jpg",
+      "bio": "My Bio",
+      "links": [
+        { "label": "TheRoofDocs", "url": "https://www.theroofdocs.com/" }
+      ]
+    },
+    {
+      "name": "Reese Samala",
       "title": "Director of Sales",
-      "photoUrl": "/assets/images/leadership/ford.svg",
-      "bio": "Leads sales enablement and coaching with an ethics‑first approach. Coaches reps on value‑driven conversations and consistent follow‑through.",
+      "photoUrl": "/assets/team/reese.jpg",
+      "bio": "My Bio",
       "links": [
         { "label": "TheRoofDocs", "url": "https://www.theroofdocs.com/" }
       ]
