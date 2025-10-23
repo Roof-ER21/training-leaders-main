@@ -48,10 +48,11 @@ const Login: React.FC<{ onSuccess?: () => void }> = ({ onSuccess }) => {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+              <label htmlFor="email-input" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
               <div className="relative">
                 <Mail className="w-4 h-4 text-gray-400 absolute left-3 top-3" />
                 <input
+                  id="email-input"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -62,10 +63,11 @@ const Login: React.FC<{ onSuccess?: () => void }> = ({ onSuccess }) => {
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+              <label htmlFor="password-input" className="block text-sm font-medium text-gray-700 mb-1">Password</label>
               <div className="relative">
                 <Lock className="w-4 h-4 text-gray-400 absolute left-3 top-3" />
                 <input
+                  id="password-input"
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}

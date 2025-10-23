@@ -198,7 +198,7 @@ const RoofERMainApp: React.FC = () => {
         return (
           <motion.div key="admin" variants={pageVariants} initial="initial" animate="animate" exit="exit">
             <ProtectedRoute requireAdmin fallback={<Login onSuccess={()=> setCurrentView('admin')}/> }>
-              <AdminHub onClose={()=> setCurrentView('modules')} />
+              <AdminHub onClose={()=> setCurrentView('training')} />
             </ProtectedRoute>
           </motion.div>
         );

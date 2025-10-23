@@ -113,12 +113,12 @@ const AdminHub: React.FC<{ onClose?: () => void }> = ({ onClose }) => {
                   />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-sm font-medium mb-1">Upload Image (JPG/PNG)</label>
-                      <input type="file" accept="image/*" onChange={(e)=> setImageFile(e.target.files?.[0] || null)} className="w-full text-sm"/>
+                      <label htmlFor="image-upload" className="block text-sm font-medium mb-1">Upload Image (JPG/PNG)</label>
+                      <input id="image-upload" type="file" accept="image/*" onChange={(e)=> setImageFile(e.target.files?.[0] || null)} className="w-full text-sm"/>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-1">Upload Audio (MP3/WAV) or generate below</label>
-                      <input type="file" accept="audio/*" onChange={(e)=> setAudioFile(e.target.files?.[0] || null)} className="w-full text-sm"/>
+                      <label htmlFor="audio-upload" className="block text-sm font-medium mb-1">Upload Audio (MP3/WAV) or generate below</label>
+                      <input id="audio-upload" type="file" accept="audio/*" onChange={(e)=> setAudioFile(e.target.files?.[0] || null)} className="w-full text-sm"/>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
