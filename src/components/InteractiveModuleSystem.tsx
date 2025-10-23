@@ -260,6 +260,9 @@ const InteractiveModuleSystem: React.FC<InteractiveModuleSystemProps> = ({
   const [showBioModal, setShowBioModal] = useState(false);
   const [selectedBio, setSelectedBio] = useState<PersonBio | null>(null);
 
+  // Loading error state
+  const [loadingError, setLoadingError] = useState<string | null>(null);
+
   // Type checking functions for different activity categories
   const isSupportedLearningActivity = (a: Activity): boolean =>
     a.type === 'drag-drop' ||
@@ -717,8 +720,44 @@ The professional mastery capstone represents the culmination of comprehensive tr
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
+    setLoadingError(null);
     loadModuleContent(moduleId);
+
+    // Add timeout to prevent indefinite loading
+    const timeout = setTimeout(() => {
+      if (!moduleContent) {
+        setLoadingError('Module failed to load. Please try again or contact support.');
+      }
+    }, 10000); // 10 second timeout
+
+    return () => clearTimeout(timeout);
   }, [moduleId]);
+
+  // Add global escape key handler to prevent getting stuck
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        // Priority: close views in order from most specific to least
+        if (viewingActivity) {
+          setViewingActivity(null);
+          setCurrentActivitySection(null);
+        } else if (showAgnesHelper) {
+          setShowAgnesHelper(false);
+          setSelectedAgnesContent(null);
+        } else if (showRoleplay) {
+          setShowRoleplay(false);
+        } else if (viewingSection) {
+          setViewingSection(null);
+        } else {
+          // If nothing else is open, close the module
+          onClose();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [viewingActivity, showAgnesHelper, showRoleplay, viewingSection, onClose]);
 
   // Calculate progress
   const calculateProgress = () => {
@@ -1286,14 +1325,45 @@ The professional mastery capstone represents the culmination of comprehensive tr
     return elements;
   };
 
-  if (!moduleContent) {
+  if (!moduleContent || loadingError) {
     return (
-      <div className="fixed inset-0 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center z-50">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-indigo-600 mx-auto"></div>
-          <p className="mt-4 text-lg text-gray-600">
-            Loading Module {moduleId}...
-          </p>
+      <div
+        className="fixed inset-0 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center z-50"
+        onClick={(e) => {
+          // Allow clicking background to close
+          if (e.target === e.currentTarget) {
+            onClose();
+          }
+        }}
+      >
+        <div className="text-center bg-white p-8 rounded-2xl shadow-2xl max-w-md mx-4" onClick={(e) => e.stopPropagation()}>
+          {loadingError ? (
+            <>
+              <div className="text-red-500 text-5xl mb-4">⚠️</div>
+              <p className="text-xl font-bold text-gray-800 mb-3">
+                {loadingError}
+              </p>
+              <button
+                onClick={onClose}
+                className="mt-4 bg-roofRed hover:bg-roofRed-dark text-white px-8 py-3 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl"
+              >
+                Close
+              </button>
+            </>
+          ) : (
+            <>
+              <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-indigo-600 mx-auto"></div>
+              <p className="mt-4 text-lg text-gray-600">
+                Loading Module {moduleId}...
+              </p>
+              <button
+                onClick={onClose}
+                className="mt-6 text-gray-500 hover:text-gray-700 underline text-sm"
+              >
+                Cancel
+              </button>
+            </>
+          )}
         </div>
       </div>
     );

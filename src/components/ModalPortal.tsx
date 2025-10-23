@@ -11,7 +11,8 @@ const ModalPortal: React.FC<ModalPortalProps> = ({ children, className }) => {
   const prevOverflow = useRef<string>('');
   if (!elRef.current) {
     const el = document.createElement('div');
-    el.className = `fixed inset-0 z-[4000] ${className || ''}`.trim();
+    // Reduced z-index from 4000 to 70 to prevent stacking issues
+    el.className = `fixed inset-0 z-[70] ${className || ''}`.trim();
     el.setAttribute('role', 'dialog');
     el.setAttribute('aria-modal', 'true');
     el.setAttribute('tabindex', '-1');
@@ -58,7 +59,8 @@ const ModalPortal: React.FC<ModalPortalProps> = ({ children, className }) => {
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = prevOverflow.current;
+      // Ensure body scroll is always restored, fallback to 'auto'
+      document.body.style.overflow = prevOverflow.current || 'auto';
       try {
         document.body.removeChild(el);
       } catch {}

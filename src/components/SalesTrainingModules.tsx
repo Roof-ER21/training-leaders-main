@@ -1215,6 +1215,27 @@ const SalesTrainingModules: React.FC<SalesTrainingModulesProps> = ({
     }
   }, [selectedModule, isOpen, salesModules]);
 
+  // Add escape key handler to close module
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        // Close recorder if open, otherwise close module
+        if (showRecorder) {
+          setShowRecorder(false);
+        } else if (showQuizResults) {
+          setShowQuizResults(false);
+        } else {
+          onClose();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isOpen, showRecorder, showQuizResults, onClose]);
+
   const handleQuizSubmit = () => {
     if (!currentModule?.content.quiz) return;
 
