@@ -903,7 +903,7 @@ const AgnesIntegratedTraining: React.FC<AgnesIntegratedTrainingProps> = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-50 z-[55] overflow-auto"
+            className="fixed inset-0 z-[55] overflow-auto"
           >
             <InteractiveModuleSystem
               moduleId={selectedInteractiveModule}
