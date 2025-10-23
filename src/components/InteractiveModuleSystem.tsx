@@ -62,7 +62,7 @@ interface ModuleContent {
   learningObjectives: string[];
   sections: ModuleSection[];
   interactiveLearning: InteractiveLearningSection[];
-  agnesContent: AgnesContentSection[];
+  agnesContent?: AgnesContentSection[];
   quiz: QuizQuestion[];
   documents: DocumentResource[];
   matchingGame?: MatchingGame;
@@ -92,7 +92,7 @@ interface InteractiveLearningSection {
     | 'reflection'
     | 'interactive-exercise'
     | 'workshop';
-  content: string;
+  content?: string;
   activities?: Activity[];
 }
 
@@ -2051,7 +2051,7 @@ The professional mastery capstone represents the culmination of comprehensive tr
                       Agnes AI Coaching
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {moduleContent.agnesContent.map(content => (
+                      {(moduleContent.agnesContent || []).map(content => (
                         <div
                           key={content.id}
                           className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border border-roofRed/30"
