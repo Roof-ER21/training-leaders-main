@@ -897,40 +897,31 @@ const AgnesIntegratedTraining: React.FC<AgnesIntegratedTrainingProps> = ({
       />
 
       {/* Interactive Module System Integration */}
-      <AnimatePresence>
-        {showInteractiveModule && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[55] overflow-auto"
-          >
-            <InteractiveModuleSystem
-              moduleId={selectedInteractiveModule}
-              onClose={() => {
-                setShowInteractiveModule(false);
-                setCurrentView('modules');
-              }}
-              onComplete={results => {
-                console.log('Interactive module completed:', results);
-                // Mark module as completed
-                setCompletedModules(
-                  prev =>
-                    new Set(Array.from(prev).concat(selectedInteractiveModule))
-                );
-                // Update progress
-                setUserProgress(prev => ({
-                  ...prev,
-                  overall: Math.min(prev.overall + 10, 100),
-                }));
-                // Close module
-                setShowInteractiveModule(false);
-                setCurrentView('modules');
-              }}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {showInteractiveModule && (
+        <InteractiveModuleSystem
+          moduleId={selectedInteractiveModule}
+          onClose={() => {
+            setShowInteractiveModule(false);
+            setCurrentView('modules');
+          }}
+          onComplete={results => {
+            console.log('Interactive module completed:', results);
+            // Mark module as completed
+            setCompletedModules(
+              prev =>
+                new Set(Array.from(prev).concat(selectedInteractiveModule))
+            );
+            // Update progress
+            setUserProgress(prev => ({
+              ...prev,
+              overall: Math.min(prev.overall + 10, 100),
+            }));
+            // Close module
+            setShowInteractiveModule(false);
+            setCurrentView('modules');
+          }}
+        />
+      )}
     </div>
   );
 };
