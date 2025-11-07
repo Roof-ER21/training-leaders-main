@@ -30,6 +30,7 @@ import AgnesSkillBuilders from './AgnesSkillBuilders';
 import type { SkillBuildingActivity } from './AgnesSkillBuilders';
 import AgnesGamifiedAndPractical from './AgnesGamifiedAndPractical';
 import type { GamifiedOrPracticalActivity } from './AgnesGamifiedAndPractical';
+import DamageHotspotQuiz from './DamageHotspotQuiz';
 
 // Import module content from JSON files
 import module1Welcome from '../data/modules/module1_welcome.json';
@@ -1147,6 +1148,36 @@ The professional mastery capstone represents the culmination of comprehensive tr
           }
         }
       };
+
+      // Damage Hotspot Quiz placeholder: [DAMAGE_HOTSPOT_QUIZ]
+      if (line.trim() === '[DAMAGE_HOTSPOT_QUIZ]') {
+        // Find the damage hotspot quiz data from interactiveLearning
+        const damageQuizActivity = moduleContent?.interactiveLearning
+          ?.find(section => section.id === 'damage-hotspot-quiz')
+          ?.activities?.[0];
+
+        if (damageQuizActivity && damageQuizActivity.data?.quizType === 'hotspot') {
+          const questions = damageQuizActivity.data.questions || [];
+
+          elements.push(
+            <div key={`damage-quiz-${index}`}>
+              <DamageHotspotQuiz
+                questions={questions}
+                onComplete={(score, total) => {
+                  console.log(`Quiz completed: ${score}/${total}`);
+                }}
+              />
+            </div>
+          );
+        } else {
+          elements.push(
+            <div key={`damage-quiz-empty-${index}`} className="my-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-yellow-800">
+              Damage Hotspot Quiz configuration not found. Please ensure the module JSON contains the quiz data.
+            </div>
+          );
+        }
+        return;
+      }
 
       // Leadership bios placeholder: [BIOS]
       if (line.trim() === '[BIOS]') {

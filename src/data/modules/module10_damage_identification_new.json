@@ -7,19 +7,143 @@
     "Follow proper inspection documentation sequence"
   ],
   "sections": [
-    {"id":"hail","title":"Hail Damage","duration":"8 minutes","content":"Circular divots, granule loss, exposed mat, fractures; soft metal dents; impact marks on hard surfaces."},
-    {"id":"wind","title":"Wind Damage","duration":"8 minutes","content":"Lifted/creased/missing shingles, directional patterns, exposed nail heads, flashing/trim damage."},
-    {"id":"collateral","title":"Collateral Assessment","duration":"6 minutes","content":"Screens, gutters, downspouts, window wraps, all metal components, siding damage."},
-    {"id":"sequence","title":"Documentation Strategy","duration":"6 minutes","content":"ID → overview → elevation collateral → roof overview → circle hail / slash wind → majority damage overview → granules in gutters/downspouts."}
+    {
+      "id": "damage-types",
+      "title": "Damage Types Overview",
+      "duration": "5 minutes",
+      "content": "<div class=\"damage-types\">\n\n### 🌨️ Hail Damage\n\n<div class=\"damage-gallery\">\n  <div class=\"damage-image-item\">\n    <img src=\"/assets/damage/wind/Wind.jpg\" alt=\"Example roof damage\">\n    <p class=\"image-caption\">Example roof damage - impact patterns</p>\n  </div>\n  <div class=\"damage-image-item\">\n    <img src=\"/assets/damage/wind/wind1.jpg\" alt=\"Example roof damage\">\n    <p class=\"image-caption\">Example roof damage - shingle surface</p>\n  </div>\n  <div class=\"damage-image-item\">\n    <img src=\"/assets/damage/wind/wind2.jpg\" alt=\"Example roof damage\">\n    <p class=\"image-caption\">Example roof damage - close-up detail</p>\n  </div>\n</div>\n\n#### What to Look For:\n\n- Circular bruising/divots on shingles\n- Loss of granules exposing asphalt mat\n- Shiny spots where granules are gone\n- Damage to vents, flashing, gutters (matching damage)\n- Dented AC units, downspouts\n\n#### How to Document:\n\n- **Test square:** Use penny for size reference\n- Take 5-7 photos per damaged area\n- Show both close-up and context shots\n- Photograph matching damage on ground items\n\n</div>"
+    },
+    {
+      "id": "wind-damage",
+      "title": "Wind Damage",
+      "duration": "5 minutes",
+      "content": "<div class=\"damage-type\">\n\n### 💨 Wind Damage\n\n<div class=\"damage-gallery\">\n  <div class=\"damage-image-item\">\n    <img src=\"/assets/damage/wind/Wind.jpg\" alt=\"Wind damage missing shingles\">\n    <p class=\"image-caption\">Missing shingles blown off by wind</p>\n  </div>\n  <div class=\"damage-image-item\">\n    <img src=\"/assets/damage/wind/wind1.jpg\" alt=\"Lifted and creased shingles\">\n    <p class=\"image-caption\">Lifted and creased shingles</p>\n  </div>\n  <div class=\"damage-image-item\">\n    <img src=\"/assets/damage/wind/wind2.jpg\" alt=\"Torn shingle edges\">\n    <p class=\"image-caption\">Torn shingles at edges and ridges</p>\n  </div>\n</div>\n\n#### What to Look For:\n\n- Missing shingles (blown off)\n- Lifted/creased shingles\n- Torn shingles (especially at edges)\n- Exposed underlayment\n- Damaged or missing ridge caps\n\n#### How to Document:\n\n- Wide shots showing missing sections\n- Close-ups of lifted tabs\n- Document direction (shows wind pattern)\n- Check all edges and corners first\n\n</div>"
+    },
+    {
+      "id": "collateral",
+      "title": "Collateral Assessment",
+      "duration": "6 minutes",
+      "content": "<div class=\"damage-type\">\n\n### 🎯 Collateral Damage\n\n<div class=\"damage-gallery\">\n  <div class=\"damage-image-item\">\n    <img src=\"/assets/damage/wind/Wind.jpg\" alt=\"Example collateral damage\">\n    <p class=\"image-caption\">Example collateral damage on exterior surfaces</p>\n  </div>\n  <div class=\"damage-image-item\">\n    <img src=\"/assets/damage/wind/wind1.jpg\" alt=\"Example collateral damage\">\n    <p class=\"image-caption\">Example impact damage on property</p>\n  </div>\n  <div class=\"damage-image-item\">\n    <img src=\"/assets/damage/wind/wind2.jpg\" alt=\"Example collateral damage\">\n    <p class=\"image-caption\">Example secondary storm damage</p>\n  </div>\n</div>\n\n#### Why Collateral Damage Matters:\n\nCollateral damage strengthens your claim by proving storm impact across multiple surfaces.\n\n- **Metal Items:** Dented gutters, downspouts, vents, flashing, AC units\n- **Soft Items:** Window screens with pitting, vinyl siding damage\n- **Ground Items:** Damaged deck railings, mailboxes, outdoor furniture\n- **Key Point:** Insurance can't argue \"normal wear\" when brand-new items show obvious impact damage\n\n</div>"
+    },
+    {
+      "id": "test-square",
+      "title": "The Test Square Method",
+      "duration": "5 minutes",
+      "content": "## 📐 The \"Test Square\" Method\n\nInsurance companies require a **test square** - a 10x10 ft area with minimum damage counts:\n\n<div class=\"damage-gallery\" style=\"margin: 20px 0;\">\n  <div class=\"damage-image-item\">\n    <img src=\"/assets/damage/wind/Wind.jpg\" alt=\"Example test square documentation\">\n    <p class=\"image-caption\">Example damage documentation method</p>\n  </div>\n  <div class=\"damage-image-item\">\n    <img src=\"/assets/damage/wind/wind1.jpg\" alt=\"Example test square area\">\n    <p class=\"image-caption\">Example test square area measurement</p>\n  </div>\n  <div class=\"damage-image-item\">\n    <img src=\"/assets/damage/wind/wind2.jpg\" alt=\"Example damage reference\">\n    <p class=\"image-caption\">Example damage reference documentation</p>\n  </div>\n</div>\n\n### Requirements:\n\n- **Hail:** Minimum 8-10 hits per 100 sq ft (varies by carrier)\n- **Location:** Choose south or west-facing slope (most sun exposure = most damage)\n- **Documentation:** Circle damage with chalk, photograph from multiple angles\n- **Why it matters:** This determines if they'll approve full replacement vs. repair"
+    },
+    {
+      "id": "shingle-types",
+      "title": "Shingle Types",
+      "duration": "3 minutes",
+      "content": "### Shingle Types\n\nIdentifying the type of shingle is crucial for assessing damage and communicating with adjusters.\n\n<div class=\"shingle-comparison\">\n  <div class=\"shingle-type\">\n    <h4>3-Tab Shingles</h4>\n    <div style=\"padding: 40px; background: #f5f5f5; border: 2px solid #ddd; border-radius: 8px; text-align: center;\">\n      <p><strong>3-Tab Shingle Reference</strong></p>\n      <p style=\"margin-top: 10px; color: #666;\">Flat, single-layer appearance with distinct rectangular cutouts</p>\n    </div>\n    <p>Flat, single-layer appearance with distinct rectangular cutouts.</p>\n  </div>\n  <div class=\"shingle-type\">\n    <h4>Architectural Shingles</h4>\n    <div style=\"padding: 40px; background: #f5f5f5; border: 2px solid #ddd; border-radius: 8px; text-align: center;\">\n      <p><strong>Architectural Shingle Reference</strong></p>\n      <p style=\"margin-top: 10px; color: #666;\">Laminated, multi-layer design giving a dimensional, textured look</p>\n    </div>\n    <p>Laminated, multi-layer design giving a dimensional, textured look.</p>\n  </div>\n</div>"
+    },
+    {
+      "id": "storm-vs-non-storm",
+      "title": "Storm vs Non-Storm Damage",
+      "duration": "8 minutes",
+      "content": "## ⚠️ Storm Damage vs. Non-Storm Damage\n\nIt's vital to differentiate between actual storm damage and other roof issues.\n\n<div class=\"damage-types\" style=\"margin-top: 20px;\">\n  <div class=\"damage-type\" style=\"border-color: #28a745;\">\n    <h3 style=\"color: #28a745;\">✅ Storm Damage (Qualifying)</h3>\n    <div class=\"damage-gallery\">\n      <div class=\"damage-image-item\">\n        <img src=\"/assets/damage/wind/Wind.jpg\" alt=\"Example storm damage\">\n        <p class=\"image-caption\">Example storm damage - qualifying impacts</p>\n      </div>\n      <div class=\"damage-image-item\">\n        <img src=\"/assets/damage/wind/wind1.jpg\" alt=\"Wind lifted shingles\">\n        <p class=\"image-caption\">Wind: Lifted/creased shingles</p>\n      </div>\n    </div>\n    <ul>\n      <li><strong>Hail Damage:</strong> Circular \"bruises\" or divots where granules are knocked off, often with a soft or spongy feel</li>\n      <li><strong>Wind Damage:</strong> Lifted, creased, or missing shingles from strong winds</li>\n      <li><strong>Why Qualifying:</strong> These are direct results of weather events covered by insurance</li>\n    </ul>\n  </div>\n\n  <div class=\"damage-type\" style=\"border-color: #dc3545;\">\n    <h3 style=\"color: #dc3545;\">❌ Non-Storm Damage (Non-Qualifying)</h3>\n    <div class=\"damage-gallery\">\n      <div class=\"damage-image-item\">\n        <img src=\"/assets/damage/wind/wind2.jpg\" alt=\"Example non-qualifying damage\">\n        <p class=\"image-caption\">Example non-qualifying damage reference</p>\n      </div>\n      <div class=\"damage-image-item\">\n        <img src=\"/assets/damage/wind/Wind.jpg\" alt=\"Example age-related wear\">\n        <p class=\"image-caption\">Example wear pattern reference</p>\n      </div>\n      <div class=\"damage-image-item\">\n        <img src=\"/assets/damage/wind/wind1.jpg\" alt=\"Example general deterioration\">\n        <p class=\"image-caption\">Example deterioration reference</p>\n      </div>\n    </div>\n    <ul>\n      <li><strong>Blistering:</strong> Looks like bubbles on shingle surface - a manufacturing defect, not storm damage</li>\n      <li><strong>Cracking:</strong> Age-related deterioration appearing as splintering or straight lines</li>\n      <li><strong>Granule Loss:</strong> General, even loss of granules due to age, not concentrated spots like hail hits</li>\n      <li><strong>Why Non-Qualifying:</strong> These are wear-and-tear issues, not covered by storm damage insurance</li>\n    </ul>\n  </div>\n</div>"
+    },
+    {
+      "id": "interactive-quiz",
+      "title": "Damage Identification Challenge",
+      "duration": "15 minutes",
+      "content": "## 📸 Damage Identification Challenge\n\nTest your knowledge! Click on the damaged areas in the photos below. Find all the damage spots to complete each challenge.\n\n[DAMAGE_HOTSPOT_QUIZ]"
+    },
+    {
+      "id": "sequence",
+      "title": "Documentation Strategy",
+      "duration": "6 minutes",
+      "content": "## Documentation Strategy Sequence\n\nFollow this exact order for professional, adjuster-ready documentation:\n\n1. **Property ID:** House number, full front view\n2. **Overview Shots:** All four elevations of the home\n3. **Elevation Collateral:** Gutters, siding, windows from each side\n4. **Roof Overview:** Wide shots of each slope\n5. **Damage Markup:** Circle hail hits with chalk, slash wind damage\n6. **Close-ups:** Individual damage photos with size reference (penny/quarter)\n7. **Granule Loss:** Gutters and downspouts filled with granules"
+    }
   ],
   "interactiveLearning": [
-    {"id":"image-quiz","title":"Damage Photo ID","type":"interactive-exercise","estimatedTime":"15 minutes","activities":[{"id":"img-1","title":"Hail or Wind?","description":"Classify photos and explain.","type":"image-quiz","points":12,"data":{"images":[{"id":"a","description":"Round divots with granule loss","question":"Type?","options":["Hail","Wind","Wear"],"correctAnswer":"Hail"},{"id":"b","description":"Creased tabs along one course","question":"Type?","options":["Hail","Wind","Wear"],"correctAnswer":"Wind"}]}}]}
+    {
+      "id": "damage-hotspot-quiz",
+      "title": "Damage Photo ID",
+      "type": "interactive-exercise",
+      "estimatedTime": "15 minutes",
+      "description": "Interactive quiz to identify damage on roof photos by clicking hotspots",
+      "activities": [
+        {
+          "id": "hotspot-quiz-1",
+          "title": "Damage Identification Interactive Quiz",
+          "description": "Click on damaged areas in real roof photos to test your damage identification skills",
+          "type": "image-quiz",
+          "points": 12,
+          "data": {
+            "quizType": "hotspot",
+            "questions": [
+              {
+                "questionNumber": 1,
+                "damageType": "hail",
+                "title": "Challenge 1: Find the Roof Damage",
+                "instruction": "Click on all areas showing damage patterns (3 spots)",
+                "imageSrc": "/assets/damage/wind/Wind.jpg",
+                "hotspots": "35,45,8;60,55,8;45,70,8",
+                "totalSpots": 3,
+                "hint": "Look for circular divots with missing granules"
+              },
+              {
+                "questionNumber": 2,
+                "damageType": "wind",
+                "title": "Challenge 2: Spot the Wind Damage",
+                "instruction": "Click on areas showing wind damage - lifted, torn, or missing shingles (4 spots)",
+                "imageSrc": "/assets/damage/wind/Wind.jpg",
+                "hotspots": "25,40,10;70,35,10;50,60,10;40,75,10",
+                "totalSpots": 4,
+                "hint": "Look for lifted tabs and missing shingle sections"
+              },
+              {
+                "questionNumber": 3,
+                "damageType": "mixed",
+                "title": "Challenge 3: Identify ONLY Storm Damage",
+                "instruction": "Click ONLY on areas with qualifying storm damage, NOT age-related wear (2 spots)",
+                "imageSrc": "/assets/damage/wind/wind2.jpg",
+                "hotspots": "30,50,10;65,45,10",
+                "totalSpots": 2,
+                "hint": "Storm damage = circular impacts, not cracks or general wear"
+              }
+            ]
+          }
+        }
+      ]
+    }
   ],
-  "agnesContent": [{"id":"coach","title":"Photo Tips","type":"interactive","icon":"📷","points":["Portrait only","Close‑ups + overviews","Label chalk marks clearly"],"duration":"4 minutes"}],
+  "agnesContent": [
+    {
+      "id": "coach",
+      "title": "Photo Tips",
+      "type": "interactive",
+      "icon": "📷",
+      "points": [
+        "Portrait only",
+        "Close‑ups + overviews",
+        "Label chalk marks clearly"
+      ],
+      "duration": "4 minutes"
+    }
+  ],
   "quiz": [
-    {"id":"q1","question":"What characterizes hail damage?","type":"multiple-choice","options":["Linear scratches","Circular divots & granule loss","Tab uplift","Nail pops"],"correctAnswer":"Circular divots & granule loss","explanation":"Standard hail indicators."},
-    {"id":"q2","question":"Why is collateral important?","type":"short-answer","correctAnswer":"It corroborates storm causation and strengthens the claim.","explanation":"Collateral builds the case."}
+    {
+      "id": "q1",
+      "question": "What characterizes hail damage?",
+      "type": "multiple-choice",
+      "options": [
+        "Linear scratches",
+        "Circular divots & granule loss",
+        "Tab uplift",
+        "Nail pops"
+      ],
+      "correctAnswer": "Circular divots & granule loss",
+      "explanation": "Standard hail indicators."
+    },
+    {
+      "id": "q2",
+      "question": "Why is collateral important?",
+      "type": "short-answer",
+      "correctAnswer": "It corroborates storm causation and strengthens the claim.",
+      "explanation": "Collateral builds the case."
+    }
   ],
   "documents": []
 }
-
