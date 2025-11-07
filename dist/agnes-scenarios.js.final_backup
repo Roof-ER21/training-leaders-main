@@ -861,7 +861,7 @@ const agnesScenarios = {
         id: 'm7-sim-1',
         role: 'rep',
         prompt:
-          'You have an adjuster call and two inspections to schedule—what\'s first?',
+          'You have an adjuster call and two inspections to schedule—what's first?',
         expectedKeyPoints: [
           'Urgent tasks first',
           'Protect adjuster meeting',

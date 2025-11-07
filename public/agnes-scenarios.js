@@ -214,7 +214,7 @@ const agnesScenarios = {
       {
         id: 'm1-leave-a-card',
         role: 'homeowner',
-        prompt: 'I'm busy—just leave a card.',
+        prompt: 'I\'m busy—just leave a card.',
         expectedKeyPoints: [
           'Acknowledge time constraint',
           'Offer 10-second context and value',
@@ -227,7 +227,7 @@ const agnesScenarios = {
       {
         id: 'm1-scam-worried',
         role: 'homeowner',
-        prompt: 'We've had a lot of people knocking—how do we know this isn't a scam?',
+        prompt: 'We\'ve had a lot of people knocking—how do we know this isn\'t a scam?',
         expectedKeyPoints: [
           'Empathize and normalize concern',
           'Local presence and references',
@@ -240,15 +240,15 @@ const agnesScenarios = {
       {
         id: 'm1-we-dont-do-claims',
         role: 'homeowner',
-        prompt: 'We don't like doing insurance claims—sounds like a hassle.',
+        prompt: 'We don\'t like doing insurance claims—sounds like a hassle.',
         expectedKeyPoints: [
           'Acknowledge hesitation',
           'Explain simple steps and your guidance',
           'Only the deductible if approved',
-          'Offer quick inspection to verify if it's even needed',
+          'Offer quick inspection to verify if it\'s even needed',
         ],
         rubric: { keywords: ['acknowledge', 'simple steps', 'deductible', 'verify first'], passThreshold: 70 },
-        followUps: ['If it doesn't qualify, at least you'll have clarity—want a quick check today or tomorrow?'],
+        followUps: ['If it doesn\'t qualify, at least you\'ll have clarity—want a quick check today or tomorrow?'],
       },
     ],
   },
@@ -365,7 +365,7 @@ const agnesScenarios = {
       {
         id: 'm2-minor-scuffs-file-or-not',
         role: 'homeowner',
-        prompt: 'If it's just minor scuffs, should we still file a claim?',
+        prompt: 'If it\'s just minor scuffs, should we still file a claim?',
         expectedKeyPoints: [
           'Carrier decision, not homeowner/rep guess',
           'Document current condition thoroughly',
@@ -493,10 +493,10 @@ const agnesScenarios = {
       {
         id: 'm3-evening-upload-discipline',
         role: 'rep',
-        prompt: 'Outline your same-day upload routine for photo reports when you're behind schedule.',
+        prompt: 'Outline your same-day upload routine for photo reports when you\'re behind schedule.',
         expectedKeyPoints: ['Time block at end of day', 'Prioritize organized sets', 'Caption/label as you go', 'Post status to team'],
         rubric: { keywords: ['time block', 'organized', 'labels', 'status'], passThreshold: 70 },
-        followUps: ['What's your backup plan if Wi‑Fi is slow?'],
+        followUps: ['What\'s your backup plan if Wi‑Fi is slow?'],
       },
       {
         id: 'm3-adjuster-call-prep',
@@ -540,7 +540,7 @@ const agnesScenarios = {
         prompt: 'The dog is going crazy—can you just leave info?',
         expectedKeyPoints: ['Empathize', 'Offer quick 10-sec value statement', 'Set short follow-up time window', 'Confirm via text'],
         rubric: { keywords: ['empathize', '10 seconds', 'follow-up', 'text'], passThreshold: 70 },
-        followUps: ['I'll text you—does tomorrow at 10:30am or 6:15pm work better?'],
+        followUps: ['I\'ll text you—does tomorrow at 10:30am or 6:15pm work better?'],
       },
       {
         id: 'm4-learn-budget',
@@ -576,7 +576,7 @@ const agnesScenarios = {
       {
         id: 'm4-wait-until-spring',
         role: 'homeowner',
-        prompt: 'Let's wait until spring—weather will be better.',
+        prompt: 'Let\'s wait until spring—weather will be better.',
         expectedKeyPoints: [
           'Empathize about timing',
           'Explain claim windows/system aging',
@@ -589,7 +589,7 @@ const agnesScenarios = {
       {
         id: 'm4-hoa-restrictions',
         role: 'homeowner',
-        prompt: 'Our HOA is strict—this probably isn't allowed.',
+        prompt: 'Our HOA is strict—this probably isn\'t allowed.',
         expectedKeyPoints: [
           'Acknowledge HOA concern',
           'Clarify inspection/photo documentation allowed',
@@ -602,7 +602,7 @@ const agnesScenarios = {
       {
         id: 'm4-trust-proof-social',
         role: 'homeowner',
-        prompt: 'How do I know you're legit? We've had a lot of people knocking.',
+        prompt: 'How do I know you\'re legit? We\'ve had a lot of people knocking.',
         expectedKeyPoints: [
           'Empathize with flood of contractors',
           'Local presence and references',
@@ -623,7 +623,7 @@ const agnesScenarios = {
       {
         id: 'm4-deductible-cannot-afford',
         role: 'homeowner',
-        prompt: 'We can't afford the deductible right now.',
+        prompt: 'We can\'t afford the deductible right now.',
         expectedKeyPoints: ['Empathize', 'Only pay if approved', 'Timing aligns with completion', 'No-obligation inspection'],
         rubric: { keywords: ['empathize', 'approved', 'completion', 'no obligation'], passThreshold: 70 },
         followUps: ['Would it help if I showed the timeline of payments?'],
@@ -861,7 +861,7 @@ const agnesScenarios = {
         id: 'm7-sim-1',
         role: 'rep',
         prompt:
-          'You have an adjuster call and two inspections to schedule—what's first?',
+          'You have an adjuster call and two inspections to schedule—what\'s first?',
         expectedKeyPoints: [
           'Urgent tasks first',
           'Protect adjuster meeting',
@@ -889,7 +889,7 @@ const agnesScenarios = {
         prompt: 'A sudden storm cancels your adjuster meeting. How do you adjust your day to still hit targets?',
         expectedKeyPoints: ['Reschedule immediately', 'Knock alternate area', 'Backlog uploads/training'],
         rubric: { keywords: ['reschedule', 'targets', 'uploads', 'training'], passThreshold: 70 },
-        followUps: ['Write a two-line text you'll send the homeowner.'],
+        followUps: ['Write a two-line text you\'ll send the homeowner.'],
       },
       {
         id: 'm7-prioritize-followups',
@@ -1075,7 +1075,7 @@ const agnesScenarios = {
       {
         id: 'm9-deductible-objection-close',
         role: 'homeowner',
-        prompt: 'We can't swing the deductible. Can we delay everything?',
+        prompt: 'We can\'t swing the deductible. Can we delay everything?',
         expectedKeyPoints: ['Empathize', 'Only due if approved and at completion', 'Plan options/timing', 'No-obligation inspection now'],
         rubric: { keywords: ['empathize', 'approved', 'completion', 'options'], passThreshold: 70 },
         followUps: ['Would seeing a basic cost timeline help you decide?'],
@@ -1180,83 +1180,6 @@ function getScenarioStatistics() {
 }
 
 // ========================================
-// SCORING FUNCTION
-// ========================================
-
-/**
- * Score a user response against expected key points
- * @param {string} userResponse - The user's response text
- * @param {string[]} expectedKeyPoints - Array of expected key points
- * @param {string[]} rubricKeywords - Array of keywords to check for
- * @param {number} passThreshold - Minimum score to pass (0-100)
- * @returns {Object} - Scoring result with score, matched/missed points
- */
-function scoreResponse(userResponse, expectedKeyPoints, rubricKeywords, passThreshold = 70) {
-  const response = userResponse.toLowerCase();
-  const matchedPoints = [];
-  const missedPoints = [];
-
-  // Check expected key points (case-insensitive partial match)
-  expectedKeyPoints.forEach(point => {
-    const pointWords = point.toLowerCase().split(/\s+/);
-    const matchedWords = pointWords.filter(word =>
-      response.includes(word.replace(/[.,!?]/g, ''))
-    );
-
-    // If at least 40% of words in the key point are present, count as matched
-    if (matchedWords.length / pointWords.length >= 0.4) {
-      matchedPoints.push(point);
-    } else {
-      missedPoints.push(point);
-    }
-  });
-
-  // Check rubric keywords
-  const matchedKeywords = rubricKeywords.filter(keyword =>
-    response.includes(keyword.toLowerCase())
-  );
-
-  // Calculate score
-  const keyPointScore = expectedKeyPoints.length > 0
-    ? (matchedPoints.length / expectedKeyPoints.length) * 70
-    : 0;
-
-  const keywordScore = rubricKeywords.length > 0
-    ? (matchedKeywords.length / rubricKeywords.length) * 30
-    : 0;
-
-  const score = Math.round(keyPointScore + keywordScore);
-
-  return {
-    score,
-    matchedPoints,
-    missedPoints,
-    matchedKeywords,
-    passed: score >= passThreshold
-  };
-}
-
-// ========================================
-// AGNES-SPECIFIC HELPER FUNCTIONS
-// ========================================
-
-/**
- * Get all Agnes scenarios (alias for getAllScenarios)
- * Used by the roleplay function for consistency
- */
-function getAllAgnesScenarios() {
-  return getAllScenarios();
-}
-
-/**
- * Get Agnes scenarios by role (alias for getScenariosByRole)
- * Used by the roleplay function for consistency
- */
-function getAgnesScenariosByRole(role) {
-  return getScenariosByRole(role);
-}
-
-// ========================================
 // EXPORTS
 // ========================================
 
@@ -1269,9 +1192,6 @@ if (typeof module !== 'undefined' && module.exports) {
     getAllTrainerTips,
     getAllPracticeSequences,
     getScenarioStatistics,
-    scoreResponse,
-    getAllAgnesScenarios,
-    getAgnesScenariosByRole,
   };
 }
 
@@ -1284,9 +1204,6 @@ if (typeof window !== 'undefined') {
   window.getAllTrainerTips = getAllTrainerTips;
   window.getAllPracticeSequences = getAllPracticeSequences;
   window.getScenarioStatistics = getScenarioStatistics;
-  window.scoreResponse = scoreResponse;
-  window.getAllAgnesScenarios = getAllAgnesScenarios;
-  window.getAgnesScenariosByRole = getAgnesScenariosByRole;
 }
 
 // ========================================
