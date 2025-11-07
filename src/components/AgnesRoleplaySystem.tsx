@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import ModalPortal from './ModalPortal';
+import LiveFeedbackPanel from './LiveFeedbackPanel';
 import { Mic, Send, X, Star, Award, TrendingUp } from 'lucide-react';
 import mentorPack1 from '../data/agnes/scenarios.module1';
 import mentorPack2 from '../data/agnes/scenarios.module2';
@@ -836,8 +837,10 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
           </div>
         </div>
 
-        {/* Main Content */}
-        <div className="p-6">
+        {/* Main Content with Live Feedback Panel */}
+        <div className="roleplay-container-with-feedback p-6">
+          {/* Main Roleplay Content */}
+          <div className="roleplay-main-content">
           {showTrainerTips && (
             <div className="mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
@@ -1125,6 +1128,17 @@ const AgnesRoleplaySystem: React.FC<AgnesRoleplaySystemProps> = ({
                   : 'Complete Session'}
               </button>
             </div>
+          )}
+          </div>
+
+          {/* Live Feedback Panel - only show when not in feedback view and scenario is active */}
+          {!showFeedback && currentScenario && (
+            <LiveFeedbackPanel
+              userResponse={userInput || transcript}
+              expectedKeyPoints={currentScenario.expectedKeyPoints}
+              rubricKeywords={[]}
+              passThreshold={70}
+            />
           )}
         </div>
       </motion.div>
