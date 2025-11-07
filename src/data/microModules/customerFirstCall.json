@@ -1,0 +1,78 @@
+{
+  "id": "micro-customer-001",
+  "title": "The Perfect First Call",
+  "objective": "Master the 3-step formula for winning customers on the first call",
+  "estimatedTime": 5,
+  "slides": [
+    {
+      "id": "slide-1",
+      "type": "text",
+      "title": "First Impressions Matter",
+      "content": "The first 30 seconds of your call determine whether you'll win or lose the job. In this quick module, you'll learn the proven 3-step formula used by top-performing roofers.",
+      "keyTakeaway": "You never get a second chance to make a first impression"
+    },
+    {
+      "id": "slide-2",
+      "type": "text",
+      "title": "Step 1: The Professional Greeting",
+      "content": "Always start with: 'Thank you for calling [Company]. This is [Your Name]. I'm here to help you with your roofing needs. May I have your name please?'",
+      "keyTakeaway": "Professional + Friendly = Trust"
+    },
+    {
+      "id": "slide-3",
+      "type": "quiz",
+      "quiz": {
+        "question": "What should you say first on a customer call?",
+        "options": [
+          "Ask about their roofing problem",
+          "Give them a price quote",
+          "Thank them for calling and introduce yourself",
+          "Transfer them to your manager"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Always thank them first and introduce yourself professionally. This builds immediate trust and rapport."
+      }
+    },
+    {
+      "id": "slide-4",
+      "type": "text",
+      "title": "Step 2: Listen & Empathize",
+      "content": "After they explain their situation, respond with: 'I understand how concerning that must be. Let me help you figure out the best solution.'",
+      "keyTakeaway": "People buy from those who understand their problems"
+    },
+    {
+      "id": "slide-5",
+      "type": "text",
+      "title": "Step 3: Book the Inspection",
+      "content": "Don't give prices over the phone. Instead say: 'I'd like to come out and give you a free, no-obligation inspection. I have availability tomorrow at 10am or 2pm. Which works better for you?'",
+      "keyTakeaway": "Always offer two specific times - it doubles your booking rate"
+    },
+    {
+      "id": "slide-6",
+      "type": "quiz",
+      "quiz": {
+        "question": "Why shouldn't you give prices over the phone?",
+        "options": [
+          "You don't know the prices",
+          "Every roof is different and needs inspection",
+          "Company policy forbids it",
+          "Customers always hang up after hearing prices"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Every roof is unique. Giving prices without inspection leads to inaccurate quotes and lost trust. Always inspect first."
+      }
+    },
+    {
+      "id": "slide-7",
+      "type": "text",
+      "title": "Practice Makes Perfect",
+      "content": "Now that you know the formula, practice it 10 times out loud before your next call. Top performers rehearse until it becomes natural.",
+      "keyTakeaway": "Confidence comes from preparation"
+    }
+  ],
+  "quickWin": {
+    "title": "Customer Champion",
+    "description": "You're ready to win customers!",
+    "points": 30
+  }
+}

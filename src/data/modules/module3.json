@@ -1,0 +1,1121 @@
+{
+  "overview": "Master the complete agreement and documentation workflow using the Sales App. Learn to confidently present the Contingency Agreement, Claim Authorization, and schedule adjuster meetings effectively. This module transforms you from an inspector into a professional claims representative who manages the entire homeowner experience through technology.",
+  "learningObjectives": [
+    "Master the Sales App for agreement generation and signatures",
+    "Deliver the Contingency & Claim Authorization script with confidence",
+    "Schedule adjuster meetings and manage calendar integration",
+    "Create professional Photo Reports with proper orientation",
+    "Communicate sign-ups effectively via GroupMe",
+    "Navigate between agreements without re-entering customer data",
+    "Understand the importance of portrait orientation for photo reports",
+    "Use EagleView and Hover for accurate property measurements",
+    "Master DocuSign for remote agreement execution"
+  ],
+  "sections": [
+    {
+      "id": "sales-app-mastery",
+      "title": "Sales App Training - iPad Technology",
+      "duration": "45 minutes",
+      "content": "**The Digital Agreement System**\n\nThe Sales App is your primary tool for generating agreements and capturing signatures. Master this technology to streamline your workflow and project professionalism.\n\n**Tyler's $47,000 Contract Win**\n\nTyler Martinez had been struggling with the Sales App for his first week. He would fumble through screens, forget the password, and look unprofessional in front of homeowners. Then came the Morrison property - a massive colonial with obvious hail damage on all four elevations.\n\n\"Mrs. Morrison, I found significant damage across your entire roof,\" Tyler explained after his inspection. \"Let me pull up our agreement on the iPad.\"\n\nFor the first time, Tyler navigated smoothly:\n- Entered customer information once\n- Generated the Contingency Agreement seamlessly\n- Switched to Claim Authorization without re-entering data\n- Collected both signatures with confidence\n- Uploaded to Field Portal before leaving the driveway\n\nThe Morrison claim approved for $47,000 - Tyler's largest deal to date. \"Mastering the Sales App made me look like a pro,\" Tyler said. \"When you can move through technology smoothly, homeowners trust you with a $50,000 decision.\"\n\n**Sales App Core Functions:**\n\n**1. Customer Information Entry**\n- Enter homeowner details once\n- Information saves for multiple agreements\n- Quick lookup for existing customers\n- Automatic population across all documents\n\n**Tyler's Tip:** \"I keep a portable charger in my bag and enter customer info while walking the property. By the time I'm done inspecting, the system is ready for signatures.\"\n\n**2. Agreement Selection & Navigation**\n- **Contingency Agreement** - Primary agreement after inspection\n- **Claim Authorization** - Communication permission form\n- **iTel Agreement** - Discontinued/unavailable shingles\n- **Repair Attempt Agreement** - Documentation of failed repairs\n- **Tarp Agreement** - Emergency service authorization\n\n**3. E-Signature Collection**\n- Homeowner signs directly on iPad\n- Password entry: 'roofer' (lowercase)\n- Automatic timestamp and verification\n- Instant document generation\n\n**4. Document Switching**\n- Navigate between agreements for same customer\n- No need to re-enter customer information\n- Switch seamlessly during single visit\n\n**5. Existing Customer Lookup**\n- Search by name, address, or phone\n- Retrieve previous agreements\n- Add supplemental documents to existing files\n\n**Best Practices:**\n- Keep iPad charged (carry portable charger)\n- Have homeowner hold iPad while signing\n- Verify signature appears before closing document\n- Upload to Field Portal immediately after signature\n- Practice navigating between agreements before field deployment\n\n**Tyler's Final Word:** \"The Sales App is your credibility tool. Master it in training, and you'll close more deals in the field. Fumble through it, and homeowners question if you can handle their $30,000 claim.\"\n\n[ACTIVITY:double-layer-code]\n\n[ACTIVITY:collateral-timed]\n\n",
+      "activities": [
+        {
+          "id": "agreement-execution-flow",
+          "title": "Agreement Execution Workflow",
+          "description": "Simulate the exact steps to generate and sign Contingency + Claim Authorization in one visit",
+          "type": "workflow-simulator",
+          "points": 20,
+          "data": {
+            "scenario": "Homeowner agrees to move forward after inspection. Execute agreements smoothly on the iPad.",
+            "timeLimit": 300,
+            "workflowSteps": [
+              {
+                "id": "customer",
+                "step": "Enter customer info (once)",
+                "correctOrder": 1,
+                "duration": "1-2m",
+                "tips": [
+                  "Verify spelling and email",
+                  "Pre-fill while walking property"
+                ]
+              },
+              {
+                "id": "contingency",
+                "step": "Generate Contingency Agreement",
+                "correctOrder": 2,
+                "duration": "1m",
+                "tips": [
+                  "Summarize commitment clearly"
+                ]
+              },
+              {
+                "id": "signature1",
+                "step": "Collect e-signature (Contingency)",
+                "correctOrder": 3,
+                "duration": "1m",
+                "tips": [
+                  "Ask homeowner to hold iPad",
+                  "Confirm signature saved"
+                ]
+              },
+              {
+                "id": "claimauth",
+                "step": "Switch to Claim Authorization (no re-entry)",
+                "correctOrder": 4,
+                "duration": "30s",
+                "tips": [
+                  "Demonstrate smooth navigation"
+                ]
+              },
+              {
+                "id": "signature2",
+                "step": "Collect e-signature (Claim Auth)",
+                "correctOrder": 5,
+                "duration": "1m",
+                "tips": [
+                  "Reassure about communication use only"
+                ]
+              },
+              {
+                "id": "upload",
+                "step": "Upload to Field Portal immediately",
+                "correctOrder": 6,
+                "duration": "30s",
+                "tips": [
+                  "Confirm upload completed"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "discontinued-shingle-check",
+          "title": "Discontinued Shingle Identification",
+          "description": "Analyze product references and determine if shingles qualify as discontinued",
+          "type": "photo-analysis",
+          "points": 15,
+          "data": {
+            "images": [
+              {
+                "id": "ds-1",
+                "imageUrl": "/assets/slides/slide-16-image21.jpeg",
+                "description": "Reference image from discontinued shingle deck",
+                "questions": [
+                  {
+                    "question": "Is this shingle likely discontinued?",
+                    "correctAnswer": "Yes",
+                    "options": [
+                      "Yes",
+                      "No",
+                      "Not enough info"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "ds-2",
+                "imageUrl": "/assets/slides/slide-16-image22.jpeg",
+                "description": "Brand/style catalog excerpt",
+                "questions": [
+                  {
+                    "question": "What is the best next step if discontinued?",
+                    "correctAnswer": "Generate iTel/like-kind documentation",
+                    "options": [
+                      "Offer a cheaper alternative",
+                      "Generate iTel/like-kind documentation",
+                      "Skip documentation and proceed"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "double-layer-code",
+          "agnesTip": "Most specs require full tear-off.",
+          "type": "multiple-choice",
+          "title": "Double-Layer Roofing — Code Compliance",
+          "description": "Decide the proper action when an existing roof has multiple layers.",
+          "points": 10,
+          "data": {
+            "question": "You discover the roof has two existing layers of shingles. What is the correct action under most building codes and manufacturer specs?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Install the third layer if decking is sound",
+                "isCorrect": false,
+                "explanation": "A third layer is typically prohibited and voids warranty."
+              },
+              {
+                "id": "b",
+                "text": "Remove all layers to decking before installing new roof",
+                "isCorrect": true,
+                "explanation": "Tear-off to decking is the standard requirement for code/manufacturer compliance."
+              },
+              {
+                "id": "c",
+                "text": "Overlay only the damaged slopes",
+                "isCorrect": false,
+                "explanation": "Partial overlays violate code/manufacturer requirements and lead to failures."
+              },
+              {
+                "id": "d",
+                "text": "Patch visible issues and leave existing layers",
+                "isCorrect": false,
+                "explanation": "Patching over multiple layers is non-compliant and unsafe."
+              }
+            ],
+            "allowMultiple": false
+          }
+        },
+        {
+          "id": "collateral-timed",
+          "agnesTip": "Collateral strengthens coverage decisions.",
+          "type": "timed-challenge",
+          "title": "Collateral Documentation — Timed Drill",
+          "description": "Choose the best response under time pressure for common collateral situations.",
+          "points": 12,
+          "data": {
+            "timeLimit": 25,
+            "scenarios": [
+              {
+                "objection": "You see dents on the downspouts and soft metal.\nWhat should you do?",
+                "correctResponse": "Photograph close-ups with a coin for scale and label as collateral evidence",
+                "incorrectResponses": [
+                  "Skip collateral and focus only on roof surface",
+                  "Ask homeowner to describe dents later",
+                  "Only video record; no still photos"
+                ]
+              },
+              {
+                "objection": "Window screens show tears and pitting. Best documentation?",
+                "correctResponse": "Take macro photos, capture serial/brand if present, and include in report",
+                "incorrectResponses": [
+                  "Note verbally in the estimate only",
+                  "Ignore screens unless homeowner requests replacement",
+                  "Only take a single distant photo"
+                ]
+              },
+              {
+                "objection": "Garage door has impact marks consistent with hail.",
+                "correctResponse": "Capture angled lighting photos to show dimples; include multiple elevations",
+                "incorrectResponses": [
+                  "Use flash only and take one photo",
+                  "Report as cosmetic and move on",
+                  "Wait for adjuster to document"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "contingency-claim-auth",
+      "title": "Contingency & Claim Authorization Script",
+      "duration": "50 minutes",
+      "content": "**Closing After Claim Filing**\n\nAfter filing the insurance claim, you must secure the Contingency Agreement and Claim Authorization. This script is critical - it commits the homeowner to using Roof-ER if approved.\n\n**Rachel's $62,000 Learning Moment**\n\nRachel Thompson learned the power of this script the hard way. In her second week, she filed a claim for the Henderson property, documented extensive damage, and helped schedule the adjuster meeting. But she rushed through the agreements without delivering the full script.\n\nTwo weeks later: \"Henderson went with another contractor. Full approval for $62,000, and we got nothing.\"\n\nHer Team Leader pulled her aside: \"Rachel, did you explain WHY we need the Contingency Agreement? Did you tell them it backs them with a guarantee?\"\n\nRachel shook her head. \"I just said 'sign here' and moved on.\"\n\n\"That's why they didn't feel committed. The script isn't just words - it's education. It gives them a reason to stay with you.\"\n\nThe next day, Rachel used the full script with the Patterson family. She took her time, explained every point, and made them feel protected. Patterson claim: $34,000 approved. They never considered using anyone else.\n\n\"Now I deliver every word of this script,\" Rachel says. \"It takes two extra minutes and saves you from losing $60,000 deals.\"\n\n**Complete Script:**\n\n**[After filing claim]**\n\n\"Perfect! The claim is filed. Now, the most important part is that I am at this inspection. Insurance companies do not want to pay out claims - they are looking for every reason to deny or reduce your claim. That is where we come in.\"\n\n**[Present Contingency Agreement on iPad]**\n\n\"This is our Contingency Agreement. It backs you by guaranteeing your only cost is your deductible if your claim is fully approved by your insurance company.\"\n\n\"If they do not fully approve the claim, this agreement is null and void - you owe us nothing. But if they do approve it, this commits you to using Roof-ER for the installation.\"\n\n\"What this does for us is it allows us to dedicate our time and resources to fighting for your claim. We know you will use us if we are successful, so we can justify the time investment.\"\n\n**[Homeowner signs]**\n\n**[Present Claim Authorization]**\n\n\"This second form is our Claim Authorization. This allows us to communicate directly with your insurance company on your behalf, so you do not have to be a middle-man.\"\n\n\"You will stay CC'd on all emails and communications - we are just making it easier for you by handling the back-and-forth. Insurance companies can be difficult, and we deal with them every single day.\"\n\n**[Homeowner signs]**\n\n**[Enter password: roofer]**\n\n\"Great! You are all set. The insurance company will call within 24 to 48 hours to schedule the adjuster meeting. I will be there to walk the roof with the adjuster and make sure they see all the damage we documented today.\"\n\n**Key Points to Emphasize:**\n- **Only cost is deductible** if fully approved\n- **Null and void** if not fully approved\n- **We fight for you** because we know you will use us\n- **You stay informed** - CC'd on all communications\n- **We handle the complexity** - you do not have to\n\n**Rachel's Closing Advice:** \"When I explain the 'null and void' part, homeowners relax. They realize there's no risk. When I explain the 'we fight for you' part, they realize they need us. Take your time with this script.\""
+    },
+    {
+      "id": "eagleview-hover",
+      "title": "EagleView & Hover - Advanced Measurement Technology",
+      "duration": "40 minutes",
+      "content": "**Precision Measurement Without Climbing**\n\nEagleView and Hover are game-changing technologies that provide accurate property measurements using aerial imagery and smartphone technology.\n\n**Jordan's EagleView Revolution**\n\nJordan Chen used to spend 20 minutes on every roof manually measuring squares, slopes, and ridges. It was time-consuming, and his measurements were often off by 5-10%.\n\nThen Jordan discovered EagleView: \"I ordered my first report for the Sullivan property. Within 24 hours, I had a comprehensive PDF with exact measurements:\"\n- Total roof area: 3,847 square feet (38.47 squares)\n- Ridge: 287 linear feet\n- Valley: 142 linear feet\n- Hip & Ridge: 329 linear feet\n- Slope calculations for each section\n\nWhen the adjuster arrived, Jordan pulled out the EagleView report. \"The adjuster was impressed. He said, 'Most reps bring a napkin sketch. You brought engineering-grade measurements.'\"\n\nSullivan claim approved: $41,200. No measurement disputes.\n\n\"EagleView made me look like a professional engineer, not a door knocker,\" Jordan says.\n\n**EagleView Mastery:**\n\n**What Is EagleView?**\n- Aerial measurement technology\n- Uses satellite and aerial imagery\n- Provides detailed roof reports with exact measurements\n- Industry-standard for insurance and roofing\n\n**When to Use EagleView:**\n- Complex roof structures (multiple slopes, valleys)\n- Large properties (4,000+ sq ft)\n- When precise measurements are critical\n- Properties with difficult roof access\n\n**How to Order:**\n1. Access EagleView through Field Portal\n2. Enter property address\n3. Select report type (Standard or Premium)\n4. Receive report within 24-48 hours\n5. Download PDF and include with Photo Report\n\n**What You Get:**\n- Total square footage\n- Roof pitch/slope calculations\n- Ridge, valley, hip measurements\n- Waste factor calculations\n- 3D roof model\n- Measurement diagrams\n\n**Cost:**\n- Standard Report: $35-$45\n- Premium Report: $75-$95\n- Company often covers cost for large claims\n\n**Jordan's Pro Tip:** \"I order EagleView for every claim over $25,000. The cost is worth it when you're fighting for a $40,000 approval and the adjuster questions your measurements.\"\n\n---\n\n**Hover - Mobile Measurement Power**\n\nHover is a smartphone app that creates 3D models of properties using your phone's camera.\n\n**When to Use Hover:**\n- Immediate measurements needed\n- Cannot wait for EagleView report\n- Need visual presentation for homeowner\n- Simpler roof structures\n\n**How Hover Works:**\n1. Download Hover app to smartphone\n2. Walk around property taking photos (8-12 photos minimum)\n3. App stitches photos into 3D model\n4. Generates measurements automatically\n5. Export report as PDF\n\n**Hover Advantages:**\n- Instant results (no 24-hour wait)\n- Free or low-cost\n- Visual presentation impresses homeowners\n- Easy to use\n\n**Hover Limitations:**\n- Less precise than EagleView\n- Requires good lighting conditions\n- Can struggle with complex roof shapes\n- Not always accepted by insurance\n\n**The Jordan Standard:**\n\"I use Hover for quick inspections and smaller properties. I use EagleView for serious claims where precision matters. Know when to use which tool.\"\n\n**EagleView vs Hover Comparison:**\n\n| Feature | EagleView | Hover |\n|---------|-----------|-------|\n| Accuracy | Engineering-grade | Good |\n| Cost | $35-$95 | Free-$20 |\n| Speed | 24-48 hours | Instant |\n| Insurance Acceptance | Universal | Varies |\n| Best For | Large/complex | Quick/simple |\n\n**Rachel's Measurement Philosophy:**\n\"Technology eliminates disputes. When you show up with EagleView or Hover reports, adjusters take you seriously. When you show up with a tape measure and notebook, they question everything.\""
+    },
+    {
+      "id": "docusign-mastery",
+      "title": "DocuSign - Remote Agreement Execution",
+      "duration": "35 minutes",
+      "content": "**Closing Deals Without Being Present**\n\nDocuSign enables you to send agreements electronically when you cannot be physically present for signatures.\n\n**Tyler's Remote Close: $38,500 from 200 Miles Away**\n\nTyler was visiting family in another state when the Miller claim got approved. The Project Meeting was scheduled in 48 hours, and Tyler couldn't get back in time.\n\n\"I thought I'd lose the deal,\" Tyler admits. \"Then our Project Coordinator said, 'Send the agreements via DocuSign.'\"\n\nTyler pulled out his laptop:\n1. Logged into DocuSign\n2. Uploaded Contingency Agreement and Claim Authorization\n3. Added signature fields\n4. Entered Miller's email: millerfamily@email.com\n5. Clicked \"Send\"\n\nWithin 3 hours, both agreements came back signed. Tyler earned $1,000 downpayment commission from 200 miles away.\n\n\"DocuSign saved a deal I thought was dead,\" Tyler says. \"Now I use it for any homeowner who prefers digital or when I can't be there in person.\"\n\n**DocuSign Core Functions:**\n\n**When to Use DocuSign:**\n- Homeowner prefers digital process\n- You cannot be physically present\n- Follow-up on unsigned agreements\n- Supplemental agreements needed after initial signing\n- COVID or health concerns prevent in-person meetings\n\n**How to Send Documents:**\n\n**Step 1: Prepare Document**\n- Create agreement in Sales App or use PDF template\n- Save to computer\n- Ensure all fields are filled except signature\n\n**Step 2: Upload to DocuSign**\n- Log into DocuSign account\n- Click \"Start\" > \"Send an Envelope\"\n- Upload PDF document\n- Add document name and message\n\n**Step 3: Add Recipients**\n- Enter homeowner name\n- Enter homeowner email (verify accuracy!)\n- Set signing order if multiple signers\n- Add CC recipients if needed\n\n**Step 4: Place Signature Fields**\n- Drag signature field to signature line\n- Add date field\n- Add any initial fields if needed\n- Assign fields to correct recipient\n\n**Step 5: Customize Message**\n\nSample message:\n\"Hi [Homeowner Name],\n\nAttached are the agreements we discussed. Please review and sign electronically. If you have any questions, call me at [Your Phone].\n\nThanks,\n[Your Name]\nRoof-ER Professional Sales Rep\"\n\n**Step 6: Send & Track**\n- Click \"Send\"\n- Track when homeowner opens email\n- Track when homeowner views document\n- Receive notification when signed\n- Completed documents automatically saved\n\n**DocuSign Best Practices:**\n\n**1. Verify Email Addresses**\n- Double-check spelling\n- Confirm email with homeowner verbally\n- Send test email first if unsure\n\n**2. Follow Up Quickly**\n- If not signed within 2 hours, send text reminder\n- If not signed within 24 hours, call homeowner\n- Explain urgency when needed\n\n**3. Include Instructions**\n- Some homeowners are not tech-savvy\n- Offer to walk them through process on phone\n- Be available for questions\n\n**4. Keep Records**\n- Download completed documents\n- Upload to Field Portal\n- Keep copy in your files\n\n**Tyler's DocuSign Workflow:**\n\n\"I now offer DocuSign to every homeowner. I say:\n\n'I can have you sign on the iPad right now, or I can send these to your email and you can review and sign digitally. What's your preference?'\n\nAbout 30% choose DocuSign. It makes their life easier and shows we're a modern company.\"\n\n**Common DocuSign Issues & Solutions:**\n\n**Issue: Homeowner doesn't receive email**\n- Check spam folder\n- Verify email address spelling\n- Resend from DocuSign\n\n**Issue: Homeowner doesn't know how to sign**\n- Stay on phone and walk through\n- Explain: \"Click the yellow 'Sign' button, then click 'Adopt and Sign'\"\n- Offer to come in person if needed\n\n**Issue: Document expires before signing**\n- Resend with new expiration date\n- Follow up faster next time\n\n**Rachel's Remote Closing Strategy:**\n\"I travel a lot, so DocuSign is essential. I've closed deals from airports, hotels, even a beach vacation. The key is responding fast to questions and following up if they don't sign within hours.\""
+    },
+    {
+      "id": "adjuster-scheduling",
+      "title": "Adjuster Meeting Scheduling & Calendar Management",
+      "duration": "40 minutes",
+      "content": "**Taking Control of the Timeline**\n\nThe adjuster meeting is the most critical step in the sales cycle. Proper scheduling ensures you can attend and advocate for the homeowner.\n\n**Timeline Expectations:**\n- **Insurance schedules:** 24-48 hours after claim filing\n- **Adjuster contact:** Phone call to homeowner\n- **Your role:** Ensure you are included and available\n\n**Scheduling Best Practices:**\n\n**1. Request Direct Adjuster Contact**\n- Ask homeowner to request adjuster call you directly\n- Provide your phone number to homeowner\n- Explain: \"I will coordinate the best time for everyone\"\n\n**2. Avoid Tuesday Mornings**\n- **Weekly Sales Meetings:** Every Tuesday morning\n- Cannot attend adjuster meetings during this time\n- Propose alternative times if Tuesday AM suggested\n\n**3. Take Control When Possible**\n- Suggest specific dates and times\n- Offer 2-3 options to adjuster\n- Confirm homeowner availability first\n- Build in 15-30 minute early arrival buffer\n\n**4. Field Portal Calendar Integration**\n\n**Adding Adjuster Meetings:**\n- Open Field Portal App\n- Navigate to job in pipeline\n- Click \"Add Event\" or Calendar icon\n- Enter meeting details:\n  - Date and time\n  - Adjuster name and company\n  - Homeowner name\n  - Property address\n- **CC homeowner on calendar invite**\n- Sync with Google Calendar automatically\n\n**5. Confirmation Protocol**\n- Confirm with adjuster via email\n- Confirm with homeowner via phone/text\n- Add reminder 24 hours before\n- Arrive 15-30 minutes early\n\n**What to Communicate to Homeowner:**\n\"When the insurance company calls to schedule the adjuster meeting, please let them know I will be attending as well. They should call me to coordinate the time. I will make sure I am there to represent your interests and ensure the adjuster sees all the damage we found.\"\n\n**Red Flags:**\n- Adjuster refuses sales rep presence (escalate to Team Leader)\n- Homeowner does not want you present (educate on value)\n- Scheduling conflicts with weekly meeting (suggest alternatives)"
+    },
+    {
+      "id": "photo-reports",
+      "title": "Photo Report Creation & Orientation Requirements",
+      "duration": "35 minutes",
+      "content": "**Professional Documentation Standards**\n\nPhoto Reports are your formal evidence package submitted to insurance companies. Proper formatting is essential for processing.\n\n**Critical Requirement: PORTRAIT ORIENTATION**\n\n**Why Portrait Matters:**\n- Landscape photos will not populate properly in templates\n- Insurance systems expect vertical formatting\n- Photo Report Template is designed for portrait\n- Incorrect orientation causes processing delays\n\n**Photo Report Structure:**\n\n**1. Establishing Photos**\n- Mailbox or house number\n- Full house overview from street\n- All four elevation overviews\n\n**2. Collateral Damage Documentation**\n- Front elevation: screens, gutters, downspouts, siding\n- Right elevation: screens, gutters, downspouts, siding\n- Rear elevation: screens, gutters, downspouts, siding\n- Left elevation: screens, gutters, downspouts, siding\n\n**3. Roof Damage Documentation**\n- Roof overview showing all slopes\n- Roof collateral: flashing, vents, pipes, metals\n- Close-ups of circled hail damage (4-6 per slope)\n- Close-ups of slashed wind damage (as needed)\n- Overview of chalked damage showing pattern\n- Granules in gutters and downspouts\n\n**4. Photo Report Template Population**\n- Use standardized template from Roof-ER library\n- Insert photos in correct sequence\n- Label each photo clearly\n- Include damage type identification\n- Note location and quantity\n\n**5. Submission Requirements**\n- Submit via Field Portal within 24 hours of inspection\n- Email copy to adjuster before adjuster meeting\n- Keep copy for your records\n- Include with Claim Authorization\n\n**Common Mistakes to Avoid:**\n- Taking photos in landscape orientation\n- Skipping elevation overviews\n- Insufficient close-up shots\n- Poor lighting or focus\n- Missing granule documentation\n- Not labeling photos clearly"
+    },
+    {
+      "id": "groupme-communication",
+      "title": "GroupMe Communication & Sign-Up Announcements",
+      "duration": "20 minutes",
+      "content": "**Team Communication Standards**\n\nGroupMe is the primary real-time communication tool for the sales team. Proper usage keeps everyone informed and celebrates wins.\n\n**Sign-Up Posting Format:**\n\n**Standard Format:**\n```\nSign up / Storm Damage Item 1 / Item 2 / Item 3 / Insurance Company / Customer Last Name\n```\n\n**Examples:**\n- \"Sign up / Roof / Siding / Gutters / Allstate / Francis\"\n- \"Sign up / Roof / State Farm / Johnson\"\n- \"Sign up / Roof / Siding / Liberty Mutual / Martinez\"\n- \"Sign up / Roof / Gutters / Travelers / Smith\"\n\n**Format Breakdown:**\n1. **Always start with:** \"Sign up\"\n2. **Storm damage items:** Roof, Siding, Gutters, etc.\n3. **Insurance company:** Use abbreviations when common (SF, DS, etc.)\n4. **Customer last name:** For tracking and reference\n\n**When to Post:**\n- Immediately after securing Contingency Agreement signature\n- Same day as inspection (do not delay)\n- Celebrate your wins publicly\n- Build team momentum\n\n**GroupMe Best Practices:**\n- Stay active in team communication\n- Celebrate teammate wins\n- Ask questions when needed\n- Share learnings and tips\n- Use for coordination and support\n- Respond to messages within reasonable time\n\n**Other GroupMe Uses:**\n- Team announcements\n- Training opportunities\n- Field support requests\n- Schedule coordination\n- Motivation and encouragement\n\n**What NOT to Post:**\n- Negative or discouraging content\n- Customer private information (full names, addresses)\n- Complaints about company policies (use proper channels)\n- Off-topic or distracting content"
+    }
+  ],
+  "interactiveLearning": [
+    {
+      "id": "contract-walkthrough",
+      "title": "Contract Walkthrough Challenge",
+      "type": "exercise",
+      "estimatedTime": "25 minutes",
+      "content": "Practice navigating the complete contract signing process from start to finish",
+      "activities": [
+        {
+          "id": "agreement-sequence",
+          "title": "Agreement Generation Sequence",
+          "description": "Arrange the agreement workflow in the correct order",
+          "type": "drag-drop",
+          "data": {
+            "items": [
+              {
+                "id": "customer-info",
+                "text": "Enter customer information in Sales App"
+              },
+              {
+                "id": "file-claim",
+                "text": "Help homeowner file insurance claim"
+              },
+              {
+                "id": "contingency",
+                "text": "Present Contingency Agreement with full script"
+              },
+              {
+                "id": "claim-auth",
+                "text": "Present Claim Authorization"
+              },
+              {
+                "id": "password",
+                "text": "Enter password 'roofer' for signatures"
+              },
+              {
+                "id": "upload",
+                "text": "Upload signed agreements to Field Portal"
+              },
+              {
+                "id": "groupme",
+                "text": "Post sign-up announcement to GroupMe"
+              }
+            ],
+            "correctOrder": [
+              "customer-info",
+              "file-claim",
+              "contingency",
+              "claim-auth",
+              "password",
+              "upload",
+              "groupme"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "eagleview-challenge",
+      "title": "EagleView Property Measurement Challenge",
+      "type": "scenario",
+      "estimatedTime": "20 minutes",
+      "content": "Practice reading and interpreting EagleView reports for accurate claim estimates",
+      "activities": [
+        {
+          "id": "measurement-reading",
+          "title": "Read the EagleView Report",
+          "description": "Analyze a sample EagleView report and answer questions about measurements",
+          "type": "multiple-choice",
+          "data": {
+            "scenario": "EagleView report shows: Total Area: 4,283 sq ft (42.83 squares), Ridge: 312 linear feet, Valley: 168 linear feet. What is the approximate roofing squares?",
+            "options": [
+              "38 squares",
+              "43 squares",
+              "47 squares",
+              "52 squares"
+            ],
+            "correct": 1,
+            "feedback": [
+              "Too low - remember to round properly",
+              "Correct! 42.83 squares rounds to 43 squares for material ordering",
+              "Too high - check the total area calculation",
+              "Too high - reread the report"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "hover-comparison",
+      "title": "Hover vs EagleView Decision Exercise",
+      "type": "scenario",
+      "estimatedTime": "15 minutes",
+      "content": "Practice deciding when to use Hover vs EagleView based on property characteristics",
+      "activities": [
+        {
+          "id": "tool-selection",
+          "title": "Choose the Right Measurement Tool",
+          "description": "Select the best measurement tool for different scenarios",
+          "type": "multiple-choice",
+          "data": {
+            "scenario": "Property: 2,200 sq ft ranch, simple gable roof, homeowner wants quick estimate today. Claim likely $18,000. Which tool?",
+            "options": [
+              "EagleView - most accurate",
+              "Hover - instant results for simple structure",
+              "Tape measure only",
+              "Wait for professional estimator"
+            ],
+            "correct": 1,
+            "feedback": [
+              "EagleView is overkill for this simple, small project",
+              "Correct! Hover provides instant measurements for simple structures and smaller claims",
+              "Too manual and time-consuming",
+              "Unnecessary delay for straightforward property"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "docusign-speed",
+      "title": "DocuSign Speed Challenge",
+      "type": "exercise",
+      "estimatedTime": "20 minutes",
+      "content": "Practice sending agreements via DocuSign as fast as possible while maintaining accuracy",
+      "activities": [
+        {
+          "id": "docusign-steps",
+          "title": "DocuSign Process Sequence",
+          "description": "Arrange DocuSign steps in optimal order",
+          "type": "drag-drop",
+          "data": {
+            "items": [
+              {
+                "id": "prepare",
+                "text": "Prepare agreement PDF with all fields filled"
+              },
+              {
+                "id": "upload",
+                "text": "Upload document to DocuSign"
+              },
+              {
+                "id": "verify-email",
+                "text": "Verify homeowner email address accuracy"
+              },
+              {
+                "id": "add-recipient",
+                "text": "Add homeowner as recipient"
+              },
+              {
+                "id": "signature-fields",
+                "text": "Place signature and date fields"
+              },
+              {
+                "id": "message",
+                "text": "Customize message with instructions"
+              },
+              {
+                "id": "send",
+                "text": "Send and track delivery"
+              }
+            ],
+            "correctOrder": [
+              "prepare",
+              "upload",
+              "verify-email",
+              "add-recipient",
+              "signature-fields",
+              "message",
+              "send"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "photo-orientation",
+      "title": "Photo Orientation Quality Check",
+      "type": "exercise",
+      "estimatedTime": "15 minutes",
+      "content": "Practice identifying correct vs incorrect photo orientations for Photo Reports",
+      "activities": [
+        {
+          "id": "orientation-identification",
+          "title": "Identify Correct Orientation",
+          "description": "Review sample photos and identify which are properly oriented",
+          "type": "multiple-choice",
+          "data": {
+            "scenario": "You take a photo of hail damage on a shingle. Your phone is in landscape mode (horizontal). Is this acceptable for Photo Reports?",
+            "options": [
+              "Yes - landscape captures more context",
+              "Yes - orientation doesn't matter as long as damage is visible",
+              "No - only portrait orientation populates properly in templates",
+              "Yes - you can rotate it later in editing software"
+            ],
+            "correct": 2,
+            "feedback": [
+              "Incorrect - landscape will not populate properly",
+              "Incorrect - orientation is critical for template compatibility",
+              "Correct! Photo Reports must be in portrait orientation or they won't populate in insurance templates",
+              "Incorrect - you cannot fix orientation issues after the fact"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "documentation-workflow",
+      "title": "Complete Documentation Workflow",
+      "type": "scenario",
+      "estimatedTime": "25 minutes",
+      "content": "Practice the complete documentation workflow from inspection to submission",
+      "activities": [
+        {
+          "id": "workflow-sequence",
+          "title": "Documentation Timeline",
+          "description": "Arrange documentation tasks in correct order",
+          "type": "drag-drop",
+          "data": {
+            "items": [
+              {
+                "id": "inspection",
+                "text": "Complete roof inspection and damage documentation"
+              },
+              {
+                "id": "portrait-photos",
+                "text": "Take all photos in portrait orientation"
+              },
+              {
+                "id": "agreements",
+                "text": "Sign Contingency and Claim Authorization"
+              },
+              {
+                "id": "photo-report",
+                "text": "Create Photo Report with template"
+              },
+              {
+                "id": "field-portal",
+                "text": "Upload all documents to Field Portal"
+              },
+              {
+                "id": "email-adjuster",
+                "text": "Email Photo Report to adjuster before meeting"
+              },
+              {
+                "id": "groupme",
+                "text": "Post sign-up to GroupMe"
+              }
+            ],
+            "correctOrder": [
+              "inspection",
+              "portrait-photos",
+              "agreements",
+              "photo-report",
+              "field-portal",
+              "groupme",
+              "email-adjuster"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "technology-troubleshooting",
+      "title": "Technology Troubleshooting Scenarios",
+      "type": "scenario",
+      "estimatedTime": "20 minutes",
+      "content": "Practice solving common technology issues in the field",
+      "activities": [
+        {
+          "id": "ipad-dead",
+          "title": "iPad Battery Dead at Inspection",
+          "description": "Your iPad dies during an inspection. What's your backup plan?",
+          "type": "multiple-choice",
+          "data": {
+            "scenario": "You're ready to collect signatures but your iPad is dead. Homeowner is waiting. What do you do?",
+            "options": [
+              "Apologize and reschedule for another day",
+              "Use DocuSign to send agreements to their email immediately",
+              "Have them sign paper copies and transfer later",
+              "Ask to charge iPad for 30 minutes before continuing"
+            ],
+            "correct": 1,
+            "feedback": [
+              "You lose momentum and risk losing the deal",
+              "Correct! Send via DocuSign immediately from your phone. This shows adaptability and professionalism.",
+              "Paper copies are not part of our digital workflow",
+              "Wastes homeowner's time and looks unprepared"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "damage-id-quiz",
+      "title": "Damage Identification Image Quiz",
+      "type": "interactive",
+      "estimatedTime": "10 minutes",
+      "content": "Use real images to identify damage and next steps.",
+      "activities": [
+        {
+          "id": "photo-id-quick",
+          "title": "Identify Damage Type",
+          "description": "Select the correct classification and recommended action.",
+          "type": "image-quiz",
+          "data": {
+            "images": [
+              {
+                "id": "q1",
+                "imageUrl": "/assets/photo-reports/roof_photo_11.jpg",
+                "question": "What is the best documentation step here?",
+                "options": [
+                  "Capture close-up with chalked test square and label",
+                  "Only take wide shots",
+                  "Skip documentation",
+                  "Call adjuster without photos"
+                ],
+                "correctAnswer": "Capture close-up with chalked test square and label",
+                "explanation": "Use test squares and close-ups to document hit density and pattern across slopes."
+              },
+              {
+                "id": "q2",
+                "imageUrl": "/assets/photo-reports/roof_photo_12.jpg",
+                "question": "What is the best documentation step here?",
+                "options": [
+                  "Capture close-up with chalked test square and label",
+                  "Only take wide shots",
+                  "Skip documentation",
+                  "Call adjuster without photos"
+                ],
+                "correctAnswer": "Capture close-up with chalked test square and label",
+                "explanation": "Use test squares and close-ups to document hit density and pattern across slopes."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "code-compliance",
+      "title": "Code Compliance Quick Check",
+      "type": "interactive",
+      "estimatedTime": "10 minutes",
+      "content": "Test critical code items that frequently affect approvals.",
+      "activities": [
+        {
+          "id": "double-layer-code",
+          "title": "Double Layer – Recover or Tear-off?",
+          "description": "Local code and manufacturer guidance when a double layer exists.",
+          "type": "multiple-choice",
+          "points": 5,
+          "data": {
+            "question": "When a double layer of shingles exists, what is typically required by code?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Full tear-off before replacement",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Install third layer if weight allows",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Spot repair only",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Recover with overlay on all slopes",
+                "isCorrect": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "drip-edge-code",
+          "title": "Drip Edge Requirement",
+          "description": "Understand where drip edge is required.",
+          "type": "multiple-choice",
+          "points": 5,
+          "data": {
+            "question": "Where is drip edge required by current code?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At eaves and rakes",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Only at eaves",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Only at rakes",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Drip edge is optional",
+                "isCorrect": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "ventilation-code",
+          "title": "Ventilation Ratio",
+          "description": "Minimum ventilation for attic spaces.",
+          "type": "multiple-choice",
+          "points": 5,
+          "data": {
+            "question": "What is the common minimum ventilation ratio (unless balanced system or other local amendments)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "1:150",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "1:300",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "1:75",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "No minimum",
+                "isCorrect": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "collateral-drill",
+      "title": "Collateral Documentation Drill",
+      "type": "interactive",
+      "estimatedTime": "8 minutes",
+      "content": "Choose the best documentation step for collateral findings.",
+      "activities": [
+        {
+          "id": "collateral-timed",
+          "title": "Rapid Collateral Choices",
+          "description": "Select what to capture or label for collateral evidence.",
+          "type": "timed-challenge",
+          "points": 10,
+          "data": {
+            "timeLimit": 20,
+            "scenarios": [
+              {
+                "objection": "Gutter shows multiple small dents",
+                "correctResponse": "Photograph dents up-close with tape measure for scale and label elevation",
+                "incorrectResponses": [
+                  "Skip gutters",
+                  "Only wide shot",
+                  "Call adjuster without photos"
+                ]
+              },
+              {
+                "objection": "Downspout with visible impact marks",
+                "correctResponse": "Capture close-up and side angle, include chalk marks, label location",
+                "incorrectResponses": [
+                  "Photo from 20 feet",
+                  "No label",
+                  "Only roof photos"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "agnesContent": [
+    {
+      "id": "contingency-mastery",
+      "title": "Mastering the Contingency Agreement",
+      "type": "coaching",
+      "icon": "📝",
+      "content": "The Contingency Agreement is your commitment tool. When delivered properly, it ensures homeowners stay with you through the entire process. When rushed through, you lose $50,000 deals to competitors.\n\nHere's what makes the difference:\n\n**The Psychology:**\nHomeowners hear 'agreement' and get nervous. They think commitment means risk. Your job is to flip that:\n\n'This agreement PROTECTS you. If insurance doesn't fully approve, you owe us nothing. It's null and void. But if they DO approve, this ensures we dedicate our resources to fighting for your claim.'\n\nSee what happened? You turned the agreement from a risk into a protection.\n\n**The Pacing:**\nDon't rush. Take 90 seconds to explain it fully. Homeowners who understand WHY they're signing stay loyal. Homeowners who just 'sign here' shop around later.\n\n**The Confidence Test:**\nIf you can't deliver this script without looking at your notes, you're not ready for the field. Practice until it flows naturally.",
+      "points": [
+        "The Contingency Agreement commits them ONLY if fully approved - stress this heavily",
+        "Emphasize 'null and void' if not approved - this removes all perceived risk",
+        "Explain WHY you need it: 'So we can justify dedicating resources to your claim'",
+        "Take your time - rushing this script costs you $40K+ deals",
+        "Practice until you can deliver it conversationally, not robotically"
+      ],
+      "duration": "20 minutes"
+    },
+    {
+      "id": "eagleview-credibility",
+      "title": "EagleView as Your Credibility Weapon",
+      "type": "coaching",
+      "icon": "📐",
+      "content": "EagleView isn't just about measurements - it's about positioning yourself as a professional.\n\nWhen you show up to an adjuster meeting with an EagleView report, you communicate:\n- 'I use engineering-grade tools'\n- 'I'm not a rookie door-knocker'\n- 'My numbers are defensible'\n- 'I'm serious about this claim'\n\nAdjusters see hundreds of reps. Most bring notebook sketches. You bring a detailed report with 3D models and precise measurements.\n\n**When to Use EagleView:**\n- Claims over $25,000 (worth the $45 investment)\n- Complex roof structures\n- When measurements might be disputed\n- Properties with difficult roof access\n\n**When to Use Hover:**\n- Simple structures (ranch, basic gable)\n- Smaller claims under $20,000\n- Need instant results\n- Good lighting conditions\n\n**The Investment Mindset:**\nSpending $45 on EagleView for a $40,000 claim is a 0.1% investment. If it increases your approval rate by even 5%, it pays for itself 20 times over.",
+      "points": [
+        "EagleView = professional credibility with adjusters",
+        "Use for claims over $25K - the $45 cost is worth it",
+        "Hover = instant measurements for simpler properties",
+        "Technology eliminates measurement disputes",
+        "Order EagleView before adjuster meeting for maximum impact"
+      ],
+      "duration": "15 minutes"
+    },
+    {
+      "id": "hover-speed-advantage",
+      "title": "Hover for Speed and Simplicity",
+      "type": "coaching",
+      "icon": "📱",
+      "content": "Hover is your instant measurement tool. While EagleView takes 24 hours, Hover gives you results in 10 minutes.\n\n**The Hover Advantage:**\nYou're at a property. Simple ranch home, maybe 2,400 square feet. Homeowner asks, 'How much will this cost?'\n\nWithout Hover: 'I'll get back to you in a few days with measurements.'\nWith Hover: 'Let me walk around real quick and I'll tell you right now.'\n\nTen minutes later: 'Your roof is 28 squares. With current material costs, insurance will likely approve around $22,000.'\n\nHomeowner is impressed. You closed the information gap immediately.\n\n**Best Practices:**\n- Take 8-12 photos from different angles\n- Walk completely around the property\n- Use in good lighting (avoid late evening)\n- Show the 3D model to homeowner - they love seeing it\n\n**The Balance:**\nUse Hover for speed and simplicity. Use EagleView for precision and credibility. Master both, and you'll have the right tool for every situation.",
+      "points": [
+        "Hover = instant measurements (10 minutes vs 24 hours)",
+        "Perfect for simple structures and smaller claims",
+        "Show homeowners the 3D model - it impresses them",
+        "Take 8-12 photos from all angles for best results",
+        "Use in good lighting conditions for accuracy"
+      ],
+      "duration": "15 minutes"
+    },
+    {
+      "id": "docusign-flexibility",
+      "title": "DocuSign: Close Deals From Anywhere",
+      "type": "coaching",
+      "icon": "✉️",
+      "content": "DocuSign is your freedom tool. It means you're not tied to being physically present for every signature.\n\n**The Modern Sales Rep:**\nOld way: 'I need to drive back to get your signature.'\nNew way: 'I'll send this to your email. Sign it when you're ready.'\n\n**Strategic Uses:**\n\n**1. Remote Closing:**\nYou're traveling, homeowner's claim gets approved. Send DocuSign. Deal closed.\n\n**2. Homeowner Preference:**\nSome homeowners prefer digital. Offer it as an option:\n\n'I can have you sign on the iPad now, or send it to your email so you can review it carefully. What's your preference?'\n\nAbout 30% choose email. They feel less pressured and appreciate the option.\n\n**3. Follow-Up Signatures:**\nHomeowner forgot to sign something. DocuSign gets it done without another visit.\n\n**The Follow-Up Formula:**\n- Send DocuSign\n- Text within 2 hours if not signed: 'Hey, did you get my email? Let me know if you have questions.'\n- Call within 24 hours if still not signed\n\n**Success Rate:**\nWhen you follow up properly, DocuSign has a 90%+ completion rate within 48 hours.",
+      "points": [
+        "Offer DocuSign as an option to every homeowner - shows you're modern",
+        "Follow up within 2 hours with text if not signed",
+        "Verify email address accuracy before sending",
+        "Stay available by phone to answer questions",
+        "Use for remote closing when you can't be present"
+      ],
+      "duration": "15 minutes"
+    },
+    {
+      "id": "documentation-excellence",
+      "title": "Documentation Excellence Wins Claims",
+      "type": "coaching",
+      "icon": "📸",
+      "content": "Your documentation quality directly impacts your approval rate. Amateur documentation loses claims. Professional documentation wins them.\n\n**The Portrait Rule:**\nThis is non-negotiable. Landscape photos will NOT populate in Photo Report templates. Take every single photo in portrait mode.\n\nWhy? Insurance systems are designed for vertical photos. When you submit landscape photos, they either don't display or display incorrectly, and adjusters reject your report.\n\n**The Professional Standard:**\n\nAMATEUR: Takes 15 random photos, uploads to Field Portal, hopes for the best.\n\nPROFESSIONAL:\n1. Plans photo sequence before climbing ladder\n2. Takes establishing shots (mailbox, full house, all elevations)\n3. Documents collateral damage systematically (front, right, rear, left)\n4. Takes 4-6 close-ups PER SLOPE of circled damage\n5. Documents granule loss in gutters\n6. Organizes photos into Photo Report template\n7. Labels every photo clearly\n8. Submits within 24 hours\n9. Emails to adjuster before meeting\n\n**The Impact:**\nWhen an adjuster receives your Photo Report and sees professional organization and portrait orientation, they think: 'This rep knows what they're doing.'\n\nWhen they receive landscape photos and poor organization, they think: 'Amateur.'\n\nYour documentation sets expectations for everything that follows.",
+      "points": [
+        "ALWAYS portrait orientation - landscape will not work",
+        "Take 4-6 close-ups per slope of circled damage",
+        "Include all four elevation overviews",
+        "Document granule loss in gutters and downspouts",
+        "Submit Photo Report within 24 hours of inspection",
+        "Email to adjuster BEFORE the adjuster meeting"
+      ],
+      "duration": "20 minutes"
+    }
+  ],
+  "quiz": [
+    {
+      "id": "photo-orientation",
+      "question": "What orientation must you use when taking photos for Photo Reports?",
+      "type": "multiple-choice",
+      "options": [
+        "Landscape - wider view captures more damage",
+        "Portrait - landscape will not populate properly in templates",
+        "Either orientation works fine",
+        "Landscape for overviews, portrait for close-ups"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Photo Reports MUST be in portrait orientation. Landscape photos will not populate properly in the Photo Report Template and will cause processing delays with insurance companies. This is a critical technical requirement.",
+      "points": 2
+    },
+    {
+      "id": "contingency-cost",
+      "question": "What is the homeowner's cost under the Contingency Agreement if fully approved?",
+      "type": "multiple-choice",
+      "options": [
+        "Nothing - insurance pays everything",
+        "Only their deductible",
+        "10% of the total job cost",
+        "Their deductible plus depreciation"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Contingency Agreement guarantees the homeowner's only cost is their deductible if the claim is fully approved. If not fully approved, the agreement is null and void and they owe nothing. This removes all perceived risk from the homeowner's perspective.",
+      "points": 2
+    },
+    {
+      "id": "sales-app-password",
+      "question": "What is the password for collecting signatures in the Sales App?",
+      "type": "multiple-choice",
+      "options": [
+        "Roofer (capitalized)",
+        "roofer (lowercase)",
+        "ROOFER (all caps)",
+        "Roof-ER (company name)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Sales App signature password is always 'roofer' in lowercase. This must be entered exactly as shown (lowercase, no caps) or the signature will not process. Memorize this.",
+      "points": 2
+    },
+    {
+      "id": "weekly-meeting",
+      "question": "When should you avoid scheduling adjuster meetings?",
+      "type": "multiple-choice",
+      "options": [
+        "Monday mornings",
+        "Tuesday mornings - Weekly Sales Meetings",
+        "Friday afternoons",
+        "Weekend mornings"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Avoid Tuesday mornings for adjuster meetings because of the Weekly Sales Meeting that all sales representatives must attend. Suggest alternative times if Tuesday morning is proposed by the adjuster or homeowner.",
+      "points": 2
+    },
+    {
+      "id": "claim-authorization-purpose",
+      "question": "What is the primary purpose of the Claim Authorization form?",
+      "type": "multiple-choice",
+      "options": [
+        "It allows us to file the claim without homeowner involvement",
+        "It allows us to communicate with insurance company so homeowner does not have to be middle-man",
+        "It authorizes us to cash their insurance check",
+        "It gives us permission to start the installation"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Claim Authorization allows Roof-ER to communicate directly with the insurance company on the homeowner's behalf, eliminating the middle-man role for the homeowner. Homeowners stay CC'd on all communications so they remain informed throughout the process.",
+      "points": 2
+    },
+    {
+      "id": "eagleview-use-case",
+      "question": "When is EagleView most appropriate to use?",
+      "type": "multiple-choice",
+      "options": [
+        "Every single property regardless of size",
+        "Only when homeowner requests it",
+        "Claims over $25,000 or complex roof structures",
+        "Only for commercial properties"
+      ],
+      "correctAnswer": 2,
+      "explanation": "EagleView is most appropriate for claims over $25,000 and complex roof structures where precision matters. The $35-$95 cost is justified when you're fighting for large approvals and want engineering-grade measurements that adjusters won't dispute.",
+      "points": 2
+    },
+    {
+      "id": "hover-advantage",
+      "question": "What is Hover's primary advantage over EagleView?",
+      "type": "multiple-choice",
+      "options": [
+        "More accurate measurements",
+        "Instant results vs 24-hour wait",
+        "Better accepted by insurance companies",
+        "Works in all weather conditions"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Hover's primary advantage is speed - it provides instant measurements (within 10 minutes) compared to EagleView's 24-48 hour turnaround. This makes it ideal for simple structures when you need immediate results to close the deal or answer homeowner questions on the spot.",
+      "points": 2
+    },
+    {
+      "id": "docusign-follow-up",
+      "question": "If a homeowner hasn't signed DocuSign documents within 2 hours, what should you do?",
+      "type": "multiple-choice",
+      "options": [
+        "Wait 24 hours before following up",
+        "Send a text reminder asking if they received it",
+        "Resend the DocuSign to their email",
+        "Assume they're not interested and move on"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Follow up within 2 hours with a text message: 'Hey, did you get my email? Let me know if you have questions.' This shows you're attentive without being pushy. If still not signed within 24 hours, escalate to a phone call.",
+      "points": 2
+    },
+    {
+      "id": "groupme-format",
+      "question": "What is the correct GroupMe sign-up format?",
+      "type": "multiple-choice",
+      "options": [
+        "Closed deal / Customer name / Address / Amount",
+        "Sign up / Storm items / Insurance / Last name",
+        "New customer / Insurance / Damage type",
+        "Roof signed / Company / Name"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The correct format is: 'Sign up / Storm Damage Item 1 / Item 2 / Insurance Company / Customer Last Name'. Example: 'Sign up / Roof / Siding / Gutters / Allstate / Martinez'. This format keeps team communication consistent and trackable.",
+      "points": 2
+    },
+    {
+      "id": "contingency-null-void",
+      "question": "When does the Contingency Agreement become null and void?",
+      "type": "multiple-choice",
+      "options": [
+        "After 30 days if no adjuster meeting occurs",
+        "If the homeowner decides not to proceed",
+        "If insurance does not fully approve the claim",
+        "If Roof-ER cannot schedule installation within 60 days"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The Contingency Agreement is null and void if insurance does not fully approve the claim. This is a critical point to emphasize to homeowners - they have NO RISK. If insurance doesn't approve, they owe nothing. This removes all perceived risk from signing.",
+      "points": 2
+    },
+    {
+      "id": "photo-report-timing",
+      "question": "When should you submit the Photo Report to Field Portal?",
+      "type": "multiple-choice",
+      "options": [
+        "Within 24 hours of inspection",
+        "Within one week of inspection",
+        "Only after adjuster meeting is scheduled",
+        "Only if homeowner requests it"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Submit the Photo Report to Field Portal within 24 hours of the inspection. This ensures documentation is fresh, organized, and ready to send to the adjuster before the adjuster meeting. Delayed submission creates processing bottlenecks and looks unprofessional.",
+      "points": 2
+    },
+    {
+      "id": "adjuster-meeting-arrival",
+      "question": "How early should you arrive for an adjuster meeting?",
+      "type": "multiple-choice",
+      "options": [
+        "Exactly on time",
+        "5 minutes early",
+        "15-30 minutes early",
+        "1 hour early"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Arrive 15-30 minutes early for adjuster meetings. This allows you to: re-chalk metals if needed, greet the homeowner, review your documentation, and ensure you're not rushed. Being early shows professionalism and ensures you're ready when the adjuster arrives.",
+      "points": 2
+    }
+  ],
+  "documents": [
+    {
+      "id": "contingency-script",
+      "title": "Contingency & Claim Authorization Script",
+      "type": "document",
+      "description": "Complete script for presenting agreements after claim filing with psychological frameworks",
+      "pages": 2,
+      "topics": [
+        "Contingency Agreement Explanation",
+        "Claim Authorization Purpose",
+        "Signature Process",
+        "Next Steps"
+      ]
+    },
+    {
+      "id": "sales-app-guide",
+      "title": "Sales App Quick Reference Guide",
+      "type": "document",
+      "description": "Step-by-step guide for navigating the Sales App on iPad",
+      "pages": 3,
+      "topics": [
+        "Customer Information Entry",
+        "Agreement Selection",
+        "E-Signature Collection",
+        "Document Switching"
+      ]
+    },
+    {
+      "id": "eagleview-hover-comparison",
+      "title": "EagleView vs Hover: Complete Comparison Guide",
+      "type": "document",
+      "description": "Detailed comparison of measurement technologies with use case recommendations",
+      "pages": 3,
+      "topics": [
+        "Technology Comparison",
+        "Use Case Scenarios",
+        "Cost-Benefit Analysis",
+        "Best Practices"
+      ]
+    },
+    {
+      "id": "docusign-workflow",
+      "title": "DocuSign Complete Workflow Guide",
+      "type": "document",
+      "description": "Step-by-step process for sending, tracking, and completing remote agreements",
+      "pages": 2,
+      "topics": [
+        "Document Preparation",
+        "Sending Process",
+        "Follow-Up Protocol",
+        "Troubleshooting"
+      ]
+    }
+  ],
+  "matchingGame": {
+    "title": "Agreement & Technology Matching",
+    "description": "Match agreements with their purposes and technology requirements",
+    "instructions": "Match each item with its correct description",
+    "timeLimit": 180,
+    "difficulty": "medium",
+    "pairs": [
+      {
+        "id": "contingency",
+        "left": {
+          "text": "Contingency Agreement",
+          "type": "text"
+        },
+        "right": {
+          "text": "Commits homeowner to Roof-ER if fully approved, null and void if not",
+          "type": "text"
+        }
+      },
+      {
+        "id": "claim-auth",
+        "left": {
+          "text": "Claim Authorization",
+          "type": "text"
+        },
+        "right": {
+          "text": "Allows direct communication with insurance, homeowner stays CC'd",
+          "type": "text"
+        }
+      },
+      {
+        "id": "photo-orientation",
+        "left": {
+          "text": "Photo Report Orientation",
+          "type": "text"
+        },
+        "right": {
+          "text": "Portrait only - landscape will not populate properly",
+          "type": "text"
+        }
+      },
+      {
+        "id": "password",
+        "left": {
+          "text": "Sales App Signature Password",
+          "type": "text"
+        },
+        "right": {
+          "text": "roofer (lowercase)",
+          "type": "text"
+        }
+      },
+      {
+        "id": "eagleview",
+        "left": {
+          "text": "EagleView",
+          "type": "text"
+        },
+        "right": {
+          "text": "Engineering-grade measurements, 24-48 hours, $35-$95",
+          "type": "text"
+        }
+      },
+      {
+        "id": "hover",
+        "left": {
+          "text": "Hover",
+          "type": "text"
+        },
+        "right": {
+          "text": "Instant smartphone measurements for simple structures",
+          "type": "text"
+        }
+      },
+      {
+        "id": "docusign",
+        "left": {
+          "text": "DocuSign",
+          "type": "text"
+        },
+        "right": {
+          "text": "Remote agreement execution via email signatures",
+          "type": "text"
+        }
+      }
+    ]
+  }
+}

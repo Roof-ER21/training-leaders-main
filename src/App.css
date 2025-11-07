@@ -1,0 +1,85 @@
+/* RoofER Training System Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+/* Tailwind-style utility classes for compatibility */
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+.from-red-600 {
+  --tw-gradient-from: #dc2626;
+  --tw-gradient-stops:
+    var(--tw-gradient-from), var(--tw-gradient-to, rgba(220, 38, 38, 0));
+}
+
+.to-red-700 {
+  --tw-gradient-to: #b91c1c;
+}
+
+.from-gray-700 {
+  --tw-gradient-from: #374151;
+  --tw-gradient-stops:
+    var(--tw-gradient-from), var(--tw-gradient-to, rgba(55, 65, 81, 0));
+}
+
+.to-gray-800 {
+  --tw-gradient-to: #1f2937;
+}
+
+.bg-red-600 {
+  background-color: #dc2626;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.text-gray-800 {
+  color: #1f2937;
+}
+
+.text-gray-600 {
+  color: #4b5563;
+}
+
+.border-red-600 {
+  border-color: #dc2626;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.shadow-lg {
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.transition-colors {
+  transition:
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    color 0.15s ease-in-out;
+}
+
+.hover\:bg-red-700:hover {
+  background-color: #b91c1c;
+}

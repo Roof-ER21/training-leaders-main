@@ -1,0 +1,16 @@
+[phases.setup]
+nixPkgs = ["nodejs-18_x"]
+
+[phases.install]
+cmds = ["npm ci"]
+
+[phases.build]
+cmds = ["DISABLE_ESLINT_PLUGIN=true npm run build"]
+
+[start]
+cmd = "npx serve -s build -l $PORT"
+
+[variables]
+CI = "false"
+DISABLE_ESLINT_PLUGIN = "true"
+TSC_COMPILE_ON_ERROR = "true"

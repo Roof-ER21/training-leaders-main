@@ -1,0 +1,1794 @@
+{
+  "overview": "Master advanced sales techniques including sophisticated closing strategies, negotiation tactics, template deployment for partial approvals, and escalation protocols. This module transforms you from a basic sales representative into an expert negotiator who knows when to push, when to escalate, and how to turn partials and denials into full approvals using proven templates and strategic approaches.",
+  "learningObjectives": [
+    "Master advanced closing techniques for reluctant homeowners",
+    "Deploy the template library strategically for partial approvals",
+    "Navigate the escalation matrix from self-resolution to arbitration",
+    "Use negotiation tactics with insurance adjusters and supervisors",
+    "Understand when to escalate vs when to persist independently",
+    "Leverage building codes, GAF guidelines, and state regulations",
+    "Turn partial approvals into full approvals systematically",
+    "Know the difference between complaints and arbitration"
+  ],
+  "successStories": [
+    {
+      "id": "victor-tough-close",
+      "title": "Victor's $89K Deal - The Close That Almost Got Away",
+      "rep": "Victor Rodriguez",
+      "scenario": "Homeowner ready to sign, then got cold feet at the last second",
+      "challenge": "After a perfect inspection showing extensive hail damage, the homeowner suddenly said 'I need to think about it' when Victor pulled out the paperwork. Neighbor had told her 'never sign anything on the spot.'",
+      "dialogue": [
+        {
+          "speaker": "Homeowner",
+          "text": "You know what, I appreciate all this, but my neighbor said I should never sign anything the same day. I need to think about it."
+        },
+        {
+          "speaker": "Victor",
+          "text": "I completely respect that advice - your neighbor is looking out for you. Can I ask, what specifically do you need to think about? Is it the damage itself, the process, or something else?"
+        },
+        {
+          "speaker": "Homeowner",
+          "text": "I just... I don't know. It feels rushed. I want to make sure I'm making the right decision."
+        },
+        {
+          "speaker": "Victor",
+          "text": "That makes total sense. Here's what I want you to know - this is not about me getting you to sign today. This is about protecting your home. The damage I documented is real. The storm was 6 weeks ago. The longer we wait, the harder it is to prove this damage is from that storm and not from normal wear. Insurance companies love when people 'think about it' because claims get harder to prove over time. I'm not asking you to trust me - I'm asking you to trust the photos. Look at these hail strikes. Those are fresh. In two months, they won't look fresh anymore. Does that make sense?"
+        },
+        {
+          "speaker": "Homeowner",
+          "text": "I... I guess I didn't think about it that way."
+        },
+        {
+          "speaker": "Victor",
+          "text": "Tell you what - let's do this. I'm going to leave these photos with you. Take 15 minutes. Look at them. Talk to your husband. I'll sit in my truck. If you decide you want to move forward, great. If not, no pressure. But I do want you to have all the information to make the right decision. Fair?"
+        },
+        {
+          "speaker": "Homeowner",
+          "text": "That's fair. Give us 15 minutes."
+        }
+      ],
+      "outcome": "Homeowner called Victor back after 12 minutes and signed. Claim approved for $89,000 - full roof, gutters, and siding replacement.",
+      "technique": "The Takeaway Close + Micro-Commitment. Victor removed pressure by offering to leave, created urgency with timeline reasoning, and gave them control with a small 15-minute commitment.",
+      "lesson": "When homeowners get cold feet, don't push harder - pull back. Give them space, create legitimate urgency, and let them 'sell themselves' by reviewing the evidence without you hovering."
+    },
+    {
+      "id": "jasmine-negotiation",
+      "title": "Jasmine's Price Stand - Full Price Plus Upgrades",
+      "rep": "Jasmine Chen",
+      "scenario": "Customer wanted 10% discount, Jasmine got full price and $3,200 in upgrades",
+      "challenge": "After insurance approved $67,000 claim, homeowner called three contractors. Two offered discounts to win the job. Homeowner told Jasmine 'Company X said they'll do it for 10% less than you.'",
+      "dialogue": [
+        {
+          "speaker": "Homeowner",
+          "text": "Jasmine, I really like you and your company, but I talked to two other contractors and one of them said they'll do the whole job for 10% less than your estimate. That's over $6,000 in savings. Can you match that?"
+        },
+        {
+          "speaker": "Jasmine",
+          "text": "I appreciate you being upfront with me. Can I ask - did that contractor show you the same GAF Master Elite certification we have? Because that's top 2% of roofing companies nationwide."
+        },
+        {
+          "speaker": "Homeowner",
+          "text": "Um, I'm not sure. They didn't mention that specifically."
+        },
+        {
+          "speaker": "Jasmine",
+          "text": "Okay. Here's what I want you to understand. When we install your roof, it comes with GAF's Golden Pledge warranty - 50 years on materials AND labor. That's the best warranty in the industry and it's only available through Master Elite contractors. If that other company is not Master Elite, they can't offer that warranty. Did they mention what warranty they offer?"
+        },
+        {
+          "speaker": "Homeowner",
+          "text": "They said... I think 25 years on materials?"
+        },
+        {
+          "speaker": "Jasmine",
+          "text": "Right. So you're comparing a 25-year materials-only warranty to our 50-year materials AND labor warranty. If you have a leak in year 10, with them you're paying for labor out of pocket. With us, it's completely covered. Over 50 years, which one is actually cheaper?"
+        },
+        {
+          "speaker": "Homeowner",
+          "text": "I... I didn't think about it that way."
+        },
+        {
+          "speaker": "Jasmine",
+          "text": "Most people don't - that's why I'm here to explain it. Here's my question: Are you choosing us because we're the cheapest, or because we're the best? Because I can't be both. What I CAN do is add the ridge vent upgrade we discussed at no additional cost. That's a $1,200 value that will improve your attic ventilation and extend your roof life even further. Would that make you feel good about moving forward with us?"
+        },
+        {
+          "speaker": "Homeowner",
+          "text": "Wait, you'd throw in the ridge vent upgrade for free?"
+        },
+        {
+          "speaker": "Jasmine",
+          "text": "If it means earning your business and giving you the roof you deserve, absolutely. I'm not going to drop our price and compromise on quality. But I will add value to make sure you're getting the best investment for your home."
+        }
+      ],
+      "outcome": "Homeowner signed at full price ($67,000) and Jasmine added $1,200 ridge vent upgrade plus $2,000 in architectural shingle upgrade (total $3,200 in added value). Customer posted 5-star review saying 'Best decision we made - quality over price.'",
+      "technique": "Value stacking, warranty differentiation, and strategic value-add (not price cut). Jasmine reframed the conversation from price to value.",
+      "lesson": "Never compete on price alone. Compete on value, warranty, and expertise. When customers want discounts, add value instead of cutting price. You control the value equation."
+    },
+    {
+      "id": "kyle-escalation",
+      "title": "Kyle's Escalation Win - Angry Customer to Closed Deal",
+      "rep": "Kyle Martinez",
+      "scenario": "Customer furious after insurance denied claim, threatening to fire us",
+      "challenge": "Insurance adjuster denied entire claim saying 'no storm damage found.' Homeowner called Kyle screaming, 'You got my hopes up for nothing! I'm hiring someone else who actually knows what they're doing!'",
+      "dialogue": [
+        {
+          "speaker": "Homeowner",
+          "text": "Kyle, I just got off the phone with my insurance company and they DENIED the entire claim! They said there's no storm damage! You told me there was damage! Were you lying to me, or are you just incompetent?!"
+        },
+        {
+          "speaker": "Kyle",
+          "text": "Mr. Harrison, I completely understand your frustration. Take a breath with me for a second. I'm going to fix this. Can I ask - did the adjuster explain why they denied it, or did they just say no damage?"
+        },
+        {
+          "speaker": "Homeowner",
+          "text": "They said they didn't see any hail damage on the inspection. But YOU showed me damage! Either you lied or they're lying. Either way, I'm done with this."
+        },
+        {
+          "speaker": "Kyle",
+          "text": "Okay. First, I did not lie to you. I documented real damage - I have 47 photos showing hail strikes. Second, I've seen this before. Some adjusters rush inspections or look from the ground. Here's what we're going to do. I'm going to submit our Photo Report directly to the adjuster's supervisor with all 47 photos clearly marked. I'm also going to request a re-inspection with me present so I can show them exactly where the damage is. Does that sound fair?"
+        },
+        {
+          "speaker": "Homeowner",
+          "text": "What if they still deny it?"
+        },
+        {
+          "speaker": "Kyle",
+          "text": "Then we escalate. We file a formal complaint with the state insurance commissioner for improper claim handling. I've done this before and won. But I don't think we'll need to go that far. Once the supervisor sees the documentation, they usually overturn the denial. Can you give me 48 hours to submit this and get you an answer?"
+        },
+        {
+          "speaker": "Homeowner",
+          "text": "Fine. But if this doesn't work, I'm filing a complaint against YOUR company too."
+        },
+        {
+          "speaker": "Kyle",
+          "text": "I respect that. You hired us to get results, and I'm going to deliver. I'll call you tomorrow with an update. Deal?"
+        }
+      ],
+      "outcome": "Kyle submitted Photo Report with detailed template response to supervisor. Supervisor approved re-inspection. Kyle attended re-inspection and pointed out every hail strike. Claim approved for $52,000. Homeowner apologized to Kyle and left 5-star review saying 'Kyle fought for us when we wanted to give up.'",
+      "technique": "De-escalation through empathy, clear action plan, and setting expectations. Kyle stayed calm, validated anger, and provided specific next steps.",
+      "lesson": "Angry customers aren't your enemy - they're frustrated and scared. Acknowledge emotion, provide a clear plan, and follow through. Turn crisis into credibility."
+    },
+    {
+      "id": "maria-complex-close",
+      "title": "Maria's Multi-Stakeholder Close - $124K Family Decision",
+      "rep": "Maria Santos",
+      "scenario": "Three family members all had to agree, each with different concerns",
+      "challenge": "Elderly homeowner (72), her daughter who handles finances, and her son who's a contractor. All three needed to approve before signing. Each had different objections.",
+      "dialogue": [
+        {
+          "speaker": "Daughter",
+          "text": "My mother can't afford the deductible right now. It's $2,500. Can she wait until tax refund season?"
+        },
+        {
+          "speaker": "Son",
+          "text": "And I'm a contractor - I can probably do this myself and save her the money. Why should we hire you?"
+        },
+        {
+          "speaker": "Homeowner",
+          "text": "I just don't want to deal with drama. Is this going to be a headache?"
+        },
+        {
+          "speaker": "Maria",
+          "text": "These are all really valid concerns. Let me address each one. First, Mrs. Patterson, you won't have any drama. We handle everything - insurance calls, paperwork, inspections. You just need to be available for key meetings. That's it. Does that ease your mind?"
+        },
+        {
+          "speaker": "Homeowner",
+          "text": "Yes, that would be nice."
+        },
+        {
+          "speaker": "Maria",
+          "text": "Good. Now, [to son] you said you're a contractor - that's great. Here's my question: Are you GAF Master Elite certified? Because your mom's claim requires GAF warranty compliance to be approved by insurance. If you're not Master Elite, insurance won't approve it. Are you certified?"
+        },
+        {
+          "speaker": "Son",
+          "text": "No, I'm not. But I still know how to do a roof."
+        },
+        {
+          "speaker": "Maria",
+          "text": "I'm sure you do. But here's the issue - insurance won't pay you. They require licensed, bonded, insured contractors with specific certifications for storm claims. You could do the work, but your mom would be paying out of pocket because insurance won't cover it. Does that make sense?"
+        },
+        {
+          "speaker": "Son",
+          "text": "I... didn't know that."
+        },
+        {
+          "speaker": "Maria",
+          "text": "Most people don't. And [to daughter], the deductible concern - I totally get it. Here's what I recommend. We file the claim now while the damage is fresh. Insurance approves it. You don't pay the deductible until work starts. We can schedule the work for whenever your mom has the deductible available - even if that's three months from now. The important thing is getting the claim approved NOW while it's clearly storm damage. If we wait six months, insurance can say it's wear and tear. Does that work?"
+        },
+        {
+          "speaker": "Daughter",
+          "text": "So we can delay the work until she has the money?"
+        },
+        {
+          "speaker": "Maria",
+          "text": "Exactly. Claim first, work later. We just need to file within the statute of limitations."
+        },
+        {
+          "speaker": "Homeowner",
+          "text": "So I don't have to deal with stress, my son can't do it anyway because of insurance rules, and we can wait to pay until I have the money?"
+        },
+        {
+          "speaker": "Maria",
+          "text": "That's exactly right, Mrs. Patterson. All I need today is your signature to file the claim. We handle the rest. Sound good?"
+        }
+      ],
+      "outcome": "All three family members agreed. Claim filed and approved for $124,000. Work scheduled four months later when homeowner received tax refund. Family referred two neighbors to Maria.",
+      "technique": "Multi-stakeholder negotiation - address each person's unique concern individually, build consensus one person at a time, create win-win framing for entire group.",
+      "lesson": "Complex sales with multiple decision-makers require individual attention to each stakeholder's concerns. Don't try to convince everyone at once - build agreement one person at a time, then unify the decision."
+    }
+  ],
+  "sections": [
+    {
+      "id": "advanced-closing",
+      "title": "Advanced Closing Techniques - Beyond the Basic Script",
+      "duration": "50 minutes",
+      "content": "**Closing Mastery for Complex Situations**\n\nWhile the standard scripts work for most homeowners, you will encounter situations requiring advanced closing techniques. These strategies help you convert hesitant prospects into sign-ups.\n\n**TECHNIQUE 1: The Assumptive Close**\n\n**What It Is:**\nSpeak and act as if the homeowner has already agreed to move forward. Do not ask IF they want to proceed - assume they do and discuss WHEN and HOW.\n\n**Example Applications:**\n\n**After Inspection:**\n'Okay, so the next step is filing the claim with your insurance company. Do you have the app on your phone, or should we log in through the website?'\n[Notice: Not asking IF they want to file - assuming they do]\n\n**Scheduling Follow-Up:**\n'The adjuster will call within 24-48 hours. Make sure to ask them to contact me directly so I can coordinate the best time. Sound good?'\n[Notice: Giving instructions, not asking permission]\n\n**Why It Works:**\n- Reduces decision fatigue\n- Creates momentum\n- Feels collaborative, not pressuring\n- Assumes the sale is natural next step\n\n---\n\n**TECHNIQUE 2: The Alternative Choice Close**\n\n**What It Is:**\nOffer two options that both move the sale forward. Let them choose between A or B, not between yes or no.\n\n**Example Applications:**\n\n**Inspection Scheduling:**\n'I can do the inspection right now, or I can come back this evening around 5 or 6. Which works better for you?'\n[Notice: Both options result in inspection]\n\n**Claim Filing:**\n'We can file the claim using your app right now, or I can help you call the insurance company directly. Which would you prefer?'\n[Notice: Both options result in claim being filed]\n\n**Why It Works:**\n- Gives homeowner sense of control\n- Both choices advance the sale\n- Avoids yes/no decision point\n- Reduces objections\n\n---\n\n**TECHNIQUE 3: The Takeaway Close**\n\n**What It Is:**\nRemove pressure by suggesting you might not be able to help. This creates scarcity and makes the homeowner 'sell themselves.'\n\n**Example Applications:**\n\n**Hesitant Homeowner:**\n'I completely understand if now is not the right time. To be honest, I do not even know if you have qualifying damage. Let me take a quick look, and if you do not, we will be done. I would not want to waste your time or mine. Fair?'\n\n**Overwhelmed Homeowner:**\n'I hear you - this might not be the right fit. If you would rather handle this on your own, that is totally fine. I just want to make sure you have the option of having an expert in your corner if you need it. Does that make sense?'\n\n**Why It Works:**\n- Removes sales pressure\n- Triggers fear of missing out (FOMO)\n- Makes homeowner re-evaluate their objection\n- Positions you as a resource, not a salesperson\n\n---\n\n**TECHNIQUE 4: The Social Proof Stack**\n\n**What It Is:**\nPile multiple forms of credibility and social proof in rapid succession to overwhelm objections.\n\n**Example Application:**\n\n'I completely understand your hesitation. Here is what I want you to know: We are GAF Master Elite certified - top 2% of roofing companies nationwide. We have over 200 five-star reviews from homeowners just like you. Your neighbor three houses down used us last month and got fully approved. We have helped hundreds of families in this neighborhood alone. All I am asking is 15 minutes for a free inspection. If I do not find damage, I will let you know and be on my way. Can I at least take a look?'\n\n**Why It Works:**\n- Multiple credibility markers in quick succession\n- Hard to object to stacked social proof\n- Reduces risk perception\n- Makes saying no feel like missing out\n\n---\n\n**TECHNIQUE 5: The Micro-Commitment Ladder**\n\n**What It Is:**\nGet small commitments first, then build to larger ones. Each yes makes the next yes easier.\n\n**Example Progression:**\n\n**Step 1 (Tiny Commitment):**\n'Can I just walk around the perimeter while we talk?'\n[Most say yes - very small ask]\n\n**Step 2 (Small Commitment):**\n'I see some potential damage from here. Let me grab the ladder and take a closer look from the roof. I will be quick.'\n[Already committed to perimeter, ladder is logical next step]\n\n**Step 3 (Medium Commitment):**\n'I found qualifying damage. Let me show you the photos so you can see what I am talking about.'\n[Already invested time, naturally want to see findings]\n\n**Step 4 (Large Commitment):**\n'This definitely qualifies for a claim. Let me help you file it right now while I am here. Do you have your insurance app on your phone?'\n[Momentum from previous yeses makes this feel natural]\n\n**Why It Works:**\n- Small commitments build psychological consistency\n- Each yes reduces resistance to next ask\n- Creates natural progression\n- Hard to say no after multiple yeses\n\n---\n\n**TECHNIQUE 6: The Reversal Close**\n\n**What It Is:**\nWhen homeowner objects, agree with them enthusiastically and then provide the reason why that very objection is why they SHOULD proceed.\n\n**Example Applications:**\n\n**'I do not have time':**\n'Exactly! That is why we handle everything for you. You do not have to become an insurance expert or spend hours on the phone. We do all the heavy lifting - you just need to be present for key meetings. That is the whole point!'\n\n**'I do not know if I want to deal with insurance':**\n'I hear you - that is exactly why I am here! Insurance companies can be a nightmare to deal with. We handle all the communication so you do not have to. You just get the result.'\n\n**Why It Works:**\n- Disarms the objection by agreeing\n- Reframes objection as reason to proceed\n- Shows you understand their concern\n- Positions your service as the solution\n\n---\n\n**TECHNIQUE 7: The Urgency Creator**\n\n**What It Is:**\nCreate legitimate urgency without false pressure.\n\n**Example Applications:**\n\n**Storm Date Reference:**\n'The storms that came through on [date] caused a lot of damage in this area. Insurance companies have a statute of limitations on claims, and the longer you wait, the harder it is to prove the damage is from that storm. That is why we are out here now - to catch this before it is too late.'\n\n**Neighbor Activity:**\n'We have already helped five families on this street get approved. When insurance sees multiple claims from the same area, it actually strengthens your case because it confirms there was a storm event. You want to be part of that cluster, not outside of it.'\n\n**Deterioration Risk:**\n'Here is the thing about storm damage - it does not get better with time. If you have hail damage and water starts getting under those compromised shingles, you could end up with wood rot or mold. At that point, insurance may deny the claim saying it is due to neglect. We want to document this now while it is clearly storm damage.'\n\n**Why It Works:**\n- Creates time-based reason to act now\n- Based on legitimate concerns, not fake scarcity\n- Protects homeowner from real risks\n- Motivates immediate decision\n\n[ACTIVITY:photo-id-quick]\n\n\n\n[ACTIVITY:double-layer-code]\n\n[ACTIVITY:collateral-timed]\n\n",
+      "activities": [
+        {
+          "id": "advanced-closing-auto-workflow",
+          "title": "Workflow Simulator - Advanced Closing Techniques - Beyond the Basic Script",
+          "description": "Practice the correct sequence of actions based on this section.",
+          "type": "workflow-simulator",
+          "points": 15,
+          "data": {
+            "scenario": "Apply the concepts from \"Advanced Closing Techniques - Beyond the Basic Script\" in the correct order.",
+            "timeLimit": 240,
+            "workflowSteps": [
+              {
+                "id": "prep",
+                "step": "Prepare resources",
+                "correctOrder": 1,
+                "duration": "30s",
+                "tips": [
+                  "Review checklist"
+                ]
+              },
+              {
+                "id": "execute",
+                "step": "Execute core step",
+                "correctOrder": 2,
+                "duration": "1-2m",
+                "tips": [
+                  "Follow best practices"
+                ]
+              },
+              {
+                "id": "document",
+                "step": "Document & upload",
+                "correctOrder": 3,
+                "duration": "1m",
+                "tips": [
+                  "Ensure accuracy before upload"
+                ]
+              }
+            ],
+            "scenarioDetails": "**Closing Mastery for Complex Situations**\n\nWhile the standard scripts work for most homeowners, you will encounter situations requiring advanced closing techniques. These strategies help you convert "
+          }
+        },
+        {
+          "id": "advanced-closing-photo-analysis-1",
+          "title": "Photo Analysis - claims filing portal",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "advanced-closing-img-1",
+                "imageUrl": "/assets/slides/slide-54-image390.PNG",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "advanced-closing-photo-analysis-2",
+          "title": "Photo Analysis - claims filing portal",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "advanced-closing-img-1",
+                "imageUrl": "/assets/slides/slide-54-image49.PNG",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "photo-id-quick",
+          "agnesTip": "Speed ID photos—use angled light where helpful.",
+          "type": "image-quiz",
+          "title": "Photo ID — Quick Check",
+          "description": "Identify the damage type or best action from each photo.",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "hail-1",
+                "imageUrl": "/assets/photo-reports/roof_photo_10.jpg",
+                "correctAnswer": "Hail impact"
+              },
+              {
+                "id": "nodmg-1",
+                "imageUrl": "/assets/photo-reports/roof_photo_19.jpg",
+                "correctAnswer": "No"
+              },
+              {
+                "id": "collateral-1",
+                "imageUrl": "/assets/photo-reports/roof_photo_09.jpg",
+                "correctAnswer": "Gutter dents and downspout damage"
+              }
+            ]
+          }
+        },
+        {
+          "id": "double-layer-code",
+          "agnesTip": "Most specs require full tear-off.",
+          "type": "multiple-choice",
+          "title": "Double-Layer Roofing — Code Compliance",
+          "description": "Decide the proper action when an existing roof has multiple layers.",
+          "points": 10,
+          "data": {
+            "question": "You discover the roof has two existing layers of shingles. What is the correct action under most building codes and manufacturer specs?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Install the third layer if decking is sound",
+                "isCorrect": false,
+                "explanation": "A third layer is typically prohibited and voids warranty."
+              },
+              {
+                "id": "b",
+                "text": "Remove all layers to decking before installing new roof",
+                "isCorrect": true,
+                "explanation": "Tear-off to decking is the standard requirement for code/manufacturer compliance."
+              },
+              {
+                "id": "c",
+                "text": "Overlay only the damaged slopes",
+                "isCorrect": false,
+                "explanation": "Partial overlays violate code/manufacturer requirements and lead to failures."
+              },
+              {
+                "id": "d",
+                "text": "Patch visible issues and leave existing layers",
+                "isCorrect": false,
+                "explanation": "Patching over multiple layers is non-compliant and unsafe."
+              }
+            ],
+            "allowMultiple": false
+          }
+        },
+        {
+          "id": "collateral-timed",
+          "agnesTip": "Collateral strengthens coverage decisions.",
+          "type": "timed-challenge",
+          "title": "Collateral Documentation — Timed Drill",
+          "description": "Choose the best response under time pressure for common collateral situations.",
+          "points": 12,
+          "data": {
+            "timeLimit": 25,
+            "scenarios": [
+              {
+                "objection": "You see dents on the downspouts and soft metal.\nWhat should you do?",
+                "correctResponse": "Photograph close-ups with a coin for scale and label as collateral evidence",
+                "incorrectResponses": [
+                  "Skip collateral and focus only on roof surface",
+                  "Ask homeowner to describe dents later",
+                  "Only video record; no still photos"
+                ]
+              },
+              {
+                "objection": "Window screens show tears and pitting. Best documentation?",
+                "correctResponse": "Take macro photos, capture serial/brand if present, and include in report",
+                "incorrectResponses": [
+                  "Note verbally in the estimate only",
+                  "Ignore screens unless homeowner requests replacement",
+                  "Only take a single distant photo"
+                ]
+              },
+              {
+                "objection": "Garage door has impact marks consistent with hail.",
+                "correctResponse": "Capture angled lighting photos to show dimples; include multiple elevations",
+                "incorrectResponses": [
+                  "Use flash only and take one photo",
+                  "Report as cosmetic and move on",
+                  "Wait for adjuster to document"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "template-deployment",
+      "title": "Strategic Template Deployment for Partial Approvals",
+      "duration": "55 minutes",
+      "content": "**Turning Partials Into Full Approvals**\n\nPartial approvals are common - insurance approves some items but not others. The template library is your arsenal for fighting back and converting partials to full approvals.\n\n**THE TEMPLATE LIBRARY:**\n\n**1. Generic Partial Template**\n**When to Use:** Insurance approves roof but denies other items (gutters, siding, etc.)\n**Purpose:** Professional response requesting reconsideration of denied items\n**Key Arguments:**\n- Itemize what was denied\n- Reference collateral damage documentation\n- Cite matching damage pattern\n- Request reconsideration with supporting photos\n\n**Example Situation:**\nRoof approved, gutters and downspouts denied despite visible denting\n\n**Your Action:**\n1. Review Photo Report for gutter/downspout damage documentation\n2. Select Generic Partial Template\n3. Customize with specific damage locations and photo references\n4. Submit via email with Photo Report attached\n5. CC homeowner and claim authorization\n\n---\n\n**2. Repair Attempt Template + Video**\n**When to Use:** Insurance says they will only pay for repairs, not replacement\n**Purpose:** Document that repairs are not viable and replacement is necessary\n**Key Arguments:**\n- Repairs violate manufacturer warranty (GAF guidelines)\n- Matching issues (shingles discontinued or not available)\n- Code requirements mandate full replacement\n- Repairs do not restore property to pre-loss condition\n\n**Example Situation:**\nInsurance offers to repair 10 shingles on one slope instead of replacing entire slope\n\n**Your Action:**\n1. Use Repair Attempt Template language\n2. Cite GAF Slope Replacement Requirement\n3. Reference manufacturer warranty voiding\n4. Include Danny's Repair Attempt Video (if available)\n5. Escalate to Team Leader if carrier persists\n\n---\n\n**3. iTel Template + Discontinued Shingle Report**\n**When to Use:** Shingles are discontinued or unavailable for matching\n**Purpose:** Prove shingles cannot be matched, requiring full roof replacement\n**Key Arguments:**\n- Shingle manufacturer discontinued product\n- No available matching shingles in market\n- Matching law requires like kind and quality\n- Full replacement is only way to comply with matching requirement\n\n**Example Situation:**\nHomeowner has 15-year-old CertainTeed shingles that are no longer manufactured\n\n**Your Action:**\n1. Research shingle brand and model\n2. Verify discontinuation via manufacturer website\n3. Generate iTel report (discontinued shingle verification)\n4. Use iTel Template to present to insurance\n5. Reference state matching laws (MD, VA, PA)\n6. Sign iTel Agreement with homeowner\n\n---\n\n**4. GAF Guidelines Template**\n**When to Use:** Insurance denies slope replacement or proper installation methods\n**Purpose:** Cite manufacturer requirements that override insurance preferences\n**Key Arguments:**\n- GAF requires full slope replacement when damage exceeds threshold\n- Partial repairs void GAF warranty\n- Manufacturer guidelines supersede insurance cost preferences\n- Homeowner entitled to like kind and quality = warranted roof\n\n**Example Situation:**\nInsurance approves hail damage but wants to replace only damaged shingles, not full slope\n\n**Your Action:**\n1. Reference GAF Storm Damage Guidelines document\n2. Cite specific slope replacement requirements\n3. Use GAF Guidelines Template language\n4. Attach GAF Requirement - Slope Replacement document\n5. Emphasize warranty voiding risk to homeowner and insurance\n\n---\n\n**5. Estimate Request Template**\n**When to Use:** Insurance refuses to provide detailed estimate or line-item breakdown\n**Purpose:** Formally request complete estimate with itemization\n**Key Arguments:**\n- Homeowner entitled to understand approved claim scope\n- Cannot verify accuracy without line-item detail\n- Required for contractor bidding and comparison\n- Standard practice for transparency\n\n**Example Situation:**\nInsurance says claim is approved but only provides total dollar amount, no itemization\n\n**Your Action:**\n1. Use Estimate Request Template\n2. Formally request line-item estimate\n3. Set reasonable deadline (10-14 days)\n4. Escalate if not provided\n5. File complaint if carrier refuses\n\n---\n\n**6. Siding Argument Template**\n**When to Use:** Insurance approves roof but denies siding despite visible damage\n**Purpose:** Prove siding has matching storm damage requiring coverage\n**Key Arguments:**\n- Hail hits documented on multiple elevations\n- Same storm event caused both roof and siding damage\n- Matching damage pattern proves causation\n- Collateral damage supports overall claim\n\n**Example Situation:**\nAluminum siding shows denting on all elevations, but insurance only approved roof\n\n**Your Action:**\n1. Review elevation photos for siding damage\n2. Use Siding Argument Template\n3. Emphasize matching pattern across property\n4. Include close-up photos of siding dents\n5. Reference discontinuation if siding is older (triggers iTel for siding)\n\n---\n\n**7. Flashing Codes Template**\n**When to Use:** Insurance denies flashing replacement despite code requirements\n**Purpose:** Cite building code mandates for flashing replacement\n**Key Arguments:**\n- VA/MD/PA building codes require flashing replacement with roof replacement\n- Step flashing cannot be reused per code\n- Counter flashing and apron flashing must meet current code\n- Code compliance is non-negotiable\n\n**Example Situation:**\nInsurance approves roof replacement but wants to reuse existing step flashing\n\n**Your Action:**\n1. Identify applicable state code (VA, MD, or PA)\n2. Use Flashing Codes Template\n3. Attach state-specific code document\n4. Cite specific code sections\n5. Emphasize legal requirement for compliance\n\n---\n\n**8. Template from Customer to Insurance**\n**When to Use:** Carrier is not responding to contractor communication\n**Purpose:** Have homeowner send formal request from policyholder perspective\n**Key Arguments:**\n- Written by homeowner, not contractor\n- Asserts policyholder rights\n- References policy obligations\n- Creates paper trail for potential complaint\n\n**Example Situation:**\nInsurance adjuster ignoring your emails and homeowner calls\n\n**Your Action:**\n1. Draft template for homeowner signature\n2. Homeowner sends via email and certified mail\n3. Creates formal record of carrier non-response\n4. Sets up complaint filing if no response\n\n---\n\n**TEMPLATE DEPLOYMENT STRATEGY:**\n\n**Step 1: Analyze the Partial**\n- What was approved?\n- What was denied?\n- What was the stated reason for denial?\n\n**Step 2: Select Appropriate Template(s)**\n- Match template to specific denial reason\n- Multiple templates may apply\n- Prioritize strongest arguments\n\n**Step 3: Customize with Specifics**\n- Insert property address, claim number, dates\n- Reference specific photos and documentation\n- Cite applicable codes, laws, guidelines\n- Personalize language while keeping professional tone\n\n**Step 4: Submit Professionally**\n- Email to adjuster with CC to homeowner\n- Attach supporting documents (Photo Report, codes, iTel, etc.)\n- Set reasonable response deadline\n- Document submission in CRM\n\n**Step 5: Follow Up Persistently**\n- Weekly follow-ups if no response\n- Escalate to adjuster supervisor after 2 weeks\n- Prepare for next escalation level if needed\n\n**Step 6: Know When to Escalate**\n- Template response fails to change decision\n- Carrier ignores communication\n- Supervisor upholds denial without valid reason\n- Time to involve Team Leader or Sales Manager",
+      "activities": [
+        {
+          "id": "template-deployment-auto-workflow",
+          "title": "Workflow Simulator - Strategic Template Deployment for Partial Approvals",
+          "description": "Practice the correct sequence of actions based on this section.",
+          "type": "workflow-simulator",
+          "points": 15,
+          "data": {
+            "scenario": "Apply the concepts from \"Strategic Template Deployment for Partial Approvals\" in the correct order.",
+            "timeLimit": 240,
+            "workflowSteps": [
+              {
+                "id": "prep",
+                "step": "Prepare resources",
+                "correctOrder": 1,
+                "duration": "30s",
+                "tips": [
+                  "Review checklist"
+                ]
+              },
+              {
+                "id": "execute",
+                "step": "Execute core step",
+                "correctOrder": 2,
+                "duration": "1-2m",
+                "tips": [
+                  "Follow best practices"
+                ]
+              },
+              {
+                "id": "document",
+                "step": "Document & upload",
+                "correctOrder": 3,
+                "duration": "1m",
+                "tips": [
+                  "Ensure accuracy before upload"
+                ]
+              }
+            ],
+            "scenarioDetails": "**Turning Partials Into Full Approvals**\n\nPartial approvals are common - insurance approves some items but not others. The template library is your arsenal for fighting back and converting partials to"
+          }
+        },
+        {
+          "id": "template-deployment-photo-analysis-1",
+          "title": "Photo Analysis - discontinued shingles",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "template-deployment-img-1",
+                "imageUrl": "/assets/slides/slide-16-image22.jpeg",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "template-deployment-photo-analysis-2",
+          "title": "Photo Analysis - discontinued shingles",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "template-deployment-img-1",
+                "imageUrl": "/assets/slides/slide-16-image21.jpeg",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "escalation-matrix",
+      "title": "The Escalation Matrix - When and How to Escalate",
+      "duration": "45 minutes",
+      "content": "**Strategic Escalation for Maximum Results**\n\nKnowing when to escalate and to whom is critical. Escalate too early and you lose credibility. Escalate too late and you waste time. This matrix guides your decision-making.\n\n**LEVEL 1: SELF-RESOLUTION (1-2 Weeks)**\n\n**When to Use:**\n- Initial partial approval or denial\n- Standard pushback from adjuster\n- Common denials (gutters, siding, flashing)\n\n**Your Actions:**\n1. Review training scenarios (Q501-Q600) for similar situations\n2. Select appropriate template(s) from library\n3. Gather supporting documentation (Photo Report, codes, guidelines)\n4. Submit professional response with evidence\n5. Follow up weekly\n\n**Success Indicators:**\n- Carrier requests additional information (positive engagement)\n- Adjuster schedules follow-up inspection\n- Carrier issues supplemental payment\n\n**Escalation Triggers:**\n- No response after 2 weeks\n- Carrier denies again without addressing your evidence\n- Adjuster becomes hostile or dismissive\n\n**Documentation Required Before Escalating:**\n- Complete Photo Report submitted\n- Template response sent with all supporting documents\n- Record of communication attempts (emails, calls, dates)\n- Clear articulation of dispute\n\n---\n\n**LEVEL 2: PEER CONSULTATION (Concurrent with Level 1)**\n\n**When to Use:**\n- Unfamiliar situation\n- Uncertain which template to use\n- Want to validate approach before submitting\n\n**Your Actions:**\n1. Consult with experienced teammates\n2. Review similar cases in team knowledge base\n3. Ask for template customization guidance\n4. Get feedback on documentation completeness\n\n**Success Indicators:**\n- Teammates provide relevant experience\n- Template approach validated\n- Increased confidence in strategy\n\n**This Level:**\nDoes NOT replace formal escalation - it supplements your self-resolution efforts\n\n---\n\n**LEVEL 3: TEAM LEADER REVIEW (Week 2-3)**\n\n**When to Use:**\n- Self-resolution failed (template response denied)\n- Carrier not responding to communication\n- Need strategic guidance on next steps\n- Homeowner getting anxious about timeline\n\n**Requirements Before Escalating to Team Leader:**\n- ✅ Complete Photo Report submitted to carrier\n- ✅ Appropriate template response sent with supporting docs\n- ✅ Minimum 2 weeks elapsed with follow-up attempts\n- ✅ Documentation of all communication in CRM\n- ✅ Clear summary of issue prepared\n\n**What Team Leader Provides:**\n- Review of your approach and documentation\n- Coaching on alternative strategies\n- Direct communication with adjuster (if appropriate)\n- Decision on whether to escalate further\n\n**Success Indicators:**\n- Team Leader validates your approach\n- Team Leader direct intervention resolves issue\n- New strategy identified for your implementation\n\n**Escalation Triggers:**\n- Team Leader intervention fails\n- Carrier escalates to supervisor level\n- Timeline exceeds reasonable standards\n\n---\n\n**LEVEL 4: SALES MANAGER INVOLVEMENT (Week 4-6)**\n\n**When to Use:**\n- Team Leader review did not resolve issue\n- High-value claim with significant denial\n- Carrier supervisor involved and denying\n- Homeowner considering dropping claim\n\n**Requirements Before Escalating to Sales Manager:**\n- ✅ All Level 1 and Level 3 requirements met\n- ✅ Team Leader review completed\n- ✅ Carrier supervisor has been contacted\n- ✅ Multiple template responses submitted\n- ✅ Complete documentation package prepared\n\n**What Sales Manager Provides:**\n- Senior-level carrier relationship leverage\n- Communication with carrier claims manager\n- Decision on complaint vs arbitration path\n- Authorization for arbitration (if appropriate)\n\n**Success Indicators:**\n- Sales Manager leverage changes carrier position\n- Carrier agrees to re-inspection\n- Supplemental payment issued\n\n**Escalation Triggers:**\n- Sales Manager intervention fails\n- Carrier refuses to move despite valid arguments\n- Violation of state regulations or policy terms\n\n---\n\n**LEVEL 5: STATE COMPLAINT FILING (Week 6-8)**\n\n**When to Use:**\n- Carrier violates state regulations\n- Excessive delays beyond statutory timelines\n- Bad faith denial despite clear evidence\n- Carrier ignoring communication entirely\n\n**When to File Complaint (Not Arbitration):**\n- ❌ Carrier ignoring time limits for estimate\n- ❌ Carrier not responding to communications\n- ❌ Carrier violating state matching laws\n- ❌ Carrier refusing to schedule re-inspection\n- ❌ Carrier denying without explanation\n\n**These are PROCESS failures, not coverage disputes**\n\n**Requirements Before Filing Complaint:**\n- ✅ All previous escalation levels attempted\n- ✅ Sales Manager authorization obtained\n- ✅ Complete documentation package\n- ✅ Evidence of carrier violations\n- ✅ Homeowner informed and agrees\n\n**How to File:**\n1. Use Complaint Forms.docx template\n2. Select appropriate state regulator\n3. Complete form with detailed timeline\n4. Attach all supporting documentation\n5. Submit via state regulator website/mail\n6. Provide homeowner with copy\n7. Notify carrier that complaint has been filed\n\n**What Happens Next:**\n- State regulator contacts carrier\n- Carrier must respond within regulatory timeframe\n- Often resolves issue quickly due to regulatory pressure\n\n---\n\n**LEVEL 6: ARBITRATION (Week 8+)**\n\n**When to Use:**\n- Coverage dispute under policy terms\n- Disagreement over policy interpretation\n- Carrier denies based on coverage exclusion\n- All other escalation levels exhausted\n\n**When to Use Arbitration (Not Complaint):**\n- ✅ Dispute is about policy coverage interpretation\n- ✅ Carrier processed claim but disputes what is covered\n- ✅ Disagreement over matching requirements\n- ✅ Dispute over RCV calculation or depreciation\n\n**These are COVERAGE disputes, not process failures**\n\n**Requirements Before Arbitration:**\n- ✅ Sales Manager MUST authorize\n- ✅ All other escalation levels attempted\n- ✅ Complaint filed and failed (if applicable)\n- ✅ Strong documentation supporting homeowner position\n- ✅ Homeowner understands process and costs\n\n**How Arbitration Works:**\n1. Use Arbitration Information.docx for process details\n2. File arbitration demand per policy terms\n3. Neutral arbitrator selected\n4. Both sides present evidence and arguments\n5. Arbitrator issues binding decision\n\n**Important Notes:**\n- Arbitration is LAST resort\n- Can be costly (arbitrator fees, time investment)\n- Decision is binding on both parties\n- Success rate varies\n\n---\n\n**DECISION MATRIX: COMPLAINT vs ARBITRATION**\n\n**File COMPLAINT when:**\n- Carrier not following proper procedures\n- Excessive delays\n- Ignoring communications\n- Violating state regulations\n- Bad faith processing\n\n**File ARBITRATION when:**\n- Dispute is about coverage interpretation\n- Carrier processed properly but denies coverage claim\n- Policy language interpretation disagreement\n- All complaints/escalations failed\n\n**Example:**\n- **Complaint:** Carrier has not responded in 60 days (process failure)\n- **Arbitration:** Carrier says policy excludes matching law (coverage dispute)\n\n---\n\n**ESCALATION BEST PRACTICES:**\n\n**1. Document Everything**\n- Every email, call, conversation\n- Dates, times, names of people contacted\n- What was said, what was promised\n- CRM notes for every interaction\n\n**2. Never Skip Levels**\n- Each escalation level builds on previous\n- Skipping levels reduces credibility\n- Follow the process systematically\n\n**3. Keep Homeowner Informed**\n- Weekly updates minimum\n- Transparent about timeline\n- Set realistic expectations\n- Get homeowner buy-in before escalating\n\n**4. Maintain Professionalism**\n- Never hostile, emotional, or threatening\n- Factual, firm, and respectful\n- Professional communication at all levels\n- Preserve relationships when possible\n\n**5. Know When to Let Go**\n- Some claims will not convert\n- Do not waste months on low-probability claims\n- Sales Manager will help determine when to close as denied\n- Move on to next opportunities",
+      "activities": [
+        {
+          "id": "escalation-matrix-auto-workflow",
+          "title": "Workflow Simulator - The Escalation Matrix - When and How to Escalate",
+          "description": "Practice the correct sequence of actions based on this section.",
+          "type": "workflow-simulator",
+          "points": 15,
+          "data": {
+            "scenario": "Apply the concepts from \"The Escalation Matrix - When and How to Escalate\" in the correct order.",
+            "timeLimit": 240,
+            "workflowSteps": [
+              {
+                "id": "prep",
+                "step": "Prepare resources",
+                "correctOrder": 1,
+                "duration": "30s",
+                "tips": [
+                  "Review checklist"
+                ]
+              },
+              {
+                "id": "execute",
+                "step": "Execute core step",
+                "correctOrder": 2,
+                "duration": "1-2m",
+                "tips": [
+                  "Follow best practices"
+                ]
+              },
+              {
+                "id": "document",
+                "step": "Document & upload",
+                "correctOrder": 3,
+                "duration": "1m",
+                "tips": [
+                  "Ensure accuracy before upload"
+                ]
+              }
+            ],
+            "scenarioDetails": "**Strategic Escalation for Maximum Results**\n\nKnowing when to escalate and to whom is critical. Escalate too early and you lose credibility. Escalate too late and you waste time. This matrix guides yo"
+          }
+        },
+        {
+          "id": "escalation-matrix-photo-analysis-1",
+          "title": "Photo Analysis - claims filing portal",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "escalation-matrix-img-1",
+                "imageUrl": "/assets/slides/slide-54-image390.PNG",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "escalation-matrix-photo-analysis-2",
+          "title": "Photo Analysis - claims filing portal",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "escalation-matrix-img-1",
+                "imageUrl": "/assets/slides/slide-54-image49.PNG",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "negotiation-tactics",
+      "title": "Negotiation Tactics with Adjusters and Supervisors",
+      "duration": "40 minutes",
+      "content": "**Professional Negotiation in Adversarial Situations**\n\nInsurance adjusters are trained negotiators. You must match their skill with professionalism, preparation, and strategic tactics.\n\n**CORE NEGOTIATION PRINCIPLES:**\n\n**1. Preparation is Everything**\n\nBefore any negotiation (adjuster meeting, phone call, email exchange):\n- ✅ Review complete Photo Report\n- ✅ Know every piece of documented damage\n- ✅ Have applicable codes, guidelines, laws ready\n- ✅ Understand homeowner's policy terms\n- ✅ Know your walk-away point\n\n**Unprepared = Losing Position**\n\n**2. Establish Credibility Early**\n\nFirst impression matters:\n- State your credentials (GAF Master Elite)\n- Reference your experience ('I do this every day')\n- Demonstrate knowledge of policy and codes\n- Show comprehensive documentation\n\n**Script:**\n'I appreciate you taking the time to review this. Just so you know, we are GAF Master Elite certified and I have been doing storm damage inspections for [time period]. I have documented everything thoroughly and have all the supporting codes and guidelines if needed.'\n\n**3. Build Rapport When Possible**\n\nNot every negotiation is adversarial:\n- Find common ground\n- Be personable and professional\n- Offer to help make their job easier\n- Show respect for their expertise\n\n**Script:**\n'I know you see a lot of claims. I tried to make your job easier by organizing everything clearly in the Photo Report. Let me know if you need any additional documentation.'\n\n**4. Use Data, Not Emotion**\n\nFacts win negotiations:\n- ❌ 'This is unfair to the homeowner'\n- ✅ 'The policy covers like kind and quality, and this shingle is discontinued per the iTel report'\n\n- ❌ 'You are just trying to save money'\n- ✅ 'Building code section R703 requires exterior wrap replacement, as documented here'\n\n**5. Ask Questions Instead of Making Statements**\n\nQuestions create engagement and reveal reasoning:\n- ❌ 'You are wrong about the flashing'\n- ✅ 'Can you help me understand why flashing was denied when the building code requires replacement?'\n\n- ❌ 'That does not make sense'\n- ✅ 'What is the reasoning for denying the gutters when we documented denting on all elevations?'\n\n**6. Give Them an Out (Save Face)**\n\nPeople resist when backed into corners:\n- Provide new information they can 'discover'\n- Let them 'reconsider based on additional evidence'\n- Allow them to change position without admitting error\n\n**Script:**\n'I understand your initial assessment. Since then, I have gathered additional documentation [iTel report, code citations, etc.]. Based on this new information, would you be willing to reconsider?'\n\n---\n\n**TACTICAL APPROACHES:**\n\n**TACTIC 1: The Anchor**\n\nSet the expectation high:\n\n**Example:**\n'Based on the damage documented, we expect full roof replacement, full siding replacement due to matching law, gutter and downspout replacement, and all flashing per code requirements. Let me walk you through each item.'\n\n[Now the negotiation is about which of these get approved, not whether anything gets approved]\n\n**TACTIC 2: The Concession Pattern**\n\nGive small concessions to get larger agreements:\n\n**Example:**\n'I hear your concern about the back slope. How about this - let's agree on the front, left, and right slopes where damage is extensive, and we can discuss the back slope separately. Does that work?'\n\n[Get agreement on 75% now, negotiate the 25% separately]\n\n**TACTIC 3: The Higher Authority**\n\nReference guidelines/codes that supersede opinions:\n\n**Example:**\n'I understand your position, but GAF manufacturer guidelines require full slope replacement when damage exceeds this threshold. This is not my preference or yours - it is the manufacturer warranty requirement. We both have to follow it.'\n\n[Removes personal conflict - you are both bound by higher authority]\n\n**TACTIC 4: The Silence**\n\nAfter making your case, be quiet:\n\n**Example:**\nYou: 'Based on the discontinuation, matching law, and code requirements, full replacement is required. [STOP TALKING]'\n\nAdjuster: [Often fills silence with concession or reasoning]\n\n[The first person to speak often loses negotiating position]\n\n**TACTIC 5: The Collaborative Frame**\n\nPosition as joint problem-solving:\n\n**Example:**\n'We both want the same thing - to follow the policy terms and get the homeowner what they are entitled to. Let's figure out how to make this work within the policy. What information do you need from me to approve this?'\n\n[Creates partnership mindset, not adversarial]\n\n**TACTIC 6: The Deadline**\n\nSet reasonable deadlines for responses:\n\n**Example:**\n'I am submitting this template response with all supporting documentation today. Based on state regulations, I would expect a response within 10 business days. Can you confirm that timeline works on your end?'\n\n[Creates accountability and urgency]\n\n---\n\n**HANDLING DIFFICULT ADJUSTERS:**\n\n**The Dismissive Adjuster:**\n**Behavior:** Ignores your evidence, minimizes your expertise\n\n**Your Response:**\n'I understand you have a lot of experience. So do I - I have done hundreds of these inspections. Can you help me understand what additional documentation you need to approve this claim?'\n\n[Asserts your expertise politely, asks for specific guidance]\n\n**The Hostile Adjuster:**\n**Behavior:** Argumentative, defensive, personal attacks\n\n**Your Response:**\n'I appreciate your perspective. Let's focus on the documentation and the policy terms. What specifically in the policy supports denying this item?'\n\n[Redirects to facts, stays professional, does not engage emotionally]\n\n**The Silent Adjuster:**\n**Behavior:** Does not respond to emails or calls\n\n**Your Response:**\n1. Document all communication attempts\n2. Escalate to supervisor after 2 weeks\n3. Use 'Template from Customer to Insurance'\n4. File complaint if non-responsive continues\n\n[Systematic escalation, not personal frustration]\n\n**The 'Policy Says' Adjuster:**\n**Behavior:** Cites policy language to deny claims\n\n**Your Response:**\n'I have reviewed the policy as well. Section [X] states [language]. Can you show me where the policy excludes what we are claiming? I want to make sure I understand the specific exclusion.'\n\n[Force them to cite specific exclusion language, often reveals weak position]\n\n---\n\n**ADVANCED NEGOTIATION: The Trade**\n\nSometimes you can trade concessions:\n\n**Example:**\n'I hear your concern about the back slope. If we remove that from the claim, would you approve the front slope, gutters, and flashing without further dispute?'\n\n**When to Trade:**\n- Back slope has minimal damage anyway\n- Gutters and flashing are higher priority\n- Homeowner agrees to trade-off\n- Gets 90% of claim approved quickly\n\n**When NOT to Trade:**\n- Giving up significant value\n- Homeowner does not agree\n- Sets bad precedent\n- Adjuster is likely to approve anyway\n\n---\n\n**KEY TAKEAWAY:**\n\nNegotiation is not about being aggressive - it is about being:\n- **Prepared** with documentation\n- **Professional** in communication\n- **Persistent** in follow-up\n- **Strategic** in approach\n- **Flexible** when appropriate\n\n**The best negotiators win not by being loud, but by being thorough, credible, and relentless.**",
+      "activities": [
+        {
+          "id": "negotiation-tactics-auto-workflow",
+          "title": "Workflow Simulator - Negotiation Tactics with Adjusters and Supervisors",
+          "description": "Practice the correct sequence of actions based on this section.",
+          "type": "workflow-simulator",
+          "points": 15,
+          "data": {
+            "scenario": "Apply the concepts from \"Negotiation Tactics with Adjusters and Supervisors\" in the correct order.",
+            "timeLimit": 240,
+            "workflowSteps": [
+              {
+                "id": "prep",
+                "step": "Prepare resources",
+                "correctOrder": 1,
+                "duration": "30s",
+                "tips": [
+                  "Review checklist"
+                ]
+              },
+              {
+                "id": "execute",
+                "step": "Execute core step",
+                "correctOrder": 2,
+                "duration": "1-2m",
+                "tips": [
+                  "Follow best practices"
+                ]
+              },
+              {
+                "id": "document",
+                "step": "Document & upload",
+                "correctOrder": 3,
+                "duration": "1m",
+                "tips": [
+                  "Ensure accuracy before upload"
+                ]
+              }
+            ],
+            "scenarioDetails": "**Professional Negotiation in Adversarial Situations**\n\nInsurance adjusters are trained negotiators. You must match their skill with professionalism, preparation, and strategic tactics.\n\n**CORE NEGOTI"
+          }
+        },
+        {
+          "id": "negotiation-tactics-photo-analysis-1",
+          "title": "Photo Analysis - discontinued shingles",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "negotiation-tactics-img-1",
+                "imageUrl": "/assets/slides/slide-16-image22.jpeg",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "negotiation-tactics-photo-analysis-2",
+          "title": "Photo Analysis - discontinued shingles",
+          "description": "Identify what these images indicate and choose the best next action.",
+          "type": "photo-analysis",
+          "points": 10,
+          "data": {
+            "images": [
+              {
+                "id": "negotiation-tactics-img-1",
+                "imageUrl": "/assets/slides/slide-16-image21.jpeg",
+                "description": "Training slide reference",
+                "questions": [
+                  {
+                    "question": "What does this indicate?",
+                    "correctAnswer": "Proceed with documentation",
+                    "options": [
+                      "Proceed with documentation",
+                      "No action needed",
+                      "Cancel inspection"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "interactiveLearning": [
+    {
+      "id": "closing-practice",
+      "title": "Closing Techniques Practice Scenarios",
+      "type": "scenario",
+      "estimatedTime": "25 minutes",
+      "content": "Practice applying advanced closing techniques in realistic homeowner scenarios",
+      "activities": [
+        {
+          "id": "assumptive-application",
+          "title": "Assumptive Close Application",
+          "description": "Homeowner finished inspection, seems interested but hesitant. Apply assumptive close.",
+          "type": "role-play",
+          "data": {
+            "scenario": "You just showed homeowner photos of hail damage. They say 'This is interesting, let me think about it.'",
+            "good_response": "Perfect. While you're thinking, let me ask - do you have your insurance app on your phone, or should we call them directly? The claim process is simpler than most people think.",
+            "bad_response": "Okay, so do you want to move forward or not?",
+            "explanation": "Good response assumes they'll proceed and discusses HOW, not IF. Bad response forces yes/no decision that invites 'no'."
+          }
+        },
+        {
+          "id": "takeaway-practice",
+          "title": "Takeaway Close Practice",
+          "description": "Homeowner overwhelmed and saying 'I don't know if I can handle this right now.'",
+          "type": "role-play",
+          "data": {
+            "scenario": "Homeowner seems stressed and says 'This is a lot. I don't know if I want to deal with insurance right now.'",
+            "good_response": "I completely understand - you have a lot going on. Here's the thing though - you don't have to deal with insurance. That's literally why I'm here. I handle all of that for you. But if you'd rather not move forward, that's totally fine. I just don't want you to miss out on coverage you're entitled to. Fair?",
+            "bad_response": "But this is easy! It won't take long, I promise!",
+            "explanation": "Good response validates concern, removes pressure, creates FOMO. Bad response dismisses concern and creates more pressure."
+          }
+        }
+      ]
+    },
+    {
+      "id": "price-negotiation",
+      "title": "Price Negotiation Simulator",
+      "type": "scenario",
+      "estimatedTime": "30 minutes",
+      "content": "Handle price objections and competitor comparisons using value-based selling",
+      "activities": [
+        {
+          "id": "competitor-price",
+          "title": "Competitor Price Challenge",
+          "description": "Customer says competitor quoted 15% less. Respond with value differentiation.",
+          "type": "simulation",
+          "data": {
+            "scenario": "Homeowner: 'I got a quote from another company for $8,500 less than yours. Why should I pay more?'",
+            "good_response": "Great question. Can I ask - did that company show you GAF Master Elite certification? Because that's top 2% nationwide and includes 50-year labor warranty. Without that, you're comparing a 25-year materials-only warranty to our 50-year full coverage. If you have a leak in year 10, are you prepared to pay labor costs out of pocket? With us, it's covered. Which is actually cheaper over the life of your roof?",
+            "bad_response": "Well, we could maybe match that price if you really need us to.",
+            "explanation": "Good response reframes from price to lifetime value and warranty. Bad response commoditizes your service and trains customer to negotiate."
+          }
+        },
+        {
+          "id": "discount-request",
+          "title": "Discount Request Handling",
+          "description": "Customer asks for 10% discount. Respond by adding value instead of cutting price.",
+          "type": "simulation",
+          "data": {
+            "scenario": "Homeowner: 'Everything looks good, but can you give me 10% off to close the deal today?'",
+            "good_response": "I appreciate you wanting to move forward. Here's the challenge - I can't drop our price without compromising quality or cutting corners, and I won't do that to you. What I CAN do is add the architectural shingle upgrade we discussed at no additional cost. That's a $2,800 value that increases your home's curb appeal and lifespan. Would that make you feel great about moving forward today?",
+            "bad_response": "Okay, I can do 5% off if you sign right now.",
+            "explanation": "Good response holds price but adds value. Bad response trains customer to negotiate and reduces margin."
+          }
+        }
+      ]
+    },
+    {
+      "id": "trial-close-timing",
+      "title": "Trial Close Timing Exercise",
+      "type": "scenario",
+      "estimatedTime": "20 minutes",
+      "content": "Identify optimal moments throughout sales process to deploy trial closes",
+      "activities": [
+        {
+          "id": "trial-close-moments",
+          "title": "Trial Close Opportunity Recognition",
+          "description": "Identify when to deploy trial closes during inspection and presentation",
+          "type": "matching",
+          "data": {
+            "scenarios": [
+              {
+                "moment": "After showing first hail strike photo",
+                "trial_close": "See that damage? That's definitely qualifying. Do you want to file the claim today or wait until I finish the full inspection?",
+                "timing": "Early engagement - builds momentum"
+              },
+              {
+                "moment": "Homeowner says 'Wow, I didn't know it was that bad'",
+                "trial_close": "Yeah, most people don't see this from the ground. Good news is insurance should cover this. Do you have your policy information handy?",
+                "timing": "Capitalize on emotional reaction"
+              },
+              {
+                "moment": "After explaining GAF warranty benefits",
+                "trial_close": "Make sense? So when we file your claim, we'll make sure the estimate includes GAF-certified installation so you get that 50-year warranty. Sound good?",
+                "timing": "After value presentation - assume agreement"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "urgency-builder",
+      "title": "Urgency Script Builder",
+      "type": "interactive",
+      "estimatedTime": "25 minutes",
+      "content": "Create legitimate urgency without pressure using storm dates, neighbor activity, and deterioration risk",
+      "activities": [
+        {
+          "id": "storm-urgency",
+          "title": "Storm Date Urgency Creation",
+          "description": "Build urgency scripts based on storm timeline and statute of limitations",
+          "type": "builder",
+          "data": {
+            "components": [
+              "Storm date reference: 'The hail storm came through on [DATE]'",
+              "Timeline concern: 'Insurance companies get harder to work with the longer you wait'",
+              "Proof difficulty: 'After 3-6 months, they can argue it's wear and tear, not storm damage'",
+              "Neighbor validation: 'We've already helped 4 families on this street get approved'",
+              "Action step: 'That's why I'm here now - to document while it's clearly fresh storm damage'"
+            ],
+            "example_script": "The storms that came through on May 15th caused significant damage in this neighborhood. I've already helped four of your neighbors get approved. Here's the thing - insurance companies have internal statutes of limitations. The longer you wait, the harder they make it to prove the damage is from that storm and not just normal aging. Right now, these hail strikes are fresh and obvious. In six months, they won't look as clear, and insurance will use that against you. That's why we're out here now - catching this before it becomes a fight. Make sense?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "escalation-decision",
+      "title": "Escalation Decision Tree",
+      "type": "decision-tree",
+      "estimatedTime": "30 minutes",
+      "content": "Navigate complex claim scenarios and determine optimal escalation path",
+      "activities": [
+        {
+          "id": "escalation-scenarios",
+          "title": "When to Escalate Decision Practice",
+          "description": "Given claim status, decide whether to continue self-resolution or escalate",
+          "type": "decision-tree",
+          "data": {
+            "scenarios": [
+              {
+                "situation": "Week 1: Submitted Photo Report and Generic Partial Template. No response yet.",
+                "decision": "Continue self-resolution",
+                "explanation": "Too early to escalate - normal response time is 1-2 weeks. Follow up in one week.",
+                "action": "Send follow-up email, document in CRM, wait 1 week"
+              },
+              {
+                "situation": "Week 3: Sent two template responses, multiple follow-up emails. Adjuster not responding.",
+                "decision": "Escalate to Team Leader",
+                "explanation": "2+ weeks with no response meets escalation criteria. Time for Team Leader review.",
+                "action": "Prepare complete documentation package, escalate to Team Leader for guidance"
+              },
+              {
+                "situation": "Week 5: Team Leader contacted adjuster supervisor, still denied. High-value claim ($95K).",
+                "decision": "Escalate to Sales Manager",
+                "explanation": "Team Leader intervention failed, high claim value justifies Sales Manager involvement.",
+                "action": "Sales Manager to leverage carrier relationships and decide on complaint vs arbitration"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "value-stacking",
+      "title": "Value Stacking Challenge",
+      "type": "interactive",
+      "estimatedTime": "20 minutes",
+      "content": "Build compelling value propositions that justify premium pricing",
+      "activities": [
+        {
+          "id": "value-stack-builder",
+          "title": "Build Your Value Stack",
+          "description": "Stack multiple value elements to overcome price objections",
+          "type": "builder",
+          "data": {
+            "value_elements": [
+              "GAF Master Elite certification (top 2% nationwide)",
+              "50-year labor + materials warranty (vs competitor 25-year materials only)",
+              "200+ five-star reviews",
+              "Local reputation (neighbor references)",
+              "Full insurance handling (saves homeowner 20+ hours)",
+              "Code compliance expertise (prevents future issues)",
+              "Lifetime workmanship guarantee"
+            ],
+            "example_stack": "Here's what you're getting with us that you won't get with that cheaper competitor: We're GAF Master Elite certified - top 2% nationwide. That comes with a 50-year warranty on labor AND materials. Their 25-year materials-only warranty means if you have a leak in year 10, you're paying labor out of pocket - could be $5,000-$8,000. We have over 200 five-star reviews from homeowners in this area. Your neighbor three houses down used us last month. We handle all insurance communication so you don't spend 20 hours on the phone. And we guarantee code compliance so you never have issues during resale. That's not about being more expensive - it's about being the smarter investment. Make sense?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "complex-deal-navigator",
+      "title": "Complex Deal Navigator",
+      "type": "scenario",
+      "estimatedTime": "35 minutes",
+      "content": "Navigate multi-stakeholder decisions, financing challenges, and timeline complications",
+      "activities": [
+        {
+          "id": "multi-stakeholder",
+          "title": "Multiple Decision-Maker Scenarios",
+          "description": "Handle situations where multiple family members must approve",
+          "type": "simulation",
+          "data": {
+            "scenario": "Elderly homeowner, adult son (contractor), adult daughter (manages finances). Each has different objection.",
+            "challenges": [
+              "Homeowner: 'I don't want drama or stress'",
+              "Son: 'I can do this myself and save money'",
+              "Daughter: 'Mom can't afford the deductible right now'"
+            ],
+            "strategy": "Address each stakeholder individually, then unify: 1) Reassure homeowner about minimal involvement, 2) Explain insurance requires certified contractor (son can't bill insurance), 3) Offer to delay work start until deductible available while filing claim now",
+            "outcome": "All three agree when individual concerns addressed separately, then unified solution presented"
+          }
+        },
+        {
+          "id": "financing-challenge",
+          "title": "Deductible Financing Navigation",
+          "description": "Handle situations where homeowner can't afford deductible immediately",
+          "type": "simulation",
+          "data": {
+            "scenario": "Homeowner approved for $42,000 claim but can't afford $2,500 deductible for 3 months",
+            "solution": "File claim immediately to lock in approval while storm damage is fresh, schedule work for when deductible is available (within policy timelines), explain claim approval doesn't expire quickly",
+            "script": "Great news is we can file the claim now and lock in that approval while the damage is clearly from the recent storm. Insurance gives you up to a year to complete work in most cases. We can schedule your project for three months from now when you have the deductible available. The important thing is getting the claim approved NOW before time passes and insurance starts questioning whether this is really storm damage. Does that work for you?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "objection-speed-drill",
+      "title": "Objection Response Speed Drill",
+      "type": "drill",
+      "estimatedTime": "20 minutes",
+      "content": "Rapid-fire objection handling to build automatic responses",
+      "activities": [
+        {
+          "id": "speed-responses",
+          "title": "Quick Objection Response Practice",
+          "description": "Respond to common objections within 5 seconds each",
+          "type": "speed-drill",
+          "data": {
+            "objections": [
+              {
+                "objection": "I need to talk to my spouse",
+                "response": "Absolutely - is your spouse home now? I'd love to walk them through this too so you're both on the same page.",
+                "timing": "3 seconds"
+              },
+              {
+                "objection": "I want to get other quotes",
+                "response": "Smart move. While you're getting quotes, make sure to ask if they're GAF Master Elite certified and what warranty they offer. Most aren't and can't match ours. I'll leave you my card - when you compare, call me if you have questions.",
+                "timing": "4 seconds"
+              },
+              {
+                "objection": "This feels rushed",
+                "response": "I totally get that. Nothing is rushed - you can think about this as long as you need. I just want to make sure you have all the information to make the right decision. What specifically feels rushed?",
+                "timing": "4 seconds"
+              },
+              {
+                "objection": "I can't afford the deductible",
+                "response": "Good news - you don't pay the deductible until work starts. We can file the claim now, get approved, and schedule work for whenever you have the deductible ready. Sound fair?",
+                "timing": "3 seconds"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "damage-id-quiz",
+      "title": "Damage Identification Image Quiz",
+      "type": "interactive",
+      "estimatedTime": "10 minutes",
+      "content": "Use real images to identify damage and determine next steps.",
+      "activities": [
+        {
+          "id": "photo-id-quick",
+          "title": "Identify Damage Type",
+          "description": "Select the correct classification and recommended action.",
+          "type": "image-quiz",
+          "data": {
+            "images": [
+              {
+                "id": "q1",
+                "imageUrl": "/assets/photo-reports/roof_photo_07.jpg",
+                "question": "What is the best documentation step here?",
+                "options": [
+                  "Capture close-up with chalked test square and label",
+                  "Only take wide shots",
+                  "Skip documentation",
+                  "Call adjuster without photos"
+                ],
+                "correctAnswer": "Capture close-up with chalked test square and label",
+                "explanation": "Use test squares and close-ups to document hit density and pattern across slopes."
+              },
+              {
+                "id": "q2",
+                "imageUrl": "/assets/photo-reports/roof_photo_08.jpg",
+                "question": "What is the best documentation step here?",
+                "options": [
+                  "Capture close-up with chalked test square and label",
+                  "Only take wide shots",
+                  "Skip documentation",
+                  "Call adjuster without photos"
+                ],
+                "correctAnswer": "Capture close-up with chalked test square and label",
+                "explanation": "Use test squares and close-ups to document hit density and pattern across slopes."
+              },
+              {
+                "id": "q3",
+                "imageUrl": "/assets/photo-reports/roof_photo_09.jpg",
+                "question": "What is the best documentation step here?",
+                "options": [
+                  "Capture close-up with chalked test square and label",
+                  "Only take wide shots",
+                  "Skip documentation",
+                  "Call adjuster without photos"
+                ],
+                "correctAnswer": "Capture close-up with chalked test square and label",
+                "explanation": "Use test squares and close-ups to document hit density and pattern across slopes."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "adjuster-rapid-response",
+      "title": "Adjuster Meeting Rapid Response",
+      "type": "interactive",
+      "estimatedTime": "10 minutes",
+      "content": "Practice quick, professional responses during adjuster meetings.",
+      "activities": [
+        {
+          "id": "adjuster-timed",
+          "title": "Rapid Response to Adjuster Statements",
+          "description": "Select the best response under light time pressure.",
+          "type": "timed-challenge",
+          "points": 10,
+          "data": {
+            "timeLimit": 20,
+            "scenarios": [
+              {
+                "objection": "I only see wear and tear.",
+                "correctResponse": "I appreciate the assessment. May I show you test squares where we documented discrete impact points consistent with the storm date?",
+                "incorrectResponses": [
+                  "It’s not wear and tear.",
+                  "You’re wrong.",
+                  "We’ll argue this later."
+                ]
+              },
+              {
+                "objection": "We can approve spot repairs.",
+                "correctResponse": "Under local code Section 1511.2, when damage exceeds threshold, full replacement is required. We’ve documented >25%. Can we review?",
+                "incorrectResponses": [
+                  "Repairs won’t work.",
+                  "Just approve full replacement.",
+                  "We’ll escalate."
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "claims-escalation",
+      "title": "Claims Escalation Pathway",
+      "type": "interactive",
+      "estimatedTime": "15 minutes",
+      "content": "Choose the best actions to escalate claims effectively and professionally.",
+      "activities": [
+        {
+          "id": "escalation-branch",
+          "title": "Escalation Decision Tree",
+          "description": "Select actions at each step to move the claim forward.",
+          "type": "branching-scenario",
+          "points": 10,
+          "data": {
+            "stages": [
+              {
+                "stage": "Partial Approval Received",
+                "decision": "Next step?",
+                "options": [
+                  {
+                    "choice": "Identify missing items and prepare supplement",
+                    "outcome": "Clear supplement path",
+                    "success": true
+                  },
+                  {
+                    "choice": "Tell homeowner to call adjuster",
+                    "outcome": "Loses control of process",
+                    "success": false
+                  }
+                ]
+              },
+              {
+                "stage": "Prepare Supplement",
+                "decision": "What to include?",
+                "options": [
+                  {
+                    "choice": "Photo report, code citations, manufacturer docs",
+                    "outcome": "Strong submission",
+                    "success": true
+                  },
+                  {
+                    "choice": "Short email",
+                    "outcome": "Likely delay",
+                    "success": false
+                  }
+                ]
+              },
+              {
+                "stage": "Follow-Up",
+                "decision": "Timing?",
+                "options": [
+                  {
+                    "choice": "7 business days with polite status check",
+                    "outcome": "Professional persistence",
+                    "success": true
+                  },
+                  {
+                    "choice": "Daily calls",
+                    "outcome": "May harm rapport",
+                    "success": false
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "code-compliance",
+      "title": "Code Compliance Quick Check",
+      "type": "interactive",
+      "estimatedTime": "10 minutes",
+      "content": "Test critical code items that frequently affect approvals.",
+      "activities": [
+        {
+          "id": "double-layer-code",
+          "title": "Double Layer – Recover or Tear-off?",
+          "description": "Local code and manufacturer guidance when a double layer exists.",
+          "type": "multiple-choice",
+          "points": 5,
+          "data": {
+            "question": "When a double layer of shingles exists, what is typically required by code?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Full tear-off before replacement",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Install third layer if weight allows",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Spot repair only",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Recover with overlay on all slopes",
+                "isCorrect": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "drip-edge-code",
+          "title": "Drip Edge Requirement",
+          "description": "Understand where drip edge is required.",
+          "type": "multiple-choice",
+          "points": 5,
+          "data": {
+            "question": "Where is drip edge required by current code?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At eaves and rakes",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Only at eaves",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Only at rakes",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Drip edge is optional",
+                "isCorrect": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "ventilation-code",
+          "title": "Ventilation Ratio",
+          "description": "Minimum ventilation for attic spaces.",
+          "type": "multiple-choice",
+          "points": 5,
+          "data": {
+            "question": "What is the common minimum ventilation ratio (unless balanced system or other local amendments)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "1:150",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "1:300",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "1:75",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "No minimum",
+                "isCorrect": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "collateral-drill",
+      "title": "Collateral Documentation Drill",
+      "type": "interactive",
+      "estimatedTime": "8 minutes",
+      "content": "Choose the best documentation step for collateral findings.",
+      "activities": [
+        {
+          "id": "collateral-timed",
+          "title": "Rapid Collateral Choices",
+          "description": "Select what to capture or label for collateral evidence.",
+          "type": "timed-challenge",
+          "points": 10,
+          "data": {
+            "timeLimit": 20,
+            "scenarios": [
+              {
+                "objection": "Gutter shows multiple small dents",
+                "correctResponse": "Photograph dents up-close with tape measure for scale and label elevation",
+                "incorrectResponses": [
+                  "Skip gutters",
+                  "Only wide shot",
+                  "Call adjuster without photos"
+                ]
+              },
+              {
+                "objection": "Downspout with visible impact marks",
+                "correctResponse": "Capture close-up and side angle, include chalk marks, label location",
+                "incorrectResponses": [
+                  "Photo from 20 feet",
+                  "No label",
+                  "Only roof photos"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "agnesContent": [
+    {
+      "id": "advanced-closing-coaching",
+      "title": "Advanced Closing Techniques - Agnes's Masterclass",
+      "type": "interactive",
+      "icon": "🎯",
+      "content": "Listen up. The difference between good reps and great reps isn't product knowledge or even charisma. It's closing technique. You can give the perfect presentation and still lose the sale if you don't know how to close. Let me teach you how the best closers in this industry operate.",
+      "points": [
+        "Assumptive close is your default. Stop asking IF they want to proceed. Start discussing WHEN and HOW. 'Do you have your insurance app, or should we call them directly?' Notice I didn't ask if they want to file - I assumed they do.",
+        "Alternative choice close eliminates 'no' as an option. Give them two paths that both lead to yes. 'I can do the inspection now, or come back at 5pm. Which works better?' Either answer moves the sale forward.",
+        "Takeaway close is counter-intuitive but powerful. When you sense hesitation, PULL BACK. 'If now's not the right time, that's totally fine. I just don't want you to miss out.' Creates FOMO and removes pressure simultaneously.",
+        "Micro-commitments build momentum. Start tiny: 'Can I walk the perimeter?' Then ladder up: 'Let me grab my ladder.' Then: 'Let me show you the photos.' Then: 'Let me help you file the claim.' Each small yes makes the next one easier.",
+        "Never compete on price - compete on value. When they want a discount, ADD VALUE instead of cutting price. 'I can't drop our price, but I can include the ridge vent upgrade at no cost.' You control the value equation, not the price.",
+        "Trial closes throughout the process. Don't wait until the end to close. Drop trial closes after every value point: 'Make sense?' 'Sound good?' 'Does that work?' Get micro-agreements that build to final close.",
+        "Urgency must be legitimate, not manufactured. Reference real storm dates, neighbor approvals, and deterioration timelines. Never create fake scarcity - homeowners see through it and you lose credibility."
+      ],
+      "duration": "18 minutes"
+    },
+    {
+      "id": "negotiation-mastery-coaching",
+      "title": "Negotiation Mastery - Win Without Being Aggressive",
+      "type": "interactive",
+      "icon": "🤝",
+      "content": "Negotiation isn't about being loud or pushy. It's about preparation, positioning, and persistence. Insurance adjusters are trained negotiators - you need to match their skill level. Here's how the pros negotiate claims and pricing.",
+      "points": [
+        "Preparation wins negotiations before they start. Know every photo, every code section, every policy clause. When you walk into negotiation with complete documentation, you've already won. Unprepared reps lose every time.",
+        "Anchor high and negotiate down, never anchor low. Start with full ask: 'We expect full roof, siding, gutters, and flashing per code.' Now negotiation is about WHICH items get approved, not WHETHER anything gets approved.",
+        "Ask questions instead of making statements. 'Can you help me understand why gutters were denied when we documented denting on all elevations?' Questions engage, statements trigger defense. Make them explain their reasoning.",
+        "Give them an out - let them save face. Nobody changes position when backed into a corner. 'I understand your initial assessment. Based on this new documentation, would you reconsider?' Let them 'discover' new information instead of admitting error.",
+        "Use silence as a weapon. After making your case, STOP TALKING. Let them fill the silence. First person to speak often loses negotiating position. Make your point, then zip it.",
+        "The collaborative frame beats adversarial every time. 'We both want to follow the policy terms and get the homeowner what they're entitled to. Let's figure out how to make that happen.' Creates partnership, not conflict.",
+        "Know when to trade concessions. If back slope is weak anyway, offer to remove it in exchange for approval on everything else. Get 90% approved quickly rather than fighting for 100% for months. Strategic concessions close deals."
+      ],
+      "duration": "20 minutes"
+    },
+    {
+      "id": "price-objection-coaching",
+      "title": "Handling Price Objections - Never Drop Your Price",
+      "type": "interactive",
+      "icon": "💰",
+      "content": "Here's the truth about price objections: they're almost never really about price. They're about perceived value. When a customer says you're too expensive, they're really saying they don't see enough value to justify the cost. Your job is to stack so much value that price becomes irrelevant.",
+      "points": [
+        "Reframe from price to lifetime cost. 'That competitor quoted $8K less? Ask them about warranty. Their 25-year materials-only means if you have a leak in year 10, you pay labor - could be $5K-$8K. Our 50-year full warranty covers everything. Which is actually cheaper over time?'",
+        "Value stack beats price cut every single time. When they want 10% off, don't drop price - ADD value. 'I can't drop our price without compromising quality. What I CAN do is include the architectural shingle upgrade at no cost - $2,800 value. Would that make you feel great about this?'",
+        "Use warranty differentiation as your secret weapon. GAF Master Elite 50-year warranty is only available through top 2% of contractors. Competitors can't match it. 'You're not comparing apples to apples - you're comparing basic warranty to premium. Which protects your investment better?'",
+        "Isolate the price objection. 'If price were equal, would you choose us?' If yes, then it's not really about price - it's about perceived value. Now you can address the real concern. If no, walk away - they're not your customer.",
+        "Anchor to insurance approval amount. 'Insurance approved $67,000. That's what your roof costs to do properly. We can't cut corners to hit a lower price - that would void warranties and violate codes. You want this done right, correct?' Positions proper price as non-negotiable standard.",
+        "Turn price into investment. 'You're not spending $67K - insurance is. You're investing your $2,500 deductible to get a $67,000 roof with a 50-year warranty. That's one of the best ROIs you'll ever get. Make sense?' Reframes psychology from expense to investment.",
+        "Know when to walk away. If customer only cares about cheapest price, they're not your customer. Let them hire the lowest bidder and deal with the consequences. Protect your margin and reputation - you can't be the best AND the cheapest."
+      ],
+      "duration": "22 minutes"
+    },
+    {
+      "id": "urgency-without-pressure-coaching",
+      "title": "Creating Urgency Without Pressure - Legitimate vs Manufactured",
+      "type": "interactive",
+      "icon": "⏰",
+      "content": "Urgency is essential for closing, but it must be legitimate. Fake urgency destroys trust and kills credibility. Real urgency is based on facts: storm timelines, insurance limitations, damage deterioration. Here's how to create urgency that actually helps the homeowner.",
+      "points": [
+        "Storm date timeline creates real urgency. 'The hail storm was six weeks ago. Insurance statutes of limitations mean the longer you wait, the harder it is to prove damage is from that storm vs normal wear. We need to document while it's clearly fresh.' This is factual, not pressure.",
+        "Neighbor approval cluster strengthens claims. 'We've helped five families on this street get approved. When insurance sees multiple claims from same area, it confirms storm event and strengthens your case. You want to be part of that cluster, not outside it trying to prove it alone later.' Creates FOMO based on legitimate benefit.",
+        "Deterioration risk protects homeowner. 'Hail damage doesn't heal - it gets worse. Water gets under compromised shingles, you risk wood rot and mold. At that point insurance denies saying it's neglect, not storm damage. We document now while it's clearly storm damage, not deterioration.' Urgency protects them from real risk.",
+        "Material availability and seasonal factors. 'We're heading into peak season. Lead times on materials extend from 2 weeks to 6-8 weeks. If you file now, we can schedule for optimal timing. If you wait until everyone else files, you're looking at months of delay.' Legitimate scheduling concern, not fake scarcity.",
+        "Never use fake deadlines. Don't say 'This price is only good today' unless it actually is. Don't say 'I can only do this if you sign now' unless it's true. Homeowners see through manufactured urgency and you lose all credibility. Truth builds trust.",
+        "Policy timeline limitations are real urgency. Some policies have 1-year filing limits from loss date. Some states have 2-year statutes. These are real deadlines that create legitimate urgency. Use them: 'Your policy requires filing within one year of loss. We're at month 8. If you wait much longer, you'll miss the window completely.'",
+        "Tie urgency to their stated priorities. If they said they're worried about leaks, tie urgency to leak prevention. If they're worried about resale value, tie urgency to roof condition affecting sale. Make urgency about THEIR concern, not your commission."
+      ],
+      "duration": "19 minutes"
+    },
+    {
+      "id": "escalation-handling-coaching",
+      "title": "Escalation Handling - When and How to Escalate Strategically",
+      "type": "interactive",
+      "icon": "📈",
+      "content": "Escalation is an art. Escalate too early and you look incompetent. Escalate too late and you waste time and lose deals. The escalation matrix exists for a reason - follow it. Here's how to know when to handle it yourself vs when to bring in reinforcements.",
+      "points": [
+        "Self-resolution first (weeks 1-2). Use templates, submit documentation, follow up persistently. Most partials convert at this level if you're thorough. Document everything: Photo Report submitted, template responses sent, follow-up attempts logged. This documentation is required before escalating.",
+        "Team Leader review (weeks 2-3). When adjuster won't budge despite solid documentation and multiple template attempts, escalate to Team Leader. Requirements: complete Photo Report submitted, appropriate template sent, 2+ weeks elapsed, all communication documented in CRM. Team Leader reviews approach and may intervene directly.",
+        "Sales Manager involvement (weeks 4-6). Team Leader intervention failed, high-value claim, or carrier supervisor now involved. Sales Manager has carrier relationships and decides complaint vs arbitration path. Requirements: all previous levels attempted, supervisor contacted, multiple templates sent, complete documentation package.",
+        "State complaint (weeks 6-8) for PROCESS failures. Carrier not responding, excessive delays beyond statutory limits, violating state regulations, refusing required communications. Complaint is for HOW they're handling claim, not WHAT they're covering. File through state insurance regulator with full documentation.",
+        "Arbitration (week 8+) for COVERAGE disputes. Disagreement over policy interpretation, coverage exclusions, matching law application. Arbitration is for WHAT is covered under policy terms, not process failures. Requires Sales Manager authorization. Last resort - expensive and time-consuming.",
+        "Know the difference: Complaint = process failure (not responding, delays, ignoring regs). Arbitration = coverage dispute (policy interpretation disagreement). Using wrong escalation path wastes time and looks unprofessional. Example: 60-day non-response = complaint. Carrier says policy excludes matching = arbitration.",
+        "Never skip escalation levels. Each level builds on previous documentation and attempts. Skipping to Sales Manager without doing self-resolution makes you look lazy. Jumping to arbitration without complaint wastes resources. Follow the matrix systematically - it exists because it works."
+      ],
+      "duration": "23 minutes"
+    },
+    {
+      "id": "complex-deals-coaching",
+      "title": "Complex Deal Navigation - Multi-Stakeholder, Financing, Timeline Challenges",
+      "type": "interactive",
+      "icon": "🧩",
+      "content": "Simple deals close themselves. Your value shows up in complex deals: multiple decision-makers, financing challenges, timeline complications. These situations separate good reps from elite closers. Here's how to navigate complexity without losing the deal.",
+      "points": [
+        "Multi-stakeholder deals require individual attention to each person's concern. Elderly homeowner + adult children = three different objections. Don't try to convince everyone at once. Address each stakeholder separately: homeowner wants no stress (you handle everything), son who's contractor (insurance requires certification), daughter worried about deductible (file now, pay later). Build individual agreement, then unify.",
+        "Financing challenges are opportunities, not obstacles. Homeowner can't afford deductible now? 'We file claim now to lock in approval while damage is fresh. Insurance gives you up to a year to complete work. We schedule for when you have deductible available - three months, six months, whatever works. The important thing is getting approved NOW before it's too late.' Turn objection into reason to act.",
+        "Timeline complications need creative solutions. Insurance approved but homeowner wants to wait for spring? 'Claim approval doesn't expire quickly - most policies give 6-12 months. We lock in approval now, schedule work for spring when weather is ideal. This protects your approval and gives you perfect timing.' Make timeline work for them, not against you.",
+        "Multiple decision-makers need consensus-building. Present unified solution that addresses all concerns: 'So mom doesn't have any stress because we handle everything. Your son's concern about insurance requirements is solved because we're certified. The deductible timing works because we file now and schedule work later. Everyone's concern addressed. Does that work for everyone?' Get group agreement after individual buy-in.",
+        "Financing options as value-add. Some homeowners qualify for financing that covers deductible. Present as option, not requirement: 'If deductible is a concern, we work with financing partners who can cover that. Payments as low as $X/month. But you can also just wait and pay when you're ready. Either way, let's get the claim filed now. Which option feels better?' Give them control while maintaining momentum.",
+        "Complex deals take longer - set expectations. 'This is a bigger decision with multiple stakeholders. I get it. Here's what I recommend: I'll send you complete documentation - photos, estimate, warranty info. You share with your family, discuss, and we'll reconnect in 48 hours. I'll follow up Thursday at 2pm. Does that timeline work?' Respects complexity while maintaining control of process.",
+        "Document every stakeholder interaction. Note each person's concern and how you addressed it. When you follow up, reference their specific concern: 'Sarah, you mentioned deductible timing - here's how we solve that...' Shows you were listening and builds trust. Complexity requires thorough documentation and personalized follow-up."
+      ],
+      "duration": "25 minutes"
+    }
+  ],
+  "quiz": [
+    {
+      "id": "assumptive-close",
+      "question": "What is the assumptive close technique?",
+      "type": "multiple-choice",
+      "options": [
+        "Assuming the homeowner will say no and preparing for it",
+        "Speaking and acting as if homeowner already agreed, discussing when and how instead of if",
+        "Assuming you know more than the homeowner",
+        "Making assumptions about their insurance coverage"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The assumptive close means speaking and acting as if the homeowner has already agreed to move forward. You discuss WHEN and HOW to proceed, not IF they want to proceed. Example: 'Do you have your insurance app on your phone, or should we log in through the website?' This assumes they're filing the claim and just discusses the method. It reduces decision fatigue and creates natural momentum.",
+      "points": 2,
+      "difficulty": "easy"
+    },
+    {
+      "id": "alternative-choice",
+      "question": "What makes the alternative choice close effective?",
+      "type": "multiple-choice",
+      "options": [
+        "It gives homeowner two paths that both lead to moving forward, avoiding yes/no decision",
+        "It confuses the homeowner so they just pick one",
+        "It makes you seem more professional by offering options",
+        "It reduces your workload by letting them choose timing"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Alternative choice close works by offering two options that both advance the sale. 'I can do the inspection now, or come back at 5pm - which works better?' Either answer results in an inspection happening. This avoids the yes/no decision point where they can say no entirely. It gives them a sense of control while ensuring forward momentum. Both choices move the sale toward close.",
+      "points": 2,
+      "difficulty": "easy"
+    },
+    {
+      "id": "template-selection",
+      "question": "When should you use the iTel Template?",
+      "type": "multiple-choice",
+      "options": [
+        "Whenever insurance denies any part of the claim",
+        "When shingles are discontinued or unavailable for matching",
+        "For all partial approvals automatically",
+        "Only when homeowner specifically requests it"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The iTel Template is specifically used when shingles are discontinued or unavailable for matching. It proves that matching cannot be achieved, requiring full roof replacement per state matching laws. You research the shingle brand/model, verify discontinuation via manufacturer, generate the iTel report, and use the template to present this evidence to insurance. This is a specific tool for a specific situation - not a general partial approval response.",
+      "points": 2,
+      "difficulty": "medium"
+    },
+    {
+      "id": "value-vs-price",
+      "question": "Customer says competitor quoted 10% less. Best response?",
+      "type": "multiple-choice",
+      "options": [
+        "Match their price immediately to close the deal",
+        "Say your company won't let you discount",
+        "Differentiate on warranty value and add value instead of cutting price",
+        "Tell them the competitor is probably not legitimate"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Never compete on price alone - compete on value. Best response: 'Did that contractor show you GAF Master Elite certification? Because that's top 2% nationwide with 50-year labor AND materials warranty. Without that, you're comparing 25-year materials-only. If you have a leak in year 10, you pay labor out of pocket. With us, it's covered. What I CAN do is add the ridge vent upgrade at no cost - $1,200 value. Would that make you feel great about moving forward?' This reframes to value, differentiates warranty, and adds value instead of cutting price.",
+      "points": 3,
+      "difficulty": "medium"
+    },
+    {
+      "id": "takeaway-close-application",
+      "question": "Homeowner says 'This feels rushed, I need to think about it.' Best takeaway close response?",
+      "type": "multiple-choice",
+      "options": [
+        "Push harder and explain why they need to decide now",
+        "Agree it's rushed and offer to leave, creating FOMO while removing pressure",
+        "Schedule a follow-up appointment for next week",
+        "Ask what specifically they need to think about"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Takeaway close removes pressure by pulling back: 'I completely understand - nothing is rushed. You can think about this as long as you need. To be honest, I don't even know if you have qualifying damage. Let me take a quick look, and if you don't, we're done. I wouldn't want to waste your time or mine. Fair?' This validates their concern, removes sales pressure, creates fear of missing out (what if there IS damage?), and positions you as helpful resource, not pushy salesperson. Counter-intuitive but very effective.",
+      "points": 3,
+      "difficulty": "medium"
+    },
+    {
+      "id": "complaint-vs-arbitration",
+      "question": "What is the difference between filing a complaint vs arbitration?",
+      "type": "multiple-choice",
+      "options": [
+        "There is no difference - they are the same thing",
+        "Complaint for process failures (delays, non-response). Arbitration for coverage disputes (policy interpretation)",
+        "Arbitration is faster and should always be used first",
+        "Complaints are for homeowners, arbitration is for contractors"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Complaint is for PROCESS failures - carrier not responding to communications, excessive delays beyond statutory timelines, violating state regulations, refusing required inspections. These are about HOW they're handling the claim. Arbitration is for COVERAGE disputes - disagreement over policy interpretation, what is covered under policy terms, matching law application. These are about WHAT is covered. Example: 60-day non-response = complaint. Carrier says policy excludes matching = arbitration. Using the wrong path wastes time and looks unprofessional.",
+      "points": 2,
+      "difficulty": "easy"
+    },
+    {
+      "id": "escalation-requirements",
+      "question": "What must you have before escalating to Team Leader?",
+      "type": "multiple-choice",
+      "options": [
+        "Just a verbal description of the problem",
+        "Complete Photo Report submitted, template response sent, 2+ weeks elapsed, all communication documented",
+        "Homeowner permission only",
+        "At least one email sent to insurance"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Before escalating to Team Leader, you must have: ✅ Complete Photo Report submitted to carrier, ✅ Appropriate template response sent with supporting documents, ✅ Minimum 2 weeks elapsed with follow-up attempts documented, ✅ All communication documented in CRM, ✅ Clear summary of issue prepared. Skipping these requirements makes you look unprepared and wastes Team Leader's time. The escalation matrix requires systematic progression through self-resolution before involving management.",
+      "points": 2,
+      "difficulty": "medium"
+    },
+    {
+      "id": "negotiation-anchoring",
+      "question": "What is the 'anchor' tactic in negotiation?",
+      "type": "multiple-choice",
+      "options": [
+        "Refusing to move from your position no matter what",
+        "Setting expectation high so negotiation is about which items get approved, not whether anything does",
+        "Anchoring the conversation to policy terms only",
+        "Keeping the homeowner anchored to your timeline"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Anchoring means setting the initial expectation high: 'Based on the damage documented, we expect full roof replacement, full siding replacement due to matching law, gutter and downspout replacement, and all flashing per code requirements.' Now the negotiation becomes about WHICH of these items get approved, not WHETHER anything gets approved. You've anchored high and can negotiate from position of strength. If you anchor low, you have nowhere to go. Always start high and justify each item - then negotiation moves in your favor.",
+      "points": 3,
+      "difficulty": "medium"
+    },
+    {
+      "id": "urgency-legitimate",
+      "question": "Which creates LEGITIMATE urgency (not manufactured pressure)?",
+      "type": "multiple-choice",
+      "options": [
+        "This price is only available if you sign today",
+        "I can only do the inspection today, I'm booked for weeks",
+        "The storm was 6 weeks ago - the longer you wait, the harder it is to prove damage is from that storm vs wear",
+        "I have three other customers interested in this time slot"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Legitimate urgency is based on real facts that protect the homeowner. 'The storm was 6 weeks ago. Insurance statutes of limitations mean the longer you wait, the harder to prove damage is from that storm vs normal wear. We document now while it's clearly fresh storm damage.' This is factual and protects them from real risk. Options A, B, and D are manufactured pressure tactics that destroy credibility when homeowners see through them. Always use truth-based urgency: storm timelines, deterioration risk, neighbor claim clusters, policy filing deadlines.",
+      "points": 3,
+      "difficulty": "medium"
+    },
+    {
+      "id": "micro-commitments",
+      "question": "What is the micro-commitment ladder technique?",
+      "type": "multiple-choice",
+      "options": [
+        "Getting small commitments first, then building to larger ones - each yes makes next yes easier",
+        "Making small promises to the homeowner to build trust",
+        "Breaking the inspection into smaller time commitments",
+        "Committing to follow up in small increments"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Micro-commitment ladder starts with tiny asks and builds momentum. Step 1: 'Can I walk the perimeter?' (very small, easy yes). Step 2: 'Let me grab my ladder for closer look' (already committed to perimeter, logical next step). Step 3: 'Let me show you the photos' (invested time, want to see findings). Step 4: 'Let me help you file the claim' (momentum from previous yeses makes this natural). Each small commitment creates psychological consistency - hard to say no after multiple yeses. This builds natural progression toward close without feeling pushy.",
+      "points": 3,
+      "difficulty": "hard"
+    },
+    {
+      "id": "gaf-template",
+      "question": "When do you deploy the GAF Guidelines Template?",
+      "type": "multiple-choice",
+      "options": [
+        "On every claim automatically",
+        "When insurance denies slope replacement or wants partial repairs that void GAF warranty",
+        "Only when homeowner asks about warranties",
+        "When insurance approves the full claim"
+      ],
+      "correctAnswer": 1,
+      "explanation": "GAF Guidelines Template is used when insurance denies slope replacement or wants to do partial repairs that would void GAF warranty. Example: Insurance approves hail damage but wants to replace only damaged shingles instead of full slope. You cite GAF Storm Damage Guidelines showing manufacturer requires full slope replacement when damage exceeds threshold, and that partial repairs void warranty. Manufacturer requirements often supersede insurance cost preferences. This template leverages GAF's authority to override insurance objections.",
+      "points": 3,
+      "difficulty": "hard"
+    },
+    {
+      "id": "silence-tactic",
+      "question": "How does 'The Silence' tactic work in negotiation?",
+      "type": "multiple-choice",
+      "options": [
+        "You stop communicating with insurance until they respond",
+        "After making your case, stop talking and let adjuster fill the silence - first to speak often loses position",
+        "Ignore the homeowner's objections and stay silent",
+        "Refuse to answer adjuster questions"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Silence tactic: After making your case, STOP TALKING. Example: 'Based on the discontinuation, matching law, and code requirements, full replacement is required. [SILENCE]' Then wait. The adjuster will often fill the silence with concessions, explanations, or reasoning that reveals their position. First person to speak after a strong statement often loses negotiating leverage. Make your point, then let silence do the work. This requires discipline but is incredibly effective. Uncomfortable silence creates pressure on them to respond, often favorably.",
+      "points": 3,
+      "difficulty": "hard"
+    },
+    {
+      "id": "save-face-tactic",
+      "question": "Why is 'giving them an out' important in negotiation?",
+      "type": "multiple-choice",
+      "options": [
+        "It lets you escape the negotiation if it's going badly",
+        "It allows adjuster to change position without admitting error, reducing resistance to reconsidering",
+        "It gives you an excuse to escalate",
+        "It creates escape clauses in your argument"
+      ],
+      "correctAnswer": 1,
+      "explanation": "People resist changing position when backed into corners or forced to admit error. 'Giving them an out' means allowing them to save face: 'I understand your initial assessment. Since then, I've gathered additional documentation [iTel report, codes, etc.]. Based on this NEW information, would you reconsider?' This lets them 'discover' new evidence and change their decision without admitting they were wrong initially. Reduces psychological resistance and makes agreement easier. Never force someone to admit error - give them a graceful way to change course.",
+      "points": 3,
+      "difficulty": "hard"
+    },
+    {
+      "id": "collaborative-frame",
+      "question": "What is the collaborative frame negotiation tactic?",
+      "type": "multiple-choice",
+      "options": [
+        "Agreeing with everything the adjuster says",
+        "Positioning as joint problem-solving: 'We both want to follow policy terms, let's figure out how'",
+        "Working with other contractors on the claim",
+        "Collaborating with homeowner against insurance"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Collaborative frame creates partnership mindset instead of adversarial conflict: 'We both want the same thing - to follow the policy terms and get the homeowner what they're entitled to. Let's figure out how to make this work within the policy. What information do you need from me to approve this?' This positions you and adjuster as allies solving a puzzle together, not opponents fighting. Reduces defensiveness, increases cooperation, and often leads to better outcomes than adversarial approach. You're partners working toward mutual goal, not enemies.",
+      "points": 3,
+      "difficulty": "medium"
+    },
+    {
+      "id": "when-to-trade",
+      "question": "When should you trade concessions in a negotiation?",
+      "type": "multiple-choice",
+      "options": [
+        "Never - always fight for 100% of claim",
+        "Immediately when adjuster pushes back",
+        "When back slope has minimal damage anyway and trading it gets 90% approved quickly vs fighting for months",
+        "Whenever the adjuster seems frustrated"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Strategic concession trading: 'I hear your concern about the back slope. If we remove that from the claim, would you approve the front slope, gutters, and flashing without further dispute?' When to trade: ✅ Item has minimal damage/value anyway, ✅ Other items are higher priority, ✅ Homeowner agrees to trade-off, ✅ Gets 90% approved quickly. When NOT to trade: ❌ Giving up significant value, ❌ Homeowner doesn't agree, ❌ Sets bad precedent, ❌ Adjuster likely to approve anyway. Strategic concessions close deals - giving away value foolishly loses money. Know the difference.",
+      "points": 3,
+      "difficulty": "hard"
+    }
+  ],
+  "documents": [
+    {
+      "id": "template-library-guide",
+      "title": "Complete Template Library Guide",
+      "type": "document",
+      "description": "All templates with usage scenarios and customization instructions",
+      "pages": 8,
+      "topics": [
+        "Generic Partial Template",
+        "Repair Attempt Template",
+        "iTel Template",
+        "GAF Guidelines",
+        "Flashing Codes",
+        "Siding Argument",
+        "Estimate Request"
+      ]
+    },
+    {
+      "id": "escalation-flowchart",
+      "title": "Escalation Matrix Flowchart",
+      "type": "document",
+      "description": "Visual decision tree for when and how to escalate claims issues",
+      "pages": 2,
+      "topics": [
+        "6 Escalation Levels",
+        "Complaint vs Arbitration",
+        "Documentation Requirements",
+        "Timeline Expectations"
+      ]
+    }
+  ],
+  "matchingGame": {
+    "title": "Advanced Sales Techniques Matching",
+    "description": "Match sales techniques and templates with their correct applications",
+    "instructions": "Match each technique or template with its purpose",
+    "timeLimit": 180,
+    "difficulty": "hard",
+    "pairs": [
+      {
+        "id": "assumptive",
+        "left": {
+          "text": "Assumptive Close",
+          "type": "text"
+        },
+        "right": {
+          "text": "Speak as if agreed, discuss when/how not if",
+          "type": "text"
+        }
+      },
+      {
+        "id": "alternative",
+        "left": {
+          "text": "Alternative Choice Close",
+          "type": "text"
+        },
+        "right": {
+          "text": "Offer two options that both move sale forward",
+          "type": "text"
+        }
+      },
+      {
+        "id": "takeaway",
+        "left": {
+          "text": "Takeaway Close",
+          "type": "text"
+        },
+        "right": {
+          "text": "Remove pressure by suggesting you might not be able to help",
+          "type": "text"
+        }
+      },
+      {
+        "id": "itel",
+        "left": {
+          "text": "iTel Template",
+          "type": "text"
+        },
+        "right": {
+          "text": "Discontinued shingles requiring full replacement",
+          "type": "text"
+        }
+      },
+      {
+        "id": "gaf-template",
+        "left": {
+          "text": "GAF Guidelines Template",
+          "type": "text"
+        },
+        "right": {
+          "text": "Insurance denies slope replacement or proper methods",
+          "type": "text"
+        }
+      },
+      {
+        "id": "complaint",
+        "left": {
+          "text": "State Complaint",
+          "type": "text"
+        },
+        "right": {
+          "text": "Process failures - delays, non-response, violations",
+          "type": "text"
+        }
+      },
+      {
+        "id": "arbitration",
+        "left": {
+          "text": "Arbitration",
+          "type": "text"
+        },
+        "right": {
+          "text": "Coverage disputes - policy interpretation disagreements",
+          "type": "text"
+        }
+      },
+      {
+        "id": "anchor",
+        "left": {
+          "text": "Anchoring Tactic",
+          "type": "text"
+        },
+        "right": {
+          "text": "Set expectation high, negotiate which items not whether",
+          "type": "text"
+        }
+      },
+      {
+        "id": "silence",
+        "left": {
+          "text": "Silence Tactic",
+          "type": "text"
+        },
+        "right": {
+          "text": "Make your case then stop - first to speak loses",
+          "type": "text"
+        }
+      },
+      {
+        "id": "micro-commit",
+        "left": {
+          "text": "Micro-Commitment Ladder",
+          "type": "text"
+        },
+        "right": {
+          "text": "Small yeses build to large yes - each easier than last",
+          "type": "text"
+        }
+      }
+    ]
+  }
+}

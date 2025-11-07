@@ -1,0 +1,22 @@
+{
+  "members": [
+    {
+      "name": "Oliver",
+      "role": "Leadership",
+      "bio": "Owner & Founder. Oliver Brown began on the ground loading shingles in the summer, which sparked a passion for the trade and set the foundation for Roof‑ER. A two‑time graduate of Mount St. Mary’s University (B.S. Marketing, MBA), he built Roof‑ER into a trusted name in exterior remodeling through integrity, craftsmanship, and treating every homeowner like family. Oliver leads with a ‘whatever it takes’ mentality—focused on hard work, positivity, and hustle—delivering excellence and a culture rooted in trust and accountability.",
+      "photoUrl": "/assets/team/oliver-brown.jpg"
+    },
+    {
+      "name": "Reese",
+      "role": "Leadership",
+      "bio": "Director of Sales. A first‑generation immigrant and U.S. Army Infantryman (OEF veteran), Reese blends leadership, discipline, and a global perspective with Roof‑ER’s commitment to excellence. He holds a B.S. in Psychology (minor in Music) from George Mason and an Executive MBA from Cornell (leadership, change management, statistics). Reese leads the sales organization with a strategic mind and a passion for exceptional customer experiences—fluent in English, German, and Tagalog—connecting with clients across cultures.",
+      "photoUrl": "/assets/team/reese.jpg"
+    },
+    {
+      "name": "Ford",
+      "role": "Leadership",
+      "bio": "General Manager. Ford’s background in hospitality—chef in NYC, then opening/managing acclaimed restaurants in D.C.—instilled attention to detail, work ethic, and memorable service. With a B.A. in Sociology from the University of Florida, he oversees day‑to‑day operations so each roofing, siding, window, gutter, or solar project reflects Roof‑ER’s commitment to quality and care. Grounded, approachable leadership focused on customer satisfaction and team cohesion.",
+      "photoUrl": "/assets/team/ford-barsi.jpg"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "overview": "Understand the complete sales cycle from door knock to final payment. Manage handoffs, timelines, and communication across 9–16 weeks.",
+  "learningObjectives": [
+    "Navigate each stage of the job flow",
+    "Coordinate with internal teams and insurance",
+    "Set timeline expectations",
+    "Track multiple jobs effectively"
+  ],
+  "sections": [
+    {"id":"stages","title":"Sales Cycle Stages","duration":"12 minutes","content":"1) Generating New Business (70 doors/day), 2) Inspection & Sign‑Up, 3) Claim Filing, 4) Adjuster Meeting, 5) Decision & Follow‑Up, 6) Project Meeting (collect ACV/downpayment; $1,000 commission), 7) Project Completion (final payment)."},
+    {"id":"flow","title":"Job Flow Management","duration":"8 minutes","content":"Field Portal for tasks/messages/calendar; GroupMe sign‑ups; respond within 2 weeks or reassignment; maintain consistent customer contact."}
+  ],
+  "interactiveLearning": [
+    {"id":"timeline","title":"Timeline Mapping","type":"interactive-exercise","estimatedTime":"10 minutes","activities":[{"id":"order-flow","title":"Order the Flow","description":"Arrange stages in correct order.","type":"drag-drop-sequence","points":10,"data":{"items":[{"id":"nb","text":"New Business"},{"id":"insp","text":"Inspection & Sign‑Up"},{"id":"claim","text":"Claim Filing"},{"id":"adj","text":"Adjuster Meeting"},{"id":"decision","text":"Decision & Follow‑Up"},{"id":"pm","text":"Project Meeting"},{"id":"complete","text":"Project Completion"}],"correctOrder":["nb","insp","claim","adj","decision","pm","complete"]}}]}
+  ],
+  "quiz": [
+    {"id":"q1","question":"Typical sales cycle duration?","type":"multiple-choice","options":["2–4 weeks","4–8 weeks","9–16 weeks","6 months"],"correctAnswer":"9–16 weeks","explanation":"Standard duration."}
+  ],
+  "documents": []
+}
+

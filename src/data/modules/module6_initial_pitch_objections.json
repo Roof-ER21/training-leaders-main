@@ -1,0 +1,19 @@
+{
+  "overview": "Handle initial pitch objections at the door. Use LEReC: Listen → Empathize → Reframe → Close.",
+  "learningObjectives": [
+    "Acknowledge and validate",
+    "Reframe with value and clarity",
+    "Close for inspection time"
+  ],
+  "sections": [
+    {"id":"framework","title":"LEReC Framework","duration":"6 minutes","content":"Listen to the concern; Empathize genuinely; Reframe with facts and benefits; Close with a simple choice (today/tomorrow)."}
+  ],
+  "interactiveLearning": [
+    {"id":"rp-objs","title":"Doorstep Objection Drills","type":"interactive-exercise","estimatedTime":"12 minutes","activities":[{"id":"rp-obj-1","title":"Not Interested","description":"Handle a quick ‘not interested’.","type":"roleplay","points":10,"data":{"scenario":"Homeowner dismisses you at door.","characterRole":"Rep/Homeowner","objectivecriteria":["acknowledge","empathize","reframe","close"],"prompts":[{"id":"p1","situation":"I’m not interested","expectedResponse":"Acknowledge + value + quick ask","keywords":["understand","quick","no cost","today","tomorrow"]}],"openCustomerRoleplayId":"multi-path-objection-training"}}]}
+  ],
+  "quiz": [
+    {"id":"q1","question":"Which is NOT part of LEReC?","type":"multiple-choice","options":["Listen","Empathize","Reframe","Explain"],"correctAnswer":"Explain","explanation":"Close, not explain, is the final step."}
+  ],
+  "documents": []
+}
+

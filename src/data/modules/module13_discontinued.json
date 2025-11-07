@@ -1,0 +1,44 @@
+{
+  "overview": "Identify discontinued shingles/siding, leverage iTel and manufacturer documentation, cite matching laws and codes, and navigate special scenarios to secure full approvals.",
+  "learningObjectives": [
+    "Identify English vs. Metric dimensions and why they cannot be mixed",
+    "Verify discontinuation using iTel and manufacturer resources",
+    "Apply matching law arguments (e.g., Maryland Bulletin 18-23)",
+    "Cite code compliance (e.g., VA R905.2.2 low slope; MD IRC R703.2 WRB)",
+    "Document failed repair attempts and escalations"
+  ],
+  "sections": [
+    {"id":"identify","title":"Discontinued Product Identification","duration":"10 minutes","content":"English vs. Metric exposure differences; older architectural lines; 3‑tab lines often discontinued (GAF Royal Sovereign, CertainTeed XT 25, Owens Corning Supreme). Visual cues and catalog checks."},
+    {"id":"itel","title":"iTel & Manufacturer Verification","duration":"10 minutes","content":"Identify brand/model; research manufacturer; generate iTel report; attach to estimate; prove unavailability."},
+    {"id":"matching","title":"Matching Law & Arguments","duration":"10 minutes","content":"‘Like kind and quality’ policy language and Maryland Insurance Bulletin 18‑23. When no true match exists, argue for full replacement to avoid aesthetic mismatch."},
+    {"id":"codes","title":"Code & Special Scenarios","duration":"10 minutes","content":"VA R905.2.2: Asphalt shingles not allowed below 2:12 slope. MD IRC R703.2: Water‑resistive barrier behind siding. Repair attempt failures: brittle test video and Repair Attempt Template."}
+  ],
+  "interactiveLearning": [
+    {"id":"photo-id","title":"Product Identification Exercise","type":"interactive-exercise","estimatedTime":"12 minutes","activities":[{"id":"img-id","title":"Identify Discontinued","description":"From photo description, identify likely discontinued.","type":"image-quiz","points":10,"data":{"images":[{"id":"p1","description":"3‑tab shingle, older granule style","question":"Status?","options":["Active","Likely discontinued"],"correctAnswer":"Likely discontinued"},{"id":"p2","description":"Architectural line from 15+ years ago","question":"Status?","options":["Active line","Likely discontinued"],"correctAnswer":"Likely discontinued"}]}}]},
+    {"id":"argument-builder","title":"Template Customization Workshop","type":"interactive-exercise","estimatedTime":"15 minutes","activities":[{"id":"arg-1","title":"Write the Argument","description":"Customize an iTel/matching argument.","type":"scenario-response","points":12,"data":{"scenario":"Compose an email excerpt for a discontinued shingle: reference iTel, cite matching requirement, request full replacement.","rubricKeywords":["iTel","discontinued","matching","full replacement"]}}]},
+    {"id":"matching-pairs","title":"Matching Law & Code Matching","type":"interactive-exercise","estimatedTime":"10 minutes","activities":[{"id":"pairs-1","title":"Match Terms","description":"Match concepts to definitions.","type":"matching","points":10,"data":{"pairs":[{"id":"english","left":"English Dimension","right":"Older exposure sizing; incompatible with metric"},{"id":"va-slope","left":"VA R905.2.2","right":"No asphalt shingles below 2:12"},{"id":"md-wrap","left":"MD IRC R703.2","right":"Water‑resistive barrier behind siding"},{"id":"itel","left":"iTel Report","right":"Third‑party verification of discontinuation"},{"id":"bulletin","left":"MD Bulletin 18‑23","right":"Guidance on matching requirements"}],"showHints":true,"hintsAfterAttempts":2}}]}
+  ],
+  "quiz": [
+    {"id":"q1","question":"Why can’t English and Metric dimension shingles be mixed?","type":"short-answer","correctAnswer":["exposure","seal","mismatch"],"explanation":"Different exposures prevent proper sealing and create visible mismatch."},
+    {"id":"q2","question":"Which resource verifies product discontinuation?","type":"multiple-choice","options":["Weather app","iTel report","Neighbor opinion","Retail flier"],"correctAnswer":"iTel report","explanation":"Use iTel and manufacturer documentation."},
+    {"id":"q3","question":"What does MD IRC R703.2 require behind siding?","type":"multiple-choice","options":["Vapor barrier","Insulation","Water‑resistive barrier","Air barrier"],"correctAnswer":"Water‑resistive barrier","explanation":"WRB requirement."},
+    {"id":"q4","question":"VA R905.2.2 prohibits asphalt shingles on…","type":"multiple-choice","options":["Any hip roof","Slopes below 2:12","Slopes above 8:12","Interior roofs"],"correctAnswer":"Slopes below 2:12","explanation":"Low slope restriction."}
+  ],
+  "documents": [
+    {"id":"itel-tpl","title":"iTel Argument Template","type":"template","description":"Email template to justify full replacement due to discontinued shingles.","downloadUrl":"/assets/templates/itel_argument_template.txt"},
+    {"id":"siding-tpl","title":"Siding Argument Template","type":"template","description":"Email template for discontinued siding (full elevation replacement).","downloadUrl":"/assets/templates/siding_argument_template.txt"},
+    {"id":"repair-tpl","title":"Repair Attempt Template","type":"template","description":"Form for documenting failed repair attempts (brittle/non-bonding).","downloadUrl":"/assets/templates/repair_attempt_template.txt"}
+    ,
+    {"id":"md-match-1","title":"Maryland Matching Requirement #1","type":"pdf","description":"Maryland Insurance Administration: Matching requirement bulletin (part 1).","downloadUrl":"/assets/docs/maryland_insurance_administration_matching_requirement_1.pdf"},
+    {"id":"md-match-2","title":"Maryland Matching Requirement #2","type":"pdf","description":"Maryland Insurance Administration: Matching requirement bulletin (part 2).","downloadUrl":"/assets/docs/maryland_insurance_administration_matching_requirement_2.pdf"},
+    {"id":"md-match-3","title":"Maryland Matching Requirement #3","type":"pdf","description":"Maryland Insurance Administration: Matching requirement bulletin (part 3).","downloadUrl":"/assets/docs/maryland_insurance_administration_matching_requirement_3.pdf"},
+    {"id":"gaf-guidelines","title":"GAF Storm Damage Guidelines","type":"pdf","description":"GAF guidelines for storm damage assessment and documentation.","downloadUrl":"/assets/docs/gaf_storm_damage_guidelines_.pdf"},
+    {"id":"gaf-slope","title":"GAF Slope Replacement Requirement","type":"pdf","description":"GAF requirement on slope replacement when repair is not feasible.","downloadUrl":"/assets/docs/gaf_requirement_-_slope_replacement.pdf"},
+    {"id":"discontinued-list","title":"Discontinued Shingle List","type":"pdf","description":"Reference list of discontinued shingles for matching arguments.","downloadUrl":"/assets/docs/discontinued-shingle-list.pdf"},
+    {"id":"va-reroof","title":"Virginia Re‑Roofing Chapters","type":"document","description":"Virginia building codes — re‑roofing chapters for code citations.","downloadUrl":"/assets/docs/virginia_building_codes_re-roofing_chapters.docx"},
+    {"id":"md-wrap","title":"Maryland Exterior Wrap Code R703","type":"document","description":"Maryland IRC R703.2 — Water‑resistive barrier behind siding.","downloadUrl":"/assets/docs/maryland_exterior_wrap_code_r703.docx"},
+    {"id":"low-slope","title":"Low Roof / Flat Roof Code","type":"document","description":"Code guidance for low/flat roof scenarios.","downloadUrl":"/assets/docs/low_roof_flat_roof_code.docx"},
+    {"id":"flashing-codes","title":"Flashing Codes","type":"document","description":"Flashing code references for supplement arguments.","downloadUrl":"/assets/docs/flashing_codes.docx"},
+    {"id":"complaints","title":"Complaint Forms","type":"document","description":"Regulatory complaint forms — escalation references.","downloadUrl":"/assets/docs/complaint_forms.docx"}
+  ]
+}

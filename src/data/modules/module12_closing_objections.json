@@ -1,0 +1,24 @@
+{
+  "overview": "Address price, timing, and trust objections using proven frameworks. Close confidently while maintaining relationships.",
+  "learningObjectives": [
+    "Identify and address common closing objections",
+    "Use Feel‑Felt‑Found and assumptive/alternative closes",
+    "Create urgency appropriately",
+    "Handle decision‑maker and trust concerns"
+  ],
+  "sections": [
+    {"id":"price","title":"Price Objections","duration":"6 minutes","content":"Acknowledge cost concern; position insurance coverage + warranty value; total cost of ownership."},
+    {"id":"decision","title":"Decision‑Maker Objections","duration":"6 minutes","content":"Clarify what needs discussion; offer to explain to both parties; provide materials."},
+    {"id":"timing","title":"Timing Objections","duration":"6 minutes","content":"Explain claim windows and damage progression; you handle paperwork; flexible scheduling."},
+    {"id":"trust","title":"Trust/Company Objections","duration":"6 minutes","content":"Local credibility, values, references; why Roof‑ER exists — integrity, quality, simplicity."},
+    {"id":"techniques","title":"Advanced Techniques","duration":"6 minutes","content":"Feel‑Felt‑Found; Assumptive Close; Alternative Choice; creating appropriate urgency."}
+  ],
+  "interactiveLearning": [
+    {"id":"closing-rp","title":"Closing Role‑Play Workshop","type":"interactive-exercise","estimatedTime":"15 minutes","activities":[{"id":"rp-close-1","title":"Handle 3 Objections","description":"Practice ‘price’ + ‘timing’ + ‘spouse’.","type":"roleplay","points":12,"data":{"scenario":"Closing objections","characterRole":"Rep/Homeowner","objectivecriteria":["acknowledge","clarify","close"],"prompts":[{"id":"p1","situation":"Too expensive","expectedResponse":"FFFound + insurance coverage + warranty","keywords":["feel","felt","found","coverage"]}]}}]}
+  ],
+  "quiz": [
+    {"id":"q1","question":"Describe Feel‑Felt‑Found and when to use it.","type":"short-answer","correctAnswer":"Acknowledge feeling, relate with others who felt same, share what they found—use during objections to build rapport.","explanation":"Classic framework."}
+  ],
+  "documents": []
+}
+

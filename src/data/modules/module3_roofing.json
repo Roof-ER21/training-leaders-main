@@ -1,0 +1,138 @@
+{
+  "overview": "Build fluency in core roofing terminology and materials. Learn components, flashing types, shingle categories, and damage language so you can communicate clearly with homeowners and adjusters.",
+  "learningObjectives": [
+    "Identify and define 25+ essential roofing terms",
+    "Distinguish shingle types and materials (architectural vs. 3‑tab vs. specialty)",
+    "Recognize roof components and explain their functions",
+    "Use proper terminology with homeowners and adjusters"
+  ],
+  "sections": [
+    {
+      "id": "terminology",
+      "title": "Essential Roofing Terminology",
+      "duration": "10 minutes",
+      "content": "Shingles (overlapping covering), Decking/Sheathing (plywood/OSB base), Underlayment (water‑resistant barrier), Ice & Water Shield (self‑adhering leak protector), Flashing (metal water diversion), Ridge (horizontal peak), Hip (external angle), Valley (internal angle), Eave (lower overhang), Rake (sloped gable edge), Soffit (underside of overhang), Fascia (vertical edge board)."
+    },
+    {
+      "id": "flashing",
+      "title": "Flashing Types",
+      "duration": "5 minutes",
+      "content": "Step Flashing (roof‑to‑wall), Counter/Apron Flashing (covers step), Drip Edge (edge water control), Pipe Boot (penetration seal)."
+    },
+    {
+      "id": "shingles",
+      "title": "Shingle Types and Materials",
+      "duration": "10 minutes",
+      "content": "Architectural: dimensional, multi‑layer. English vs. Metric: exposure differences; don’t mix. 3‑Tab: flat, uniform, shorter lifespan. Specialty: designer/premium, impact‑resistant, solar‑reflective."
+    },
+    {
+      "id": "damage-terms",
+      "title": "Damage Identification Terms",
+      "duration": "10 minutes",
+      "content": "Hail: granule loss, impact marks, exposed mat, fractures. Wind: uplift, creasing, tearing, seal failure. Collateral: soft metals, screens, siding."
+    }
+  ],
+  "interactiveLearning": [
+    {
+      "id": "matching-terms",
+      "title": "Terminology Matching Game",
+      "description": "Match terms to definitions (10 pairs).",
+      "type": "interactive-exercise",
+      "estimatedTime": "10 minutes",
+      "activities": [
+        {
+          "id": "match-1",
+          "title": "Match the Term",
+          "description": "Match roofing terms to their definitions.",
+          "type": "matching",
+          "points": 10,
+          "data": {
+            "pairs": [
+              { "id": "rake", "left": "Rake", "right": "Sloped edge at gable end" },
+              { "id": "eave", "left": "Eave", "right": "Lower roof edge overhanging wall" },
+              { "id": "ridge", "left": "Ridge", "right": "Horizontal peak where planes meet" },
+              { "id": "valley", "left": "Valley", "right": "Internal angle where planes meet" },
+              { "id": "hip", "left": "Hip", "right": "External angle where planes meet" },
+              { "id": "iws", "left": "Ice & Water Shield", "right": "Self‑adhering membrane for leak protection" },
+              { "id": "step", "left": "Step Flashing", "right": "L‑shaped pieces at roof‑to‑wall" },
+              { "id": "drip", "left": "Drip Edge", "right": "Metal strip guiding water off edges" },
+              { "id": "soffit", "left": "Soffit", "right": "Underside of roof overhang" },
+              { "id": "fascia", "left": "Fascia", "right": "Vertical board at roof edge" }
+            ],
+            "showHints": true,
+            "hintsAfterAttempts": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "shingle-id",
+      "title": "Shingle Identification Challenge",
+      "description": "Identify architectural vs. 3‑tab, granule loss, and impact damage.",
+      "type": "interactive-exercise",
+      "estimatedTime": "10 minutes",
+      "activities": [
+        {
+          "id": "mcq-arch-3tab",
+          "title": "Architectural vs. 3‑Tab",
+          "description": "Identify shingle type from description.",
+          "type": "multiple-choice",
+          "points": 6,
+          "data": {
+            "question": "Which describes architectural shingles?",
+            "options": [
+              { "id": "a", "text": "Flat with uniform cutouts", "isCorrect": false },
+              { "id": "b", "text": "Dimensional multi‑layer appearance", "isCorrect": true },
+              { "id": "c", "text": "Metal with standing seams", "isCorrect": false }
+            ]
+          }
+        },
+        {
+          "id": "mcq-granule",
+          "title": "Granule Loss",
+          "description": "Recognize hail granule loss patterns.",
+          "type": "multiple-choice",
+          "points": 6,
+          "data": {
+            "question": "Granule loss from hail appears as…",
+            "options": [
+              { "id": "a", "text": "Uniform fading", "isCorrect": false },
+              { "id": "b", "text": "Circular impact marks", "isCorrect": true },
+              { "id": "c", "text": "Linear scratches", "isCorrect": false }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "agnesContent": [
+    {
+      "id": "coach",
+      "title": "Using the Right Terms with Confidence",
+      "type": "interactive",
+      "icon": "🗣️",
+      "points": [
+        "Use homeowner‑friendly language first, technical term second",
+        "Anchor damage with clear photos and labels",
+        "Explain English vs. Metric incompatibility when relevant"
+      ],
+      "duration": "5 minutes"
+    }
+  ],
+  "quiz": [
+    { "id": "q1", "question": "Primary function of underlayment?", "type": "multiple-choice", "options": ["Structural support","Water resistance","Insulation","Ventilation"], "correctAnswer": "Water resistance", "explanation": "Underlayment is a water‑resistant barrier." },
+    { "id": "q2", "question": "Step flashing is typically found…", "type": "multiple-choice", "options": ["At ridge lines","Along roof‑to‑wall intersections","At pipe penetrations","At eaves"], "correctAnswer": "Along roof‑to‑wall intersections", "explanation": "Step flashing protects roof‑to‑wall joints." },
+    { "id": "q3", "question": "English vs. metric shingles differ in…", "type": "multiple-choice", "options": ["Color options","Exposure size","Granule type","Installation method"], "correctAnswer": "Exposure size", "explanation": "Different exposure sizes prevent mixing." },
+    { "id": "q4", "question": "Granule loss from hail looks like…", "type": "multiple-choice", "options": ["Uniform fading","Circular impact marks","Linear scratches","Bubble formation"], "correctAnswer": "Circular impact marks", "explanation": "Hail creates circular divots with granule loss." },
+    { "id": "q5", "question": "Horizontal peak where two planes meet is…", "type": "multiple-choice", "options": ["Hip","Valley","Ridge","Eave"], "correctAnswer": "Ridge", "explanation": "Ridge is the horizontal peak." },
+    { "id": "q6", "question": "IWS is primarily used for…", "type": "multiple-choice", "options": ["Insulation","Leak protection","Ventilation","Structural support"], "correctAnswer": "Leak protection", "explanation": "Ice & Water Shield prevents leaks at critical areas." },
+    { "id": "q7", "question": "Collateral damage includes…", "type": "multiple-choice", "options": ["Only roof materials","Soft metals and screens","Interior damage only","Foundation issues"], "correctAnswer": "Soft metals and screens", "explanation": "Collateral evidence supports storm causation." },
+    { "id": "q8", "question": "Counter flashing is installed…", "type": "multiple-choice", "options": ["Over step flashing","Under shingles only","At pipe boots","Along eaves"], "correctAnswer": "Over step flashing", "explanation": "Counter flashing covers step flashing." },
+    { "id": "q9", "question": "Fill in the blank: The _____ is the sloped edge at the gable end.", "type": "short-answer", "correctAnswer": "Rake", "explanation": "Rake is the sloped gable edge." },
+    { "id": "q10", "question": "Fill in the blank: _____ damage appears as circular divots from storm impact.", "type": "short-answer", "correctAnswer": "Hail", "explanation": "Hail produces circular impact marks." },
+    { "id": "q11", "question": "Why can’t English and metric dimension shingles be mixed?", "type": "short-answer", "correctAnswer": "Different exposure sizes prevent proper alignment/sealing and create visible mismatch.", "explanation": "Exposure differences cause sealing and visual issues." },
+    { "id": "q12", "question": "List three types of collateral damage.", "type": "short-answer", "correctAnswer": "Gutters/downspouts, window screens, soft metals (vents/flashing)", "explanation": "These commonly show storm impacts." }
+  ],
+  "documents": []
+}
+
