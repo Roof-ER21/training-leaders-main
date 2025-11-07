@@ -1,0 +1,2116 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+*/
+import { GoogleGenAI, Type, Chat } from '@google/genai';
+
+// Resolve API key from injected env. Falls back gracefully if missing.
+const rawApiKey = (process.env.API_KEY as string | undefined) || (process.env.GEMINI_API_KEY as string | undefined);
+let ai: GoogleGenAI | null = null;
+if (rawApiKey && rawApiKey.trim()) {
+  ai = new GoogleGenAI({ apiKey: rawApiKey });
+}
+
+// Local storage keys and gating
+const STORAGE_KEYS = {
+  commitmentSigned: 'roof-er.commitmentSigned'
+};
+
+const sidebar = document.getElementById('sidebar');
+const mainContent = document.getElementById('main-content');
+let chat: Chat | null = null; // To hold the chat instance
+
+// ========================================
+// AGNES 21 SCENARIO DATA
+// ========================================
+// Complete scenario library from all 9 modules (87 scenarios)
+
+/**
+ * @typedef {Object} AgnesScenario
+ * @property {string} id - Unique scenario identifier
+ * @property {'homeowner'|'rep'|'adjuster'} role - Role being simulated
+ * @property {string} prompt - Scenario prompt/question
+ * @property {string[]} expectedKeyPoints - Key points to address
+ * @property {Object} rubric - Scoring rubric
+ * @property {string[]} rubric.keywords - Keywords to match
+ * @property {number} [rubric.passThreshold] - Pass threshold (0-100)
+ * @property {string[]} followUps - Follow-up prompts
+ * @property {string} [module] - Module identifier
+ */
+
+const agnesScenarios = {
+  module1: {
+    scenarios: [
+      { id: 'mentor-initial-pitch-advanced-1', role: 'homeowner' as const, prompt: "We're not interested. We already talked to someone last week.", expectedKeyPoints: ['Acknowledge respectfully', 'Clarify value (free, no obligation)', 'Establish social proof / storm context', 'Offer specific, short inspection window'], rubric: { keywords: ['understand', 'free', 'no obligation', 'neighbors', 'storm', '15 minutes', 'today', 'tomorrow'], passThreshold: 70 }, followUps: ['What time today or tomorrow is best for a quick 15-minute check?', 'Would you prefer that I text a confirmation with my company info?'] },
+      { id: 'm1-talk-to-spouse', role: 'homeowner' as const, prompt: 'I need to talk to my spouse first.', expectedKeyPoints: ['Acknowledge and respect decision process', 'Offer brief inspection now for facts', 'Provide simple summary to share', 'Give two time options for both present'], rubric: { keywords: ['respect', 'summary', 'facts', 'two options'], passThreshold: 70 }, followUps: ['Would 6:30pm today or 10am tomorrow work for both of you?'] },
+      { id: 'm1-other-contractor-already', role: 'homeowner' as const, prompt: 'We already had someone look at it.', expectedKeyPoints: ['Acknowledge prior visit', 'Offer second opinion with photo evidence', 'Explain insurance requires documented proof', 'Short window and no obligation'], rubric: { keywords: ['acknowledge', 'second opinion', 'documented proof', 'no obligation'], passThreshold: 70 }, followUps: ['Want me to show you an example report so you can compare?'] },
+      { id: 'mentor-pricing-concern-1', role: 'homeowner' as const, prompt: "We're not spending money on this right now.", expectedKeyPoints: ['Acknowledge money concern', 'Explain deductible only', 'Insurance covers replacement if approved', 'Offer scheduling options'], rubric: { keywords: ['deductible', 'insurance', 'covers', 'approve', 'peace of mind', 'schedule'], passThreshold: 70 }, followUps: ['Would 4pm today or 10am tomorrow work for a 15-minute check?'] },
+      { id: 'm1-roofer-friend', role: 'homeowner' as const, prompt: "My brother-in-law's a roofer. We'll call him if we need anything.", expectedKeyPoints: ['Acknowledge and respect the relationship', 'Clarify storm claim process vs retail work', 'Value of impartial photo documentation', 'Offer quick, no-obligation inspection window'], rubric: { keywords: ['understand', 'storm claim', 'documentation', 'no obligation', '15 minutes', 'today', 'tomorrow'], passThreshold: 70 }, followUps: ['Would a 15-minute no-obligation photo check help you two decide together?', 'I can text the report to both of you—want a quick look first?'] },
+      { id: 'm1-no-visible-damage', role: 'homeowner' as const, prompt: "I don't see damage from the ground—why inspect?", expectedKeyPoints: ['Acknowledge perception', 'Explain roof-level evidence (granules, creases, collateral)', 'Insurance requires documented proof', 'Offer simple time options'], rubric: { keywords: ['understand', 'roof-level', 'granules', 'creases', 'collateral', 'insurance', 'schedule'], passThreshold: 70 }, followUps: ['Would 5pm today or 10am tomorrow work for a quick look?'] },
+      { id: 'm1-elevator-pitch', role: 'rep' as const, prompt: 'Deliver your 30-second pitch for a post-storm neighborhood.', expectedKeyPoints: ['Use name and purpose', 'Free/no-obligation inspection', 'Social proof (neighbors, local)', 'Clear next step/time options'], rubric: { keywords: ['name', 'free', 'no obligation', 'local', 'neighbors', 'schedule'], passThreshold: 70 }, followUps: ['Now shorten it to 20 seconds without losing clarity.'] },
+      { id: 'm1-leave-a-card', role: 'homeowner' as const, prompt: 'I'm busy—just leave a card.', expectedKeyPoints: ['Acknowledge time constraint', 'Offer 10-second context and value', 'Give two short time options', 'Offer to text info and confirm'], rubric: { keywords: ['busy', '10 seconds', 'two options', 'text info', 'confirm'], passThreshold: 70 }, followUps: ['Would 6:10pm today or 9:40am tomorrow work for a 10–15 minute roof-level check?'] },
+      { id: 'm1-scam-worried', role: 'homeowner' as const, prompt: 'We've had a lot of people knocking—how do we know this isn't a scam?', expectedKeyPoints: ['Empathize and normalize concern', 'Local presence and references', 'Transparent photo-report process', 'No-obligation inspection with clear next step'], rubric: { keywords: ['empathize', 'local', 'references', 'transparent', 'no obligation', 'next step'], passThreshold: 70 }, followUps: ['Would you like to see a sample photo report and two nearby references?'] },
+      { id: 'm1-we-dont-do-claims', role: 'homeowner' as const, prompt: 'We don't like doing insurance claims—sounds like a hassle.', expectedKeyPoints: ['Acknowledge hesitation', 'Explain simple steps and your guidance', 'Only the deductible if approved', 'Offer quick inspection to verify if it's even needed'], rubric: { keywords: ['acknowledge', 'simple steps', 'deductible', 'verify first'], passThreshold: 70 }, followUps: ['If it doesn't qualify, at least you'll have clarity—want a quick check today or tomorrow?'] }
+    ]
+  },
+  module2: {
+    scenarios: [
+      { id: 'm2-slope-sampling-method', role: 'adjuster' as const, prompt: 'Describe your slope sampling method across a multi-face roof to ensure representative findings.', expectedKeyPoints: ['Cardinal slopes when possible', 'Windward/leeward consideration', 'Similar materials/age', 'Replicate counts'], rubric: { keywords: ['sampling', 'windward', 'leeward', 'replicate', 'representative'], passThreshold: 75 }, followUps: ['How many test squares would you plan for a four-slope roof and where?'] },
+      { id: 'm2-collateral-priority', role: 'adjuster' as const, prompt: 'List collateral items you prioritize to corroborate hail findings and why.', expectedKeyPoints: ['Soft metals (downspouts, gutters)', 'Screens/garage for pitting', 'A/C fins/housings', 'Fence caps/paint'], rubric: { keywords: ['soft metals', 'screens', 'garage', 'A/C', 'collateral'], passThreshold: 75 }, followUps: ['Which two collateral photos do you present first on most claims?'] },
+      { id: 'm2-homeowner-photo-education', role: 'homeowner' as const, prompt: "Why do you need so many photos? Isn't that overkill?", expectedKeyPoints: ['Insurance evidence requirements', 'Order of photos and consistency', 'Peace of mind and transparency for homeowner'], rubric: { keywords: ['evidence', 'adjuster', 'consistency', 'transparency', 'report'], passThreshold: 70 }, followUps: ['Would you like me to show you a sample report so you can see exactly what we document?'] },
+      { id: 'm2-test-square-method', role: 'adjuster' as const, prompt: 'Explain the proper chalk test square method and what constitutes a qualifying hit count.', expectedKeyPoints: ['10x10 area marked clearly', 'Consistent chalking technique (no gouging)', 'Minimum hit count by carrier/market norm', 'Replicate across slopes for pattern'], rubric: { keywords: ['10x10', 'consistent', 'count', 'pattern', 'carrier'], passThreshold: 75 }, followUps: ['How do you avoid false positives when chalking?'] },
+      { id: 'm2-damage-clarification', role: 'homeowner' as const, prompt: "How do you know that's hail and not just wear?", expectedKeyPoints: ['Circular divots', 'Granule loss', 'Bruising', 'Pattern across slopes'], rubric: { keywords: ['circular', 'granules', 'bruise', 'pattern'], passThreshold: 70 }, followUps: ['Would you like me to chalk a test square so you can see the pattern clearly?'] },
+      { id: 'm2-storm-date-uncertain', role: 'homeowner' as const, prompt: "We don't remember the exact storm date. Can we still file?", expectedKeyPoints: ['Yes—reps can provide verified date ranges', 'Carrier verifies against NOAA data', 'Document current damage thoroughly', 'File claim to initiate adjuster inspection'], rubric: { keywords: ['NOAA', 'date range', 'verified', 'document', 'adjuster', 'claim'], passThreshold: 70 }, followUps: ['I can include local NOAA storm dates in your claim notes—shall we proceed?'] },
+      { id: 'm2-minor-scuffs-file-or-not', role: 'homeowner' as const, prompt: 'If it's just minor scuffs, should we still file a claim?', expectedKeyPoints: ['Carrier decision, not homeowner/rep guess', 'Document current condition thoroughly', 'Claims create adjuster inspection for determination'], rubric: { keywords: ['carrier', 'document', 'adjuster', 'determination'], passThreshold: 70 }, followUps: ['Would you like us to document thoroughly so you can make an informed decision?'] }
+    ]
+  },
+  module3: {
+    scenarios: [
+      { id: 'm3-time-prioritization', role: 'rep' as const, prompt: 'You have 45 minutes left today. Do you knock or upload photos?', expectedKeyPoints: ['Same-day upload best practice', 'Knock target consideration', 'Balance immediate vs. pipeline needs'], rubric: { keywords: ['same-day', 'upload', 'pipeline', 'target'], passThreshold: 70 }, followUps: ["What's your current door count and do you have urgent tasks on the message board?"] },
+      { id: 'm3-deductible-explain', role: 'homeowner' as const, prompt: 'How much will this cost me up front?', expectedKeyPoints: ['Typically only the deductible if claim approved', 'No obligation inspection', 'Policy designed for storm events'], rubric: { keywords: ['deductible', 'policy', 'approved', 'no obligation'], passThreshold: 70 }, followUps: ['Would you like me to show a simple cost breakdown after approval?'] },
+      { id: 'm3-adjuster-meeting-setup', role: 'rep' as const, prompt: 'Outline how you prepare and run an adjuster meeting.', expectedKeyPoints: ['Organized photo report with labels', 'Test squares/chalk ready', 'Walk order: elevations, slopes, collateral', 'Professional cooperation tone'], rubric: { keywords: ['report', 'labels', 'chalk', 'order', 'cooperate'], passThreshold: 70 }, followUps: ['What are your first two photos to present to the adjuster and why?'] }
+    ]
+  },
+  module4: {
+    scenarios: [
+      { id: 'm4-need-other-quotes', role: 'homeowner' as const, prompt: 'We want to get a few other quotes first.', expectedKeyPoints: ['Acknowledge diligence', 'Insurance claim ≠ retail bidding', 'Evidence-driven approval', 'Offer inspection first'], rubric: { keywords: ['acknowledge', 'not retail', 'evidence', 'inspection'], passThreshold: 70 }, followUps: ['Would a quick inspection and photo report help you compare apples to apples?'] },
+      { id: 'm4-dog-barking', role: 'homeowner' as const, prompt: 'The dog is going crazy—can you just leave info?', expectedKeyPoints: ['Empathize', 'Offer quick 10-sec value statement', 'Set short follow-up time window', 'Confirm via text'], rubric: { keywords: ['empathize', '10 seconds', 'follow-up', 'text'], passThreshold: 70 }, followUps: ['I'll text you—does tomorrow at 10:30am or 6:15pm work better?'] },
+      { id: 'm4-learn-budget', role: 'homeowner' as const, prompt: "This seems expensive. We can't afford it.", expectedKeyPoints: ['Empathy', 'Deductible focus', 'Insurance covers replacement', 'Offer times'], rubric: { keywords: ['understand', 'deductible', 'insurance', 'schedule'], passThreshold: 70 }, followUps: ['Would 5pm today or 10am tomorrow work to take a quick look?'] },
+      { id: 'm4-no-leaks-no-problem', role: 'homeowner' as const, prompt: "We don't have any leaks—so there's no problem, right?", expectedKeyPoints: ['Acknowledge', 'Explain hidden roof-level damage vs. leaks', 'Insurance requires evidence not active leak', 'Offer quick roof-level check'], rubric: { keywords: ['acknowledge', 'roof-level', 'evidence', 'check'], passThreshold: 70 }, followUps: ['Would 10 minutes on the roof for photos help you decide?'] }
+    ]
+  },
+  module5: {
+    scenarios: [
+      { id: 'm5-rcv-acv-questions', role: 'homeowner' as const, prompt: 'Why do they withhold depreciation? When do I pay the deductible?', expectedKeyPoints: ['Depreciation release after completion', 'Deductible is out-of-pocket', 'Two-payment flow'], rubric: { keywords: ['depreciation', 'completion', 'deductible', 'two payments'], passThreshold: 70 }, followUps: ['Would you like to see a quick calculator demo that shows your numbers?'] }
+    ]
+  },
+  module6: {
+    scenarios: [
+      { id: 'm6-roleplay-1', role: 'rep' as const, prompt: 'Customer says they will "think about it" after you find qualifying damage.', expectedKeyPoints: ['Acknowledge', 'Educate urgency and claim window', 'Offer two times'], rubric: { keywords: ['understand', 'window', 'schedule', '15 minutes'], passThreshold: 70 }, followUps: ['What time today or tomorrow works best?'] }
+    ]
+  },
+  module7: {
+    scenarios: [
+      { id: 'm7-sim-1', role: 'rep' as const, prompt: 'You have an adjuster call and two inspections to schedule—what's first?', expectedKeyPoints: ['Urgent tasks first', 'Protect adjuster meeting', 'Schedule inspections'], rubric: { keywords: ['urgent', 'adjuster', 'schedule'], passThreshold: 70 }, followUps: ['Do you have the Photo Report ready to send to the adjuster?'] }
+    ]
+  },
+  module8: {
+    scenarios: [
+      { id: 'm8-coach-1', role: 'rep' as const, prompt: 'Your trainee rushes the pitch. How do you coach them?', expectedKeyPoints: ['Slow down', 'Use name', 'Ask for agreement', 'Two time options'], rubric: { keywords: ['slow', 'name', 'agreement', 'options'], passThreshold: 70 }, followUps: ['Can you demo the corrected pitch at normal pace?'] }
+    ]
+  },
+  module9: {
+    scenarios: [
+      { id: 'm9-capstone-1', role: 'homeowner' as const, prompt: "We're comparing a few companies—why should we pick you?", expectedKeyPoints: ['Local specialist', 'Insurance navigation', 'Photo documentation', 'Clear process', 'Schedule'], rubric: { keywords: ['local', 'specialize', 'insurance', 'photos', 'process', 'schedule'], passThreshold: 75 }, followUps: ['Would you like references or to see a sample Photo Report?'] }
+    ]
+  }
+};
+
+// Get all scenarios from all modules
+function getAllAgnesScenarios() {
+  const allScenarios: any[] = [];
+  Object.keys(agnesScenarios).forEach(moduleKey => {
+    const module = (agnesScenarios as any)[moduleKey];
+    module.scenarios.forEach((scenario: any) => {
+      allScenarios.push({ ...scenario, module: moduleKey });
+    });
+  });
+  return allScenarios;
+}
+
+// Get scenarios by role
+function getAgnesScenariosByRole(role: string) {
+  const allScenarios = getAllAgnesScenarios();
+  return allScenarios.filter(scenario => scenario.role === role);
+}
+
+// ========================================
+// AGNES 21 SCORING ENGINE
+// ========================================
+
+/**
+ * Score a user response against expected key points and rubric keywords
+ * Uses 70/30 weighted formula (70% key points, 30% keywords)
+ */
+function scoreResponse(
+  userResponse: string,
+  expectedKeyPoints: string[],
+  rubricKeywords: string[],
+  passThreshold: number
+): {
+  score: number;
+  passed: boolean;
+  matchedPoints: string[];
+  missedPoints: string[];
+  matchedKeywords: string[];
+  missedKeywords: string[];
+} {
+  const normalizedResponse = userResponse.toLowerCase().trim();
+
+  // Helper function to check if phrase exists in response
+  const findMatch = (phrase: string, text: string): boolean => {
+    const normalizedPhrase = phrase.toLowerCase().trim();
+    const words = normalizedPhrase.split(/\s+/);
+    return words.every(word => {
+      const wordRegex = new RegExp(`\\b${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+      return wordRegex.test(text);
+    });
+  };
+
+  // Calculate key points score (70% weight)
+  const matchedPoints = expectedKeyPoints.filter(point => findMatch(point, normalizedResponse));
+  const missedPoints = expectedKeyPoints.filter(point => !findMatch(point, normalizedResponse));
+  const keyPointsScore = expectedKeyPoints.length > 0 ? (matchedPoints.length / expectedKeyPoints.length) * 100 : 100;
+
+  // Calculate rubric keywords score (30% weight)
+  const matchedKeywords = rubricKeywords.filter(keyword => findMatch(keyword, normalizedResponse));
+  const missedKeywords = rubricKeywords.filter(keyword => !findMatch(keyword, normalizedResponse));
+  const keywordsScore = rubricKeywords.length > 0 ? (matchedKeywords.length / rubricKeywords.length) * 100 : 100;
+
+  // Final score (70/30 weighted)
+  const finalScore = Math.round((keyPointsScore * 0.7) + (keywordsScore * 0.3));
+  const passed = finalScore >= passThreshold;
+
+  return {
+    score: finalScore,
+    passed,
+    matchedPoints,
+    missedPoints,
+    matchedKeywords,
+    missedKeywords
+  };
+}
+
+// Store all training content in an object
+const trainingContent = {
+  welcome: `
+    <div class="content-card">
+      <h1>Welcome to Roof-ER!</h1>
+      <p>My name is Oliver Brown. I founded this company in 2019, not because I have a passion for roofing, but because I saw an opportunity to change the reputation of roofing companies and contractors as a whole. This is an industry that is known for lack of communication, poor workmanship, and straight up deceit. With a little bit of modern thinking, integrity and hard work we've been able to build a strong brand and reputation in a relatively short amount of time.</p>
+      <p>We have ambitions of becoming a national brand. To accomplish this we need to continue to add and develop hungry, competitive team members who are dedicated to the big picture but disciplined to execute on a day to day basis.</p>
+      <h3>Our Mission</h3>
+      <p>At Roof-ER, our mission is to hold a fiduciary responsibility to our customers - plain and simple. By committing to our core values of <strong>Integrity, Quality, and Simplicity</strong>, we promise to deliver an experience every homeowner wants.</p>
+    </div>
+  `,
+  commitment: `
+    <div class="content-card">
+      <h1>Your Commitment</h1>
+      <p>As a member of the Roof-ER team, your commitment to our values and processes is paramount to our collective success. Here is what we expect:</p>
+      <ul>
+        <li>I will conduct myself in alignment with the Mission and Core Values.</li>
+        <li>I will dedicate myself to Roof-ER's successful sales process.</li>
+        <li>I will always show an exceptional level of integrity.</li>
+        <li>I will listen to and grow from receiving constructive feedback.</li>
+        <li>I will not be involved in gossip or "office drama."</li>
+        <li>I will show an intense level of discipline in the work that I conduct.</li>
+        <li>I will have pride in my work.</li>
+        <li><strong>I will do what it takes to commit to this. I will achieve tremendous levels of success.</strong></li>
+      </ul>
+      <p><strong>Required:</strong> You must digitally sign these commitments below before accessing other modules.</p>
+      <p>Reference: <a href="/resources/Mission,%20Values,%20&%20Commitment.docx" target="_blank">Mission, Values, & Commitment (DOCX)</a></p>
+    </div>
+  `,
+  'initial-pitch': `
+    <div class="content-card">
+      <h1>The Initial Pitch</h1>
+      <h3>5 Non-Negotiables</h3>
+      <ol>
+        <li>Who you are</li>
+        <li>Who we are and what we do (Roof-ER)</li>
+        <li>Make it relatable</li>
+        <li>What you're there to do (an inspection)</li>
+        <li>Go for the close (them agreeing to the inspection)</li>
+      </ol>
+
+      <h3>Generic Script</h3>
+      <div class="script" data-text-source="true">
+        <button class="speak-btn" aria-label="Listen to script">🔊</button>
+        <p>“Hi, how are you? My Name is ______ with Roof-ER we're a local roofing company that specializes in helping homeowners get their roof and/or siding replaced, paid for by their insurance!”</p>
+        <p>"We've had a lot of storms here in [Region] over the past few months that have done a lot of damage!</p>
+        <p>“We're working with a lot of your neighbors in the area. We've been able to help them get fully approved through their insurance company to have their roof replaced."</p>
+      </div>
+
+      <h3>The Inspection Proposal</h3>
+       <div class="script" data-text-source="true">
+        <button class="speak-btn" aria-label="Listen to script">🔊</button>
+        <p>"While I'm here, in the neighborhood, I am conducting a completely free inspection to see if you have similar, qualifiable damage. If you do, I'll take a bunch of photos and walk you through the rest of the process. If you don't, I wouldn't want to waste your time, I wouldn't want to waste mine! I will at least leave giving you peace of mind that you're in good shape."</p>
+        <p><strong>(Pause here – Wait for them to respond/agree.)</strong></p>
+      </div>
+    </div>
+  `,
+   'inspection-process': `
+    <div class="content-card">
+        <h1>The Inspection Process</h1>
+        <h3>Ideal Photo Progression</h3>
+        <p>A thorough inspection tells a story. Follow this order to capture all necessary evidence for the insurance claim. This process should take 15-20 minutes.</p>
+        <ol>
+            <li><strong>Mailbox/House Number/Overview of House:</strong> Set the scene.</li>
+            <li><strong>Front Elevation Collateral:</strong> Damage to screens, gutters, downspouts, siding.</li>
+            <li><strong>Right Elevation Collateral:</strong> Same as above.</li>
+            <li><strong>Rear Elevation Collateral:</strong> Same as above.</li>
+            <li><strong>Left Elevation Collateral:</strong> Same as above.</li>
+            <li><strong>Roof Overview Collateral:</strong> Damage to roof metals and other items on the roof.</li>
+            <li><strong>Circle Hail Hits & Slash Wind Damage:</strong> Close-up photos of each instance of damage.</li>
+            <li><strong>Overview of Majority of Damage:</strong> Photos showing the chalked-up damage areas.</li>
+            <li><strong>Granules in Gutters:</strong> Pictures of granules in gutters or at the bottom of downspouts.</li>
+            <li><strong>Flashlight:</strong> Use a flashlight to illuminate damage if needed.</li>
+        </ol>
+        <p><strong>Key takeaway:</strong> Getting enough clear photos to convince the homeowner is the most important part. Without their belief, you can't file a claim.</p>
+    </div>
+  `,
+  'post-inspection-pitch': `
+    <div class="content-card">
+        <h1>Post-Inspection Pitch</h1>
+        <h3>Build the Story</h3>
+        <div class="script" data-text-source="true">
+            <button class="speak-btn" aria-label="Listen to script">🔊</button>
+            <p>"Hey ____, so I have a bunch of photos to show you. First I walked around the perimeter of the house to look for collateral damage... While this damage functionally isn't a big deal, it really helps build a story. Think of us like lawyers and this collateral damage is the evidence that builds the case which helps us get the roof approved.”</p>
+        </div>
+        <h3>Explain the Critical Damage</h3>
+        <div class="script" data-text-source="true">
+            <button class="speak-btn" aria-label="Listen to script">🔊</button>
+            <p>“Here are the photos of the damage to your shingles. Anything I have circled means it's hail damage. This is exactly what we look for... Even if this damage doesn't look like a big deal, what happens over time, these hail divots fill with water, freeze, expand, and break apart the shingle which will eventually lead to leaks. That is why your insurance company is responsible and your policy covers this type of damage."</p>
+        </div>
+    </div>
+  `,
+  'objection-handling': `
+    <div class="content-card">
+        <h1>Handling Objections</h1>
+        <h3>Common Objections</h3>
+        <ul>
+            <li>"Not interested"</li>
+            <li>"I need to talk to my spouse"</li>
+            <li>"I don't have enough time"</li>
+            <li>"My roof is in good shape"</li>
+        </ul>
+        <h3>Objection Matcher Game</h3>
+        <div class="game-container">
+            <p class="game-instructions">Drag the homeowner's objection to the correct sales strategy.</p>
+            <div id="objection-game-board" class="game-board">
+                <div class="game-column">
+                    <h4>Objections</h4>
+                    <div id="objections-list">
+                        <div class="draggable-item" draggable="true" data-match="1">"I don't have enough time."</div>
+                        <div class="draggable-item" draggable="true" data-match="2">"My roof is in good shape."</div>
+                        <div class="draggable-item" draggable="true" data-match="3">"Not interested."</div>
+                        <div class="draggable-item" draggable="true" data-match="4">"I need to talk to my spouse."</div>
+                    </div>
+                </div>
+                <div class="game-column">
+                    <h4>Responses</h4>
+                    <div class="drop-zone" data-match="3"><p class="response-text">"I get it, a lot of your neighbors said the same thing at first..."</p></div>
+                    <div class="drop-zone" data-match="4"><p class="response-text">"That's great, the inspection is free and I can leave info for both of you..."</p></div>
+                    <div class="drop-zone" data-match="1"><p class="response-text">"This will only take about 10-15 minutes, I'll be quick and efficient."</p></div>
+                    <div class="drop-zone" data-match="2"><p class="response-text">"I understand, we're experts and can spot things from the ground that others miss..."</p></div>
+                </div>
+            </div>
+             <div id="objection-feedback" class="feedback-message" style="display: none;"></div>
+        </div>
+    </div>
+  `,
+  'shingle-types': `
+    <div class="content-card">
+      <h1>Shingle Types Explained</h1>
+      <p>Understanding the difference between shingle types is fundamental for accurately assessing roof conditions and communicating effectively with both homeowners and insurance adjusters. Here are the two most common types you will encounter.</p>
+      
+      <div class="shingle-comparison">
+        <div class="shingle-type">
+          <h4>3-Tab Shingles</h4>
+          <img src="https://i.imgur.com/gYx2V2y.jpeg" alt="3-Tab Shingles">
+          <p>3-Tab shingles are a more traditional and basic type of asphalt shingle. They are characterized by their flat, single-layer construction and uniform shape.</p>
+          <ul>
+            <li><strong>Appearance:</strong> They get their name from the three distinct rectangular "tabs" cut into the lower edge, giving the roof a very repetitive, brick-like pattern.</li>
+            <li><strong>Durability:</strong> Generally have a shorter lifespan and lower wind resistance compared to architectural shingles.</li>
+            <li><strong>Identification:</strong> Easy to identify due to their flat profile and a consistent cutout pattern.</li>
+          </ul>
+        </div>
+        <div class="shingle-type">
+          <h4>Architectural Shingles</h4>
+          <img src="https://i.imgur.com/bA5wY4z.jpeg" alt="Architectural Shingles">
+          <p>Also known as dimensional or laminate shingles, these are a premium type of asphalt shingle that has become the standard in modern roofing.</p>
+          <ul>
+            <li><strong>Appearance:</strong> Constructed with a heavier base mat and multiple laminated layers of material, creating a richer, more textured, and three-dimensional look that can mimic the appearance of natural slate or wood shakes.</li>
+            <li><strong>Durability:</strong> Significantly more durable, with higher wind resistance and a longer lifespan than 3-tab shingles.</li>
+            <li><strong>Identification:</strong> Look for varied tab shapes and sizes, giving the roof a more random, contoured appearance without a repeating pattern.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  `,
+  'roofing-damage-id': `
+   <div class="content-card">
+        <h1>Roofing & Damage Identification</h1>
+        <h3>Shingle Types</h3>
+        <p>Identifying the type of shingle is crucial for assessing damage and communicating with adjusters.</p>
+        <div class="shingle-comparison">
+            <div class="shingle-type">
+                <h4>3-Tab Shingles</h4>
+                <img src="https://i.imgur.com/gYx2V2y.jpeg" alt="3-Tab Shingles">
+                <p>Flat, single-layer appearance with distinct rectangular cutouts.</p>
+            </div>
+            <div class="shingle-type">
+                <h4>Architectural Shingles</h4>
+                <img src="https://i.imgur.com/bA5wY4z.jpeg" alt="Architectural Shingles">
+                <p>Laminated, multi-layer design giving a dimensional, textured look.</p>
+            </div>
+        </div>
+        <hr>
+        <h3>Storm Damage vs. Non-Storm Damage</h3>
+        <p>It's vital to differentiate between actual storm damage and other roof issues.</p>
+        <h4>Storm Damage (Qualifying)</h4>
+        <ul>
+            <li><strong>Hail Damage:</strong> Circular "bruises" or divots where granules are knocked off, often with a soft or spongy feel.</li>
+            <li><strong>Wind Damage:</strong> Lifted, creased, or missing shingles.</li>
+        </ul>
+        <h4>Non-Storm Damage (Non-Qualifying)</h4>
+        <ul>
+            <li><strong>Blistering:</strong> Looks like bubbles on the shingle surface, a manufacturing defect.</li>
+            <li><strong>Cracking:</strong> Age-related, looks like splintering or straight lines.</li>
+            <li><strong>Granule Loss:</strong> General, even loss of granules due to age, not concentrated in spots like hail hits.</li>
+        </ul>
+    </div>
+  `,
+  'sales-cycle': `
+    <div class="content-card">
+        <h1>The Sales Cycle</h1>
+        <h3>Sales Cycle Sorter Game</h3>
+        <div class="game-container">
+            <p class="game-instructions">Drag and drop the sales cycle stages into the correct order from start to finish.</p>
+            <div id="sales-cycle-game" class="game-board">
+                <div class="game-column">
+                    <h4>Stages</h4>
+                    <div id="items-pool">
+                        <div class="draggable-item" draggable="true" data-order="3">Adjuster Meeting</div>
+                        <div class="draggable-item" draggable="true" data-order="1">Generating New Business</div>
+                        <div class="draggable-item" draggable="true" data-order="5">Install & Final Payment</div>
+                        <div class="draggable-item" draggable="true" data-order="2">Inspection & Pitch</div>
+                        <div class="draggable-item" draggable="true" data-order="4">Project Meeting & Downpayment</div>
+                    </div>
+                </div>
+                <div class="game-column">
+                    <h4>Correct Order</h4>
+                    <div id="sorted-list" class="drop-zone-sort"></div>
+                </div>
+            </div>
+            <div id="sales-cycle-feedback" class="feedback-message" style="display: none;"></div>
+        </div>
+    </div>
+  `,
+  'claim-closing': `
+     <div class="content-card">
+        <h1>Filing a Claim & Closing</h1>
+        <h3>Prepping the Homeowner</h3>
+        <p>Before the call to the insurance company, you must prep the homeowner. Use a blank note on your iPad to go over these key points so they know what to say.</p>
+        <ul>
+            <li><strong>Reason for claim:</strong> "I'd like to file a claim for hail and wind damage." (Never only one type).</li>
+            <li><strong>Damaged items:</strong> Roof, Downspouts, Gutters, Siding, etc.</li>
+            <li><strong>Selected Contractor:</strong> "Yes, we have selected Roof-ER."</li>
+            <li><strong>Have an estimate:</strong> "No."</li>
+        </ul>
+        <h3>The Contingency & Claim Authorization</h3>
+        <p>After the claim is filed, you will present the agreements. This is the close.</p>
+        <div class="script" data-text-source="true">
+            <button class="speak-btn" aria-label="Listen to script">🔊</button>
+            <p><strong>Contingency Agreement:</strong> "This basic agreement backs you as the homeowner by guaranteeing your only cost will be your deductible if we get you fully approved. If it is a partial approval or denial, we will fight for you. But if we are not able to get you fully approved, this contract is null and void and you do not owe us a penny."</p>
+            <p><strong>Claim Authorization:</strong> "This next form is our Claim Authorization. Very simple, it allows us to communicate with your insurance company on your behalf. I'll be here for the inspection and will communicate with them, so you don’t have to be the middle-man. Of course, I'll always keep you looped in."</p>
+        </div>
+    </div>
+  `,
+  'role-play': `
+    <div class="content-card">
+      <div class="agnes-roleplay-container" role="main" aria-label="Agnes 21 Role-Play Training System">
+
+        <!-- SCREEN 1: ROLE SELECTION -->
+        <section id="role-selection-screen" class="roleplay-screen active" data-screen="role-selection">
+          <header class="screen-header">
+            <h2 class="screen-title">Choose Your Role-Play Scenario</h2>
+            <p class="screen-description">
+              Select which role you'd like to practice. Agnes will simulate realistic conversations to help you master each interaction.
+            </p>
+          </header>
+
+          <div class="role-cards-grid">
+            <article class="role-card" data-role="homeowner">
+              <div class="role-card-icon">👤</div>
+              <h3 class="role-card-title">Practice as Rep vs Homeowner</h3>
+              <p class="role-card-description">
+                You play the sales representative. Agnes simulates a homeowner with various concerns, objections, and questions about roofing services.
+              </p>
+              <ul class="role-card-skills">
+                <li>Building rapport</li>
+                <li>Handling objections</li>
+                <li>Closing techniques</li>
+                <li>Value communication</li>
+              </ul>
+              <button type="button" class="btn btn-primary role-select-btn" data-role-type="homeowner">
+                Select This Role
+              </button>
+            </article>
+
+            <article class="role-card" data-role="rep">
+              <div class="role-card-icon">🏠</div>
+              <h3 class="role-card-title">Practice as Homeowner vs Rep</h3>
+              <p class="role-card-description">
+                You play the homeowner. Agnes simulates a sales representative. Learn to recognize effective sales techniques and homeowner concerns.
+              </p>
+              <ul class="role-card-skills">
+                <li>Understanding homeowner perspective</li>
+                <li>Recognizing sales tactics</li>
+                <li>Asking qualifying questions</li>
+                <li>Decision-making process</li>
+              </ul>
+              <button type="button" class="btn btn-primary role-select-btn" data-role-type="rep">
+                Select This Role
+              </button>
+            </article>
+
+            <article class="role-card" data-role="adjuster">
+              <div class="role-card-icon">📋</div>
+              <h3 class="role-card-title">Practice as Rep vs Adjuster</h3>
+              <p class="role-card-description">
+                You play the representative negotiating with an insurance adjuster. Agnes simulates various adjuster personalities and negotiation scenarios.
+              </p>
+              <ul class="role-card-skills">
+                <li>Professional negotiation</li>
+                <li>Documentation review</li>
+                <li>Scope of work defense</li>
+                <li>Professional communication</li>
+              </ul>
+              <button type="button" class="btn btn-primary role-select-btn" data-role-type="adjuster">
+                Select This Role
+              </button>
+            </article>
+          </div>
+        </section>
+
+        <!-- SCREEN 2: ACTIVE ROLE-PLAY -->
+        <section id="roleplay-active-screen" class="roleplay-screen" data-screen="roleplay-active" style="display:none;">
+          <div class="scenario-progress">
+            <span class="scenario-count" id="scenario-count">Scenario 1</span>
+            <span class="scenario-role-badge" id="active-role-badge">Rep vs Homeowner</span>
+          </div>
+
+          <header class="scenario-header">
+            <h2 id="scenario-title" class="scenario-title">Loading Scenario...</h2>
+            <p class="scenario-context" id="scenario-context"></p>
+          </header>
+
+          <div class="conversation-container">
+            <article class="message message-agnes">
+              <div class="message-avatar">Agnes</div>
+              <div class="message-content">
+                <div class="message-bubble">
+                  <p class="message-text" id="agnes-current-message"></p>
+                </div>
+              </div>
+            </article>
+
+            <article class="message message-user-input">
+              <div class="message-avatar">You</div>
+              <div class="message-content">
+                <div class="response-input-container">
+                  <label for="user-response-textarea" class="sr-only">Your response to Agnes</label>
+                  <textarea
+                    id="user-response-textarea"
+                    class="user-response-textarea"
+                    placeholder="Type your response here... (or use voice input)"
+                    rows="4"
+                    maxlength="1000"
+                  ></textarea>
+                  <div class="textarea-meta">
+                    <span id="response-char-count" class="char-counter">0 / 1000 characters</span>
+                  </div>
+                </div>
+
+                <div class="response-actions">
+                  <button type="button" class="btn btn-icon-text btn-voice" data-action="voice-input">
+                    <span class="btn-text">🎤 Voice Input</span>
+                  </button>
+                  <button type="button" class="btn btn-secondary btn-hint" data-action="show-hint">
+                    <span class="btn-text">💡 Hint</span>
+                  </button>
+                  <button type="button" class="btn btn-primary btn-submit" data-action="submit-response" disabled>
+                    Submit Response
+                  </button>
+                </div>
+
+                <aside id="hint-box" class="hint-box hidden">
+                  <header class="hint-header">
+                    <h4 class="hint-title">💡 Helpful Hint</h4>
+                    <button type="button" class="btn-icon btn-close-hint" data-action="close-hint">✕</button>
+                  </header>
+                  <div class="hint-content">
+                    <p id="hint-text" class="hint-text"></p>
+                  </div>
+                </aside>
+
+                <div id="voice-recording-indicator" class="voice-indicator hidden">
+                  <div class="voice-animation">
+                    <span class="voice-pulse"></span>
+                    <span class="voice-pulse"></span>
+                    <span class="voice-pulse"></span>
+                  </div>
+                  <p class="voice-text">Listening... Speak now</p>
+                  <button type="button" class="btn btn-sm btn-stop-recording" data-action="stop-voice">
+                    Stop Recording
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="scenario-bottom-actions">
+            <button type="button" class="btn btn-link btn-end" data-action="end-scenario">
+              End Scenario
+            </button>
+          </div>
+        </section>
+
+        <!-- SCREEN 3: FEEDBACK SCREEN -->
+        <section id="feedback-screen" class="roleplay-screen" data-screen="feedback" style="display:none;">
+          <header class="feedback-header">
+            <h2 class="screen-title">Response Feedback</h2>
+            <p class="feedback-subtitle">Here's how you did on this turn</p>
+          </header>
+
+          <div class="feedback-score-container">
+            <div class="score-circle-wrapper">
+              <div class="score-circle" id="feedback-score-circle">
+                <span class="score-value" id="feedback-score-value">0</span>
+                <span class="score-label">Score</span>
+              </div>
+            </div>
+            <p class="score-rating" id="score-rating">Good Effort!</p>
+          </div>
+
+          <div class="feedback-analysis">
+            <article class="feedback-section feedback-matched">
+              <header class="feedback-section-header">
+                <h3 class="feedback-section-title">✅ Key Points You Covered</h3>
+                <span class="feedback-count" id="matched-count">0</span>
+              </header>
+              <ul class="feedback-points-list" id="matched-points-list"></ul>
+            </article>
+
+            <article class="feedback-section feedback-missed">
+              <header class="feedback-section-header">
+                <h3 class="feedback-section-title">💡 Opportunities for Improvement</h3>
+                <span class="feedback-count" id="missed-count">0</span>
+              </header>
+              <ul class="feedback-points-list" id="missed-points-list"></ul>
+            </article>
+          </div>
+
+          <article class="feedback-detailed">
+            <div class="feedback-category feedback-strengths">
+              <h3 class="category-title">⭐ Strengths</h3>
+              <ul class="category-list" id="strengths-list"></ul>
+            </div>
+
+            <div class="feedback-category feedback-improvements">
+              <h3 class="category-title">📈 Areas for Improvement</h3>
+              <ul class="category-list" id="improvements-list"></ul>
+            </div>
+          </article>
+
+          <aside class="feedback-ai-comment">
+            <div class="ai-comment-content">
+              <h4 class="ai-comment-title">Agnes's Insight</h4>
+              <p id="ai-comment-text" class="ai-comment-text"></p>
+            </div>
+          </aside>
+
+          <div class="feedback-actions">
+            <button type="button" class="btn btn-secondary" data-action="retry-turn">
+              🔄 Retry This Turn
+            </button>
+            <button type="button" class="btn btn-primary" data-action="continue-scenario">
+              Continue to Next Scenario →
+            </button>
+          </div>
+        </section>
+
+        <!-- SCREEN 4: SESSION SUMMARY -->
+        <section id="session-summary-screen" class="roleplay-screen" data-screen="session-summary" style="display:none;">
+          <header class="summary-header">
+            <div class="summary-completion-badge">✓</div>
+            <h2 class="screen-title">Session Complete!</h2>
+            <p class="summary-subtitle">
+              <strong id="summary-role">Rep vs Homeowner</strong> •
+              <strong id="summary-scenarios">5 scenarios completed</strong>
+            </p>
+          </header>
+
+          <div class="summary-overall-score">
+            <div class="overall-score-circle">
+              <span class="score-value-lg" id="summary-overall-score">0</span>
+              <span class="score-label">Overall Score</span>
+            </div>
+            <p class="overall-rating" id="summary-overall-rating">Great Performance!</p>
+            <p class="overall-message" id="summary-overall-message"></p>
+          </div>
+
+          <div class="summary-breakdown">
+            <h3 class="breakdown-title">Performance Statistics</h3>
+            <div class="breakdown-stats">
+              <div class="stat-card">
+                <div class="stat-icon">✓</div>
+                <div class="stat-content">
+                  <p class="stat-value" id="stat-points-covered">0/0</p>
+                  <p class="stat-label">Key Points Covered</p>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">💡</div>
+                <div class="stat-content">
+                  <p class="stat-value" id="stat-hints-used">0</p>
+                  <p class="stat-label">Hints Used</p>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">🔄</div>
+                <div class="stat-content">
+                  <p class="stat-value" id="stat-retries">0</p>
+                  <p class="stat-label">Retries</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <article class="summary-takeaways">
+            <h3 class="takeaways-title">📌 Key Takeaways</h3>
+            <ul class="takeaways-list" id="summary-takeaways-list"></ul>
+          </article>
+
+          <div class="summary-actions">
+            <button type="button" class="btn btn-secondary" data-action="back-to-role-selection">
+              Choose Different Role
+            </button>
+            <button type="button" class="btn btn-primary" data-action="start-new-scenario">
+              Start New Session →
+            </button>
+          </div>
+        </section>
+
+        <!-- Loading Overlay -->
+        <div id="roleplay-loading" class="loading-overlay hidden">
+          <div class="loading-spinner"></div>
+          <p class="loading-text" id="loading-text-message">Loading scenario...</p>
+        </div>
+
+      </div>
+    </div>
+  `,
+  quiz: `
+    <div class="content-card" id="quiz-container">
+      <h1>Final Quiz</h1>
+      <p>Test your knowledge of the Roof-ER sales process. A new quiz will be generated each time you visit this section.</p>
+      <button id="generateQuizButton">Start Quiz</button>
+      <div id="quiz-area"></div>
+    </div>
+  `,
+};
+
+// Extend content with new tabs and remaps
+// 3. General Roofing Knowledge & Terminology (includes Identifying Knockable Doors)
+trainingContent['general-knowledge'] = `
+  <div class="content-card">
+    <h1>General Roofing Knowledge & Terminology</h1>
+    <p>Core terms every rep should know, major components, and how roof systems work.</p>
+    <h3>Parts of a Roof</h3>
+    <div class="roof-visuals">
+      <figure>
+        <img src="/resources/3droof2.avif" alt="Roof system layers">
+        <figcaption>Example roof system layers and components.</figcaption>
+      </figure>
+    </div>
+    <ul>
+      <li>Ridge, Ridge Vent, Hip & Ridge Shingles</li>
+      <li>Felt/Underlayment, Ice & Water Barrier</li>
+      <li>Flashing, Drip Edge, Starter Shingles</li>
+      <li>Intake/Exhaust Vents, Baffles, Insulation</li>
+    </ul>
+    <hr>
+    <h3>Identifying Knockable Doors</h3>
+    <p>Target homes in storm-affected areas, HOAs with known patterns, and properties with visible wear.</p>
+    <ul>
+      <li>Use storm maps and local intel; prioritize recent hail/wind corridors.</li>
+      <li>Look for collateral indicators (downspouts, screens, gutters).</li>
+      <li>Mind timing, etiquette, safety, and professional approach.</li>
+    </ul>
+    <div class="examples">
+      <p>See sample photo reports for good vs. bad examples:</p>
+      <ul>
+        <li><a href="/resources/Sample%20Photo%20Report%201.pdf" target="_blank">Sample Photo Report 1</a></li>
+        <li><a href="/resources/Sample%20Photo%20Report%204.pdf" target="_blank">Sample Photo Report 4</a></li>
+        <li><a href="/resources/Sample%20Ashpahlt%20Report%20NEW.pdf" target="_blank">Sample Asphalt Report</a></li>
+        <li><a href="/resources/Sample%20Cedar%20Report.pdf" target="_blank">Sample Cedar Report</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="quiz2">
+      <h3>Quick Quiz #2</h3>
+      <p>Pass/Fail mini‑quiz on general roofing concepts.</p>
+      <button id="startQuickQuiz2">Start Quiz</button>
+      <div id="quiz2-area"></div>
+    </div>
+  </div>
+`;
+
+// 4. Shingle Types & Materials (remap existing)
+trainingContent['shingle-types-materials'] = trainingContent['shingle-types'] || `
+  <div class="content-card"><h1>Shingle Types & Materials</h1><p>Content coming soon.</p></div>
+`;
+
+// 6. Handling Initial Pitch Objections (remap existing objection-handling)
+trainingContent['handling-initial-pitch-objections'] = trainingContent['objection-handling'] || `
+  <div class="content-card"><h1>Handling Initial Pitch Objections</h1><p>Content coming soon.</p></div>
+`;
+
+// 9. Post-Inspection Objections (new)
+trainingContent['post-inspection-objections'] = `
+  <div class="content-card">
+    <h1>Post‑Inspection Objections</h1>
+    <p>Address hesitations after the inspection: <em>“I need to think about it”</em>, <em>“I’ll call my insurance myself”</em>, and more.</p>
+    <ul>
+      <li>Use clear recap of findings and next steps</li>
+      <li>Offer to handle logistics while keeping homeowner in the loop</li>
+      <li>Confirm timeline and set expectations</li>
+    </ul>
+  </div>
+`;
+
+// 10. Damage Identification (remap existing)
+trainingContent['damage-identification'] = trainingContent['roofing-damage-id'] || `
+  <div class="content-card"><h1>Damage Identification</h1><p>Content coming soon.</p></div>
+`;
+
+// 11. Filing the Claim & Closing (remap existing)
+trainingContent['filing-claim-closing'] = trainingContent['claim-closing'] || `
+  <div class="content-card"><h1>Filing the Claim & Closing</h1><p>Content coming soon.</p></div>
+`;
+
+// 12. Closing Objections (new) — ties into Filing the Claim & Closing
+trainingContent['closing-objections'] = `
+  <div class="content-card">
+    <h1>Closing Objections</h1>
+    <p>Common pushbacks when moving from claim filing to the close, with concise responses and next‑step prompts.</p>
+    <div class="script" data-text-source="true">
+      <button class="speak-btn" aria-label="Listen to script">🔊</button>
+      <p><strong>“I need to think about it.”</strong><br>
+      Absolutely—totally fair. Would it help if I summarize where we are and what happens next? It’s a simple step: we’ll handle the carrier communication and keep you updated. The only cost to you is the deductible if fully approved.</p>
+    </div>
+    <div class="script" data-text-source="true">
+      <button class="speak-btn" aria-label="Listen to script">🔊</button>
+      <p><strong>“I’ll just call my insurance myself.”</strong><br>
+      That works too. The benefit of authorizing us is we do the legwork—photos, documentation, and follow‑ups—while keeping you in the loop, so you’re not the middle‑person.</p>
+    </div>
+    <div class="script" data-text-source="true">
+      <button class="speak-btn" aria-label="Listen to script">🔊</button>
+      <p><strong>“I’m worried about costs.”</strong><br>
+      Understandable. If approved, your only out‑of‑pocket is the deductible. No surprises—everything is documented and reviewed with you before work begins.</p>
+    </div>
+    <h3>Flow to Close</h3>
+    <ol>
+      <li>Recap inspection results and insurance path</li>
+      <li>Clarify deductible and timeline</li>
+      <li>Present authorization/contingency forms</li>
+      <li>Set expectations for adjuster meeting</li>
+      <li>Schedule next touchpoint</li>
+    </ol>
+    <p>Review the prior section <em>Filing the Claim & Closing</em> for scripts and carrier variations.</p>
+  </div>
+`;
+
+// 12. Discontinued Products & Special Scenarios (new)
+trainingContent['discontinued-products'] = `
+  <div class="content-card">
+    <h1>Discontinued Products & Special Scenarios</h1>
+    <p>Handling discontinued shingles and product mismatches. Reference manufacturer resources and real‑world examples.</p>
+    <ul>
+      <li><a href="/resources/Training%20Manual.docx" target="_blank">Training Manual</a></li>
+      <li><a href="/resources/Sales%20Operations%20and%20Tasks.docx" target="_blank">Sales Operations & Tasks</a></li>
+    </ul>
+  </div>
+`;
+
+// 13. Sales Cycle & Job Flow (remap existing)
+trainingContent['sales-cycle-job-flow'] = trainingContent['sales-cycle'] || `
+  <div class="content-card"><h1>Sales Cycle & Job Flow</h1><p>Content coming soon.</p></div>
+`;
+
+// 15. Final Exam (new)
+trainingContent['final-exam'] = `
+  <div class="content-card" id="final-exam">
+    <h1>Final Exam / Certification</h1>
+    <p>50 questions total: 35 multiple choice, 10 fill‑in‑the‑blank, 5 short answer. Auto‑graded where applicable with retake option.</p>
+    <button id="startFinalExam">Start Final Exam</button>
+    <div id="exam-area"></div>
+  </div>
+`;
+
+// Enhance Welcome with leadership profiles and Quick Quiz #1
+trainingContent['welcome'] += `
+  <hr>
+  <h2>STEERING OUR ROOFING REVOLUTION</h2>
+  <h3>Leadership Team</h3>
+  <div class="profile-cards">
+    <div class="profile-card" data-name="Oliver">
+      <div class="avatar"><img src="/resources/images/oliver-theroofdocs.jpg" alt="Oliver Brown"></div>
+      <div class="info"><strong>Oliver Brown</strong><br><small>Owner & Founder</small></div>
+      <button class="bio-btn" data-bio="oliver">My Bio</button>
+    </div>
+    <div class="profile-card" data-name="Reese">
+      <div class="avatar"><img src="/resources/images/reese-theroofdocs.jpg" alt="Reese Samala"></div>
+      <div class="info"><strong>Reese Samala</strong><br><small>Director of Sales</small></div>
+      <button class="bio-btn" data-bio="reese">My Bio</button>
+    </div>
+    <div class="profile-card" data-name="Ford">
+      <div class="avatar"><img src="/resources/images/ford-theroofdocs.jpg" alt="Ford Barsi"></div>
+      <div class="info"><strong>Ford Barsi</strong><br><small>General Manager</small></div>
+      <button class="bio-btn" data-bio="ford">My Bio</button>
+    </div>
+  </div>
+  <div class="org-chart">
+    <h4>Company Structure</h4>
+    <p>Overview chart coming soon. See resources:</p>
+    <ul>
+      <li><a href="/resources/Roof-ER%20Sales%20Training.pptx" target="_blank">Sales Training (PPTX)</a></li>
+      <li><a href="/resources/Training%20Timeline.docx" target="_blank">Training Timeline (DOCX)</a></li>
+    </ul>
+  </div>
+  <div id="quiz1">
+    <h3>Quick Quiz #1 (Company Overview)</h3>
+    <button id="startQuickQuiz1">Start Quiz</button>
+    <div id="quiz1-area"></div>
+  </div>
+`;
+
+// Enhance Role-Play with persona + scenario selectors
+trainingContent['role-play'] = (trainingContent['role-play'] || '').replace(
+  '<div id="chat-container">',
+  `<div class="rp-controls">
+      <label>AI Name: <input id="rp-name" type="text" value="Agnes" /></label>
+      <label>AI Role:
+        <select id="rp-role">
+          <option value="homeowner">Homeowner</option>
+          <option value="rep">Sales Rep</option>
+        </select>
+      </label>
+      <label>Persona:
+        <select id="rp-persona">
+          <option value="skeptical">Skeptical</option>
+          <option value="busy">Busy</option>
+          <option value="cost">Cost‑Concerned</option>
+          <option value="neutral">Neutral</option>
+        </select>
+      </label>
+      <label>Scenario:
+        <select id="rp-scenario">
+          <option value="noDamage">Doesn’t think there’s damage</option>
+          <option value="badTiming">Bad time at the door</option>
+          <option value="insuranceDIY">Wants to call insurance themselves</option>
+          <option value="hoaRules">HOA restrictions</option>
+          <option value="budget">Worried about cost/deductible</option>
+          <option value="schedule">Scheduling/availability conflict</option>
+          <option value="claimClosed">Claim already closed / prior denial</option>
+          <option value="materials">Discontinued materials concern</option>
+          <option value="safety">Ladder/safety hesitation</option>
+        </select>
+      </label>
+      <div class="rp-actions">
+        <button id="rp-reset">New Scenario</button>
+        <button id="rp-hint">Hint</button>
+        <button id="rp-export">Export Transcript</button>
+      </div>
+    </div>
+    <div id="chat-container">`
+);
+
+// --- Speech Synthesis ---
+const synth = window.speechSynthesis;
+let currentUtterance: SpeechSynthesisUtterance | null = null;
+
+function handleSpeak(event: MouseEvent) {
+    const target = (event.target as HTMLElement).closest('.speak-btn');
+    if (!target) return;
+
+    const scriptContainer = target.closest('[data-text-source="true"]');
+    if (!scriptContainer) return;
+
+    const textToSpeak = (scriptContainer as HTMLElement).innerText.trim();
+
+    if (synth.speaking && currentUtterance) {
+        synth.cancel();
+        // If the same button is clicked again, just stop the speech.
+        if (currentUtterance.text === textToSpeak) {
+            currentUtterance = null;
+            return; 
+        }
+    }
+
+    const utterance = new SpeechSynthesisUtterance(textToSpeak);
+    currentUtterance = utterance;
+    utterance.onerror = (e) => console.error("SpeechSynthesis Error", e);
+    synth.speak(utterance);
+}
+
+// --- Game Logic ---
+function initSalesCycleSorter() {
+    const pool = document.getElementById('items-pool');
+    const dropZone = document.getElementById('sorted-list');
+    const feedbackEl = document.getElementById('sales-cycle-feedback');
+    if (!pool || !dropZone || !feedbackEl) return;
+
+    let draggedItem: HTMLElement | null = null;
+    const correctOrder = ['1', '2', '3', '4', '5'];
+
+    pool.addEventListener('dragstart', (e) => {
+        draggedItem = e.target as HTMLElement;
+        setTimeout(() => {
+            if (draggedItem) draggedItem.style.display = 'none';
+        }, 0);
+    });
+
+    pool.addEventListener('dragend', () => {
+        setTimeout(() => {
+            if (draggedItem) {
+                draggedItem.style.display = 'block';
+                draggedItem = null;
+            }
+        }, 0);
+    });
+
+    dropZone.addEventListener('dragover', e => e.preventDefault());
+
+    dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        if (draggedItem) {
+            dropZone.appendChild(draggedItem);
+            checkOrder();
+        }
+    });
+
+    function checkOrder() {
+        const items = dropZone.querySelectorAll('.draggable-item');
+        if (items.length !== correctOrder.length) return;
+
+        const currentOrder = Array.from(items).map(item => (item as HTMLElement).dataset.order);
+        
+        if (JSON.stringify(currentOrder) === JSON.stringify(correctOrder)) {
+            feedbackEl.textContent = 'Correct! That is the right order.';
+            feedbackEl.className = 'feedback-message correct';
+        } else {
+            feedbackEl.textContent = 'Not quite right. Try again!';
+            feedbackEl.className = 'feedback-message incorrect';
+        }
+        feedbackEl.style.display = 'block';
+    }
+}
+
+function initObjectionMatcher() {
+    const draggables = document.querySelectorAll('#objections-list .draggable-item');
+    const dropZones = document.querySelectorAll('.drop-zone');
+    const feedbackEl = document.getElementById('objection-feedback');
+    let correctMatches = 0;
+    const totalMatches = draggables.length;
+    
+    let draggedItem: HTMLElement | null = null;
+
+    draggables.forEach(draggable => {
+        draggable.addEventListener('dragstart', (e) => {
+            draggedItem = e.target as HTMLElement;
+            setTimeout(() => {
+                if(draggedItem) draggedItem.classList.add('dragging');
+            }, 0)
+        });
+
+        draggable.addEventListener('dragend', () => {
+            if(draggedItem) draggedItem.classList.remove('dragging');
+        });
+    });
+
+    dropZones.forEach(zone => {
+        zone.addEventListener('dragover', e => {
+            e.preventDefault();
+            zone.classList.add('drag-over');
+        });
+        zone.addEventListener('dragleave', () => {
+            zone.classList.remove('drag-over');
+        });
+        zone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            zone.classList.remove('drag-over');
+            if (!draggedItem || zone.children.length > 1) return; // Allow one item (the <p>)
+
+            const zoneMatch = (zone as HTMLElement).dataset.match;
+            const itemMatch = draggedItem.dataset.match;
+
+            if (zoneMatch === itemMatch) {
+                // Hide the placeholder text and append the item
+                const placeholder = zone.querySelector('.response-text') as HTMLElement;
+                if(placeholder) placeholder.style.display = 'none';
+                
+                zone.appendChild(draggedItem);
+                (draggedItem as HTMLElement).setAttribute('draggable', 'false');
+                zone.classList.add('correctly-matched');
+                correctMatches++;
+                
+                if (correctMatches === totalMatches && feedbackEl) {
+                    feedbackEl.textContent = 'Great job! All objections matched correctly.';
+                    feedbackEl.className = 'feedback-message correct';
+                    feedbackEl.style.display = 'block';
+                }
+            }
+        });
+    });
+}
+
+
+// --- Agnes 21 Role-Play System ---
+// Consolidated Agnes scenario library from all 9 modules
+interface AgnesScenario {
+    id: string;
+    role: 'homeowner' | 'rep' | 'adjuster';
+    prompt: string;
+    expectedKeyPoints: string[];
+    rubric: {
+        keywords: string[];
+        passThreshold?: number;
+    };
+    followUps: string[];
+    difficulty?: 'beginner' | 'intermediate' | 'advanced';
+}
+
+const AGNES_SCENARIOS: AgnesScenario[] = [
+    // Module 1 - Initial Pitch scenarios
+    { id: 'm1-not-interested', role: 'homeowner', prompt: "We're not interested. We already talked to someone last week.", expectedKeyPoints: ['Acknowledge respectfully', 'Clarify value (free, no obligation)', 'Establish social proof / storm context', 'Offer specific, short inspection window'], rubric: { keywords: ['understand', 'free', 'no obligation', 'neighbors', 'storm', '15 minutes', 'today', 'tomorrow'], passThreshold: 70 }, followUps: ['What time today or tomorrow is best for a quick 15-minute check?'], difficulty: 'beginner' },
+    { id: 'm1-talk-to-spouse', role: 'homeowner', prompt: 'I need to talk to my spouse first.', expectedKeyPoints: ['Acknowledge and respect decision process', 'Offer brief inspection now for facts', 'Provide simple summary to share', 'Give two time options for both present'], rubric: { keywords: ['respect', 'summary', 'facts', 'two options'], passThreshold: 70 }, followUps: ['Would 6:30pm today or 10am tomorrow work for both of you?'], difficulty: 'beginner' },
+    { id: 'm1-other-contractor', role: 'homeowner', prompt: 'We already had someone look at it.', expectedKeyPoints: ['Acknowledge prior visit', 'Offer second opinion with photo evidence', 'Explain insurance requires documented proof', 'Short window and no obligation'], rubric: { keywords: ['acknowledge', 'second opinion', 'documented proof', 'no obligation'], passThreshold: 70 }, followUps: ['Want me to show you an example report so you can compare?'], difficulty: 'intermediate' },
+    { id: 'm1-pricing-concern', role: 'homeowner', prompt: "We're not spending money on this right now.", expectedKeyPoints: ['Acknowledge money concern', 'Explain deductible only', 'Insurance covers replacement if approved', 'Offer scheduling options'], rubric: { keywords: ['deductible', 'insurance', 'covers', 'approve', 'peace of mind', 'schedule'], passThreshold: 70 }, followUps: ['Would 4pm today or 10am tomorrow work for a 15-minute check?'], difficulty: 'beginner' },
+    { id: 'm1-roofer-friend', role: 'homeowner', prompt: "My brother-in-law's a roofer. We'll call him if we need anything.", expectedKeyPoints: ['Acknowledge and respect the relationship', 'Clarify storm claim process vs retail work', 'Value of impartial photo documentation', 'Offer quick, no-obligation inspection window'], rubric: { keywords: ['understand', 'storm claim', 'documentation', 'no obligation', '15 minutes', 'today', 'tomorrow'], passThreshold: 70 }, followUps: ['Would a 15-minute no-obligation photo check help you two decide together?'], difficulty: 'intermediate' },
+    { id: 'm1-no-visible-damage', role: 'homeowner', prompt: "I don't see damage from the ground—why inspect?", expectedKeyPoints: ['Acknowledge perception', 'Explain roof-level evidence (granules, creases, collateral)', 'Insurance requires documented proof', 'Offer simple time options'], rubric: { keywords: ['understand', 'roof-level', 'granules', 'creases', 'collateral', 'insurance', 'schedule'], passThreshold: 70 }, followUps: ['Would 5pm today or 10am tomorrow work for a quick look?'], difficulty: 'beginner' },
+    { id: 'm1-leave-card', role: 'homeowner', prompt: 'I'm busy—just leave a card.', expectedKeyPoints: ['Acknowledge time constraint', 'Offer 10-second context and value', 'Give two short time options', 'Offer to text info and confirm'], rubric: { keywords: ['busy', '10 seconds', 'two options', 'text info', 'confirm'], passThreshold: 70 }, followUps: ['Would 6:10pm today or 9:40am tomorrow work for a 10–15 minute roof-level check?'], difficulty: 'beginner' },
+    { id: 'm1-scam-worried', role: 'homeowner', prompt: 'We've had a lot of people knocking—how do we know this isn't a scam?', expectedKeyPoints: ['Empathize and normalize concern', 'Local presence and references', 'Transparent photo-report process', 'No-obligation inspection with clear next step'], rubric: { keywords: ['empathize', 'local', 'references', 'transparent', 'no obligation', 'next step'], passThreshold: 70 }, followUps: ['Would you like to see a sample photo report and two nearby references?'], difficulty: 'intermediate' },
+    { id: 'm1-no-claims', role: 'homeowner', prompt: 'We don't like doing insurance claims—sounds like a hassle.', expectedKeyPoints: ['Acknowledge hesitation', 'Explain simple steps and your guidance', 'Only the deductible if approved', 'Offer quick inspection to verify if it's even needed'], rubric: { keywords: ['acknowledge', 'simple steps', 'deductible', 'verify first'], passThreshold: 70 }, followUps: ['If it doesn't qualify, at least you'll have clarity—want a quick check today or tomorrow?'], difficulty: 'intermediate' },
+
+    // Module 2 - Inspection & Photo Documentation
+    { id: 'm2-photo-education', role: 'homeowner', prompt: "Why do you need so many photos? Isn't that overkill?", expectedKeyPoints: ['Insurance evidence requirements', 'Order of photos and consistency', 'Peace of mind and transparency for homeowner'], rubric: { keywords: ['evidence', 'adjuster', 'consistency', 'transparency', 'report'], passThreshold: 70 }, followUps: ['Would you like me to show you a sample report so you can see exactly what we document?'], difficulty: 'beginner' },
+    { id: 'm2-damage-clarification', role: 'homeowner', prompt: "How do you know that's hail and not just wear?", expectedKeyPoints: ['Circular divots', 'Granule loss', 'Bruising', 'Pattern across slopes'], rubric: { keywords: ['circular', 'granules', 'bruise', 'pattern'], passThreshold: 70 }, followUps: ['Would you like me to chalk a test square so you can see the pattern clearly?'], difficulty: 'beginner' },
+    { id: 'm2-storm-date-uncertain', role: 'homeowner', prompt: "We don't remember the exact storm date. Can we still file?", expectedKeyPoints: ['Yes—reps can provide verified date ranges', 'Carrier verifies against NOAA data', 'Document current damage thoroughly', 'File claim to initiate adjuster inspection'], rubric: { keywords: ['NOAA', 'date range', 'verified', 'document', 'adjuster', 'claim'], passThreshold: 70 }, followUps: ['I can include local NOAA storm dates in your claim notes—shall we proceed?'], difficulty: 'intermediate' },
+    { id: 'm2-minor-scuffs', role: 'homeowner', prompt: 'If it's just minor scuffs, should we still file a claim?', expectedKeyPoints: ['Carrier decision, not homeowner/rep guess', 'Document current condition thoroughly', 'Claims create adjuster inspection for determination'], rubric: { keywords: ['carrier', 'document', 'adjuster', 'determination'], passThreshold: 70 }, followUps: ['Would you like us to document thoroughly so you can make an informed decision?'], difficulty: 'beginner' },
+
+    // Module 3 - Daily Operations & Pipeline
+    { id: 'm3-deductible-explain', role: 'homeowner', prompt: 'How much will this cost me up front?', expectedKeyPoints: ['Typically only the deductible if claim approved', 'No obligation inspection', 'Policy designed for storm events'], rubric: { keywords: ['deductible', 'policy', 'approved', 'no obligation'], passThreshold: 70 }, followUps: ['Would you like me to show a simple cost breakdown after approval?'], difficulty: 'beginner' },
+
+    // Module 4 - L.E.A.R.N. Framework
+    { id: 'm4-other-quotes', role: 'homeowner', prompt: 'We want to get a few other quotes first.', expectedKeyPoints: ['Acknowledge diligence', 'Insurance claim ≠ retail bidding', 'Evidence-driven approval', 'Offer inspection first'], rubric: { keywords: ['acknowledge', 'not retail', 'evidence', 'inspection'], passThreshold: 70 }, followUps: ['Would a quick inspection and photo report help you compare apples to apples?'], difficulty: 'intermediate' },
+    { id: 'm4-dog-barking', role: 'homeowner', prompt: 'The dog is going crazy—can you just leave info?', expectedKeyPoints: ['Empathize', 'Offer quick 10-sec value statement', 'Set short follow-up time window', 'Confirm via text'], rubric: { keywords: ['empathize', '10 seconds', 'follow-up', 'text'], passThreshold: 70 }, followUps: ['I'll text you—does tomorrow at 10:30am or 6:15pm work better?'], difficulty: 'beginner' },
+    { id: 'm4-expensive', role: 'homeowner', prompt: "This seems expensive. We can't afford it.", expectedKeyPoints: ['Empathy', 'Deductible focus', 'Insurance covers replacement', 'Offer times'], rubric: { keywords: ['understand', 'deductible', 'insurance', 'schedule'], passThreshold: 70 }, followUps: ['Would 5pm today or 10am tomorrow work to take a quick look?'], difficulty: 'beginner' },
+    { id: 'm4-no-leaks', role: 'homeowner', prompt: "We don't have any leaks—so there's no problem, right?", expectedKeyPoints: ['Acknowledge', 'Explain hidden roof-level damage vs. leaks', 'Insurance requires evidence not active leak', 'Offer quick roof-level check'], rubric: { keywords: ['acknowledge', 'roof-level', 'evidence', 'check'], passThreshold: 70 }, followUps: ['Would 10 minutes on the roof for photos help you decide?'], difficulty: 'intermediate' },
+    { id: 'm4-wait-spring', role: 'homeowner', prompt: 'Let's wait until spring—weather will be better.', expectedKeyPoints: ['Empathize about timing', 'Explain claim windows/system aging', 'Document now, schedule later if needed', 'Offer short inspection window'], rubric: { keywords: ['empathize', 'window', 'document', 'schedule'], passThreshold: 70 }, followUps: ['Would you like a documented baseline now and decide on timing later?'], difficulty: 'intermediate' },
+    { id: 'm4-hoa-restrictions', role: 'homeowner', prompt: 'Our HOA is strict—this probably isn't allowed.', expectedKeyPoints: ['Acknowledge HOA concern', 'Clarify inspection/photo documentation allowed', 'Work with HOA on materials/colors post-approval', 'Next step: simple inspection first'], rubric: { keywords: ['HOA', 'allowed', 'materials', 'colors', 'next step'], passThreshold: 70 }, followUps: ['If it qualifies, we coordinate approvals; want a quick check now?'], difficulty: 'intermediate' },
+    { id: 'm4-trust-proof', role: 'homeowner', prompt: 'How do I know you're legit? We've had a lot of people knocking.', expectedKeyPoints: ['Empathize with flood of contractors', 'Local presence and references', 'Photo-report transparency', 'No-obligation check with clear next step'], rubric: { keywords: ['local', 'references', 'transparency', 'no obligation', 'next step'], passThreshold: 70 }, followUps: ['Would you like to see a sample photo report from nearby?'], difficulty: 'intermediate' },
+    { id: 'm4-too-busy', role: 'homeowner', prompt: 'Today is crazy—come back later sometime.', expectedKeyPoints: ['Acknowledge', 'Offer two specific times', '15-minute check promise', 'Set reminder/confirm'], rubric: { keywords: ['acknowledge', 'two times', '15 minutes', 'confirm'], passThreshold: 70 }, followUps: ['Do you prefer after work today or tomorrow morning?'], difficulty: 'beginner' },
+    { id: 'm4-cannot-afford-deductible', role: 'homeowner', prompt: 'We can't afford the deductible right now.', expectedKeyPoints: ['Empathize', 'Only pay if approved', 'Timing aligns with completion', 'No-obligation inspection'], rubric: { keywords: ['empathize', 'approved', 'completion', 'no obligation'], passThreshold: 70 }, followUps: ['Would it help if I showed the timeline of payments?'], difficulty: 'beginner' },
+
+    // Module 5 - Insurance & Scope
+    { id: 'm5-rcv-acv', role: 'homeowner', prompt: 'Why do they withhold depreciation? When do I pay the deductible?', expectedKeyPoints: ['Depreciation release after completion', 'Deductible is out-of-pocket', 'Two-payment flow'], rubric: { keywords: ['depreciation', 'completion', 'deductible', 'two payments'], passThreshold: 70 }, followUps: ['Would you like to see a quick calculator demo that shows your numbers?'], difficulty: 'intermediate' },
+
+    // Module 9 - Capstone scenarios
+    { id: 'm9-why-pick-you', role: 'homeowner', prompt: "We're comparing a few companies—why should we pick you?", expectedKeyPoints: ['Local specialist', 'Insurance navigation', 'Photo documentation', 'Clear process', 'Schedule'], rubric: { keywords: ['local', 'specialize', 'insurance', 'photos', 'process', 'schedule'], passThreshold: 75 }, followUps: ['Would you like references or to see a sample Photo Report?'], difficulty: 'advanced' },
+    { id: 'm9-deductible-delay', role: 'homeowner', prompt: 'We can't swing the deductible. Can we delay everything?', expectedKeyPoints: ['Empathize', 'Only due if approved and at completion', 'Plan options/timing', 'No-obligation inspection now'], rubric: { keywords: ['empathize', 'approved', 'completion', 'options'], passThreshold: 70 }, followUps: ['Would seeing a basic cost timeline help you decide?'], difficulty: 'intermediate' },
+
+    // Adjuster scenarios
+    { id: 'm2-slope-sampling', role: 'adjuster', prompt: 'Describe your slope sampling method across a multi-face roof to ensure representative findings.', expectedKeyPoints: ['Cardinal slopes when possible', 'Windward/leeward consideration', 'Similar materials/age', 'Replicate counts'], rubric: { keywords: ['sampling', 'windward', 'leeward', 'replicate', 'representative'], passThreshold: 75 }, followUps: ['How many test squares would you plan for a four-slope roof and where?'], difficulty: 'advanced' },
+    { id: 'm2-collateral-priority', role: 'adjuster', prompt: 'List collateral items you prioritize to corroborate hail findings and why.', expectedKeyPoints: ['Soft metals (downspouts, gutters)', 'Screens/garage for pitting', 'A/C fins/housings', 'Fence caps/paint'], rubric: { keywords: ['soft metals', 'screens', 'garage', 'A/C', 'collateral'], passThreshold: 75 }, followUps: ['Which two collateral photos do you present first on most claims?'], difficulty: 'advanced' },
+    { id: 'm5-supplement-justify', role: 'adjuster', prompt: 'Explain how you justify a supplement using photo sequences and measured quantities.', expectedKeyPoints: ['Before/after context', 'Close-ups with scale', 'Measurement math', 'Code references when applicable'], rubric: { keywords: ['before/after', 'scale', 'measure', 'code', 'supplement'], passThreshold: 75 }, followUps: ['Name two photos that are most persuasive for drip edge addition.'], difficulty: 'advanced' },
+    { id: 'm9-scope-clarity', role: 'adjuster', prompt: 'Lead a scope-clarity discussion with an adjuster who is new to hail claims.', expectedKeyPoints: ['Walk order using report', 'Define criteria for hits vs wear', 'Show collateral early', 'Agree on next steps'], rubric: { keywords: ['walk order', 'criteria', 'collateral', 'next steps'], passThreshold: 80 }, followUps: ['What one-page handout would you bring for criteria clarity?'], difficulty: 'advanced' },
+
+    // Rep practice scenarios
+    { id: 'm1-elevator-pitch', role: 'rep', prompt: 'Deliver your 30-second pitch for a post-storm neighborhood.', expectedKeyPoints: ['Use name and purpose', 'Free/no-obligation inspection', 'Social proof (neighbors, local)', 'Clear next step/time options'], rubric: { keywords: ['name', 'free', 'no obligation', 'local', 'neighbors', 'schedule'], passThreshold: 70 }, followUps: ['Now shorten it to 20 seconds without losing clarity.'], difficulty: 'beginner' },
+    { id: 'm2-borderline-damage', role: 'rep', prompt: 'Borderline damage scenario—what do you do?', expectedKeyPoints: ['Document thoroughly', 'Present confidently', 'Let adjuster make final determination', "Don't pre-reject valid claims"], rubric: { keywords: ['document', 'present', 'adjuster', 'final', 'sign it up'], passThreshold: 70 }, followUps: ['Which three photos would you prioritize for an adjuster to see first?'], difficulty: 'intermediate' },
+    { id: 'm3-adjuster-meeting-prep', role: 'rep', prompt: 'Outline how you prepare and run an adjuster meeting.', expectedKeyPoints: ['Organized photo report with labels', 'Test squares/chalk ready', 'Walk order: elevations, slopes, collateral', 'Professional cooperation tone'], rubric: { keywords: ['report', 'labels', 'chalk', 'order', 'cooperate'], passThreshold: 70 }, followUps: ['What are your first two photos to present to the adjuster and why?'], difficulty: 'intermediate' },
+];
+
+// Session state
+let agnesSession = {
+    selectedRole: '' as 'homeowner' | 'rep' | 'adjuster' | '',
+    selectedDifficulty: '' as 'beginner' | 'intermediate' | 'advanced' | '',
+    currentScenarioIndex: 0,
+    scenarioPool: [] as AgnesScenario[],
+    sessionScores: [] as number[],
+    sessionResults: [] as any[],
+};
+
+async function initRolePlay() {
+    if (!ai) {
+        const setup = document.getElementById('roleplay-setup');
+        if (setup) {
+            setup.innerHTML = '<p style="color: red;">Agnes 21 Role-Play is unavailable: missing API key. Set GEMINI_API_KEY in .env.local and reload.</p>';
+        }
+        return;
+    }
+
+    // Setup role selection
+    const roleBtns = document.querySelectorAll('.role-btn');
+    const difficultySelector = document.querySelector('.difficulty-selector') as HTMLElement;
+    const sessionInfo = document.querySelector('.session-info') as HTMLElement;
+    const startTrainingBtn = document.getElementById('start-training');
+
+    roleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            roleBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            agnesSession.selectedRole = (btn as HTMLElement).dataset.role as any;
+
+            // Show difficulty selector
+            difficultySelector.style.display = 'block';
+
+            // Update session info
+            const roleSpan = document.getElementById('selected-role');
+            if (roleSpan) roleSpan.textContent = (btn as HTMLElement).dataset.desc || '';
+        });
+    });
+
+    // Setup difficulty selection
+    const difficultyBtns = document.querySelectorAll('.difficulty-btn');
+    difficultyBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            difficultyBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            agnesSession.selectedDifficulty = (btn as HTMLElement).dataset.difficulty as any;
+
+            // Show session info and start button
+            sessionInfo.style.display = 'block';
+            const diffSpan = document.getElementById('selected-difficulty');
+            if (diffSpan) diffSpan.textContent = agnesSession.selectedDifficulty;
+        });
+    });
+
+    // Start training button
+    startTrainingBtn?.addEventListener('click', () => {
+        startAgnesSession();
+    });
+
+    // Response submission
+    const submitBtn = document.getElementById('submit-response');
+    submitBtn?.addEventListener('click', () => {
+        submitAgnesResponse();
+    });
+
+    // Voice input
+    const voiceBtn = document.getElementById('voice-btn');
+    voiceBtn?.addEventListener('click', () => {
+        startVoiceInput();
+    });
+
+    // Hint button
+    const hintBtn = document.getElementById('hint-btn');
+    hintBtn?.addEventListener('click', () => {
+        showAgnesHint();
+    });
+
+    // Next scenario
+    const nextBtn = document.getElementById('next-scenario');
+    nextBtn?.addEventListener('click', () => {
+        loadNextScenario();
+    });
+
+    // Retry scenario
+    const retryBtn = document.getElementById('retry-scenario');
+    retryBtn?.addEventListener('click', () => {
+        retryCurrentScenario();
+    });
+
+    // View summary
+    const summaryBtn = document.getElementById('view-summary');
+    summaryBtn?.addEventListener('click', () => {
+        showSessionSummary();
+    });
+
+    // New session
+    const newSessionBtn = document.getElementById('new-session');
+    newSessionBtn?.addEventListener('click', () => {
+        resetAgnesSession();
+    });
+
+    // Back to training
+    const backBtn = document.getElementById('back-to-training');
+    backBtn?.addEventListener('click', () => {
+        hideSessionSummary();
+    });
+}
+
+function startAgnesSession() {
+    // Filter scenarios by selected role and difficulty
+    agnesSession.scenarioPool = AGNES_SCENARIOS.filter(s => {
+        const roleMatch = s.role === agnesSession.selectedRole;
+        const difficultyMatch = !agnesSession.selectedDifficulty ||
+                               !s.difficulty ||
+                               s.difficulty === agnesSession.selectedDifficulty ||
+                               (agnesSession.selectedDifficulty === 'intermediate' && (s.difficulty === 'beginner' || s.difficulty === 'intermediate')) ||
+                               (agnesSession.selectedDifficulty === 'advanced');
+        return roleMatch && difficultyMatch;
+    });
+
+    // Shuffle scenarios
+    agnesSession.scenarioPool.sort(() => Math.random() - 0.5);
+
+    agnesSession.currentScenarioIndex = 0;
+    agnesSession.sessionScores = [];
+    agnesSession.sessionResults = [];
+
+    // Hide setup, show scenario display
+    const setup = document.getElementById('roleplay-setup');
+    const display = document.getElementById('scenario-display');
+    if (setup) setup.style.display = 'none';
+    if (display) display.style.display = 'block';
+
+    loadCurrentScenario();
+}
+
+function loadCurrentScenario() {
+    const scenario = agnesSession.scenarioPool[agnesSession.currentScenarioIndex];
+    if (!scenario) {
+        showSessionSummary();
+        return;
+    }
+
+    // Update UI
+    const titleEl = document.getElementById('scenario-title');
+    const numberEl = document.getElementById('scenario-number');
+    const difficultyEl = document.getElementById('scenario-difficulty');
+    const roleEl = document.getElementById('scenario-role');
+    const contextEl = document.getElementById('scenario-context');
+    const promptEl = document.getElementById('agnes-prompt');
+    const responseArea = document.querySelector('.response-area') as HTMLElement;
+    const feedbackArea = document.getElementById('feedback-area');
+
+    if (titleEl) titleEl.textContent = `Scenario ${agnesSession.currentScenarioIndex + 1}`;
+    if (numberEl) numberEl.textContent = `${agnesSession.currentScenarioIndex + 1} of ${agnesSession.scenarioPool.length}`;
+    if (difficultyEl) difficultyEl.textContent = scenario.difficulty || 'intermediate';
+    if (roleEl) roleEl.textContent = `Role: ${scenario.role}`;
+
+    if (contextEl) {
+        contextEl.innerHTML = `<p><strong>Context:</strong> You are practicing as a ${agnesSession.selectedRole === 'homeowner' ? 'Sales Rep responding to a homeowner' : agnesSession.selectedRole === 'adjuster' ? 'Sales Rep negotiating with an insurance adjuster' : 'Homeowner interacting with a sales rep'}.</p>`;
+    }
+
+    if (promptEl) {
+        promptEl.innerHTML = `<div class="prompt-box"><strong>${scenario.role === 'homeowner' ? 'Homeowner says:' : scenario.role === 'adjuster' ? 'Adjuster asks:' : 'Challenge:'}</strong><p>"${scenario.prompt}"</p></div>`;
+    }
+
+    // Clear response and hide feedback
+    const responseInput = document.getElementById('user-response') as HTMLTextAreaElement;
+    if (responseInput) responseInput.value = '';
+    if (responseArea) responseArea.style.display = 'block';
+    if (feedbackArea) feedbackArea.style.display = 'none';
+}
+
+async function submitAgnesResponse() {
+    const responseInput = document.getElementById('user-response') as HTMLTextAreaElement;
+    const response = responseInput?.value.trim();
+
+    if (!response) {
+        alert('Please type a response before submitting.');
+        return;
+    }
+
+    const scenario = agnesSession.scenarioPool[agnesSession.currentScenarioIndex];
+
+    // Calculate score
+    const scoringResult = scoreAgnesResponse(response, scenario);
+
+    // Generate AI feedback for strengths and improvements
+    const aiFeedback = await generateAIFeedback(response, scenario, scoringResult);
+
+    // Store result
+    agnesSession.sessionScores.push(scoringResult.score);
+    agnesSession.sessionResults.push({
+        scenario: scenario.prompt,
+        response,
+        score: scoringResult.score,
+        matched: scoringResult.matchedPoints,
+        missed: scoringResult.missedPoints,
+        strengths: aiFeedback.strengths,
+        improvements: aiFeedback.improvements,
+    });
+
+    // Display feedback
+    displayFeedback(scoringResult, aiFeedback);
+}
+
+function scoreAgnesResponse(response: string, scenario: AgnesScenario): {
+    score: number;
+    matchedPoints: string[];
+    missedPoints: string[];
+    keywordMatches: string[];
+} {
+    const responseLower = response.toLowerCase();
+
+    // Key point matching (70% weight)
+    const matchedPoints: string[] = [];
+    const missedPoints: string[] = [];
+
+    scenario.expectedKeyPoints.forEach(point => {
+        // Simple keyword matching - check if response contains key concepts
+        const pointWords = point.toLowerCase().split(/\s+/).filter(w => w.length > 3);
+        const hasMatch = pointWords.some(word => responseLower.includes(word));
+
+        if (hasMatch) {
+            matchedPoints.push(point);
+        } else {
+            missedPoints.push(point);
+        }
+    });
+
+    const keyPointScore = scenario.expectedKeyPoints.length > 0
+        ? (matchedPoints.length / scenario.expectedKeyPoints.length) * 70
+        : 0;
+
+    // Rubric keyword matching (30% weight)
+    const keywordMatches: string[] = [];
+    scenario.rubric.keywords.forEach(keyword => {
+        if (responseLower.includes(keyword.toLowerCase())) {
+            keywordMatches.push(keyword);
+        }
+    });
+
+    const keywordScore = scenario.rubric.keywords.length > 0
+        ? (keywordMatches.length / scenario.rubric.keywords.length) * 30
+        : 0;
+
+    const totalScore = Math.round(keyPointScore + keywordScore);
+
+    return {
+        score: totalScore,
+        matchedPoints,
+        missedPoints,
+        keywordMatches,
+    };
+}
+
+async function generateAIFeedback(response: string, scenario: AgnesScenario, scoringResult: any): Promise<{
+    strengths: string[];
+    improvements: string[];
+}> {
+    if (!ai) {
+        return {
+            strengths: ['Response submitted'],
+            improvements: ['Enable AI for detailed feedback'],
+        };
+    }
+
+    try {
+        const prompt = `You are Agnes, a roofing sales training coach. Analyze this trainee's response to a ${scenario.role} scenario.
+
+Scenario: "${scenario.prompt}"
+Expected key points: ${scenario.expectedKeyPoints.join(', ')}
+Trainee's response: "${response}"
+
+Score: ${scoringResult.score}/100
+Matched points: ${scoringResult.matchedPoints.join(', ') || 'none'}
+Missed points: ${scoringResult.missedPoints.join(', ') || 'none'}
+
+Provide:
+1. Two specific strengths in the response (what they did well)
+2. Two specific improvements (what to add or refine)
+
+Keep each point to one concise sentence. Be encouraging but honest.`;
+
+        const result = await ai.models.generateContent({
+            model: 'gemini-2.5-flash',
+            contents: prompt,
+        });
+
+        const text = result.text.trim();
+
+        // Parse strengths and improvements from response
+        const strengthsMatch = text.match(/strengths?:?\s*([\s\S]*?)(?=improvements?:?|$)/i);
+        const improvementsMatch = text.match(/improvements?:?\s*([\s\S]*?)$/i);
+
+        const strengths = strengthsMatch
+            ? strengthsMatch[1].trim().split('\n').filter(s => s.trim()).slice(0, 2)
+            : ['Good effort on this scenario'];
+
+        const improvements = improvementsMatch
+            ? improvementsMatch[1].trim().split('\n').filter(s => s.trim()).slice(0, 2)
+            : ['Review the key points for this scenario'];
+
+        return { strengths, improvements };
+    } catch (error) {
+        console.error('AI feedback generation failed:', error);
+        return {
+            strengths: ['Response demonstrates understanding'],
+            improvements: ['Review missed key points listed above'],
+        };
+    }
+}
+
+function displayFeedback(scoringResult: any, aiFeedback: any) {
+    const responseArea = document.querySelector('.response-area') as HTMLElement;
+    const feedbackArea = document.getElementById('feedback-area');
+
+    if (responseArea) responseArea.style.display = 'none';
+    if (feedbackArea) feedbackArea.style.display = 'block';
+
+    // Score circle
+    const scoreCircle = document.getElementById('score-circle');
+    const scoreDetails = document.getElementById('score-details');
+
+    if (scoreCircle) {
+        const scoreClass = scoringResult.score >= 80 ? 'excellent' : scoringResult.score >= 70 ? 'good' : scoringResult.score >= 50 ? 'fair' : 'needs-work';
+        scoreCircle.innerHTML = `<div class="score ${scoreClass}">${scoringResult.score}</div>`;
+    }
+
+    if (scoreDetails) {
+        const passThreshold = agnesSession.scenarioPool[agnesSession.currentScenarioIndex].rubric.passThreshold || 70;
+        const passed = scoringResult.score >= passThreshold;
+        scoreDetails.innerHTML = `
+            <p><strong>Score:</strong> ${scoringResult.score}/100</p>
+            <p><strong>Status:</strong> ${passed ? '✅ Passed' : '❌ Below threshold (' + passThreshold + ')'}</p>
+            <p><strong>Key Points Hit:</strong> ${scoringResult.matchedPoints.length}/${scoringResult.matchedPoints.length + scoringResult.missedPoints.length}</p>
+        `;
+    }
+
+    // Matched points
+    const matchedList = document.getElementById('matched-points');
+    if (matchedList) {
+        matchedList.innerHTML = scoringResult.matchedPoints.length > 0
+            ? scoringResult.matchedPoints.map((p: string) => `<li>${p}</li>`).join('')
+            : '<li><em>None detected</em></li>';
+    }
+
+    // Missed points
+    const missedList = document.getElementById('missed-points');
+    if (missedList) {
+        missedList.innerHTML = scoringResult.missedPoints.length > 0
+            ? scoringResult.missedPoints.map((p: string) => `<li>${p}</li>`).join('')
+            : '<li><em>All key points covered!</em></li>';
+    }
+
+    // Strengths
+    const strengthsList = document.getElementById('strengths-list');
+    if (strengthsList) {
+        strengthsList.innerHTML = aiFeedback.strengths.map((s: string) => `<li>${s}</li>`).join('');
+    }
+
+    // Improvements
+    const improvementsList = document.getElementById('improvements-list');
+    if (improvementsList) {
+        improvementsList.innerHTML = aiFeedback.improvements.map((i: string) => `<li>${i}</li>`).join('');
+    }
+}
+
+function loadNextScenario() {
+    agnesSession.currentScenarioIndex++;
+
+    if (agnesSession.currentScenarioIndex >= agnesSession.scenarioPool.length) {
+        showSessionSummary();
+    } else {
+        loadCurrentScenario();
+    }
+}
+
+function retryCurrentScenario() {
+    const responseArea = document.querySelector('.response-area') as HTMLElement;
+    const feedbackArea = document.getElementById('feedback-area');
+    const responseInput = document.getElementById('user-response') as HTMLTextAreaElement;
+
+    if (responseArea) responseArea.style.display = 'block';
+    if (feedbackArea) feedbackArea.style.display = 'none';
+    if (responseInput) responseInput.value = '';
+}
+
+function showAgnesHint() {
+    const scenario = agnesSession.scenarioPool[agnesSession.currentScenarioIndex];
+    const hint = scenario.expectedKeyPoints[Math.floor(Math.random() * scenario.expectedKeyPoints.length)];
+    alert(`💡 Hint: Make sure to address this point: "${hint}"`);
+}
+
+function startVoiceInput() {
+    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        alert('Voice input is not supported in your browser. Please type your response.');
+        return;
+    }
+
+    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+
+    recognition.continuous = false;
+    recognition.interimResults = false;
+
+    recognition.onstart = () => {
+        const voiceBtn = document.getElementById('voice-btn');
+        if (voiceBtn) voiceBtn.textContent = '🎙️';
+    };
+
+    recognition.onresult = (event: any) => {
+        const transcript = event.results[0][0].transcript;
+        const responseInput = document.getElementById('user-response') as HTMLTextAreaElement;
+        if (responseInput) {
+            responseInput.value = transcript;
+        }
+    };
+
+    recognition.onerror = (event: any) => {
+        console.error('Speech recognition error:', event.error);
+        alert('Voice input failed. Please try again or type your response.');
+    };
+
+    recognition.onend = () => {
+        const voiceBtn = document.getElementById('voice-btn');
+        if (voiceBtn) voiceBtn.textContent = '🎤';
+    };
+
+    recognition.start();
+}
+
+function showSessionSummary() {
+    const scenarioDisplay = document.getElementById('scenario-display');
+    const sessionSummary = document.getElementById('session-summary');
+    const summaryContent = document.getElementById('summary-content');
+
+    if (scenarioDisplay) scenarioDisplay.style.display = 'none';
+    if (sessionSummary) sessionSummary.style.display = 'block';
+
+    // Calculate statistics
+    const avgScore = agnesSession.sessionScores.length > 0
+        ? Math.round(agnesSession.sessionScores.reduce((a, b) => a + b, 0) / agnesSession.sessionScores.length)
+        : 0;
+
+    const highScore = Math.max(...agnesSession.sessionScores, 0);
+    const lowScore = Math.min(...agnesSession.sessionScores, 100);
+
+    if (summaryContent) {
+        summaryContent.innerHTML = `
+            <div class="summary-stats">
+                <h4>Session Statistics</h4>
+                <p><strong>Scenarios Completed:</strong> ${agnesSession.sessionScores.length}</p>
+                <p><strong>Average Score:</strong> ${avgScore}/100</p>
+                <p><strong>Highest Score:</strong> ${highScore}/100</p>
+                <p><strong>Lowest Score:</strong> ${lowScore}/100</p>
+            </div>
+
+            <div class="summary-results">
+                <h4>Detailed Results</h4>
+                ${agnesSession.sessionResults.map((result, idx) => `
+                    <div class="result-item">
+                        <h5>Scenario ${idx + 1}: ${result.score}/100</h5>
+                        <p><strong>Prompt:</strong> "${result.scenario}"</p>
+                        <p><strong>Your response:</strong> "${result.response.substring(0, 150)}${result.response.length > 150 ? '...' : ''}"</p>
+                        <p><strong>Matched:</strong> ${result.matched.length} key points</p>
+                        <p><strong>Missed:</strong> ${result.missed.length} key points</p>
+                    </div>
+                `).join('')}
+            </div>
+
+            <div class="summary-recommendations">
+                <h4>📚 Next Steps</h4>
+                <ul>
+                    <li>Review scenarios where you scored below 70</li>
+                    <li>Practice the missed key points</li>
+                    <li>Try a higher difficulty level</li>
+                    <li>Focus on ${agnesSession.selectedRole} role mastery</li>
+                </ul>
+            </div>
+        `;
+    }
+}
+
+function hideSessionSummary() {
+    const scenarioDisplay = document.getElementById('scenario-display');
+    const sessionSummary = document.getElementById('session-summary');
+
+    if (scenarioDisplay) scenarioDisplay.style.display = 'block';
+    if (sessionSummary) sessionSummary.style.display = 'none';
+}
+
+function resetAgnesSession() {
+    const setup = document.getElementById('roleplay-setup');
+    const display = document.getElementById('scenario-display');
+    const summary = document.getElementById('session-summary');
+    const difficultySelector = document.querySelector('.difficulty-selector') as HTMLElement;
+    const sessionInfo = document.querySelector('.session-info') as HTMLElement;
+
+    if (setup) setup.style.display = 'block';
+    if (display) display.style.display = 'none';
+    if (summary) summary.style.display = 'none';
+    if (difficultySelector) difficultySelector.style.display = 'none';
+    if (sessionInfo) sessionInfo.style.display = 'none';
+
+    // Reset all buttons
+    document.querySelectorAll('.role-btn, .difficulty-btn').forEach(btn => btn.classList.remove('active'));
+
+    // Reset session state
+    agnesSession = {
+        selectedRole: '',
+        selectedDifficulty: '',
+        currentScenarioIndex: 0,
+        scenarioPool: [],
+        sessionScores: [],
+        sessionResults: [],
+    };
+}
+
+
+// --- Quiz Generation and Handling ---
+interface QuizQuestion {
+  question: string;
+  options: string[];
+  answer: string;
+}
+
+async function generateQuiz() {
+  const quizArea = document.getElementById('quiz-area');
+  if (!quizArea) return;
+
+  quizArea.innerHTML = '<div id="loader">Generating your quiz...</div>';
+
+  try {
+    if (!ai) {
+      quizArea.innerHTML = '<p style="color: red;">Quiz is unavailable: missing API key. Set GEMINI_API_KEY in .env.local and reload.</p>';
+      return;
+    }
+     const trainingSummary = Object.values(trainingContent).join(' '); // Use all content
+
+    const result = await ai.models.generateContent({
+        model: 'gemini-2.5-flash',
+        contents: `Based on this summary of the Roof-ER sales training, generate a 5-question multiple-choice quiz. Ensure the "answer" field exactly matches one of the strings in the "options" array. ${trainingSummary}`,
+        config: {
+            responseMimeType: "application/json",
+            responseSchema: {
+                type: Type.ARRAY,
+                items: {
+                  type: Type.OBJECT,
+                  properties: {
+                    question: { type: Type.STRING },
+                    options: {
+                      type: Type.ARRAY,
+                      items: { type: Type.STRING }
+                    },
+                    answer: { type: Type.STRING }
+                  },
+                  required: ["question", "options", "answer"]
+                }
+            }
+        }
+    });
+
+    const quizData: QuizQuestion[] = JSON.parse(result.text.trim());
+    renderQuiz(quizData);
+  } catch (error) {
+    console.error("Quiz generation failed:", error);
+    quizArea.innerHTML = '<p style="color: red;">Sorry, there was an error generating the quiz. Please try again.</p>';
+  }
+}
+
+function renderQuiz(quizData: QuizQuestion[]) {
+  const quizArea = document.getElementById('quiz-area');
+  if (!quizArea) return;
+
+  quizArea.innerHTML = quizData.map((q, index) => `
+    <div class="quiz-item" data-question-index="${index}">
+      <p class="quiz-question">${index + 1}. ${q.question}</p>
+      <ul class="quiz-options">
+        ${q.options.map(option => `<li data-option="${option.replace(/"/g, '&quot;')}">${option}</li>`).join('')}
+      </ul>
+      <div id="quiz-feedback-${index}" class="quiz-feedback"></div>
+    </div>
+  `).join('') + '<button id="submitQuizButton">Submit Answers</button>';
+
+  const options = quizArea.querySelectorAll('.quiz-options li');
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+        const parentOptions = option.parentElement as HTMLElement;
+        parentOptions.querySelectorAll('li').forEach(li => li.classList.remove('selected'));
+        option.classList.add('selected');
+    });
+  });
+
+  const submitButton = document.getElementById('submitQuizButton');
+  submitButton?.addEventListener('click', () => {
+    quizData.forEach((q, index) => {
+        const selectedOption = document.querySelector(`.quiz-item[data-question-index="${index}"] .quiz-options li.selected`) as HTMLElement;
+        const feedbackEl = document.getElementById(`quiz-feedback-${index}`);
+        if(selectedOption && feedbackEl) {
+            const userAnswer = selectedOption.dataset.option;
+            if(userAnswer === q.answer) {
+                feedbackEl.textContent = 'Correct!';
+                feedbackEl.className = 'quiz-feedback correct';
+            } else {
+                feedbackEl.textContent = `Incorrect. The correct answer is: ${q.answer}`;
+                feedbackEl.className = 'quiz-feedback incorrect';
+            }
+        }
+    });
+    (submitButton as HTMLButtonElement).disabled = true;
+  });
+}
+
+// --- Module Navigation ---
+
+function renderModule(moduleName: string) {
+  if (!mainContent) return;
+  mainContent.innerHTML = trainingContent[moduleName] || '<div>Content not found.</div>';
+  
+  // Cancel any ongoing speech when changing modules
+  if (synth.speaking) {
+      synth.cancel();
+      currentUtterance = null;
+  }
+
+  // Initialize interactive elements for specific modules
+  switch (moduleName) {
+      case 'quiz':
+          document.getElementById('generateQuizButton')?.addEventListener('click', generateQuiz);
+          break;
+      case 'sales-cycle':
+          initSalesCycleSorter();
+          break;
+      case 'objection-handling':
+          initObjectionMatcher();
+          break;
+      case 'role-play':
+          initRolePlay();
+          break;
+      case 'welcome':
+          initQuickQuiz1();
+          initWelcomeModals();
+          break;
+      // New module initializers
+      case 'general-knowledge':
+          initQuickQuiz2();
+          break;
+      case 'final-exam':
+          initFinalExam();
+          break;
+      case 'handling-initial-pitch-objections':
+          initObjectionMatcher();
+          break;
+      case 'sales-cycle-job-flow':
+          initSalesCycleSorter();
+          break;
+      case 'commitment':
+          initCommitmentGate();
+          break;
+  }
+}
+
+function handleNavigation(event: Event) {
+  const target = event.target as HTMLElement;
+  if (target.tagName === 'LI' && target.dataset.module) {
+    const moduleName = target.dataset.module;
+
+    // Gate: require commitment signing to proceed beyond core modules
+    // DISABLED: Allow access to all modules without commitment signature
+    // const requiresCommitment = !['welcome','commitment'].includes(moduleName);
+    // const signed = localStorage.getItem(STORAGE_KEYS.commitmentSigned) === 'true';
+    // if (requiresCommitment && !signed) {
+    //     alert('Please review and digitally sign the commitments before proceeding.');
+    //     renderModule('commitment');
+    //     sidebar?.querySelectorAll('li').forEach(li => li.classList.remove('active'));
+    //     sidebar?.querySelector('li[data-module="commitment"]')?.classList.add('active');
+    //     return;
+    // }
+
+    sidebar?.querySelectorAll('li').forEach(li => li.classList.remove('active'));
+    target.classList.add('active');
+    renderModule(moduleName);
+  }
+}
+
+// --- Initial Load ---
+document.addEventListener('DOMContentLoaded', () => {
+  if (sidebar) {
+    sidebar.addEventListener('click', handleNavigation);
+  }
+  mainContent?.addEventListener('click', handleSpeak);
+  renderModule('welcome');
+  document.querySelector('#sidebar li[data-module="welcome"]')?.classList.add('active');
+});
+
+// --- New helpers and initializers ---
+const LEADER_BIOS: Record<string, {name: string; title: string; img: string; link: string; summary: string}> = {
+  oliver: {
+    name: 'Oliver Brown',
+    title: 'Owner & Founder',
+    img: '/resources/images/oliver-theroofdocs.jpg',
+    link: 'https://www.theroofdocs.com/about/',
+    summary: 'Owner & Founder focused on integrity, quality, and simplicity with a transparent, customer‑first process.'
+  },
+  reese: {
+    name: 'Reese Samala',
+    title: 'Director of Sales',
+    img: '/resources/images/reese-theroofdocs.jpg',
+    link: 'https://www.theroofdocs.com/about/',
+    summary: 'Leads sales with a consultative, education‑forward approach that builds trust and results.'
+  },
+  ford: {
+    name: 'Ford Barsi',
+    title: 'General Manager',
+    img: '/resources/images/ford-theroofdocs.jpg',
+    link: 'https://www.theroofdocs.com/about/',
+    summary: 'Oversees operations and execution, aligning teams and process from inspection to completion.'
+  }
+};
+
+function initWelcomeModals() {
+  const container = document.getElementById('main-content');
+  if (!container) return;
+  let overlay = document.getElementById('bio-modal-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'bio-modal-overlay';
+    overlay.className = 'modal-overlay';
+    overlay.innerHTML = `
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="bioTitle">
+        <div class="modal-header">
+          <h3 id="bioTitle"></h3>
+          <button class="modal-close" aria-label="Close">×</button>
+        </div>
+        <div class="modal-body">
+          <img id="bioImg" alt="" />
+          <div class="bio-text">
+            <p id="bioSummary"></p>
+            <p><a id="bioLink" href="#" target="_blank" rel="noopener">Read full bio</a></p>
+          </div>
+        </div>
+      </div>`;
+    document.body.appendChild(overlay);
+  }
+  const close = () => { overlay!.classList.remove('show'); };
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+  overlay.querySelector('.modal-close')?.addEventListener('click', close);
+  document.addEventListener('keyup', (e) => { if ((e as KeyboardEvent).key === 'Escape') close(); });
+
+  container.querySelectorAll('.bio-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = (btn as HTMLElement).getAttribute('data-bio') || '';
+      const bio = LEADER_BIOS[key];
+      if (!bio) return;
+      (overlay!.querySelector('#bioTitle') as HTMLElement).textContent = `${bio.name} — ${bio.title}`;
+      const imgEl = overlay!.querySelector('#bioImg') as HTMLImageElement;
+      imgEl.src = bio.img; imgEl.alt = bio.name;
+      (overlay!.querySelector('#bioSummary') as HTMLElement).textContent = bio.summary;
+      const linkEl = overlay!.querySelector('#bioLink') as HTMLAnchorElement;
+      linkEl.href = bio.link;
+      overlay!.classList.add('show');
+    });
+  });
+}
+function initCommitmentGate() {
+  const container = document.getElementById('main-content');
+  if (!container) return;
+  // Inject a simple signature form if not present
+  const signed = localStorage.getItem(STORAGE_KEYS.commitmentSigned) === 'true';
+  if (signed) return;
+  const gate = document.createElement('div');
+  gate.innerHTML = `
+    <div class="commitment-gate">
+      <h3>Digital Signature</h3>
+      <p>You must acknowledge and sign before accessing the training.</p>
+      <label>Full Name: <input id="sigName" type="text" placeholder="Your full name"/></label>
+      <label><input id="sigAgree" type="checkbox"/> I agree to uphold Roof‑ER standards and ethics.</label>
+      <button id="sigSubmit">Sign & Continue</button>
+      <div id="sigMsg" class="sig-message"></div>
+    </div>`;
+  container.appendChild(gate);
+  const btn = gate.querySelector('#sigSubmit') as HTMLButtonElement | null;
+  btn?.addEventListener('click', () => {
+    const name = (gate.querySelector('#sigName') as HTMLInputElement)?.value?.trim();
+    const agree = (gate.querySelector('#sigAgree') as HTMLInputElement)?.checked;
+    const msg = gate.querySelector('#sigMsg') as HTMLElement | null;
+    if (!name || !agree) {
+      if (msg) msg.textContent = 'Please enter your name and agree to proceed.';
+      return;
+    }
+    localStorage.setItem(STORAGE_KEYS.commitmentSigned, 'true');
+    if (msg) msg.textContent = 'Signed. You may continue to other sections.';
+  });
+}
+
+function initQuickQuiz2() {
+  const startBtn = document.getElementById('startQuickQuiz2');
+  const area = document.getElementById('quiz2-area');
+  if (!startBtn || !area) return;
+  startBtn.addEventListener('click', () => {
+    area.innerHTML = `
+      <div class="quiz-item">
+        <p>1. Which component helps prevent water intrusion at eaves?</p>
+        <label><input type="radio" name="q1" value="a"/> Ridge vent</label>
+        <label><input type="radio" name="q1" value="b"/> Ice & Water Barrier</label>
+        <label><input type="radio" name="q1" value="c"/> Hip shingles</label>
+      </div>
+      <div class="quiz-item">
+        <p>2. Knock timing should be…</p>
+        <label><input type="radio" name="q2" value="a"/> As late as possible</label>
+        <label><input type="radio" name="q2" value="b"/> Respectful of local norms and daylight</label>
+        <label><input type="radio" name="q2" value="c"/> Only during lunch</label>
+      </div>
+      <button id="quiz2Submit">Submit</button>
+      <div id="quiz2Result"></div>
+    `;
+    (document.getElementById('quiz2Submit') as HTMLButtonElement)?.addEventListener('click', () => {
+      const q1 = (document.querySelector('input[name="q1"]:checked') as HTMLInputElement)?.value;
+      const q2 = (document.querySelector('input[name="q2"]:checked') as HTMLInputElement)?.value;
+      const pass = q1 === 'b' && q2 === 'b';
+      const res = document.getElementById('quiz2Result');
+      if (res) {
+        res.textContent = pass ? 'Pass' : 'Fail';
+        res.className = pass ? 'quiz-feedback correct' : 'quiz-feedback incorrect';
+      }
+    });
+  });
+}
+
+function initFinalExam() {
+  const start = document.getElementById('startFinalExam');
+  const area = document.getElementById('exam-area');
+  if (!start || !area) return;
+  start.addEventListener('click', async () => {
+    if (!ai) {
+      area.innerHTML = '<p style="color:red">Final exam generation requires an API key. Set GEMINI_API_KEY in .env.local.</p>';
+      return;
+    }
+    area.innerHTML = '<div id="loader">Preparing your 50‑question exam…</div>';
+    try {
+      const trainingSummary = Object.values(trainingContent).join(' ');
+      const result = await ai.models.generateContent({
+        model: 'gemini-2.5-flash',
+        contents: `Create a final exam for Roof‑ER training with exactly: 35 multiple‑choice (options+answer), 10 fill‑in‑the‑blank (answer string), 5 short‑answer (keywords array for rubric). Return JSON matching the schema.`,
+        config: {
+          responseMimeType: 'application/json',
+          responseSchema: {
+            type: Type.OBJECT,
+            properties: {
+              multipleChoice: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: {
+                question: { type: Type.STRING },
+                options: { type: Type.ARRAY, items: { type: Type.STRING } },
+                answer: { type: Type.STRING }
+              }, required: ['question','options','answer'] } },
+              fillBlank: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: {
+                question: { type: Type.STRING },
+                answer: { type: Type.STRING }
+              }, required: ['question','answer'] } },
+              shortAnswer: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: {
+                prompt: { type: Type.STRING },
+                keywords: { type: Type.ARRAY, items: { type: Type.STRING } }
+              }, required: ['prompt','keywords'] } }
+            }, required: ['multipleChoice','fillBlank','shortAnswer']
+          }
+        }
+      });
+      const exam = JSON.parse(result.text.trim());
+      renderFinalExam(area, exam);
+    } catch (e) {
+      console.error(e);
+      area.innerHTML = '<p style="color:red">Failed to generate exam. Please try again.</p>';
+    }
+  });
+}
+
+function renderFinalExam(root: HTMLElement, exam: any) {
+  root.innerHTML = '';
+  const sections: string[] = [];
+  if (Array.isArray(exam.multipleChoice)) sections.push('multipleChoice');
+  if (Array.isArray(exam.fillBlank)) sections.push('fillBlank');
+  if (Array.isArray(exam.shortAnswer)) sections.push('shortAnswer');
+  sections.forEach((sec) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'exam-section';
+    wrap.innerHTML = `<h3>${sec === 'multipleChoice' ? 'Multiple Choice' : sec === 'fillBlank' ? 'Fill in the Blank' : 'Short Answer'}</h3>`;
+    const items = exam[sec];
+    items.forEach((q: any, idx: number) => {
+      const item = document.createElement('div');
+      item.className = 'exam-item';
+      if (sec === 'multipleChoice') {
+        item.innerHTML = `
+          <p>${idx + 1}. ${q.question}</p>
+          ${q.options.map((opt: string, i: number) => `<label><input type="radio" name="mcq-${idx}" value="${opt}"> ${opt}</label>`).join('')}
+        `;
+      } else if (sec === 'fillBlank') {
+        item.innerHTML = `<p>${idx + 1}. ${q.question}</p><input type="text" name="fib-${idx}" />`;
+      } else {
+        item.innerHTML = `<p>${idx + 1}. ${q.prompt}</p><textarea name="sa-${idx}" rows="2"></textarea>`;
+      }
+      wrap.appendChild(item);
+    });
+    root.appendChild(wrap);
+  });
+  const submit = document.createElement('button');
+  submit.textContent = 'Submit Exam';
+  submit.addEventListener('click', () => gradeFinalExam(root, exam));
+  root.appendChild(submit);
+  root.appendChild(Object.assign(document.createElement('div'), { id: 'examResult' }));
+}
+
+function gradeFinalExam(root: HTMLElement, exam: any) {
+  let mcqCorrect = 0, mcqTotal = Array.isArray(exam.multipleChoice) ? exam.multipleChoice.length : 0;
+  if (exam.multipleChoice) {
+    exam.multipleChoice.forEach((q: any, idx: number) => {
+      const sel = (root.querySelector(`input[name="mcq-${idx}"]:checked`) as HTMLInputElement)?.value;
+      if (sel && sel === q.answer) mcqCorrect++;
+    });
+  }
+  // Fill in the blank: case-insensitive trim compare
+  let fibCorrect = 0, fibTotal = Array.isArray(exam.fillBlank) ? exam.fillBlank.length : 0;
+  if (exam.fillBlank) {
+    exam.fillBlank.forEach((q: any, idx: number) => {
+      const val = (root.querySelector(`input[name="fib-${idx}"]`) as HTMLInputElement)?.value?.trim().toLowerCase();
+      const ans = String(q.answer || '').trim().toLowerCase();
+      if (val && ans && val === ans) fibCorrect++;
+    });
+  }
+  // Short answer: keyword heuristic
+  let saScore = 0, saTotal = Array.isArray(exam.shortAnswer) ? exam.shortAnswer.length : 0;
+  if (exam.shortAnswer) {
+    exam.shortAnswer.forEach((q: any, idx: number) => {
+      const text = (root.querySelector(`textarea[name="sa-${idx}"]`) as HTMLTextAreaElement)?.value?.toLowerCase() || '';
+      const kws: string[] = Array.isArray(q.keywords) ? q.keywords.map((k: string) => String(k).toLowerCase()) : [];
+      const hits = kws.filter(k => text.includes(k)).length;
+      saScore += hits / Math.max(kws.length, 1);
+    });
+  }
+  const totalAuto = mcqTotal + fibTotal;
+  const autoCorrect = mcqCorrect + fibCorrect;
+  const autoPct = totalAuto ? Math.round((autoCorrect / totalAuto) * 100) : 0;
+  const saPct = saTotal ? Math.round((saScore / saTotal) * 100) : 0;
+  const overall = Math.round((autoPct * 0.8) + (saPct * 0.2));
+  const res = root.querySelector('#examResult') as HTMLElement | null;
+  if (res) res.textContent = `MCQ: ${mcqCorrect}/${mcqTotal}, FIB: ${fibCorrect}/${fibTotal}, SA Score: ${saPct}%. Overall: ${overall}%.`;
+}
+
+function initQuickQuiz1() {
+  const startBtn = document.getElementById('startQuickQuiz1');
+  const area = document.getElementById('quiz1-area');
+  if (!startBtn || !area) return;
+  startBtn.addEventListener('click', () => {
+    area.innerHTML = `
+      <div class="quiz-item">
+        <p>1. Roof‑ER’s mission emphasizes which core value set?</p>
+        <label><input type="radio" name="qa1" value="a"/> Speed, Secrecy, Sales</label>
+        <label><input type="radio" name="qa1" value="b"/> Integrity, Quality, Simplicity</label>
+        <label><input type="radio" name="qa1" value="c"/> Price, Pressure, Volume</label>
+      </div>
+      <div class="quiz-item">
+        <p>2. Where can you review the company training materials?</p>
+        <label><input type="radio" name="qa2" value="a"/> Only internal email</label>
+        <label><input type="radio" name="qa2" value="b"/> The resources linked on this page</label>
+        <label><input type="radio" name="qa2" value="c"/> Unverified social posts</label>
+      </div>
+      <button id="quiz1Submit">Submit</button>
+      <div id="quiz1Result"></div>
+    `;
+    (document.getElementById('quiz1Submit') as HTMLButtonElement)?.addEventListener('click', () => {
+      const q1 = (document.querySelector('input[name="qa1"]:checked') as HTMLInputElement)?.value;
+      const q2 = (document.querySelector('input[name="qa2"]:checked') as HTMLInputElement)?.value;
+      const pass = q1 === 'b' && q2 === 'b';
+      const res = document.getElementById('quiz1Result');
+      if (res) {
+        res.textContent = pass ? 'Pass' : 'Fail';
+        res.className = pass ? 'quiz-feedback correct' : 'quiz-feedback incorrect';
+      }
+    });
+  });
+}

@@ -1,0 +1,1043 @@
+<!-- MODULE 15: AGNES 21 ROLE-PLAY SYSTEM -->
+<!-- Complete UI Markup with Semantic HTML and Accessibility -->
+
+<div class="agnes-roleplay-container" role="main" aria-label="Agnes 21 Role-Play Training System">
+
+  <!-- SCREEN 1: ROLE SELECTION -->
+  <section
+    id="role-selection-screen"
+    class="roleplay-screen active"
+    data-screen="role-selection"
+    aria-labelledby="role-selection-title"
+  >
+    <header class="screen-header">
+      <h2 id="role-selection-title" class="screen-title">
+        Choose Your Role-Play Scenario
+      </h2>
+      <p class="screen-description">
+        Select which role you'd like to practice. Agnes will simulate realistic conversations to help you master each interaction.
+      </p>
+    </header>
+
+    <div class="role-cards-grid" role="group" aria-label="Role selection options">
+
+      <!-- Role Card 1: Rep vs Homeowner -->
+      <article class="role-card" data-role="rep-homeowner">
+        <div class="role-card-icon" aria-hidden="true">
+          <svg class="icon-home" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </div>
+        <h3 class="role-card-title">Practice as Rep vs Homeowner</h3>
+        <p class="role-card-description">
+          You play the sales representative. Agnes simulates a homeowner with various concerns, objections, and questions about roofing services.
+        </p>
+        <ul class="role-card-skills" aria-label="Skills practiced">
+          <li>Building rapport</li>
+          <li>Handling objections</li>
+          <li>Closing techniques</li>
+          <li>Value communication</li>
+        </ul>
+        <button
+          type="button"
+          class="btn btn-primary role-select-btn"
+          data-role-type="rep-homeowner"
+          aria-label="Select Rep vs Homeowner role-play"
+        >
+          Select This Role
+        </button>
+      </article>
+
+      <!-- Role Card 2: Homeowner vs Rep -->
+      <article class="role-card" data-role="homeowner-rep">
+        <div class="role-card-icon" aria-hidden="true">
+          <svg class="icon-user" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </div>
+        <h3 class="role-card-title">Practice as Homeowner vs Rep</h3>
+        <p class="role-card-description">
+          You play the homeowner. Agnes simulates a sales representative. Learn to recognize effective sales techniques and homeowner concerns.
+        </p>
+        <ul class="role-card-skills" aria-label="Skills practiced">
+          <li>Understanding homeowner perspective</li>
+          <li>Recognizing sales tactics</li>
+          <li>Asking qualifying questions</li>
+          <li>Decision-making process</li>
+        </ul>
+        <button
+          type="button"
+          class="btn btn-primary role-select-btn"
+          data-role-type="homeowner-rep"
+          aria-label="Select Homeowner vs Rep role-play"
+        >
+          Select This Role
+        </button>
+      </article>
+
+      <!-- Role Card 3: Rep vs Adjuster -->
+      <article class="role-card" data-role="rep-adjuster">
+        <div class="role-card-icon" aria-hidden="true">
+          <svg class="icon-clipboard" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+          </svg>
+        </div>
+        <h3 class="role-card-title">Practice as Rep vs Adjuster</h3>
+        <p class="role-card-description">
+          You play the representative negotiating with an insurance adjuster. Agnes simulates various adjuster personalities and negotiation scenarios.
+        </p>
+        <ul class="role-card-skills" aria-label="Skills practiced">
+          <li>Professional negotiation</li>
+          <li>Documentation review</li>
+          <li>Scope of work defense</li>
+          <li>Professional communication</li>
+        </ul>
+        <button
+          type="button"
+          class="btn btn-primary role-select-btn"
+          data-role-type="rep-adjuster"
+          aria-label="Select Rep vs Adjuster role-play"
+        >
+          Select This Role
+        </button>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- SCREEN 2: DIFFICULTY SELECTION -->
+  <section
+    id="difficulty-selection-screen"
+    class="roleplay-screen"
+    data-screen="difficulty-selection"
+    aria-labelledby="difficulty-selection-title"
+  >
+    <header class="screen-header">
+      <h2 id="difficulty-selection-title" class="screen-title">
+        Select Difficulty Level
+      </h2>
+      <p class="screen-description">
+        Choose a difficulty level that matches your experience. You can change this at any time.
+      </p>
+    </header>
+
+    <div class="difficulty-selector" role="group" aria-label="Difficulty level selection">
+
+      <div class="selected-role-info" aria-live="polite">
+        <strong>Selected Role:</strong>
+        <span id="selected-role-display">Rep vs Homeowner</span>
+      </div>
+
+      <div class="difficulty-options">
+
+        <!-- Beginner -->
+        <label class="difficulty-option" data-difficulty="beginner">
+          <input
+            type="radio"
+            name="difficulty"
+            value="beginner"
+            id="difficulty-beginner"
+            class="difficulty-radio"
+            checked
+          />
+          <div class="difficulty-card">
+            <div class="difficulty-badge beginner" aria-hidden="true">
+              <span class="badge-icon">🌱</span>
+            </div>
+            <h3 class="difficulty-title">Beginner</h3>
+            <p class="difficulty-description">
+              Agnes will be friendly and straightforward. Basic scenarios with clear objectives and helpful guidance throughout.
+            </p>
+            <ul class="difficulty-features" aria-label="Beginner features">
+              <li>Simple scenarios</li>
+              <li>Helpful hints available</li>
+              <li>Extended time to respond</li>
+              <li>Positive, encouraging feedback</li>
+            </ul>
+          </div>
+        </label>
+
+        <!-- Intermediate -->
+        <label class="difficulty-option" data-difficulty="intermediate">
+          <input
+            type="radio"
+            name="difficulty"
+            value="intermediate"
+            id="difficulty-intermediate"
+            class="difficulty-radio"
+          />
+          <div class="difficulty-card">
+            <div class="difficulty-badge intermediate" aria-hidden="true">
+              <span class="badge-icon">⚡</span>
+            </div>
+            <h3 class="difficulty-title">Intermediate</h3>
+            <p class="difficulty-description">
+              Agnes will present realistic challenges including some objections and concerns. Moderate complexity with balanced feedback.
+            </p>
+            <ul class="difficulty-features" aria-label="Intermediate features">
+              <li>Realistic scenarios</li>
+              <li>Common objections</li>
+              <li>Standard response time</li>
+              <li>Constructive feedback</li>
+            </ul>
+          </div>
+        </label>
+
+        <!-- Advanced -->
+        <label class="difficulty-option" data-difficulty="advanced">
+          <input
+            type="radio"
+            name="difficulty"
+            value="advanced"
+            id="difficulty-advanced"
+            class="difficulty-radio"
+          />
+          <div class="difficulty-card">
+            <div class="difficulty-badge advanced" aria-hidden="true">
+              <span class="badge-icon">🔥</span>
+            </div>
+            <h3 class="difficulty-title">Advanced</h3>
+            <p class="difficulty-description">
+              Agnes will be challenging with complex objections, difficult personalities, and high-pressure scenarios. Detailed expert-level feedback.
+            </p>
+            <ul class="difficulty-features" aria-label="Advanced features">
+              <li>Complex scenarios</li>
+              <li>Difficult objections</li>
+              <li>Realistic time pressure</li>
+              <li>Expert-level feedback</li>
+            </ul>
+          </div>
+        </label>
+
+      </div>
+
+      <div class="difficulty-actions">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-action="back-to-roles"
+          aria-label="Go back to role selection"
+        >
+          <span aria-hidden="true">←</span> Back to Roles
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-action="start-scenario"
+          aria-label="Start role-play scenario"
+        >
+          Start Scenario <span aria-hidden="true">→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREEN 3: ACTIVE ROLE-PLAY -->
+  <section
+    id="roleplay-active-screen"
+    class="roleplay-screen"
+    data-screen="roleplay-active"
+    aria-labelledby="scenario-title"
+  >
+
+    <!-- Progress Bar -->
+    <div class="roleplay-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Scenario progress">
+      <div class="progress-bar" data-progress="0"></div>
+      <span class="progress-text">
+        <span class="current-turn" id="current-turn-number">1</span> /
+        <span class="total-turns" id="total-turns">5</span> turns
+      </span>
+    </div>
+
+    <!-- Scenario Header -->
+    <header class="scenario-header">
+      <div class="scenario-meta">
+        <span class="scenario-role-badge" id="scenario-role-badge">Rep vs Homeowner</span>
+        <span class="scenario-difficulty-badge" id="scenario-difficulty-badge">Intermediate</span>
+      </div>
+      <h2 id="scenario-title" class="scenario-title">
+        Initial Contact with Concerned Homeowner
+      </h2>
+      <p class="scenario-context" id="scenario-context">
+        You're meeting with a homeowner who recently experienced storm damage. They've received multiple estimates and seem overwhelmed. Build trust and establish value.
+      </p>
+    </header>
+
+    <!-- Conversation Container -->
+    <div class="conversation-container" role="log" aria-label="Conversation history" aria-live="polite">
+
+      <!-- Agnes Message -->
+      <article class="message message-agnes" data-message-id="1">
+        <div class="message-avatar" aria-hidden="true">
+          <img src="/assets/agnes-avatar.png" alt="" class="avatar-img" />
+          <span class="avatar-name">Agnes</span>
+        </div>
+        <div class="message-content">
+          <div class="message-bubble">
+            <p class="message-text" id="agnes-current-message">
+              "Hi, thanks for coming out. I have to be honest, I've already had three other roofers here this week, and everyone's saying something different. How do I know who to trust?"
+            </p>
+          </div>
+          <div class="message-meta">
+            <time class="message-timestamp" datetime="2025-11-06T10:30:00">10:30 AM</time>
+            <button
+              type="button"
+              class="btn-icon btn-audio-play"
+              data-action="play-audio"
+              data-message-id="1"
+              aria-label="Play Agnes's message audio"
+              title="Hear Agnes speak this message"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- User Response Area -->
+      <article class="message message-user-input" data-message-id="user-response">
+        <div class="message-avatar" aria-hidden="true">
+          <div class="avatar-img avatar-user">You</div>
+        </div>
+        <div class="message-content">
+          <div class="response-input-container">
+            <label for="user-response-textarea" class="sr-only">
+              Your response to Agnes
+            </label>
+            <textarea
+              id="user-response-textarea"
+              class="user-response-textarea"
+              placeholder="Type your response here... (or use voice input)"
+              rows="4"
+              maxlength="1000"
+              aria-describedby="response-char-count response-instructions"
+              data-input="user-response"
+            ></textarea>
+            <div class="textarea-meta">
+              <span id="response-char-count" class="char-counter" aria-live="polite">
+                0 / 1000 characters
+              </span>
+              <span id="response-instructions" class="sr-only">
+                Type your response or click the microphone button to use voice input
+              </span>
+            </div>
+          </div>
+
+          <!-- Input Actions -->
+          <div class="response-actions">
+            <button
+              type="button"
+              class="btn btn-icon-text btn-voice"
+              data-action="voice-input"
+              aria-label="Use voice input"
+              aria-pressed="false"
+            >
+              <svg class="icon-mic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+              </svg>
+              <span class="btn-text">Voice Input</span>
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-secondary btn-hint"
+              data-action="show-hint"
+              aria-label="Show hint for this scenario"
+            >
+              <svg class="icon-lightbulb" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18h6"></path>
+                <path d="M10 22h4"></path>
+                <path d="M15 8a5 5 0 0 0-6 0"></path>
+                <path d="M12 2a7 7 0 0 1 0 14"></path>
+              </svg>
+              <span class="btn-text">Hint</span>
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-primary btn-submit"
+              data-action="submit-response"
+              aria-label="Submit your response"
+              disabled
+            >
+              Submit Response
+            </button>
+          </div>
+
+          <!-- Hint Box (Hidden by default) -->
+          <aside
+            id="hint-box"
+            class="hint-box hidden"
+            role="complementary"
+            aria-labelledby="hint-title"
+            aria-hidden="true"
+          >
+            <header class="hint-header">
+              <h4 id="hint-title" class="hint-title">
+                <svg class="icon-lightbulb-on" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M9 21h6M12 3a6 6 0 0 1 0 12 6 6 0 0 1 0-12z"></path>
+                </svg>
+                Helpful Hint
+              </h4>
+              <button
+                type="button"
+                class="btn-icon btn-close-hint"
+                data-action="close-hint"
+                aria-label="Close hint"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </header>
+            <div class="hint-content">
+              <p id="hint-text" class="hint-text">
+                Try acknowledging their concern about multiple opinions, then position yourself as someone who will provide clarity and education rather than just another sales pitch.
+              </p>
+              <ul class="hint-points" aria-label="Key points to address">
+                <li>Acknowledge the confusion</li>
+                <li>Show empathy for their situation</li>
+                <li>Differentiate your approach</li>
+                <li>Offer value through education</li>
+              </ul>
+            </div>
+          </aside>
+
+          <!-- Voice Recording Indicator -->
+          <div
+            id="voice-recording-indicator"
+            class="voice-indicator hidden"
+            role="status"
+            aria-live="assertive"
+            aria-hidden="true"
+          >
+            <div class="voice-animation">
+              <span class="voice-pulse"></span>
+              <span class="voice-pulse"></span>
+              <span class="voice-pulse"></span>
+            </div>
+            <p class="voice-text">Listening... Speak now</p>
+            <button
+              type="button"
+              class="btn btn-sm btn-stop-recording"
+              data-action="stop-voice"
+              aria-label="Stop voice recording"
+            >
+              Stop Recording
+            </button>
+          </div>
+
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Bottom Actions -->
+    <div class="scenario-bottom-actions">
+      <button
+        type="button"
+        class="btn btn-link btn-pause"
+        data-action="pause-scenario"
+        aria-label="Pause scenario"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <rect x="6" y="4" width="4" height="16"></rect>
+          <rect x="14" y="4" width="4" height="16"></rect>
+        </svg>
+        Pause
+      </button>
+      <button
+        type="button"
+        class="btn btn-link btn-end"
+        data-action="end-scenario"
+        aria-label="End scenario early"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="15" y1="9" x2="9" y2="15"></line>
+          <line x1="9" y1="9" x2="15" y2="15"></line>
+        </svg>
+        End Scenario
+      </button>
+    </div>
+
+  </section>
+
+  <!-- SCREEN 4: FEEDBACK SCREEN -->
+  <section
+    id="feedback-screen"
+    class="roleplay-screen"
+    data-screen="feedback"
+    aria-labelledby="feedback-title"
+  >
+
+    <header class="feedback-header">
+      <h2 id="feedback-title" class="screen-title">
+        Response Feedback
+      </h2>
+      <p class="feedback-subtitle">
+        Here's how you did on this turn
+      </p>
+    </header>
+
+    <!-- Score Circle -->
+    <div class="feedback-score-container" role="img" aria-label="Score: 85 out of 100">
+      <svg class="score-circle" viewBox="0 0 200 200" width="200" height="200" aria-hidden="true">
+        <circle
+          class="score-circle-bg"
+          cx="100"
+          cy="100"
+          r="85"
+          fill="none"
+          stroke="#e5e7eb"
+          stroke-width="15"
+        ></circle>
+        <circle
+          class="score-circle-progress"
+          cx="100"
+          cy="100"
+          r="85"
+          fill="none"
+          stroke="#10b981"
+          stroke-width="15"
+          stroke-linecap="round"
+          stroke-dasharray="534"
+          stroke-dashoffset="80"
+          data-score="85"
+          transform="rotate(-90 100 100)"
+        ></circle>
+        <text
+          x="100"
+          y="100"
+          class="score-text"
+          text-anchor="middle"
+          dominant-baseline="middle"
+          font-size="48"
+          font-weight="bold"
+          fill="#1f2937"
+          id="feedback-score-value"
+        >
+          85
+        </text>
+        <text
+          x="100"
+          y="130"
+          class="score-label"
+          text-anchor="middle"
+          font-size="14"
+          fill="#6b7280"
+        >
+          Score
+        </text>
+      </svg>
+      <p class="score-rating" id="score-rating">Great Job!</p>
+    </div>
+
+    <!-- Key Points Analysis -->
+    <div class="feedback-analysis">
+
+      <!-- Matched Points -->
+      <article class="feedback-section feedback-matched">
+        <header class="feedback-section-header">
+          <h3 class="feedback-section-title">
+            <svg class="icon-check" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Key Points You Covered
+          </h3>
+          <span class="feedback-count" id="matched-count" aria-label="3 points covered">3/5</span>
+        </header>
+        <ul class="feedback-points-list" id="matched-points-list" aria-label="Points you successfully covered">
+          <li class="feedback-point point-matched">
+            <svg class="point-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="9 11 12 14 16 10" fill="none" stroke="white" stroke-width="2"></polyline>
+            </svg>
+            <div class="point-content">
+              <strong class="point-label">Acknowledged their concern</strong>
+              <p class="point-description">You validated their confusion about multiple opinions</p>
+            </div>
+          </li>
+          <li class="feedback-point point-matched">
+            <svg class="point-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="9 11 12 14 16 10" fill="none" stroke="white" stroke-width="2"></polyline>
+            </svg>
+            <div class="point-content">
+              <strong class="point-label">Showed empathy</strong>
+              <p class="point-description">You demonstrated understanding of their stressful situation</p>
+            </div>
+          </li>
+          <li class="feedback-point point-matched">
+            <svg class="point-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="9 11 12 14 16 10" fill="none" stroke="white" stroke-width="2"></polyline>
+            </svg>
+            <div class="point-content">
+              <strong class="point-label">Differentiated your approach</strong>
+              <p class="point-description">You positioned yourself as an educator, not just a salesperson</p>
+            </div>
+          </li>
+        </ul>
+      </article>
+
+      <!-- Missed Points -->
+      <article class="feedback-section feedback-missed">
+        <header class="feedback-section-header">
+          <h3 class="feedback-section-title">
+            <svg class="icon-alert" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            Opportunities for Improvement
+          </h3>
+          <span class="feedback-count" id="missed-count" aria-label="2 points missed">2</span>
+        </header>
+        <ul class="feedback-points-list" id="missed-points-list" aria-label="Points you could improve on">
+          <li class="feedback-point point-missed">
+            <svg class="point-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12" stroke="white" stroke-width="2"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16" stroke="white" stroke-width="2"></line>
+            </svg>
+            <div class="point-content">
+              <strong class="point-label">Specific differentiator</strong>
+              <p class="point-description">Consider mentioning a specific credential, process, or guarantee that sets you apart</p>
+            </div>
+          </li>
+          <li class="feedback-point point-missed">
+            <svg class="point-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12" stroke="white" stroke-width="2"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16" stroke="white" stroke-width="2"></line>
+            </svg>
+            <div class="point-content">
+              <strong class="point-label">Call to action</strong>
+              <p class="point-description">End with a clear next step to move the conversation forward</p>
+            </div>
+          </li>
+        </ul>
+      </article>
+
+    </div>
+
+    <!-- Detailed Feedback -->
+    <article class="feedback-detailed">
+
+      <!-- Strengths -->
+      <div class="feedback-category feedback-strengths">
+        <h3 class="category-title">
+          <svg class="icon-star" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+          Strengths
+        </h3>
+        <ul class="category-list" id="strengths-list">
+          <li>Your tone was professional and empathetic</li>
+          <li>You avoided being defensive about competition</li>
+          <li>Good use of "we" language to build partnership</li>
+        </ul>
+      </div>
+
+      <!-- Areas for Improvement -->
+      <div class="feedback-category feedback-improvements">
+        <h3 class="category-title">
+          <svg class="icon-trend-up" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+            <polyline points="17 6 23 6 23 12"></polyline>
+          </svg>
+          Areas for Improvement
+        </h3>
+        <ul class="category-list" id="improvements-list">
+          <li>Be more specific about what makes your inspection process unique</li>
+          <li>Include a confidence-building statement about your experience</li>
+          <li>Transition more smoothly into asking qualifying questions</li>
+        </ul>
+      </div>
+
+    </article>
+
+    <!-- Agnes AI Comment -->
+    <aside class="feedback-ai-comment" role="complementary" aria-labelledby="ai-comment-title">
+      <div class="ai-comment-avatar" aria-hidden="true">
+        <img src="/assets/agnes-avatar.png" alt="" class="avatar-img" />
+      </div>
+      <div class="ai-comment-content">
+        <h4 id="ai-comment-title" class="ai-comment-title">Agnes's Insight</h4>
+        <p id="ai-comment-text" class="ai-comment-text">
+          You did an excellent job building rapport and showing empathy. The homeowner would feel heard. To elevate this to the next level, try weaving in a specific credibility marker early - like mentioning you're a certified inspector or that you use a detailed 25-point inspection process. This gives them a tangible reason to trust you over competitors.
+        </p>
+      </div>
+    </aside>
+
+    <!-- Feedback Actions -->
+    <div class="feedback-actions">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        data-action="retry-turn"
+        aria-label="Retry this turn with a new response"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="1 4 1 10 7 10"></polyline>
+          <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+        </svg>
+        Retry This Turn
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-action="continue-scenario"
+        aria-label="Continue to next turn"
+      >
+        Continue to Next Turn
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </div>
+
+  </section>
+
+  <!-- SCREEN 5: SESSION SUMMARY -->
+  <section
+    id="session-summary-screen"
+    class="roleplay-screen"
+    data-screen="session-summary"
+    aria-labelledby="summary-title"
+  >
+
+    <header class="summary-header">
+      <div class="summary-completion-badge" aria-hidden="true">
+        <svg class="badge-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+      </div>
+      <h2 id="summary-title" class="screen-title">
+        Scenario Complete!
+      </h2>
+      <p class="summary-subtitle">
+        <strong id="summary-role">Rep vs Homeowner</strong> •
+        <strong id="summary-difficulty">Intermediate</strong> •
+        <strong id="summary-turns">5 turns completed</strong>
+      </p>
+    </header>
+
+    <!-- Overall Score -->
+    <div class="summary-overall-score">
+      <div class="overall-score-circle" role="img" aria-label="Overall session score: 87 out of 100">
+        <svg class="score-circle-lg" viewBox="0 0 240 240" width="240" height="240" aria-hidden="true">
+          <circle
+            class="score-circle-bg"
+            cx="120"
+            cy="120"
+            r="100"
+            fill="none"
+            stroke="#e5e7eb"
+            stroke-width="20"
+          ></circle>
+          <circle
+            class="score-circle-progress"
+            cx="120"
+            cy="120"
+            r="100"
+            fill="none"
+            stroke="#10b981"
+            stroke-width="20"
+            stroke-linecap="round"
+            stroke-dasharray="628"
+            stroke-dashoffset="82"
+            data-score="87"
+            transform="rotate(-90 120 120)"
+          ></circle>
+          <text
+            x="120"
+            y="110"
+            class="score-text-lg"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            font-size="56"
+            font-weight="bold"
+            fill="#1f2937"
+            id="summary-overall-score"
+          >
+            87
+          </text>
+          <text
+            x="120"
+            y="145"
+            class="score-label"
+            text-anchor="middle"
+            font-size="16"
+            fill="#6b7280"
+          >
+            Overall Score
+          </text>
+        </svg>
+      </div>
+      <p class="overall-rating" id="summary-overall-rating">Excellent Performance!</p>
+      <p class="overall-message" id="summary-overall-message">
+        You demonstrated strong communication skills and handled objections professionally. You're ready for more challenging scenarios.
+      </p>
+    </div>
+
+    <!-- Performance Breakdown -->
+    <div class="summary-breakdown">
+      <h3 class="breakdown-title">Performance Breakdown</h3>
+
+      <div class="breakdown-stats">
+
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-success" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <polyline points="20 6 9 17 4 12" fill="none" stroke="white" stroke-width="2"></polyline>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <p class="stat-value" id="stat-points-covered">18/25</p>
+            <p class="stat-label">Key Points Covered</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-info" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="white" stroke-width="2"></circle>
+              <line x1="12" y1="16" x2="12" y2="12" stroke="white" stroke-width="2"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8" stroke="white" stroke-width="2"></line>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <p class="stat-value" id="stat-hints-used">2</p>
+            <p class="stat-label">Hints Used</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-time" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <p class="stat-value" id="stat-duration">12:34</p>
+            <p class="stat-label">Duration</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-retry" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+              <polyline points="1 4 1 10 7 10"></polyline>
+              <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <p class="stat-value" id="stat-retries">1</p>
+            <p class="stat-label">Retries</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Turn-by-Turn Scores -->
+    <div class="summary-turns">
+      <h3 class="turns-title">Turn-by-Turn Performance</h3>
+      <div class="turns-list" role="list" aria-label="Individual turn scores">
+
+        <article class="turn-summary-card" role="listitem">
+          <div class="turn-number">Turn 1</div>
+          <div class="turn-info">
+            <p class="turn-title">Initial Contact</p>
+            <div class="turn-score-bar">
+              <div class="score-bar-fill" style="width: 85%;" data-score="85"></div>
+            </div>
+          </div>
+          <div class="turn-score">85</div>
+        </article>
+
+        <article class="turn-summary-card" role="listitem">
+          <div class="turn-number">Turn 2</div>
+          <div class="turn-info">
+            <p class="turn-title">Building Trust</p>
+            <div class="turn-score-bar">
+              <div class="score-bar-fill" style="width: 90%;" data-score="90"></div>
+            </div>
+          </div>
+          <div class="turn-score">90</div>
+        </article>
+
+        <article class="turn-summary-card" role="listitem">
+          <div class="turn-number">Turn 3</div>
+          <div class="turn-info">
+            <p class="turn-title">Handling Objections</p>
+            <div class="turn-score-bar">
+              <div class="score-bar-fill" style="width: 82%;" data-score="82"></div>
+            </div>
+          </div>
+          <div class="turn-score">82</div>
+        </article>
+
+        <article class="turn-summary-card" role="listitem">
+          <div class="turn-number">Turn 4</div>
+          <div class="turn-info">
+            <p class="turn-title">Value Presentation</p>
+            <div class="turn-score-bar">
+              <div class="score-bar-fill" style="width: 88%;" data-score="88"></div>
+            </div>
+          </div>
+          <div class="turn-score">88</div>
+        </article>
+
+        <article class="turn-summary-card" role="listitem">
+          <div class="turn-number">Turn 5</div>
+          <div class="turn-info">
+            <p class="turn-title">Closing</p>
+            <div class="turn-score-bar">
+              <div class="score-bar-fill" style="width: 91%;" data-score="91"></div>
+            </div>
+          </div>
+          <div class="turn-score">91</div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- Key Takeaways -->
+    <article class="summary-takeaways">
+      <h3 class="takeaways-title">
+        <svg class="icon-bookmark" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+        </svg>
+        Key Takeaways
+      </h3>
+      <ul class="takeaways-list" id="summary-takeaways-list">
+        <li>Your empathy and active listening created strong rapport</li>
+        <li>You effectively differentiated yourself from competitors</li>
+        <li>Consider adding more specific credentials early in conversations</li>
+        <li>Your objection handling improved significantly throughout the scenario</li>
+        <li>Try to include clearer calls-to-action at each turn</li>
+      </ul>
+    </article>
+
+    <!-- Next Steps -->
+    <div class="summary-next-steps">
+      <h3 class="next-steps-title">Recommended Next Steps</h3>
+      <div class="next-steps-cards">
+
+        <button
+          type="button"
+          class="next-step-card"
+          data-action="practice-same-harder"
+          aria-label="Practice the same role at a harder difficulty"
+        >
+          <div class="next-step-icon" aria-hidden="true">🎯</div>
+          <h4 class="next-step-title">Try Advanced Difficulty</h4>
+          <p class="next-step-description">Same role, tougher challenges</p>
+        </button>
+
+        <button
+          type="button"
+          class="next-step-card"
+          data-action="try-different-role"
+          aria-label="Try a different role-play scenario"
+        >
+          <div class="next-step-icon" aria-hidden="true">🔄</div>
+          <h4 class="next-step-title">Different Scenario</h4>
+          <p class="next-step-description">Practice another role type</p>
+        </button>
+
+        <button
+          type="button"
+          class="next-step-card"
+          data-action="view-transcript"
+          aria-label="Review full conversation transcript"
+        >
+          <div class="next-step-icon" aria-hidden="true">📝</div>
+          <h4 class="next-step-title">Review Transcript</h4>
+          <p class="next-step-description">See the full conversation</p>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Summary Actions -->
+    <div class="summary-actions">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        data-action="download-report"
+        aria-label="Download performance report as PDF"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Download Report
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        data-action="share-results"
+        aria-label="Share your results"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="18" cy="5" r="3"></circle>
+          <circle cx="6" cy="12" r="3"></circle>
+          <circle cx="18" cy="19" r="3"></circle>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+        </svg>
+        Share Results
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-action="start-new-scenario"
+        aria-label="Start a new role-play scenario"
+      >
+        Start New Scenario
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </div>
+
+  </section>
+
+  <!-- Loading Overlay -->
+  <div
+    id="roleplay-loading"
+    class="loading-overlay hidden"
+    role="status"
+    aria-live="assertive"
+    aria-label="Loading"
+  >
+    <div class="loading-spinner" aria-hidden="true">
+      <div class="spinner-circle"></div>
+    </div>
+    <p class="loading-text" id="loading-text-message">Loading scenario...</p>
+  </div>
+
+</div>
+
+<!-- Screen Reader Only Helper Text -->
+<div class="sr-only" role="status" aria-live="polite" aria-atomic="true" id="sr-announcements"></div>
+
+<!-- End Module 15 Role-Play UI -->

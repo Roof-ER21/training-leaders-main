@@ -1,0 +1,33 @@
+
+> flashcard-maker@0.0.0 dev
+> vite --port 3002 --host 127.0.0.1
+
+
+  VITE v6.3.7  ready in 71 ms
+
+  ➜  Local:   http://127.0.0.1:3002/
+5:19:09 PM [vite] (client) page reload index.html
+5:19:36 PM [vite] (client) page reload index.tsx
+5:20:10 PM [vite] (client) page reload index.tsx
+5:21:22 PM [vite] (client) page reload index.tsx
+5:21:38 PM [vite] (client) page reload index.tsx
+5:21:47 PM [vite] (client) page reload index.tsx
+5:22:02 PM [vite] (client) page reload index.tsx
+5:22:26 PM [vite] (client) page reload index.tsx
+5:22:44 PM [vite] (client) page reload index.tsx
+5:23:18 PM [vite] (client) page reload index.tsx
+5:23:29 PM [vite] (client) page reload index.tsx
+5:23:45 PM [vite] vite.config.ts changed, restarting server...
+5:23:45 PM [vite] server restarted.
+5:24:32 PM [vite] (client) hmr update /index.css?direct
+5:33:57 PM [vite] (client) hmr update /index.css?direct
+5:34:09 PM [vite] (client) page reload index.tsx
+5:34:27 PM [vite] (client) page reload index.tsx
+5:36:29 PM [vite] (client) page reload index.tsx
+5:44:31 PM [vite] (client) page reload index.html
+5:44:46 PM [vite] (client) page reload index.tsx
+5:49:26 PM [vite] (client) page reload index.tsx
+5:49:44 PM [vite] (client) page reload index.tsx
+5:55:27 PM [vite] (client) page reload index.tsx
+5:55:50 PM [vite] (client) page reload index.tsx
+5:56:04 PM [vite] (client) hmr update /index.css?direct
