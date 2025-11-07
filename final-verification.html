@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agnes Functions - Final Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .success { color: #22c55e; font-weight: bold; }
+        .error { color: #ef4444; font-weight: bold; }
+        .info { color: #3b82f6; }
+        pre {
+            background: #f9fafb;
+            padding: 12px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        h1 { color: #1f2937; }
+        h2 { color: #374151; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; }
+    </style>
+</head>
+<body>
+    <h1>Agnes Scenarios - Final Verification Test</h1>
+    <p class="info">This test mimics exactly what the production app checks for on lines 727 and 733 of index.tsx</p>
+
+    <!-- Load agnes-scenarios.js first, just like production -->
+    <script src="/dist/agnes-scenarios.js"></script>
+
+    <div id="results"></div>
+
+    <script>
+        const results = document.getElementById('results');
+        let output = '';
+        let allTestsPassed = true;
+
+        // =========================================
+        // TEST 1: Check getAllAgnesScenarios (Line 727 check)
+        // =========================================
+        output += '<div class="test-section">';
+        output += '<h2>Test 1: Production Line 727 Check</h2>';
+        output += '<pre>if (typeof getAllAgnesScenarios !== \'function\') { ... }</pre>';
+
+        if (typeof getAllAgnesScenarios !== 'function') {
+            output += '<p class="error">❌ FAILED: getAllAgnesScenarios is not a function</p>';
+            output += '<p>The production app would show: "Agnes scenarios not loaded. Check that agnes-scenarios.js is included before index.tsx"</p>';
+            allTestsPassed = false;
+        } else {
+            output += '<p class="success">✅ PASSED: getAllAgnesScenarios is a function</p>';
+            try {
+                const scenarios = getAllAgnesScenarios();
+                output += `<p class="success">✅ Function executed successfully</p>`;
+                output += `<p class="info">Retrieved ${scenarios.length} total scenarios</p>`;
+
+                // Show breakdown
+                const roles = { homeowner: 0, rep: 0, adjuster: 0 };
+                scenarios.forEach(s => roles[s.role]++);
+                output += `<p class="info">Breakdown: ${roles.homeowner} homeowner, ${roles.rep} rep, ${roles.adjuster} adjuster</p>`;
+            } catch (e) {
+                output += `<p class="error">❌ Function exists but failed to execute: ${e.message}</p>`;
+                allTestsPassed = false;
+            }
+        }
+        output += '</div>';
+
+        // =========================================
+        // TEST 2: Check scoreResponse (Line 733 check)
+        // =========================================
+        output += '<div class="test-section">';
+        output += '<h2>Test 2: Production Line 733 Check</h2>';
+        output += '<pre>if (typeof scoreResponse !== \'function\') { ... }</pre>';
+
+        if (typeof scoreResponse !== 'function') {
+            output += '<p class="error">❌ FAILED: scoreResponse is not a function</p>';
+            output += '<p>The production app would show: "scoreResponse function not found. Check agnes-scenarios.js"</p>';
+            allTestsPassed = false;
+        } else {
+            output += '<p class="success">✅ PASSED: scoreResponse is a function</p>';
+            try {
+                // Test with a realistic scenario response
+                const testResponse = `I totally understand your concern about the deductible.
+                    Many homeowners feel the same way. Let me explain how this works - you only pay
+                    the deductible if the insurance company approves the claim. Can we schedule a
+                    quick 15-minute inspection for tomorrow at 10am or would 3pm work better?`;
+
+                const result = scoreResponse(
+                    testResponse,
+                    ['Acknowledge concern', 'Explain deductible timing', 'Offer specific time options'],
+                    ['understand', 'deductible', 'approve', 'schedule', 'tomorrow'],
+                    70
+                );
+
+                output += `<p class="success">✅ Function executed successfully</p>`;
+                output += `<p class="info">Test Score: ${result.score}/100</p>`;
+                output += `<p class="info">Pass Threshold: 70</p>`;
+                output += `<p class="${result.passed ? 'success' : 'error'}">
+                    ${result.passed ? '✅ PASSED' : '❌ FAILED'} scoring threshold
+                </p>`;
+                output += `<p class="info">Matched Keywords: ${result.matchedKeywords.join(', ')}</p>`;
+                output += `<p class="info">Matched Points: ${result.matchedPoints.length}/${result.matchedPoints.length + result.missedPoints.length}</p>`;
+            } catch (e) {
+                output += `<p class="error">❌ Function exists but failed to execute: ${e.message}</p>`;
+                allTestsPassed = false;
+            }
+        }
+        output += '</div>';
+
+        // =========================================
+        // TEST 3: Check getAgnesScenariosByRole (Line 1043 usage)
+        // =========================================
+        output += '<div class="test-section">';
+        output += '<h2>Test 3: Production Line 1043 Usage</h2>';
+        output += '<pre>const scenarios = (window as any).getAgnesScenariosByRole(role);</pre>';
+
+        if (typeof window.getAgnesScenariosByRole !== 'function') {
+            output += '<p class="error">❌ FAILED: window.getAgnesScenariosByRole is not a function</p>';
+            allTestsPassed = false;
+        } else {
+            output += '<p class="success">✅ PASSED: window.getAgnesScenariosByRole is a function</p>';
+            try {
+                const homeownerScenarios = window.getAgnesScenariosByRole('homeowner');
+                const repScenarios = window.getAgnesScenariosByRole('rep');
+                const adjusterScenarios = window.getAgnesScenariosByRole('adjuster');
+
+                output += `<p class="success">✅ Function executed successfully</p>`;
+                output += `<p class="info">Homeowner scenarios: ${homeownerScenarios.length}</p>`;
+                output += `<p class="info">Rep scenarios: ${repScenarios.length}</p>`;
+                output += `<p class="info">Adjuster scenarios: ${adjusterScenarios.length}</p>`;
+
+                // Verify they're actually filtered
+                const allHomeowner = homeownerScenarios.every(s => s.role === 'homeowner');
+                const allRep = repScenarios.every(s => s.role === 'rep');
+                const allAdjuster = adjusterScenarios.every(s => s.role === 'adjuster');
+
+                if (allHomeowner && allRep && allAdjuster) {
+                    output += '<p class="success">✅ Filtering works correctly</p>';
+                } else {
+                    output += '<p class="error">❌ Filtering returned incorrect roles</p>';
+                    allTestsPassed = false;
+                }
+            } catch (e) {
+                output += `<p class="error">❌ Function exists but failed to execute: ${e.message}</p>`;
+                allTestsPassed = false;
+            }
+        }
+        output += '</div>';
+
+        // =========================================
+        // FINAL SUMMARY
+        // =========================================
+        output += '<div class="test-section">';
+        output += '<h2>Final Summary</h2>';
+        if (allTestsPassed) {
+            output += '<h1 class="success">✅ ALL TESTS PASSED</h1>';
+            output += '<p>The agnes-scenarios.js file is correctly loaded and all functions work as expected.</p>';
+            output += '<p>The production app will NOT show any error messages.</p>';
+        } else {
+            output += '<h1 class="error">❌ SOME TESTS FAILED</h1>';
+            output += '<p>See above for details on which tests failed.</p>';
+        }
+        output += '</div>';
+
+        results.innerHTML = output;
+
+        // Console logging for debugging
+        console.log('=== AGNES SCENARIOS VERIFICATION ===');
+        console.log('getAllAgnesScenarios type:', typeof getAllAgnesScenarios);
+        console.log('scoreResponse type:', typeof scoreResponse);
+        console.log('window.getAgnesScenariosByRole type:', typeof window.getAgnesScenariosByRole);
+        console.log('All tests passed:', allTestsPassed);
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agnes Functions Test</title>
+</head>
+<body>
+    <h1>Testing Agnes Functions</h1>
+    <div id="results"></div>
+
+    <script src="http://localhost:3103/agnes-scenarios.js"></script>
+    <script>
+        const results = document.getElementById('results');
+        let output = '';
+
+        // Test 1: Check if getAllAgnesScenarios exists
+        output += '<h2>Test 1: window.getAllAgnesScenarios</h2>';
+        if (typeof window.getAllAgnesScenarios === 'function') {
+            output += '<p style="color: green;">✅ Function EXISTS</p>';
+            try {
+                const scenarios = window.getAllAgnesScenarios();
+                output += `<p style="color: green;">✅ Function WORKS - returned ${scenarios.length} scenarios</p>`;
+            } catch (e) {
+                output += `<p style="color: red;">❌ Function EXISTS but FAILED: ${e.message}</p>`;
+            }
+        } else {
+            output += `<p style="color: red;">❌ Function NOT FOUND - typeof is: ${typeof window.getAllAgnesScenarios}</p>`;
+        }
+
+        // Test 2: Check if scoreResponse exists
+        output += '<h2>Test 2: window.scoreResponse</h2>';
+        if (typeof window.scoreResponse === 'function') {
+            output += '<p style="color: green;">✅ Function EXISTS</p>';
+            try {
+                const result = window.scoreResponse(
+                    'I understand your concern about the deductible. Let me schedule a time.',
+                    ['Acknowledge', 'Deductible', 'Schedule'],
+                    ['understand', 'deductible', 'schedule'],
+                    70
+                );
+                output += `<p style="color: green;">✅ Function WORKS - Score: ${result.score}, Passed: ${result.passed}</p>`;
+            } catch (e) {
+                output += `<p style="color: red;">❌ Function EXISTS but FAILED: ${e.message}</p>`;
+            }
+        } else {
+            output += `<p style="color: red;">❌ Function NOT FOUND - typeof is: ${typeof window.scoreResponse}</p>`;
+        }
+
+        // Test 3: Check if getAgnesScenariosByRole exists
+        output += '<h2>Test 3: window.getAgnesScenariosByRole</h2>';
+        if (typeof window.getAgnesScenariosByRole === 'function') {
+            output += '<p style="color: green;">✅ Function EXISTS</p>';
+            try {
+                const homeownerScenarios = window.getAgnesScenariosByRole('homeowner');
+                output += `<p style="color: green;">✅ Function WORKS - returned ${homeownerScenarios.length} homeowner scenarios</p>`;
+            } catch (e) {
+                output += `<p style="color: red;">❌ Function EXISTS but FAILED: ${e.message}</p>`;
+            }
+        } else {
+            output += `<p style="color: red;">❌ Function NOT FOUND - typeof is: ${typeof window.getAgnesScenariosByRole}</p>`;
+        }
+
+        results.innerHTML = output;
+    </script>
+</body>
+</html>
