@@ -1180,6 +1180,83 @@ function getScenarioStatistics() {
 }
 
 // ========================================
+// SCORING FUNCTION
+// ========================================
+
+/**
+ * Score a user response against expected key points
+ * @param {string} userResponse - The user's response text
+ * @param {string[]} expectedKeyPoints - Array of expected key points
+ * @param {string[]} rubricKeywords - Array of keywords to check for
+ * @param {number} passThreshold - Minimum score to pass (0-100)
+ * @returns {Object} - Scoring result with score, matched/missed points
+ */
+function scoreResponse(userResponse, expectedKeyPoints, rubricKeywords, passThreshold = 70) {
+  const response = userResponse.toLowerCase();
+  const matchedPoints = [];
+  const missedPoints = [];
+
+  // Check expected key points (case-insensitive partial match)
+  expectedKeyPoints.forEach(point => {
+    const pointWords = point.toLowerCase().split(/\s+/);
+    const matchedWords = pointWords.filter(word =>
+      response.includes(word.replace(/[.,!?]/g, ''))
+    );
+
+    // If at least 40% of words in the key point are present, count as matched
+    if (matchedWords.length / pointWords.length >= 0.4) {
+      matchedPoints.push(point);
+    } else {
+      missedPoints.push(point);
+    }
+  });
+
+  // Check rubric keywords
+  const matchedKeywords = rubricKeywords.filter(keyword =>
+    response.includes(keyword.toLowerCase())
+  );
+
+  // Calculate score
+  const keyPointScore = expectedKeyPoints.length > 0
+    ? (matchedPoints.length / expectedKeyPoints.length) * 70
+    : 0;
+
+  const keywordScore = rubricKeywords.length > 0
+    ? (matchedKeywords.length / rubricKeywords.length) * 30
+    : 0;
+
+  const score = Math.round(keyPointScore + keywordScore);
+
+  return {
+    score,
+    matchedPoints,
+    missedPoints,
+    matchedKeywords,
+    passed: score >= passThreshold
+  };
+}
+
+// ========================================
+// AGNES-SPECIFIC HELPER FUNCTIONS
+// ========================================
+
+/**
+ * Get all Agnes scenarios (alias for getAllScenarios)
+ * Used by the roleplay function for consistency
+ */
+function getAllAgnesScenarios() {
+  return getAllScenarios();
+}
+
+/**
+ * Get Agnes scenarios by role (alias for getScenariosByRole)
+ * Used by the roleplay function for consistency
+ */
+function getAgnesScenariosByRole(role) {
+  return getScenariosByRole(role);
+}
+
+// ========================================
 // EXPORTS
 // ========================================
 
@@ -1192,6 +1269,9 @@ if (typeof module !== 'undefined' && module.exports) {
     getAllTrainerTips,
     getAllPracticeSequences,
     getScenarioStatistics,
+    scoreResponse,
+    getAllAgnesScenarios,
+    getAgnesScenariosByRole,
   };
 }
 
@@ -1204,6 +1284,9 @@ if (typeof window !== 'undefined') {
   window.getAllTrainerTips = getAllTrainerTips;
   window.getAllPracticeSequences = getAllPracticeSequences;
   window.getScenarioStatistics = getScenarioStatistics;
+  window.scoreResponse = scoreResponse;
+  window.getAllAgnesScenarios = getAllAgnesScenarios;
+  window.getAgnesScenariosByRole = getAgnesScenariosByRole;
 }
 
 // ========================================
